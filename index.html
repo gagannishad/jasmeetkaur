@@ -3,16 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Jasmeet Kaur — Self-Improvement, Systems &amp; Action</title>
+  <title>Jasmeet Kaur — Build Systems That Run</title>
 
-  <!-- Favicon using official standalone JK icon -->
-  <link rel="icon" type="image/png" href="https://i.ibb.co/gLgGMKGg/jk-logo-official.png">
-  <link rel="apple-touch-icon" href="https://i.ibb.co/gLgGMKGg/jk-logo-official.png">
+  <!-- Google & Mobile Browser Address Bar / Status Bar Theme Fulfillment (Lightest Purplish Solid Hue) -->
+  <meta name="theme-color" content="#FAF5FF">
+  <meta name="msapplication-navbutton-color" content="#FAF5FF">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-capable" content="yes">
 
-  <!-- Google Fonts: Poppins (Clean, Balanced Medium/Semi-Bold weights like reference) -->
+  <!-- Official Favicon -->
+  <link rel="icon" type="image/png" href="https://i.ibb.co/PGDt0QPt/jk-logos.png">
+  <link rel="apple-touch-icon" href="https://i.ibb.co/PGDt0QPt/jk-logos.png">
+
+  <!-- Google Fonts: Poppins -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <script src="https://cdn.tailwindcss.com"></script>
@@ -21,16 +27,16 @@
       theme: {
         extend: {
           colors: {
-            brandPurple: '#8B5CF6',
-            brandPurpleDeep: '#6D28D9',
-            brandPurpleHover: '#7C3AED',
-            brandPurpleLight: '#EDE9FE',
+            brandPurple: '#7928CA',
+            brandPurpleDeep: '#581C87',
+            brandPurpleHover: '#6D28D9',
+            brandPurpleLight: '#EDE4FC',
             warmBg: '#FAF5FF',
             warmCard: '#FFFFFF',
-            textDark: '#1E1035',
-            textMuted: '#6B5887',
+            textDark: '#190A2E',
+            textMuted: '#6B5282',
             footerWarm: '#F5ECFF',
-            footerBorder: '#E4D2FB'
+            footerBorder: '#E0C5FC'
           },
           fontFamily: {
             sans: ['"Poppins"', 'sans-serif'],
@@ -61,7 +67,7 @@
       -webkit-user-drag: none !important;
     }
 
-    /* HARMONIC PURPLISH LIGHT THEME BASE */
+    /* FULL-SCREEN IMMERSIVE LIGHTEST PURPLE SOLID BASE (NO GRADIENTS) */
     html {
       scroll-behavior: smooth;
       overflow-x: hidden;
@@ -71,7 +77,7 @@
 
     body {
       background-color: #FAF5FF !important;
-      color: #1E1035;
+      color: #190A2E;
       font-family: 'Poppins', sans-serif;
       font-size: 15px;
       font-weight: 400;
@@ -79,62 +85,45 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* SMOOTH ENTRANCE ANIMATION */
-    @keyframes fadeUpIn {
-      0% { opacity: 0; transform: translateY(28px); }
+    /* SMOOTH STAGGERED OPENING */
+    @keyframes heroFadeUp {
+      0% { opacity: 0; transform: translateY(20px); }
       100% { opacity: 1; transform: translateY(0); }
     }
-    .animate-entrance {
-      animation: fadeUpIn 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    .animate-hero {
+      animation: heroFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
       opacity: 0;
     }
-    .delay-1 { animation-delay: 0.1s; }
-    .delay-2 { animation-delay: 0.22s; }
-    .delay-3 { animation-delay: 0.35s; }
-    .delay-4 { animation-delay: 0.48s; }
-
-    /* BACKGROUND PURPLE GLOW */
-    .hero-glow-1 {
-      position: absolute;
-      top: -120px;
-      left: -80px;
-      width: 650px;
-      height: 650px;
-      background: radial-gradient(circle, rgba(139, 92, 246, 0.22) 0%, transparent 70%);
-      border-radius: 50%;
-      z-index: -1;
-      pointer-events: none;
-    }
-    .hero-glow-2 {
-      position: absolute;
-      top: 180px;
-      right: -100px;
-      width: 650px;
-      height: 650px;
-      background: radial-gradient(circle, rgba(168, 85, 247, 0.18) 0%, transparent 70%);
-      border-radius: 50%;
-      z-index: -1;
-      pointer-events: none;
-    }
+    .delay-1 { animation-delay: 0.08s; }
+    .delay-2 { animation-delay: 0.18s; }
+    .delay-3 { animation-delay: 0.28s; }
+    .delay-4 { animation-delay: 0.38s; }
 
     /* FLOATING HEADER AUTO-HIDE */
     .dock-container {
-      transition: transform 0.45s ease, opacity 0.3s ease;
+      transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
     }
     .dock-hidden {
       transform: translateY(-150%) !important;
       opacity: 0;
     }
 
-    /* SCROLL REVEALS */
-    .reveal-on-scroll {
-      opacity: 0;
-      transform: translateY(28px); 
-      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    /* ORIGINAL CLEAN TEXT ACCENT */
+    .heading-accent {
+      color: #190A2E;
+      text-shadow: 0 4px 18px rgba(121, 40, 202, 0.1);
     }
-    .reveal-on-scroll.is-visible {
-      opacity: 1;
-      transform: translateY(0);
+
+    /* UPWARD-ONLY DIRECTIONAL SCROLL ANIMATION */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .scroll-reveal.has-opened {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
     }
 
     /* CARD HOVER */
@@ -143,35 +132,30 @@
     }
     .hover-lift:hover {
       transform: translateY(-4px);
-      box-shadow: 0 14px 30px -8px rgba(139, 92, 246, 0.22);
+      box-shadow: 0 14px 28px -6px rgba(121, 40, 202, 0.1);
     }
 
-    /* 16:9 CAROUSEL ENGINE */
+    /* 16:9 CAROUSEL */
     .service-carousel {
       position: relative;
       overflow: hidden;
-      border-radius: 18px; 
-      background: transparent;
+      border-radius: 20px;
+      background: #FFFFFF;
       width: 100%;
       margin: 0 auto;
-      box-shadow: 0 10px 30px rgba(139, 92, 246, 0.1); 
-      border: 1px solid #E4D2FB;
-    }
-    @media(min-width: 768px) {
-      .service-carousel {
-        border-radius: 24px; 
-      }
+      box-shadow: 0 10px 30px rgba(121, 40, 202, 0.05);
+      border: 1px solid #E0C5FC;
     }
     .service-carousel-track {
       position: relative;
       width: 100%;
-      aspect-ratio: 4 / 3; 
-      min-height: 250px; 
+      aspect-ratio: 4 / 3;
+      min-height: 250px;
     }
     @media(min-width: 768px) {
       .service-carousel-track {
-        aspect-ratio: 16 / 9; 
-        min-height: auto; 
+        aspect-ratio: 16 / 9;
+        min-height: auto;
       }
     }
     .service-carousel-slide {
@@ -180,23 +164,18 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 18px; 
+      border-radius: 20px;
       opacity: 0;
       transform: scale(1);
       transition: opacity 0.75s ease, transform 0.95s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       pointer-events: none;
-    }
-    @media(min-width: 768px) {
-      .service-carousel-slide {
-        border-radius: 24px; 
-      }
     }
     .service-carousel-slide.active {
       opacity: 1;
     }
     @media (hover: hover) {
       .service-carousel:hover .service-carousel-slide.active {
-        transform: scale(1.03); 
+        transform: scale(1.03);
       }
     }
     .service-carousel-dots {
@@ -209,7 +188,7 @@
       gap: 6px;
       padding: 5px 12px;
       border-radius: 999px;
-      background: rgba(30, 16, 53, 0.55);
+      background: rgba(25, 10, 46, 0.55);
       backdrop-filter: blur(6px);
       border: 1px solid rgba(255, 255, 255, 0.25);
       z-index: 10;
@@ -226,7 +205,7 @@
     }
     .service-carousel-dot.active {
       width: 18px;
-      background: #8B5CF6;
+      background: #7928CA;
     }
 
     /* FULL SCREEN MOBILE DRAWER */
@@ -253,20 +232,18 @@
 
   <!-- FLOATING iOS-STYLE HEADER BAR -->
   <div class="dock-container fixed top-2 sm:top-4 z-50 w-[98%] left-[1%] sm:w-[94%] sm:left-[3%] lg:w-full lg:left-0 lg:px-6 transition-all duration-300" id="navShell">
-    <header class="w-full max-w-[1350px] mx-auto bg-white/95 backdrop-blur-xl border border-footerBorder rounded-full py-3 sm:py-3.5 px-5 sm:px-6 lg:px-8 flex items-center justify-between shadow-[0_8px_25px_rgba(139,92,246,0.12)] animate-entrance">
+    <header class="w-full max-w-[1350px] mx-auto bg-white/95 backdrop-blur-xl border border-footerBorder rounded-full py-3 sm:py-3.5 px-4 sm:px-6 lg:px-8 flex items-center justify-between shadow-[0_8px_25px_rgba(121,40,202,0.06)]">
       
-      <!-- Brand Logo: Standalone Free Icon (No Circles/Enclosures) -->
-      <a href="index.html" class="flex items-center gap-2.5 sm:gap-3 shrink-0 group">
-        <img src="https://i.ibb.co/gLgGMKGg/jk-logo-official.png" alt="JK Official Logo" class="h-9 sm:h-11 w-auto object-contain shrink-0">
-        <div class="flex flex-col">
-          <strong class="font-brand font-semibold text-[19px] sm:text-[22px] md:text-[24px] lg:text-[26px] tracking-tight text-textDark leading-none">
-            JASMEET KAUR
-          </strong>
-        </div>
+      <!-- Free-Standing Brand Logo & Title -->
+      <a href="index.html" class="flex items-center gap-1.5 shrink-0 group">
+        <img src="https://i.ibb.co/PGDt0QPt/jk-logos.png" alt="JK Official Logo" class="h-8 sm:h-10 md:h-11 w-auto object-contain shrink-0 transition-transform group-hover:scale-105">
+        <span class="font-brand font-bold text-[20px] sm:text-[23px] md:text-[26px] lg:text-[28px] tracking-tight text-black leading-none">
+          JASMEET KAUR
+        </span>
       </a>
 
-      <!-- Desktop Standalone Navigation (6 Items) -->
-      <nav class="hidden lg:flex items-center gap-1.5 bg-[#FAF5FF]/90 p-1.5 rounded-full border border-footerBorder">
+      <!-- Desktop Navigation (6 Items) -->
+      <nav class="hidden lg:flex items-center gap-1.5 bg-[#FAF5FF] p-1.5 rounded-full border border-footerBorder">
         <a href="index.html" class="text-[14px] font-semibold text-white bg-brandPurple px-5 py-2 rounded-full shadow-sm">Home</a>
         <a href="about.html" class="text-[14px] font-medium text-textMuted hover:text-brandPurple hover:bg-white px-5 py-2 rounded-full transition">About Us</a>
         <a href="self-improvement.html" class="text-[14px] font-medium text-textMuted hover:text-brandPurple hover:bg-white px-5 py-2 rounded-full transition">Self Improvement</a>
@@ -275,64 +252,68 @@
         <a href="contact.html" class="text-[14px] font-medium text-textMuted hover:text-brandPurple hover:bg-white px-5 py-2 rounded-full transition">Contact Us</a>
       </nav>
 
-      <!-- Right Header Action -->
+      <!-- Right Header Action & Classic 3-Line Hamburger Icon -->
       <div class="flex items-center gap-3">
         <a href="https://youtube.com/@jasmeetkaurr1" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 bg-brandPurple hover:bg-brandPurpleHover text-white px-5 py-2.5 rounded-full text-[13px] font-semibold transition-transform hover:-translate-y-0.5 shadow-md shadow-brandPurple/20">
           <i class="fa-brands fa-youtube text-base"></i>
           <span>Subscribe to Channel</span>
         </a>
         
-        <button class="lg:hidden h-10 w-10 rounded-full bg-brandPurpleLight text-brandPurple flex items-center justify-center border border-footerBorder focus:outline-none transition active:scale-95 shadow-sm" id="openDrawerBtn" aria-label="Open Navigation">
-          <i class="fa-solid fa-bars text-lg"></i>
+        <button class="lg:hidden h-10 w-10 sm:h-11 sm:w-11 rounded-full bg-brandPurpleLight text-brandPurple flex items-center justify-center border border-footerBorder focus:outline-none transition active:scale-95 shadow-sm" id="openDrawerBtn" aria-label="Open Navigation">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
         </button>
       </div>
 
     </header>
   </div>
 
-  <!-- CLEAN MOBILE DRAWER -->
-  <div class="side-drawer-backdrop fixed inset-0 bg-black/40 backdrop-blur-sm z-50" id="mobileBackdrop"></div>
+  <!-- LIGHTEST PURPLE MOBILE & TABLET NAVIGATION DRAWER (NO NUMBERS, CLEAN MODERN FORMAT) -->
+  <div class="side-drawer-backdrop fixed inset-0 bg-black/30 backdrop-blur-sm z-50" id="mobileBackdrop"></div>
   <div class="side-drawer-panel fixed inset-0 w-full bg-[#FAF5FF] z-50 flex flex-col justify-between overflow-hidden" id="mobileDrawer">
     
     <!-- Drawer Top Bar -->
-    <div class="flex justify-between items-center px-6 py-5 border-b border-footerBorder bg-white/80 backdrop-blur-md">
-      <div class="flex items-center gap-3 shrink-0">
-        <img src="https://i.ibb.co/gLgGMKGg/jk-logo-official.png" alt="JK Official Logo" class="h-9 w-auto object-contain">
-        <strong class="font-brand font-semibold text-[20px] tracking-tight text-textDark">JASMEET KAUR</strong>
+    <div class="flex justify-between items-center px-6 py-5 border-b border-footerBorder bg-white/60 backdrop-blur-md">
+      <div class="flex items-center gap-2">
+        <img src="https://i.ibb.co/PGDt0QPt/jk-logos.png" alt="JK Official Logo" class="h-8 w-auto object-contain">
+        <strong class="font-brand font-bold text-[21px] tracking-tight text-black leading-none">JASMEET KAUR</strong>
       </div>
       <button class="h-10 w-10 rounded-full bg-white text-textDark font-bold text-base flex items-center justify-center border border-footerBorder shadow-sm active:scale-90 transition" id="closeDrawerBtn">✕</button>
     </div>
 
-    <!-- Mobile Menu Links -->
-    <nav class="flex-1 overflow-y-auto px-6 py-6 flex flex-col gap-2.5">
-      <a href="index.html" class="mobile-nav-link flex items-center justify-between py-3.5 px-4 rounded-xl font-semibold text-base text-white bg-brandPurple shadow-sm transition">
+    <!-- Clean Modern Menu Links (No Numbers, Pill-Hover Styling) -->
+    <nav class="flex-1 overflow-y-auto px-6 py-8 flex flex-col justify-center gap-3">
+      <a href="index.html" class="mobile-nav-link flex items-center justify-between py-4 px-6 rounded-2xl font-bold text-lg text-white bg-brandPurple shadow-sm transition">
         <span>Home</span>
-        <i class="fa-solid fa-chevron-right text-xs opacity-75"></i>
+        <i class="fa-solid fa-arrow-right text-xs opacity-80"></i>
       </a>
-      <a href="about.html" class="mobile-nav-link flex items-center justify-between py-3.5 px-4 rounded-xl font-medium text-base text-textDark bg-white/75 border border-footerBorder/60 hover:bg-white transition">
+      <a href="about.html" class="mobile-nav-link flex items-center justify-between py-4 px-6 rounded-2xl font-semibold text-lg text-textDark bg-white/80 border border-footerBorder/60 hover:bg-white transition">
         <span>About Us</span>
         <i class="fa-solid fa-chevron-right text-xs text-brandPurple/60"></i>
       </a>
-      <a href="self-improvement.html" class="mobile-nav-link flex items-center justify-between py-3.5 px-4 rounded-xl font-medium text-base text-textDark bg-white/75 border border-footerBorder/60 hover:bg-white transition">
+      <a href="self-improvement.html" class="mobile-nav-link flex items-center justify-between py-4 px-6 rounded-2xl font-semibold text-lg text-textDark bg-white/80 border border-footerBorder/60 hover:bg-white transition">
         <span>Self Improvement</span>
         <i class="fa-solid fa-chevron-right text-xs text-brandPurple/60"></i>
       </a>
-      <a href="videos.html" class="mobile-nav-link flex items-center justify-between py-3.5 px-4 rounded-xl font-medium text-base text-textDark bg-white/75 border border-footerBorder/60 hover:bg-white transition">
+      <a href="videos.html" class="mobile-nav-link flex items-center justify-between py-4 px-6 rounded-2xl font-semibold text-lg text-textDark bg-white/80 border border-footerBorder/60 hover:bg-white transition">
         <span>Video</span>
         <i class="fa-solid fa-chevron-right text-xs text-brandPurple/60"></i>
       </a>
-      <a href="quotes.html" class="mobile-nav-link flex items-center justify-between py-3.5 px-4 rounded-xl font-medium text-base text-textDark bg-white/75 border border-footerBorder/60 hover:bg-white transition">
+      <a href="quotes.html" class="mobile-nav-link flex items-center justify-between py-4 px-6 rounded-2xl font-semibold text-lg text-textDark bg-white/80 border border-footerBorder/60 hover:bg-white transition">
         <span>Quotes</span>
         <i class="fa-solid fa-chevron-right text-xs text-brandPurple/60"></i>
       </a>
-      <a href="contact.html" class="mobile-nav-link flex items-center justify-between py-3.5 px-4 rounded-xl font-medium text-base text-textDark bg-white/75 border border-footerBorder/60 hover:bg-white transition">
+      <a href="contact.html" class="mobile-nav-link flex items-center justify-between py-4 px-6 rounded-2xl font-semibold text-lg text-textDark bg-white/80 border border-footerBorder/60 hover:bg-white transition">
         <span>Contact Us</span>
         <i class="fa-solid fa-chevron-right text-xs text-brandPurple/60"></i>
       </a>
     </nav>
 
     <!-- Drawer Footer CTA -->
-    <div class="px-6 py-5 border-t border-footerBorder bg-white/60">
+    <div class="px-6 py-6 border-t border-footerBorder bg-white/60 backdrop-blur-md">
       <a href="https://youtube.com/@jasmeetkaurr1" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2.5 w-full text-center bg-brandPurple hover:bg-brandPurpleHover text-white py-3.5 rounded-full font-semibold text-sm shadow-md shadow-brandPurple/25 transition">
         <i class="fa-brands fa-youtube text-lg"></i>
         <span>Subscribe to Channel</span>
@@ -340,31 +321,28 @@
     </div>
   </div>
 
-  <!-- HERO SECTION -->
-  <main class="pt-28 sm:pt-32 md:pt-36 pb-6 relative overflow-hidden bg-[#FAF5FF]" id="home">
-    <div class="hero-glow-1"></div>
-    <div class="hero-glow-2"></div>
-
-    <section class="pb-6 sm:pb-10 bg-transparent relative z-10">
+  <!-- HERO SECTION: UNIFORM LIGHTEST PURPLE SOLID THEME ACROSS ALL DEVICES -->
+  <main class="pt-24 sm:pt-36 md:pt-44 lg:pt-48 pb-16 sm:pb-24 relative overflow-hidden bg-[#FAF5FF]" id="home">
+    <section class="pb-10 sm:pb-16 bg-transparent relative z-10">
       <div class="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-8">
         <div class="max-w-4xl mx-auto text-center flex flex-col items-center relative z-10">
           
-          <!-- Capsules: Student & Content Creator -->
-          <div class="w-full flex items-center justify-center pb-2 mb-4 md:mb-5 animate-entrance delay-1">
-            <div class="flex items-center justify-center gap-2.5 flex-row px-1">
+          <!-- Capsules: Clean Flat Border Format -->
+          <div class="w-full flex items-center justify-center pb-0 mt-0 sm:mt-3 md:mt-4 mb-6 sm:mb-8 animate-hero delay-1">
+            <div class="flex items-center justify-center gap-3 flex-row px-1">
               
               <!-- Capsule 1: Student -->
-              <div class="bg-white/90 backdrop-blur-sm text-textDark pr-4 pl-1.5 py-1 rounded-full text-[12px] sm:text-[13px] font-semibold tracking-wide border border-footerBorder shadow-sm flex items-center gap-1.5 hover-lift">
-                <div class="bg-brandPurpleLight h-6 w-6 rounded-full text-brandPurple flex items-center justify-center shrink-0">
-                  <i class="fa-solid fa-graduation-cap text-[11px]"></i>
+              <div class="bg-white border border-footerBorder text-black pr-4 pl-2 py-0.5 rounded-full text-[12px] sm:text-[13px] font-semibold tracking-wide flex items-center gap-2 leading-tight shadow-sm hover-lift">
+                <div class="bg-brandPurpleLight h-5 w-5 rounded-full text-brandPurple flex items-center justify-center shrink-0">
+                  <i class="fa-solid fa-graduation-cap text-[10px]"></i>
                 </div>
                 <span>Student</span>
               </div>
 
               <!-- Capsule 2: Content Creator -->
-              <div class="bg-white/90 backdrop-blur-sm text-textDark pr-4 pl-1.5 py-1 rounded-full text-[12px] sm:text-[13px] font-semibold tracking-wide border border-footerBorder shadow-sm flex items-center gap-1.5 hover-lift">
-                <div class="bg-brandPurpleLight h-6 w-6 rounded-full text-brandPurple flex items-center justify-center shrink-0">
-                  <i class="fa-solid fa-clapperboard text-[11px]"></i>
+              <div class="bg-white border border-footerBorder text-black pr-4 pl-2 py-0.5 rounded-full text-[12px] sm:text-[13px] font-semibold tracking-wide flex items-center gap-2 leading-tight shadow-sm hover-lift">
+                <div class="bg-brandPurpleLight h-5 w-5 rounded-full text-brandPurple flex items-center justify-center shrink-0">
+                  <i class="fa-solid fa-clapperboard text-[10px]"></i>
                 </div>
                 <span>Content Creator</span>
               </div>
@@ -372,21 +350,22 @@
             </div>
           </div>
 
-          <!-- Headline (CS Prerana font style: Poppins, normal-to-bold balance) -->
-          <h1 class="font-brand font-bold text-[32px] sm:text-[44px] md:text-[54px] lg:text-[62px] tracking-tight text-textDark leading-[1.18] mb-5 md:mb-6 max-w-4xl animate-entrance delay-2">
+          <!-- Original Heading Format -->
+          <h1 class="font-brand font-bold text-[30px] sm:text-[42px] md:text-[52px] lg:text-[60px] tracking-tight leading-[1.18] mb-6 sm:mb-8 max-w-4xl animate-hero delay-2 heading-accent">
             Build Systems That Run Even When You Feel Like Quitting.
           </h1>
 
-          <p class="text-base sm:text-lg md:text-xl text-textMuted font-normal leading-relaxed mb-8 md:mb-10 max-w-[760px] animate-entrance delay-3">
+          <p class="text-base sm:text-lg md:text-xl text-textMuted font-normal leading-relaxed mb-10 sm:mb-12 max-w-[740px] animate-hero delay-3">
             Real discipline isn't about feeling motivated or ready. It is about building daily habits that keep going through setbacks, self-doubt, and exhaustion.
           </p>
 
-          <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5 w-full sm:w-auto animate-entrance delay-4">
-            <a href="https://youtube.com/@jasmeetkaurr1" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-brandPurple hover:bg-brandPurpleHover text-white py-3.5 px-8 rounded-full font-semibold text-base shadow-lg shadow-brandPurple/25 transition-transform hover:-translate-y-1">
+          <!-- Action Buttons with Breathable Gap -->
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 md:gap-10 w-full sm:w-auto animate-hero delay-4">
+            <a href="https://youtube.com/@jasmeetkaurr1" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-brandPurple hover:bg-brandPurpleHover text-white py-3.5 px-9 rounded-full font-semibold text-base shadow-lg shadow-brandPurple/20 transition-transform hover:-translate-y-1">
               <i class="fa-brands fa-youtube text-lg"></i>
               <span>Subscribe to Channel</span>
             </a>
-            <a href="videos.html" class="w-full sm:w-auto inline-flex items-center justify-center bg-white/90 backdrop-blur-sm hover:bg-white text-textDark border border-footerBorder py-3.5 px-8 rounded-full font-semibold text-base shadow-sm transition-transform hover:-translate-y-1">
+            <a href="videos.html" class="w-full sm:w-auto inline-flex items-center justify-center bg-white hover:bg-brandPurpleLight/40 text-black border border-footerBorder py-3.5 px-9 rounded-full font-semibold text-base shadow-sm transition-transform hover:-translate-y-1">
               Explore Our Videos
             </a>
           </div>
@@ -395,10 +374,10 @@
       </div>
     </section>
 
-    <!-- METRICS BANNER: 14k Subscribers, 74+ Videos, 670,000+ Views in One Single Line on Laptop/Tablet -->
-    <section class="py-6 sm:py-8 border-y border-footerBorder bg-[#FAF5FF] reveal-on-scroll" id="statsBanner">
+    <!-- METRICS BANNER (Single Line on Laptop/Tablet) -->
+    <section class="py-8 sm:py-10 border-y border-footerBorder bg-[#FAF5FF] scroll-reveal" id="statsBanner">
       <div class="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6 items-center">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6 items-center">
           
           <!-- Stat 1: 14k Subscribers -->
           <div class="py-5 px-6 rounded-[20px] bg-white border border-footerBorder shadow-sm flex items-center justify-center gap-3.5 hover-lift">
@@ -428,22 +407,22 @@
       </div>
     </section>
 
-    <!-- CONTENT HIGHLIGHTS: 5 EXPANDED LESSONS FROM THE TRANSCRIPTIONS -->
-    <section class="py-14 sm:py-20 bg-brandPurpleLight/30" id="highlights">
+    <!-- CONTENT HIGHLIGHTS: STRICT ZIGZAG ON LAPTOP, INCREASED TEXT SIZES, NO HOVER ZOOM -->
+    <section class="py-16 sm:py-24 bg-[#F5ECFF]" id="highlights">
       <div class="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-8">
         
-        <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-16 reveal-on-scroll">
-          <span class="text-xs font-semibold text-brandPurple tracking-widest uppercase block mb-2">Key Highlights</span>
-          <h2 class="font-brand font-bold text-2xl sm:text-3xl md:text-4xl text-textDark tracking-tight">
+        <div class="text-center max-w-2xl mx-auto mb-14 sm:mb-20 scroll-reveal">
+          <span class="text-sm font-semibold text-brandPurple tracking-widest uppercase block mb-2">Key Highlights</span>
+          <h2 class="font-brand font-bold text-2xl sm:text-3xl md:text-4xl text-black tracking-tight">
             Documented Lessons &amp; Mindset Shifts
           </h2>
         </div>
 
         <div class="space-y-12 sm:space-y-16 md:space-y-24">
 
-          <!-- 01. Starting Over From Zero (Image Left) -->
-          <article class="relative flex flex-col md:flex-row items-center gap-0 md:gap-8 lg:gap-10">
-            <div class="order-1 relative z-10 w-[99%] mx-auto md:w-[56%] md:mx-0 reveal-on-scroll">
+          <!-- 01. Starting Over From Zero (Image Left, Text Right) -->
+          <article class="relative flex flex-col md:flex-row items-center gap-0 md:gap-10 lg:gap-12 scroll-reveal">
+            <div class="order-1 relative z-10 w-[99%] mx-auto md:w-[54%] md:mx-0">
               <div class="service-carousel" data-carousel>
                 <div class="service-carousel-track">
                   <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=1200&q=80" alt="Filming room setup" class="service-carousel-slide active">
@@ -455,18 +434,18 @@
                 </div>
               </div>
             </div>
-            <div class="order-2 relative z-20 w-[88%] sm:w-[82%] md:w-[44%] mx-auto md:mx-0 -mt-8 md:mt-0 bg-white/95 md:bg-transparent backdrop-blur-xl md:backdrop-blur-none p-5 sm:p-6 md:p-0 rounded-[20px] md:rounded-none shadow-[0_8px_25px_rgba(0,0,0,0.05)] md:shadow-none border border-footerBorder md:border-none text-center md:text-left reveal-on-scroll hover-lift">
-              <span class="text-xs font-semibold text-brandPurple uppercase tracking-widest">Episode 01</span>
-              <h3 class="font-brand font-semibold text-lg sm:text-xl md:text-2xl text-textDark mt-1.5 mb-2.5">Starting Over from Zero</h3>
-              <p class="text-sm text-textMuted leading-relaxed">
+            <div class="order-2 relative z-20 w-[88%] sm:w-[82%] md:w-[46%] mx-auto md:mx-0 -mt-8 md:mt-0 bg-white md:bg-transparent p-5 sm:p-6 md:p-0 rounded-2xl md:rounded-none shadow-sm md:shadow-none border border-footerBorder md:border-none text-center md:text-left">
+              <span class="text-xs sm:text-sm font-bold text-brandPurple uppercase tracking-widest">Episode 01</span>
+              <h3 class="font-brand font-bold text-xl sm:text-2xl md:text-[28px] lg:text-[30px] text-black mt-2 mb-3 leading-tight">Starting Over from Zero</h3>
+              <p class="text-base sm:text-lg text-textMuted leading-relaxed">
                 When setbacks happen, sitting back and crying changes nothing. Pick yourself up, stand on your feet, and run again without waiting for perfect conditions.
               </p>
             </div>
           </article>
 
-          <!-- 02. Systems Over Goals (Image Right) -->
-          <article class="relative flex flex-col md:flex-row-reverse items-center gap-0 md:gap-8 lg:gap-10">
-            <div class="order-1 md:order-2 relative z-10 w-[99%] mx-auto md:w-[56%] md:mx-0 reveal-on-scroll">
+          <!-- 02. Systems Over Goals (Image Right, Text Left) -->
+          <article class="relative flex flex-col md:flex-row-reverse items-center gap-0 md:gap-10 lg:gap-12 scroll-reveal">
+            <div class="order-1 md:order-2 relative z-10 w-[99%] mx-auto md:w-[54%] md:mx-0">
               <div class="service-carousel" data-carousel>
                 <div class="service-carousel-track">
                   <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1200&q=80" alt="Notebook planning" class="service-carousel-slide active">
@@ -478,18 +457,18 @@
                 </div>
               </div>
             </div>
-            <div class="order-2 md:order-1 relative z-20 w-[88%] sm:w-[82%] md:w-[44%] mx-auto md:mx-0 -mt-8 md:mt-0 bg-white/95 md:bg-transparent backdrop-blur-xl md:backdrop-blur-none p-5 sm:p-6 md:p-0 rounded-[20px] md:rounded-none shadow-[0_8px_25px_rgba(0,0,0,0.05)] md:shadow-none border border-footerBorder md:border-none text-center md:text-left reveal-on-scroll hover-lift">
-              <span class="text-xs font-semibold text-brandPurple uppercase tracking-widest">Episode 02</span>
-              <h3 class="font-brand font-semibold text-lg sm:text-xl md:text-2xl text-textDark mt-1.5 mb-2.5">Systems Over Goals</h3>
-              <p class="text-sm text-textMuted leading-relaxed">
+            <div class="order-2 md:order-1 relative z-20 w-[88%] sm:w-[82%] md:w-[46%] mx-auto md:mx-0 -mt-8 md:mt-0 bg-white md:bg-transparent p-5 sm:p-6 md:p-0 rounded-2xl md:rounded-none shadow-sm md:shadow-none border border-footerBorder md:border-none text-center md:text-left">
+              <span class="text-xs sm:text-sm font-bold text-brandPurple uppercase tracking-widest">Episode 02</span>
+              <h3 class="font-brand font-bold text-xl sm:text-2xl md:text-[28px] lg:text-[30px] text-black mt-2 mb-3 leading-tight">Systems Over Goals</h3>
+              <p class="text-base sm:text-lg text-textMuted leading-relaxed">
                 Winners and losers have identical ambitions. The separation comes entirely from the small, reliable systems you execute repeatedly every day.
               </p>
             </div>
           </article>
 
-          <!-- 03. Action When You Don't Want To (Image Left) -->
-          <article class="relative flex flex-col md:flex-row items-center gap-0 md:gap-8 lg:gap-10">
-            <div class="order-1 relative z-10 w-[99%] mx-auto md:w-[56%] md:mx-0 reveal-on-scroll">
+          <!-- 03. Action When You Don't Want To (Image Left, Text Right) -->
+          <article class="relative flex flex-col md:flex-row items-center gap-0 md:gap-10 lg:gap-12 scroll-reveal">
+            <div class="order-1 relative z-10 w-[99%] mx-auto md:w-[54%] md:mx-0">
               <div class="service-carousel" data-carousel>
                 <div class="service-carousel-track">
                   <img src="https://images.unsplash.com/photo-1506784365847-bbad939e9335?auto=format&fit=crop&w=1200&q=80" alt="Daily routine execution" class="service-carousel-slide active">
@@ -501,18 +480,18 @@
                 </div>
               </div>
             </div>
-            <div class="order-2 relative z-20 w-[88%] sm:w-[82%] md:w-[44%] mx-auto md:mx-0 -mt-8 md:mt-0 bg-white/95 md:bg-transparent backdrop-blur-xl md:backdrop-blur-none p-5 sm:p-6 md:p-0 rounded-[20px] md:rounded-none shadow-[0_8px_25px_rgba(0,0,0,0.05)] md:shadow-none border border-footerBorder md:border-none text-center md:text-left reveal-on-scroll hover-lift">
-              <span class="text-xs font-semibold text-brandPurple uppercase tracking-widest">Episode 03</span>
-              <h3 class="font-brand font-semibold text-lg sm:text-xl md:text-2xl text-textDark mt-1.5 mb-2.5">Action When You Don't Want To</h3>
-              <p class="text-sm text-textMuted leading-relaxed">
+            <div class="order-2 relative z-20 w-[88%] sm:w-[82%] md:w-[46%] mx-auto md:mx-0 -mt-8 md:mt-0 bg-white md:bg-transparent p-5 sm:p-6 md:p-0 rounded-2xl md:rounded-none shadow-sm md:shadow-none border border-footerBorder md:border-none text-center md:text-left">
+              <span class="text-xs sm:text-sm font-bold text-brandPurple uppercase tracking-widest">Episode 03</span>
+              <h3 class="font-brand font-bold text-xl sm:text-2xl md:text-[28px] lg:text-[30px] text-black mt-2 mb-3 leading-tight">Action When You Don't Want To</h3>
+              <p class="text-base sm:text-lg text-textMuted leading-relaxed">
                 Clarity alone won't change your reality. The difference maker is opening your books and filming even when your back aches and motivation is completely gone.
               </p>
             </div>
           </article>
 
-          <!-- 04. Comparison as Fuel (Image Right) -->
-          <article class="relative flex flex-col md:flex-row-reverse items-center gap-0 md:gap-8 lg:gap-10">
-            <div class="order-1 md:order-2 relative z-10 w-[99%] mx-auto md:w-[56%] md:mx-0 reveal-on-scroll">
+          <!-- 04. Comparison as Fuel (Image Right, Text Left) -->
+          <article class="relative flex flex-col md:flex-row-reverse items-center gap-0 md:gap-10 lg:gap-12 scroll-reveal">
+            <div class="order-1 md:order-2 relative z-10 w-[99%] mx-auto md:w-[54%] md:mx-0">
               <div class="service-carousel" data-carousel>
                 <div class="service-carousel-track">
                   <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80" alt="Teenagers learning together" class="service-carousel-slide active">
@@ -524,18 +503,18 @@
                 </div>
               </div>
             </div>
-            <div class="order-2 md:order-1 relative z-20 w-[88%] sm:w-[82%] md:w-[44%] mx-auto md:mx-0 -mt-8 md:mt-0 bg-white/95 md:bg-transparent backdrop-blur-xl md:backdrop-blur-none p-5 sm:p-6 md:p-0 rounded-[20px] md:rounded-none shadow-[0_8px_25px_rgba(0,0,0,0.05)] md:shadow-none border border-footerBorder md:border-none text-center md:text-left reveal-on-scroll hover-lift">
-              <span class="text-xs font-semibold text-brandPurple uppercase tracking-widest">Episode 04</span>
-              <h3 class="font-brand font-semibold text-lg sm:text-xl md:text-2xl text-textDark mt-1.5 mb-2.5">Comparison as Fuel</h3>
-              <p class="text-sm text-textMuted leading-relaxed">
+            <div class="order-2 md:order-1 relative z-20 w-[88%] sm:w-[82%] md:w-[46%] mx-auto md:mx-0 -mt-8 md:mt-0 bg-white md:bg-transparent p-5 sm:p-6 md:p-0 rounded-2xl md:rounded-none shadow-sm md:shadow-none border border-footerBorder md:border-none text-center md:text-left">
+              <span class="text-xs sm:text-sm font-bold text-brandPurple uppercase tracking-widest">Episode 04</span>
+              <h3 class="font-brand font-bold text-xl sm:text-2xl md:text-[28px] lg:text-[30px] text-black mt-2 mb-3 leading-tight">Comparison as Fuel</h3>
+              <p class="text-base sm:text-lg text-textMuted leading-relaxed">
                 Comparison is not your enemy unless it depresses you. When you see others your age achieving big goals, let it be proof that you can accomplish it too.
               </p>
             </div>
           </article>
 
-          <!-- 05. The Power of Gratitude (Image Left) -->
-          <article class="relative flex flex-col md:flex-row items-center gap-0 md:gap-8 lg:gap-10">
-            <div class="order-1 relative z-10 w-[99%] mx-auto md:w-[56%] md:mx-0 reveal-on-scroll">
+          <!-- 05. The Power of Gratitude (Image Left, Text Right) -->
+          <article class="relative flex flex-col md:flex-row items-center gap-0 md:gap-10 lg:gap-12 scroll-reveal">
+            <div class="order-1 relative z-10 w-[99%] mx-auto md:w-[54%] md:mx-0">
               <div class="service-carousel" data-carousel>
                 <div class="service-carousel-track">
                   <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=80" alt="Mindfulness and perspective" class="service-carousel-slide active">
@@ -547,7 +526,7 @@
                 </div>
               </div>
             </div>
-            <div class="order-2 relative z-20 w-[88%] sm:w-[82%] md:w-[44%] mx-auto md:mx-0 -mt-8 md:mt-0 bg-white/95 md:bg-transparent backdrop-blur-xl md:backdrop-blur-none p-5 sm:p-6 md:p-0 rounded-[20px] md:rounded-none shadow-[0_8px_25px_rgba(0,0,0,0.05)] md:shadow-none border border-footerBorder md:border-none text-center md:text-left reveal-on-scroll hover-lift">
+            <div class="order-2 relative z-20 w-[88%] sm:w-[82%] md:w-[44%] mx-auto md:mx-0 -mt-8 md:mt-0 bg-white md:bg-transparent p-5 sm:p-6 md:p-0 rounded-2xl md:rounded-none shadow-sm md:shadow-none border border-footerBorder md:border-none text-center md:text-left">
               <span class="text-xs font-semibold text-brandPurple uppercase tracking-widest">Episode 05</span>
               <h3 class="font-brand font-semibold text-lg sm:text-xl md:text-2xl text-textDark mt-1.5 mb-2.5">The Power of Gratitude</h3>
               <p class="text-sm text-textMuted leading-relaxed">
@@ -562,24 +541,24 @@
 
   </main>
 
-  <!-- LIGHTER PURPLE FOOTER (Seamless merged channels & email, clean single-line vertical navigation) -->
-  <footer class="bg-gradient-to-b from-[#FAF5FF] to-footerWarm rounded-t-[36px] w-full pt-12 pb-8 border-t border-footerBorder relative z-10" id="contact">
-    <div class="max-w-[1240px] mx-auto px-5 sm:px-8 md:px-10">
+  <!-- SOLID LIGHT PURPLE FOOTER WITH 8PX WHITE STRIPE SEPARATOR ON TOP -->
+  <footer class="bg-[#F5ECFF] rounded-t-[40px] w-full pt-16 pb-10 border-t-[8px] border-white shadow-[0_-8px_15px_rgba(121,40,202,0.04)] reveal-on-scroll relative z-10 mt-auto" id="contact">
+    <div class="max-w-[1300px] mx-auto px-6 sm:px-12">
       
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 pb-10 border-b border-footerBorder text-left">
         
-        <!-- Column 1: Brand Logo & Empowering Description -->
+        <!-- Column 1: Brand & Description -->
         <div>
-          <div class="flex items-center gap-3 mb-3">
-            <img src="https://i.ibb.co/gLgGMKGg/jk-logo-official.png" alt="JK Logo" class="h-9 w-auto object-contain shrink-0">
-            <strong class="font-brand font-semibold text-[20px] sm:text-[22px] tracking-tight text-textDark">JASMEET KAUR</strong>
+          <div class="flex items-center gap-1.5 mb-3">
+            <img src="https://i.ibb.co/PGDt0QPt/jk-logos.png" alt="JK Official Logo" class="h-8 w-auto object-contain shrink-0">
+            <span class="font-brand font-bold text-[20px] sm:text-[22px] tracking-tight text-black">JASMEET KAUR</span>
           </div>
           <p class="text-xs sm:text-sm text-textMuted leading-relaxed max-w-sm font-normal">
             Empowering students and teenagers for self-improvement, building resilient daily habits, and creating a disciplined mindset.
           </p>
         </div>
 
-        <!-- Column 2: Quick Access (Single Line-by-Line Stack) -->
+        <!-- Column 2: Quick Access -->
         <div>
           <h4 class="text-xs font-bold text-brandPurple uppercase tracking-widest mb-4">Quick Access</h4>
           <ul class="flex flex-col gap-2.5 text-xs sm:text-sm font-medium text-textMuted">
@@ -604,37 +583,31 @@
           </ul>
         </div>
 
-        <!-- Column 3: Official Channels & Business Inquiries (Seamless merged text links, NO boxes) -->
+        <!-- Column 3: Official Channels & Business Inquiries -->
         <div>
           <h4 class="text-xs font-bold text-brandPurple uppercase tracking-widest mb-4">Official Channels</h4>
-          <div class="flex flex-col gap-3.5 text-xs sm:text-sm mb-7">
+          <div class="flex flex-col gap-3.5 text-xs sm:text-sm mb-6">
             
-            <!-- New Channel (Seamless on screen) -->
-            <a href="https://youtube.com/@jasmeetkaurr1" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2.5 text-textDark hover:text-brandPurple transition group">
-              <i class="fa-brands fa-youtube text-red-600 text-base shrink-0 group-hover:scale-110 transition-transform"></i>
-              <div class="flex flex-col">
-                <span class="font-semibold text-textDark leading-tight">New Channel</span>
-                <span class="text-[11px] text-brandPurple font-medium">@JasmeetKaurr1</span>
-              </div>
+            <!-- New Channel -->
+            <a href="https://youtube.com/@jasmeetkaurr1" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 text-black hover:text-brandPurple transition group">
+              <i class="fa-brands fa-youtube text-red-600 text-lg shrink-0 group-hover:scale-110 transition-transform"></i>
+              <span class="font-semibold text-black text-[14px]">New Channel</span>
             </a>
 
-            <!-- Old Channel (Seamless on screen)[cite: 1] -->
-            <a href="https://youtube.com/@jasmeetmaann" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2.5 text-textDark hover:text-brandPurple transition group">
-              <i class="fa-solid fa-box-archive text-brandPurple/80 text-sm shrink-0 group-hover:scale-110 transition-transform"></i>
-              <div class="flex flex-col">
-                <span class="font-semibold text-textDark leading-tight">Old Channel</span>
-                <span class="text-[11px] text-textMuted font-medium">@JasmeetMaann</span>[cite: 1]
-              </div>
+            <!-- Previous Channel -->
+            <a href="https://youtube.com/@jasmeetmaann" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 text-black hover:text-brandPurple transition group">
+              <i class="fa-brands fa-youtube text-brandPurple text-lg shrink-0 group-hover:scale-110 transition-transform"></i>
+              <span class="font-semibold text-black text-[14px]">Previous Channel</span>
             </a>
 
           </div>
 
-          <!-- Business Inquiries (Seamlessly merged on screen, NO box)[cite: 1] -->
+          <!-- Business Inquiries -->
           <div>
             <h5 class="text-xs font-bold text-brandPurple uppercase tracking-widest mb-2">Business Inquiries</h5>
-            <a href="mailto:workwithjasmeetkaur@gmail.com" class="inline-flex items-center gap-2 text-xs font-medium text-textDark hover:text-brandPurple transition break-all">
-              <i class="fa-solid fa-envelope text-brandPurple text-xs"></i>
-              <span>workwithjasmeetkaur@gmail.com</span>[cite: 1]
+            <a href="mailto:workwithjasmeetkaur@gmail.com" class="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-semibold text-black hover:text-brandPurple transition break-all group">
+              <i class="fa-solid fa-envelope text-brandPurple text-xs shrink-0 group-hover:scale-110 transition-transform"></i>
+              <span>workwithjasmeetkaur@gmail.com</span>
             </a>
           </div>
         </div>
@@ -650,40 +623,52 @@
   </footer>
 
   <!-- SMART IDLE-HIDE FLOATING SCROLL TO TOP BUTTON -->
-  <button type="button" class="back-to-top-btn fixed bottom-5 right-5 z-40 bg-brandPurple hover:bg-brandPurpleHover text-white h-11 w-11 rounded-full shadow-[0_6px_20px_rgba(139,92,246,0.3)] flex items-center justify-center focus:outline-none active:scale-90" id="backToTopBtn" aria-label="Back to top">
+  <button type="button" class="back-to-top-btn fixed bottom-5 right-5 z-40 bg-brandPurple hover:bg-brandPurpleHover text-white h-11 w-11 rounded-full shadow-[0_6px_20px_rgba(121,40,202,0.3)] flex items-center justify-center focus:outline-none active:scale-90" id="backToTopBtn" aria-label="Back to top">
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
       <line x1="12" y1="19" x2="12" y2="5"></line>
       <polyline points="5 12 12 5 19 12"></polyline>
     </svg>
   </button>
 
-  <!-- JS ENGINE: CAROUSELS, DOCK AUTO-HIDE, SCROLL-TO-TOP & NUMBER COUNTERS -->
+  <!-- JS ENGINE -->
   <script>
     (function() {
       "use strict";
 
-      // 1. DOCK AUTO-HIDE ON SCROLL & SMART IDLE-HIDE BACK-TO-TOP BUTTON
+      // 1. DOCK AUTO-HIDE & DIRECTIONAL UPWARD-ONLY ANIMATIONS
       let lastScrollY = window.scrollY;
       let scrollTimer = null;
       const navShell = document.getElementById('navShell');
       const backToTopBtn = document.getElementById('backToTopBtn');
+      const revealItems = document.querySelectorAll('.scroll-reveal');
 
-      window.addEventListener('scroll', () => {
+      function checkDirectionalScroll() {
         const currentScrollY = window.scrollY;
+        const isScrollingDown = currentScrollY > lastScrollY;
 
-        // Auto-hide header when scrolling down
-        if (currentScrollY > lastScrollY && currentScrollY > 70) {
+        // Auto-hide navigation header
+        if (isScrollingDown && currentScrollY > 70) {
           navShell.classList.add('dock-hidden');
         } else {
           navShell.classList.remove('dock-hidden');
         }
-        lastScrollY = currentScrollY;
 
-        // Show back to top button while scrolling past 300px
+        // Trigger animations only when scrolling forward down the page
+        if (isScrollingDown) {
+          const triggerBottom = window.innerHeight * 0.9;
+          revealItems.forEach(item => {
+            if (!item.classList.contains('has-opened')) {
+              const rect = item.getBoundingClientRect();
+              if (rect.top < triggerBottom) {
+                item.classList.add('has-opened');
+              }
+            }
+          });
+        }
+
+        // Back to top idle-hide behavior
         if (currentScrollY > 300) {
           backToTopBtn.classList.add('is-active');
-
-          // Automatically hide button 1.5 seconds after scrolling stops
           clearTimeout(scrollTimer);
           scrollTimer = setTimeout(() => {
             backToTopBtn.classList.remove('is-active');
@@ -691,7 +676,12 @@
         } else {
           backToTopBtn.classList.remove('is-active');
         }
-      }, { passive: true });
+
+        lastScrollY = currentScrollY;
+      }
+
+      window.addEventListener('scroll', checkDirectionalScroll, { passive: true });
+      window.addEventListener('DOMContentLoaded', checkDirectionalScroll);
 
       backToTopBtn.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -714,7 +704,7 @@
         link.addEventListener('click', closeDrawer);
       });
 
-      // 3. STATS COUNTERS (14k, 74, 670,000)
+      // 3. STATS COUNTERS
       const statsBanner = document.getElementById('statsBanner');
       const counters = document.querySelectorAll('.counter');
       let animated = false;
@@ -752,16 +742,15 @@
       }
 
       // 4. SCROLL REVEAL OBSERVER
-      const revealElements = document.querySelectorAll('.reveal-on-scroll');
       const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
+            entry.target.classList.add('has-opened');
           }
         });
       }, { threshold: 0.1 }); 
 
-      revealElements.forEach(el => revealObserver.observe(el));
+      revealItems.forEach(el => revealObserver.observe(el));
 
       // 5. CAROUSEL AUTOMATION
       const carousels = document.querySelectorAll('[data-carousel]');
