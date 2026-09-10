@@ -116,6 +116,21 @@
       text-shadow: 0 4px 18px rgba(121, 40, 202, 0.1);
     }
 
+    /* CS SAMPLE INSPIRED ROTATING SLIDER WRAPPER */
+    .rotating-word-container {
+      display: inline-block;
+      height: 1.15em;
+      overflow: hidden;
+      vertical-align: bottom;
+      color: #7928CA;
+    }
+
+    #rotating-word {
+      display: inline-block;
+      transition: transform 0.5s ease, opacity 0.5s ease;
+      white-space: nowrap;
+    }
+
     /* UPWARD-ONLY DIRECTIONAL SCROLL ANIMATION */
     .scroll-reveal {
       opacity: 0;
@@ -343,10 +358,10 @@
             </div>
           </div>
 
-          <!-- Original Heading -->
-          <h1 class="font-brand font-bold text-[30px] sm:text-[42px] md:text-[52px] lg:text-[60px] tracking-tight leading-[1.18] mb-6 sm:mb-8 max-w-4xl animate-hero delay-2 heading-accent">
-            You Don't Need to Be Ready.
-            You Just Need to Start.
+          <!-- HEADING 1 WITH CS SAMPLE-STYLE ROTATING WORD SLIDER -->
+          <h1 class="font-brand font-bold text-[30px] sm:text-[42px] md:text-[52px] lg:text-[60px] tracking-tight leading-[1.2] mb-6 sm:mb-8 max-w-4xl animate-hero delay-2 heading-accent">
+            You Don't Need to Be Ready.<br class="hidden sm:inline">
+            You Just Need to <span class="rotating-word-container"><span id="rotating-word">Start Now.</span></span>
           </h1>
 
           <p class="text-base sm:text-lg md:text-xl text-textMuted font-normal leading-relaxed mb-10 sm:mb-12 max-w-[740px] animate-hero delay-3">
@@ -432,7 +447,6 @@
               <div class="service-carousel" data-carousel>
                 <div class="service-carousel-track">
                   <img src="https://i.ibb.co/fVw4bDBw/learning-1-1.png" alt="Learning 01 - 1" class="service-carousel-slide active">
-                  <!-- Second image mapped to the right side on mobile screens -->
                   <img src="https://i.ibb.co/cc4zcrH7/learning-1-1.png" alt="Learning 01 - 2" class="service-carousel-slide max-md:object-right">
                 </div>
                 <div class="service-carousel-dots">
@@ -602,7 +616,7 @@
             </a>
 
             <!-- Previous Channel -->
-            <a href="https://youtube.com/@jasmeetmaann" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 text-black hover:text-brandPurple transition group"[cite: 1]>
+            <a href="https://youtube.com/@jasmeetmaann" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 text-black hover:text-brandPurple transition group">
               <i class="fa-brands fa-youtube text-brandPurple text-lg shrink-0 group-hover:scale-110 transition-transform"></i>
               <span class="font-semibold text-black text-[14px]">Previous Channel</span>
             </a>
@@ -612,7 +626,7 @@
           <!-- Business Inquiries -->
           <div>
             <h5 class="text-xs font-bold text-brandPurple uppercase tracking-widest mb-2">Business Inquiries</h5>
-            <a href="mailto:workwithjasmeetkaur@gmail.com" class="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-semibold text-black hover:text-brandPurple transition break-all group"[cite: 1]>
+            <a href="mailto:workwithjasmeetkaur@gmail.com" class="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-semibold text-black hover:text-brandPurple transition break-all group">
               <i class="fa-solid fa-envelope text-brandPurple text-xs shrink-0 group-hover:scale-110 transition-transform"></i>
               <span>workwithjasmeetkaur@gmail.com</span>
             </a>
@@ -810,6 +824,51 @@
 
         observer.observe(c);
       });
+
+      // 6. CS SAMPLE ROTATING WORD SLIDER
+      const words = [
+        "Take Action.",
+        "Build Now.",
+                "Learn More.",
+                        "Keep Going.",
+                        "Talk Less.",
+                        "Do More.",
+                        "Stop Scrolling.",
+                        "Become Better.",
+        "Get Started."
+      ];
+
+      const rotatingWord = document.getElementById("rotating-word");
+      let wordIndex = 0;
+
+      function changeWord() {
+        if (!rotatingWord) return;
+
+        // Slide current word up and fade out
+        rotatingWord.style.transform = "translateY(-100%)";
+        rotatingWord.style.opacity = "0";
+
+        setTimeout(() => {
+          // Advance to next word
+          wordIndex = (wordIndex + 1) % words.length;
+          rotatingWord.textContent = words[wordIndex];
+
+          // Instantly position new word below
+          rotatingWord.style.transition = "none";
+          rotatingWord.style.transform = "translateY(100%)";
+          rotatingWord.style.opacity = "0";
+
+          // Trigger smooth slide-in and fade-in up to natural baseline
+          requestAnimationFrame(() => {
+            rotatingWord.style.transition = "transform 0.5s ease, opacity 0.5s ease";
+            rotatingWord.style.transform = "translateY(0)";
+            rotatingWord.style.opacity = "1";
+          });
+        }, 500);
+      }
+
+      // Rotate every 2.5 seconds
+      setInterval(changeWord, 2500);
 
     })();
   </script>
