@@ -1,0 +1,1647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Quotes — Jasmeet Kaur</title>
+
+  <meta name="description" content="Timeless philosophical insights and wisdom from world-renowned thinkers on self-mastery, discipline, and purpose.">
+
+  <!-- Mobile Browser Theme Color -->
+  <meta name="theme-color" content="#FAF5FF">
+  <meta name="color-scheme" content="light">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+
+  <!-- Official Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="https://i.ibb.co/ks55RRy3/jk-final.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="https://i.ibb.co/ks55RRy3/jk-final.png">
+  <link rel="apple-touch-icon" href="https://i.ibb.co/ks55RRy3/jk-final.png">
+
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- html2canvas library for square image export -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandPurple: '#7928CA',
+            brandPurpleDeep: '#581C87',
+            brandPurpleHover: '#6D28D9',
+            brandPurpleLight: '#EDE4FC',
+            warmBg: '#FAF5FF',
+            warmCard: '#FFFFFF',
+            textDark: '#190A2E',
+            textMuted: '#6B5282',
+            footerWarm: '#F5ECFF',
+            footerBorder: '#E0C5FC'
+          },
+          fontFamily: {
+            sans: ['"Poppins"', 'system-ui', '-apple-system', 'sans-serif'],
+            brand: ['"Poppins"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* TOTAL ANTI-COPY & INTERACTION PROTECTION */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: pan-x pan-y;
+      -webkit-user-select: none !important;
+      -moz-user-select: none !important;
+      -ms-user-select: none !important;
+      user-select: none !important;
+    }
+
+    /* OVERRIDE FOR INPUTS */
+    input, textarea, select {
+      -webkit-user-select: text !important;
+      -moz-user-select: text !important;
+      -ms-user-select: text !important;
+      user-select: text !important;
+    }
+
+    img {
+      pointer-events: none !important;
+      -webkit-user-drag: none !important;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+      background-color: #FAF5FF !important;
+      color-scheme: light;
+    }
+
+    body {
+      background-color: #FAF5FF !important;
+      color: #190A2E;
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* SMOOTH STAGGERED OPENING ANIMATION */
+    @keyframes heroFadeUp {
+      0% { opacity: 0; transform: translateY(35px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .animate-entrance {
+      animation: heroFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      opacity: 0;
+    }
+    .delay-1 { animation-delay: 0.08s; }
+    .delay-2 { animation-delay: 0.20s; }
+    .delay-3 { animation-delay: 0.32s; }
+    .delay-4 { animation-delay: 0.45s; }
+
+    /* DIRECTIONAL SCROLL REVEAL ANIMATIONS */
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(35px);
+      transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .reveal-on-scroll.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* DYNAMIC RADIAL BACKGROUND GLOWS */
+    .hero-glow-1 {
+      position: absolute;
+      top: -100px;
+      left: -80px;
+      width: 550px;
+      height: 550px;
+      background: radial-gradient(circle, rgba(121, 40, 202, 0.14) 0%, transparent 70%);
+      border-radius: 50%;
+      z-index: -1;
+      pointer-events: none;
+      animation: floatGlow 10s ease-in-out infinite alternate;
+    }
+    .hero-glow-2 {
+      position: absolute;
+      top: 250px;
+      right: -100px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(147, 51, 234, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      z-index: -1;
+      pointer-events: none;
+      animation: floatGlow 12s ease-in-out infinite alternate-reverse;
+    }
+
+    @keyframes floatGlow {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(25px, 20px) scale(1.08); }
+    }
+
+    /* FLOATING HEADER AUTO-HIDE */
+    .dock-container {
+      transition: transform 0.45s ease, opacity 0.3s ease;
+    }
+    .dock-hidden {
+      transform: translateY(-150%) !important;
+      opacity: 0;
+    }
+
+    .heading-accent {
+      color: #190A2E;
+      text-shadow: 0 4px 18px rgba(121, 40, 202, 0.1);
+    }
+
+    /* CARD HOVER */
+    .hover-lift {
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+    }
+    .hover-lift:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px -10px rgba(121, 40, 202, 0.16);
+      border-color: #C084FC;
+    }
+
+    /* COPY TOAST NOTIFICATION */
+    .toast-pill {
+      opacity: 0;
+      visibility: hidden;
+      transform: translate(-50%, 20px) scale(0.95);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .toast-pill.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%, 0) scale(1);
+    }
+
+    /* FULL SCREEN MOBILE DRAWER */
+    .side-drawer-backdrop { display: none !important; }
+    .side-drawer-panel { display: none !important; }
+    body.drawer-open .side-drawer-backdrop { display: block !important; }
+    body.drawer-open .side-drawer-panel { display: flex !important; }
+
+    /* SMART IDLE-HIDE BACK TO TOP BUTTON */
+    .back-to-top-btn {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px) scale(0.9);
+      transition: all 0.35s ease;
+    }
+    .back-to-top-btn.is-active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1);
+    }
+
+    /* 3D FLIP CONTAINER */
+    .perspective-1000 {
+      perspective: 1000px;
+    }
+    .flip-inner {
+      transform-style: preserve-3d;
+      transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .flip-inner.is-flipped {
+      transform: rotateY(180deg);
+    }
+    .flip-front, .flip-back {
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+    .flip-back {
+      transform: rotateY(180deg);
+    }
+
+    /* FAVORITES DRAWER */
+    .fav-drawer {
+      transform: translateX(100%);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    body.fav-open .fav-drawer {
+      transform: translateX(0);
+    }
+    body.fav-open .fav-backdrop {
+      display: block !important;
+    }
+  </style>
+</head>
+<body class="selection:bg-transparent bg-[#FAF5FF] min-h-screen relative flex flex-col">
+
+  <div class="hero-glow-1"></div>
+  <div class="hero-glow-2"></div>
+
+  <!-- FLOATING iOS-STYLE HEADER BAR -->
+  <div class="dock-container fixed top-2 sm:top-4 z-50 w-[98%] left-[1%] sm:w-[94%] sm:left-[3%] lg:w-full lg:left-0 lg:px-6 transition-all duration-300" id="navShell">
+    <header class="w-full max-w-[1350px] mx-auto bg-white/95 backdrop-blur-xl border border-footerBorder rounded-full py-3 sm:py-3.5 px-4 sm:px-6 lg:px-8 flex items-center justify-between shadow-[0_8px_25px_rgba(121,40,202,0.06)] animate-entrance">
+      
+      <!-- Brand Logo & Heading -->
+      <a href="index.html" class="flex items-center gap-2.5 sm:gap-3.5 shrink-0 group ml-2 sm:ml-4 md:ml-6">
+        <img src="https://i.ibb.co/ks55RRy3/jk-final.png" alt="JK Official Logo" class="h-10 sm:h-12 md:h-13 w-auto object-contain shrink-0 -translate-y-1.5 sm:-translate-y-2 transition-transform group-hover:scale-105">
+        <span class="font-brand font-bold text-[22px] sm:text-[25px] md:text-[28px] lg:text-[30px] tracking-tight text-black leading-none flex items-center">
+          JASMEET KAUR
+        </span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden lg:flex items-center gap-1.5 bg-[#FAF5FF] p-1.5 rounded-full border border-footerBorder">
+        <a href="index.html" class="text-[14px] font-medium text-textMuted hover:text-brandPurple hover:bg-white px-5 py-2 rounded-full transition">Home</a>
+        <a href="about.html" class="text-[14px] font-medium text-textMuted hover:text-brandPurple hover:bg-white px-5 py-2 rounded-full transition">About</a>
+        <a href="self-improvement.html" class="text-[14px] font-medium text-textMuted hover:text-brandPurple hover:bg-white px-5 py-2 rounded-full transition">Self Improvement</a>
+        <a href="videos.html" class="text-[14px] font-medium text-textMuted hover:text-brandPurple hover:bg-white px-5 py-2 rounded-full transition">Video</a>
+        <a href="quotes.html" class="text-[14px] font-semibold text-white bg-brandPurple px-5 py-2 rounded-full shadow-sm">Quotes</a>
+        <a href="contact.html" class="text-[14px] font-medium text-textMuted hover:text-brandPurple hover:bg-white px-5 py-2 rounded-full transition">Contact</a>
+      </nav>
+
+      <!-- Right Header Action & Classic Hamburger Icon -->
+      <div class="flex items-center gap-3">
+        <a href="https://youtube.com/@jasmeetkaurr1" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 bg-brandPurple hover:bg-brandPurpleHover text-white px-5 py-2.5 rounded-full text-[13px] font-semibold transition-transform hover:-translate-y-0.5 shadow-md shadow-brandPurple/20">
+          <i class="fa-brands fa-youtube text-base"></i>
+          <span>Subscribe to Channel</span>
+        </a>
+        
+        <button class="lg:hidden h-10 w-10 sm:h-11 sm:w-11 rounded-full bg-brandPurpleLight text-brandPurple flex items-center justify-center border border-footerBorder focus:outline-none transition active:scale-95 shadow-sm" id="openDrawerBtn" aria-label="Open Navigation">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+    </header>
+  </div>
+
+  <!-- MOBILE NAVIGATION DRAWER -->
+  <div class="side-drawer-backdrop fixed inset-0 bg-black/30 backdrop-blur-sm z-50" id="mobileBackdrop"></div>
+  <div class="side-drawer-panel fixed inset-0 w-full bg-[#FAF5FF] z-50 flex flex-col justify-between overflow-hidden" id="mobileDrawer">
+    
+    <div class="flex justify-between items-center px-6 py-5 border-b border-footerBorder bg-white/60 backdrop-blur-md">
+      <div class="flex items-center gap-2.5">
+        <img src="https://i.ibb.co/ks55RRy3/jk-final.png" alt="JK Official Logo" class="h-9 w-auto object-contain -translate-y-1">
+        <strong class="font-brand font-bold text-[23px] tracking-tight text-black leading-none">JASMEET KAUR</strong>
+      </div>
+      <button class="h-10 w-10 rounded-full bg-white text-textDark font-bold text-base flex items-center justify-center border border-footerBorder shadow-sm active:scale-90 transition" id="closeDrawerBtn">✕</button>
+    </div>
+
+    <nav class="flex-1 overflow-y-auto px-6 py-8 flex flex-col justify-center gap-3">
+      <a href="index.html" class="mobile-nav-link flex items-center justify-between py-4 px-6 rounded-2xl font-semibold text-lg text-textDark bg-white/80 border border-footerBorder/60 hover:bg-white transition">
+        <span>Home</span>
+        <i class="fa-solid fa-chevron-right text-xs text-brandPurple/60"></i>
+      </a>
+      <a href="about.html" class="mobile-nav-link flex items-center justify-between py-4 px-6 rounded-2xl font-semibold text-lg text-textDark bg-white/80 border border-footerBorder/60 hover:bg-white transition">
+        <span>About</span>
+        <i class="fa-solid fa-chevron-right text-xs text-brandPurple/60"></i>
+      </a>
+      <a href="self-improvement.html" class="mobile-nav-link flex items-center justify-between py-4 px-6 rounded-2xl font-semibold text-lg text-textDark bg-white/80 border border-footerBorder/60 hover:bg-white transition">
+        <span>Self Improvement</span>
+        <i class="fa-solid fa-chevron-right text-xs text-brandPurple/60"></i>
+      </a>
+      <a href="videos.html" class="mobile-nav-link flex items-center justify-between py-4 px-6 rounded-2xl font-semibold text-lg text-textDark bg-white/80 border border-footerBorder/60 hover:bg-white transition">
+        <span>Video</span>
+        <i class="fa-solid fa-chevron-right text-xs text-brandPurple/60"></i>
+      </a>
+      <a href="quotes.html" class="mobile-nav-link flex items-center justify-between py-4 px-6 rounded-2xl font-bold text-lg text-white bg-brandPurple shadow-sm transition">
+        <span>Quotes</span>
+        <i class="fa-solid fa-arrow-right text-xs opacity-80"></i>
+      </a>
+      <a href="contact.html" class="mobile-nav-link flex items-center justify-between py-4 px-6 rounded-2xl font-semibold text-lg text-textDark bg-white/80 border border-footerBorder/60 hover:bg-white transition">
+        <span>Contact</span>
+        <i class="fa-solid fa-chevron-right text-xs text-brandPurple/60"></i>
+      </a>
+    </nav>
+
+    <div class="px-6 py-6 border-t border-footerBorder bg-white/60 backdrop-blur-md">
+      <a href="https://youtube.com/@jasmeetkaurr1" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2.5 w-full text-center bg-brandPurple hover:bg-brandPurpleHover text-white py-3.5 rounded-full font-semibold text-sm shadow-md shadow-brandPurple/25 transition">
+        <i class="fa-brands fa-youtube text-lg"></i>
+        <span>Subscribe to Channel</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- SAVED FAVORITES DRAWER -->
+  <div class="fav-backdrop fixed inset-0 bg-black/40 backdrop-blur-sm z-50 hidden" id="favBackdrop"></div>
+  <div class="fav-drawer fixed top-0 right-0 h-full w-full sm:w-[460px] bg-white z-50 shadow-2xl flex flex-col justify-between border-l border-footerBorder" id="favDrawer">
+    <div class="p-6 border-b border-footerBorder flex items-center justify-between bg-[#FAF5FF]/60">
+      <div class="flex items-center gap-2.5">
+        <div class="h-9 w-9 rounded-full bg-brandPurpleLight text-brandPurple flex items-center justify-center">
+          <i class="fa-solid fa-star text-amber-500 text-sm"></i>
+        </div>
+        <div>
+          <h3 class="font-brand font-bold text-lg text-textDark">Saved Quotes</h3>
+          <p class="text-[11px] text-textMuted">Stored on this device</p>
+        </div>
+      </div>
+      <button type="button" class="h-9 w-9 rounded-full bg-white border border-footerBorder text-textDark font-bold flex items-center justify-center hover:bg-brandPurpleLight transition" id="closeFavBtn">✕</button>
+    </div>
+
+    <div class="flex-1 overflow-y-auto p-6 space-y-4" id="favListContainer"></div>
+
+    <div class="p-5 border-t border-footerBorder bg-[#FAF5FF]/60 flex items-center justify-between">
+      <span class="text-xs text-textMuted font-medium" id="favCountFooter">0 Quotes Saved</span>
+      <button type="button" id="clearAllFavBtn" class="text-xs font-semibold text-red-600 hover:text-red-700 transition">Clear All</button>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main id="quotes-page" class="relative z-10 flex-grow">
+    
+    <!-- Hero Header -->
+    <section class="pt-28 sm:pt-36 md:pt-42 pb-8 sm:pb-12 relative">
+      <div class="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-8 text-center animate-entrance">
+        
+        <!-- Elevated Topic Capsule Position -->
+        <div class="w-full flex items-center justify-center pb-0 -mt-2 sm:-mt-4 mb-6 animate-entrance delay-1">
+          <div class="inline-flex items-center gap-2 bg-brandPurpleLight/70 backdrop-blur-md py-1.5 px-4 rounded-full border border-brandPurple/20 shadow-sm hover-lift cursor-default">
+            <span class="flex h-5 w-5 items-center justify-center rounded-full bg-brandPurple text-white text-[9.5px]">
+              <i class="fa-solid fa-feather-pointed"></i>
+            </span>
+            <span class="text-[12.5px] sm:text-[13.5px] font-semibold text-brandPurple tracking-wide">Timeless Philosophical Truths</span>
+          </div>
+        </div>
+
+        <h1 class="text-[34px] sm:text-[44px] md:text-[54px] lg:text-[62px] font-bold tracking-tight text-textDark leading-[1.14] mb-4 heading-accent animate-entrance delay-2">
+          Master Your Mind.<br>
+          <span class="text-brandPurple">Command Your Reality.</span>
+        </h1>
+        <p class="text-base sm:text-lg text-textMuted font-medium leading-relaxed max-w-2xl mx-auto animate-entrance delay-3">
+          Reflective perspectives from world-renowned thinkers to help silence noise, eliminate self-doubt, and anchor daily purpose.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- QUOTES OF THE MOMENT -->
+    <section class="pb-14 sm:pb-20 relative animate-entrance delay-4">
+      <div class="max-w-[950px] mx-auto px-4 sm:px-6 md:px-8">
+        
+        <div class="p-6 sm:p-10 md:p-12 lg:p-14 bg-white/95 sm:bg-gradient-to-br sm:from-white sm:via-white/95 sm:to-brandPurpleLight/30 border border-brandPurple/20 sm:border-brandPurple/25 shadow-[0_10px_35px_rgba(121,40,202,0.06)] sm:shadow-[0_15px_45px_rgba(121,40,202,0.08)] rounded-[28px] sm:rounded-[32px] transition-all">
+          
+          <div class="flex items-center justify-between pb-4 md:pb-6 border-b border-footerBorder/80">
+            <h2 class="text-base sm:text-xl font-bold text-textDark tracking-tight flex items-center gap-2">
+              <span class="h-2.5 w-2.5 rounded-full bg-brandPurple"></span>
+              Quotes of the Moment
+            </h2>
+            <div class="flex items-center gap-3">
+              <button type="button" id="starSpotlightBtn" class="text-textMuted hover:text-amber-500 transition active:scale-90 text-base" title="Save this quote">
+                <i class="fa-regular fa-star" id="starSpotlightIcon"></i>
+              </button>
+              <span id="currentDateBadge" class="text-[11px] sm:text-xs font-semibold text-brandPurple tracking-wide">
+                10 Sep 2026
+              </span>
+            </div>
+          </div>
+
+          <div class="py-7 sm:py-10">
+            <p id="dailyQuoteText" class="font-brand font-bold text-2xl sm:text-3xl md:text-4xl text-textDark leading-[1.32] mb-4 sm:mb-5 tracking-tight transition-opacity duration-300">
+              "We suffer more often in imagination than in reality."
+            </p>
+            <p id="dailyQuoteAuthor" class="text-base sm:text-xl font-semibold text-brandPurple tracking-tight">
+              — Seneca
+            </p>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="pt-5 sm:pt-6 border-t border-footerBorder/80 flex items-center justify-between flex-wrap gap-3">
+            <button type="button" id="shuffleBtn" class="inline-flex items-center gap-2 bg-brandPurple hover:bg-brandPurpleHover text-white px-4 sm:px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold shadow-sm transition active:scale-95">
+              <i class="fa-solid fa-rotate-right text-xs"></i>
+              <span>Next Quote</span>
+            </button>
+
+            <div class="flex items-center gap-2">
+              <button type="button" id="downloadImgBtn" class="inline-flex items-center gap-2 bg-white hover:bg-brandPurple hover:text-white text-textDark px-3.5 sm:px-4 py-2 rounded-full text-xs font-bold border border-footerBorder shadow-xs transition active:scale-95" title="Download 1:1 Clean Image">
+                <i class="fa-solid fa-download text-xs text-brandPurple"></i>
+                <span>Image</span>
+              </button>
+              
+              <button type="button" id="shareBtn" class="inline-flex items-center gap-2 bg-white hover:bg-brandPurple hover:text-white text-textDark px-3.5 sm:px-4 py-2 rounded-full text-xs font-bold border border-footerBorder shadow-xs transition active:scale-95" title="Share 1:1 Image">
+                <i class="fa-solid fa-share-nodes text-xs text-brandPurple"></i>
+                <span>Share</span>
+              </button>
+
+              <button type="button" id="copyDailyBtn" class="inline-flex items-center gap-1.5 bg-[#FAF5FF] hover:bg-brandPurple hover:text-white text-textDark px-3.5 py-2 rounded-full text-xs font-bold border border-footerBorder shadow-xs transition active:scale-95" title="Copy Text">
+                <i class="fa-regular fa-copy text-xs"></i>
+                <span id="copyDailyText">Copy</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- DEEPER PURPLE THEMED FLIP CARDS (RANDOM QUOTE ROTATION ON FLIP) -->
+    <section class="pb-20 relative overflow-hidden">
+      <div class="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-12 reveal-on-scroll">
+          <span class="text-xs font-bold text-brandPurple uppercase tracking-widest block mb-1">Interactive Guidance</span>
+          <h2 class="font-brand font-bold text-2xl sm:text-3xl text-textDark tracking-tight">
+            Daily Philosophical Prompts
+          </h2>
+          <p class="text-sm text-textMuted mt-1 font-medium">Click any card to flip and reveal fresh randomized insights.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 items-center">
+          
+          <!-- Card 1: Thought of the Day (Deef Purplish Theme) -->
+          <div class="perspective-1000 h-[280px] w-full cursor-pointer select-none" onclick="flipOracleCard(this, 0)">
+            <div class="flip-inner relative w-full h-full rounded-[24px] shadow-sm transition-transform duration-700">
+              <!-- Front -->
+              <div class="flip-front absolute inset-0 w-full h-full bg-gradient-to-br from-[#6D28D9] to-[#581C87] text-white border border-[#8B5CF6] rounded-[24px] p-6 flex flex-col items-center justify-between text-center hover-lift shadow-lg shadow-brandPurple/30">
+                <div class="h-11 w-11 rounded-full bg-white/20 text-white flex items-center justify-center text-base backdrop-blur-xs border border-white/25">
+                  <i class="fa-solid fa-brain"></i>
+                </div>
+                <div>
+                  <h3 class="font-brand font-bold text-lg text-white">Thought of the Day</h3>
+                  <p class="text-xs text-purple-200 mt-1">Tap to reveal new insight</p>
+                </div>
+                <span class="text-[11px] font-semibold text-white bg-white/20 px-3.5 py-1 rounded-full border border-white/30 backdrop-blur-xs">Flip Card</span>
+              </div>
+              <!-- Back -->
+              <div class="flip-back absolute inset-0 w-full h-full bg-gradient-to-br from-[#581C87] via-[#6D28D9] to-[#4C1D95] text-white border border-[#8B5CF6] rounded-[24px] p-6 flex flex-col justify-between text-center shadow-xl">
+                <span class="text-[11px] font-bold text-purple-200 uppercase tracking-widest">Thought of the Day</span>
+                <div>
+                  <p class="font-brand font-bold text-base text-white leading-relaxed oracle-quote-text">"The mind is everything. What you think you become."</p>
+                  <span class="text-xs text-purple-200 font-semibold mt-2 block oracle-author-text">— Buddha</span>
+                </div>
+                <div class="flex items-center justify-center gap-2">
+                  <button type="button" class="text-xs bg-white/25 hover:bg-white hover:text-brandPurpleDeep text-white px-3.5 py-1 rounded-full font-semibold transition backdrop-blur-xs" onclick="event.stopPropagation(); downloadCustomOracle(this)">Download 1:1</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Quote of the Day (Deef Purplish Theme) -->
+          <div class="perspective-1000 h-[280px] w-full cursor-pointer select-none" onclick="flipOracleCard(this, 1)">
+            <div class="flip-inner relative w-full h-full rounded-[24px] shadow-sm transition-transform duration-700">
+              <!-- Front -->
+              <div class="flip-front absolute inset-0 w-full h-full bg-gradient-to-br from-[#6D28D9] to-[#581C87] text-white border border-[#8B5CF6] rounded-[24px] p-6 flex flex-col items-center justify-between text-center hover-lift shadow-lg shadow-brandPurple/30">
+                <div class="h-11 w-11 rounded-full bg-white/20 text-white flex items-center justify-center text-base backdrop-blur-xs border border-white/25">
+                  <i class="fa-solid fa-quote-left"></i>
+                </div>
+                <div>
+                  <h3 class="font-brand font-bold text-lg text-white">Quote of the Day</h3>
+                  <p class="text-xs text-purple-200 mt-1">Tap to reveal new insight</p>
+                </div>
+                <span class="text-[11px] font-semibold text-white bg-white/20 px-3.5 py-1 rounded-full border border-white/30 backdrop-blur-xs">Flip Card</span>
+              </div>
+              <!-- Back -->
+              <div class="flip-back absolute inset-0 w-full h-full bg-gradient-to-br from-[#581C87] via-[#6D28D9] to-[#4C1D95] text-white border border-[#8B5CF6] rounded-[24px] p-6 flex flex-col justify-between text-center shadow-xl">
+                <span class="text-[11px] font-bold text-purple-200 uppercase tracking-widest">Quote of the Day</span>
+                <div>
+                  <p class="font-brand font-bold text-base text-white leading-relaxed oracle-quote-text">"He who has a why to live can bear almost any how."</p>
+                  <span class="text-xs text-purple-200 font-semibold mt-2 block oracle-author-text">— Friedrich Nietzsche</span>
+                </div>
+                <div class="flex items-center justify-center gap-2">
+                  <button type="button" class="text-xs bg-white/25 hover:bg-white hover:text-brandPurpleDeep text-white px-3.5 py-1 rounded-full font-semibold transition backdrop-blur-xs" onclick="event.stopPropagation(); downloadCustomOracle(this)">Download 1:1</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Always Remember This (Deef Purplish Theme) -->
+          <div class="perspective-1000 h-[280px] w-full cursor-pointer select-none" onclick="flipOracleCard(this, 2)">
+            <div class="flip-inner relative w-full h-full rounded-[24px] shadow-sm transition-transform duration-700">
+              <!-- Front -->
+              <div class="flip-front absolute inset-0 w-full h-full bg-gradient-to-br from-[#6D28D9] to-[#581C87] text-white border border-[#8B5CF6] rounded-[24px] p-6 flex flex-col items-center justify-between text-center hover-lift shadow-lg shadow-brandPurple/30">
+                <div class="h-11 w-11 rounded-full bg-white/20 text-white flex items-center justify-center text-base backdrop-blur-xs border border-white/25">
+                  <i class="fa-solid fa-bookmark"></i>
+                </div>
+                <div>
+                  <h3 class="font-brand font-bold text-lg text-white">Always Remember This</h3>
+                  <p class="text-xs text-purple-200 mt-1">Tap to reveal new insight</p>
+                </div>
+                <span class="text-[11px] font-semibold text-white bg-white/20 px-3.5 py-1 rounded-full border border-white/30 backdrop-blur-xs">Flip Card</span>
+              </div>
+              <!-- Back -->
+              <div class="flip-back absolute inset-0 w-full h-full bg-gradient-to-br from-[#581C87] via-[#6D28D9] to-[#4C1D95] text-white border border-[#8B5CF6] rounded-[24px] p-6 flex flex-col justify-between text-center shadow-xl">
+                <span class="text-[11px] font-bold text-purple-200 uppercase tracking-widest">Always Remember This</span>
+                <div>
+                  <p class="font-brand font-bold text-base text-white leading-relaxed oracle-quote-text">"Rule your mind or it will rule you."</p>
+                  <span class="text-xs text-purple-200 font-semibold mt-2 block oracle-author-text">— Horace</span>
+                </div>
+                <div class="flex items-center justify-center gap-2">
+                  <button type="button" class="text-xs bg-white/25 hover:bg-white hover:text-brandPurpleDeep text-white px-3.5 py-1 rounded-full font-semibold transition backdrop-blur-xs" onclick="event.stopPropagation(); downloadCustomOracle(this)">Download 1:1</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ARCHIVE SECTION (4 QUOTES PER PAGE, DIRECT JUMP BUTTONS, CLEAN ANCHOR SCROLL) -->
+    <section class="pb-24 relative" id="archiveQuotesSection">
+      <div class="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-12 reveal-on-scroll">
+          <span class="text-xs font-bold text-brandPurple uppercase tracking-widest block mb-1">Curated Thoughts</span>
+          <h2 class="font-brand font-bold text-2xl sm:text-3xl md:text-4xl text-textDark tracking-tight">
+            The Living Archive
+          </h2>
+          <p class="text-sm text-textMuted mt-1 font-medium">Browse reflective quotes loaded 4 at a time. Tap any number to jump directly to that page.</p>
+        </div>
+
+        <!-- Counter Indicator -->
+        <div class="flex items-center justify-between flex-wrap gap-3 mb-6 px-1">
+          <div class="flex items-center gap-2">
+            <span class="h-2 w-2 rounded-full bg-brandPurple"></span>
+            <span class="font-brand font-bold text-sm sm:text-base text-textDark">Library Stream</span>
+          </div>
+          <span id="showingCounter" class="text-xs text-brandPurple font-semibold bg-brandPurpleLight/60 px-3 py-1 rounded-full border border-footerBorder">
+            Showing Page 1
+          </span>
+        </div>
+
+        <!-- 4-Item Grid Display -->
+        <div id="quotesCardsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch scroll-mt-28"></div>
+
+        <!-- Pagination & Actions Wrapper -->
+        <div class="flex flex-col items-center justify-center gap-6 mt-12" id="paginationWrapper">
+          
+          <!-- Top Row of Actions: Load More & View Saved -->
+          <div class="flex flex-wrap items-center justify-center gap-4">
+            <button type="button" id="loadMoreBtn" class="inline-flex items-center gap-2 bg-brandPurple hover:bg-brandPurpleHover text-white font-bold px-7 py-3 rounded-full text-xs sm:text-sm shadow-sm hover-lift transition active:scale-95">
+              <i class="fa-solid fa-arrow-down text-xs"></i>
+              <span>Next 4 Quotes</span>
+            </button>
+            
+            <button type="button" id="bottomSavedBtn" class="inline-flex items-center gap-2 bg-white hover:bg-brandPurple hover:text-white text-brandPurple border border-footerBorder font-bold px-6 py-3 rounded-full text-xs sm:text-sm shadow-xs hover-lift transition active:scale-95">
+              <i class="fa-solid fa-star text-amber-500 text-xs"></i>
+              <span>Saved Quotes (<span id="bottomSavedCount">0</span>)</span>
+            </button>
+          </div>
+
+          <!-- Dynamic 5-6 Page Numbers Only with Seamless Scroll to Grid -->
+          <div class="flex items-center justify-center gap-2 flex-wrap max-w-full px-2" id="numericPagesContainer">
+            <!-- Dynamic 5-6 numeric jump buttons populated by JS -->
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 1:1 SQUARE EXPORT CONTAINER (DEEP PURPLISH THEME, OPENING TOP-RIGHT & CLOSING BOTTOM-LEFT QUOTATION MARKS) -->
+  <div id="squareExportWrapper" style="position: absolute; left: -9999px; top: -9999px; width: 1080px; height: 1080px; background: linear-gradient(135deg, #F5ECFF 0%, #EDE4FC 45%, #D8B4FE 100%); display: flex; flex-direction: column; justify-content: space-between; padding: 75px 85px; box-sizing: border-box; font-family: 'Poppins', sans-serif;">
+    
+    <!-- Top Row: Opening Quotation Mark on Top-Right Corner -->
+    <div style="display: flex; justify-content: flex-end; align-items: flex-start; width: 100%; height: 180px;">
+      <svg width="220" height="175" viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity: 0.9;">
+        <path d="M28 0C12.5 0 0 12.5 0 28C0 43.5 12.5 56 28 56C30 56 32 55.7 34 55C31.5 68 20 78 6 80L8 85C28 83 44 67 44 44V28C44 12.5 31.5 0 28 0ZM84 0C68.5 0 56 12.5 56 28C56 43.5 68.5 56 84 56C86 56 88 55.7 90 55C87.5 68 76 78 62 80L64 85C84 83 100 67 100 44V28C100 12.5 87.5 0 84 0Z" fill="#581C87" />
+      </svg>
+    </div>
+
+    <!-- Center Content: Quote text and author, larger text size -->
+    <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 40px;">
+      <p id="exportQuoteText" style="font-size: 64px; font-weight: 800; color: #190A2E; line-height: 1.35; margin: 0 0 32px 0; text-align: center; max-width: 900px; letter-spacing: -0.5px;">
+        “Rule your mind or it will rule you.”
+      </p>
+      <p id="exportAuthorText" style="font-size: 40px; font-weight: 700; color: #581C87; margin: 0; text-align: center;">
+        — Horace
+      </p>
+    </div>
+
+    <!-- Bottom Row: Closing Quotation Mark on Bottom-Left & Clean Date on Bottom-Right -->
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; width: 100%; height: 180px;">
+      <svg width="220" height="175" viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity: 0.9; transform: scale(-1, -1); transform-origin: center;">
+        <path d="M28 0C12.5 0 0 12.5 0 28C0 43.5 12.5 56 28 56C30 56 32 55.7 34 55C31.5 68 20 78 6 80L8 85C28 83 44 67 44 44V28C44 12.5 31.5 0 28 0ZM84 0C68.5 0 56 12.5 56 28C56 43.5 68.5 56 84 56C86 56 88 55.7 90 55C87.5 68 76 78 62 80L64 85C84 83 100 67 100 44V28C100 12.5 87.5 0 84 0Z" fill="#581C87" />
+      </svg>
+      <span id="exportDateText" style="font-size: 26px; font-weight: 600; color: #190A2E; padding-bottom: 8px;">
+        10 Sep 2026
+      </span>
+    </div>
+
+  </div>
+
+  <!-- TOAST FEEDBACK NOTIFICATION -->
+  <div id="toastPill" class="toast-pill fixed bottom-8 left-1/2 z-50 bg-[#190A2E] text-white text-xs font-semibold px-5 py-3 rounded-full shadow-2xl border border-white/20 flex items-center gap-2.5">
+    <i class="fa-solid fa-circle-check text-brandPurpleLight text-sm"></i>
+    <span id="toastMessage">Quote copied to clipboard!</span>
+  </div>
+
+  <!-- SOLID LIGHT PURPLE FOOTER (NO WHATSAPP CHANNEL INCLUDED) -->
+  <footer class="bg-[#F5ECFF] rounded-t-[40px] w-full pt-16 pb-10 border-t-[8px] border-white shadow-[0_-8px_15px_rgba(121,40,202,0.04)] reveal-on-scroll relative z-10 mt-auto">
+    <div class="max-w-[1300px] mx-auto px-6 sm:px-12">
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 pb-10 border-b border-footerBorder text-left">
+        
+        <!-- Column 1: Brand & Description -->
+        <div>
+          <div class="flex items-center gap-2.5 mb-3">
+            <img src="https://i.ibb.co/ks55RRy3/jk-final.png" alt="JK Official Logo" class="h-10 w-auto object-contain shrink-0 -translate-y-1">
+            <span class="font-brand font-bold text-[22px] tracking-tight text-black">JASMEET KAUR</span>
+          </div>
+          <p class="text-xs sm:text-sm text-textMuted leading-relaxed max-w-sm font-normal">
+            Empowering students and teenagers for self-improvement, building resilient daily habits, and creating a disciplined mindset.
+          </p>
+        </div>
+
+        <!-- Column 2: Quick Access -->
+        <div>
+          <h4 class="text-xs font-bold text-brandPurple uppercase tracking-widest mb-4">Quick Access</h4>
+          <ul class="flex flex-col gap-2.5 text-xs sm:text-sm font-medium text-textMuted">
+            <li><a href="index.html" class="hover:text-brandPurple hover:translate-x-1 inline-block transition">Home</a></li>
+            <li><a href="about.html" class="hover:text-brandPurple hover:translate-x-1 inline-block transition">About</a></li>
+            <li><a href="self-improvement.html" class="hover:text-brandPurple hover:translate-x-1 inline-block transition">Self Improvement</a></li>
+            <li><a href="videos.html" class="hover:text-brandPurple hover:translate-x-1 inline-block transition">Video</a></li>
+            <li><a href="quotes.html" class="text-brandPurple font-bold hover:translate-x-1 inline-block transition">Quotes</a></li>
+            <li><a href="contact.html" class="hover:text-brandPurple hover:translate-x-1 inline-block transition">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Official Channels & Business Inquiries -->
+        <div>
+          <h4 class="text-xs font-bold text-brandPurple uppercase tracking-widest mb-4">Official Channels</h4>
+          <div class="flex flex-col gap-3.5 text-xs sm:text-sm mb-6">
+            
+            <!-- New Channel -->
+            <a href="https://youtube.com/@jasmeetkaurr1" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 text-black hover:text-brandPurple transition group">
+              <i class="fa-brands fa-youtube text-red-600 text-lg shrink-0 group-hover:scale-110 transition-transform"></i>
+              <span class="font-semibold text-black text-[14px]">New Channel</span>
+            </a>
+
+            <!-- Previous Channel -->
+            <a href="https://youtube.com/@jasmeetmaann" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 text-black hover:text-brandPurple transition group">
+              <i class="fa-brands fa-youtube text-brandPurple text-lg shrink-0 group-hover:scale-110 transition-transform"></i>
+              <span class="font-semibold text-black text-[14px]">Previous Channel</span>
+            </a>
+
+          </div>
+
+          <!-- Business Inquiries -->
+          <div>
+            <h5 class="text-xs font-bold text-brandPurple uppercase tracking-widest mb-2">Business Inquiries</h5>
+            <a href="mailto:workwithjasmeetkaur@gmail.com" class="inline-flex items-center gap-2 text-sm sm:text-base font-semibold text-black hover:text-brandPurple transition lowercase break-all group">
+              <i class="fa-solid fa-envelope text-brandPurple text-sm shrink-0 group-hover:scale-110 transition-transform"></i>
+              <span>workwithjasmeetkaur@gmail.com</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer Bottom Copyright & Creator on New Line -->
+      <div class="pt-6 text-center text-xs text-textMuted font-medium flex flex-col items-center justify-center gap-1.5">
+        <div>© 2026 Jasmeet Kaur. All Rights Reserved.</div>
+        <div>Created by Gagan Nishad</div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- SMART IDLE-HIDE BACK TO TOP BUTTON -->
+  <button type="button" class="back-to-top-btn fixed bottom-5 right-5 z-40 bg-brandPurple hover:bg-brandPurpleHover text-white h-11 w-11 rounded-full shadow-[0_6px_20px_rgba(121,40,202,0.3)] flex items-center justify-center focus:outline-none active:scale-90" id="backToTopBtn" aria-label="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="12" y1="19" x2="12" y2="5"></line>
+      <polyline points="5 12 12 5 19 12"></polyline>
+    </svg>
+  </button>
+
+  <!-- JS ENGINE -->
+  <script>
+    /* Global toggle function for Oracle Cards */
+    function toggleFlip(cardEl) {
+      const inner = cardEl.querySelector('.flip-inner');
+      if (inner) {
+        inner.classList.toggle('is-flipped');
+      }
+    }
+
+    (function() {
+      "use strict";
+
+  /* --- MASTER PHILOSOPHICAL QUOTES POOL — HUGE UNIQUE LIST --- */
+  const masterQuotes = [
+        { quote: 'Rule your mind or it will rule you.', author: 'Horace' },
+        { quote: 'The unexamined life is not worth living.', author: 'Socrates' },
+        { quote: 'He who has a why to live can bear almost any how.', author: 'Friedrich Nietzsche' },
+        { quote: 'We suffer more often in imagination than in reality.', author: 'Seneca' },
+        { quote: 'No man is free who is not master of himself.', author: 'Epictetus' },
+        { quote: 'The happiness of your life depends upon the quality of your thoughts.', author: 'Marcus Aurelius' },
+        { quote: 'Man is condemned to be free.', author: 'Jean-Paul Sartre' },
+        { quote: 'Life must be understood backward. But it must be lived forward.', author: 'Søren Kierkegaard' },
+        { quote: 'The greatest wealth is to live content with little.', author: 'Plato' },
+        { quote: 'Knowing yourself is the beginning of all wisdom.', author: 'Aristotle' },
+        { quote: 'One cannot step twice into the same river.', author: 'Heraclitus' },
+        { quote: 'What we think, we become.', author: 'Buddha' },
+        { quote: 'Freedom is nothing but a chance to be better.', author: 'Albert Camus' },
+        { quote: 'The mind is everything. What you think you become.', author: 'Buddha' },
+        { quote: 'He who is contented is rich.', author: 'Lao Tzu' },
+        { quote: 'The only true wisdom is in knowing you know nothing.', author: 'Socrates' },
+        { quote: 'To be yourself in a world that is constantly trying to make you something else is the greatest accomplishment.', author: 'Ralph Waldo Emerson' },
+        { quote: 'We are what we repeatedly do.', author: 'Aristotle' },
+        { quote: 'The obstacle is the way.', author: 'Marcus Aurelius' },
+        { quote: 'Become who you are.', author: 'Friedrich Nietzsche' },
+        { quote: 'Difficulties strengthen the mind, as labor does the body.', author: 'Seneca' },
+        { quote: 'I think, therefore I am.', author: 'René Descartes' },
+        { quote: 'Self-conquest is the greatest of victories.', author: 'Plato' },
+        { quote: 'Hope is a waking dream.', author: 'Aristotle' },
+        { quote: 'Without work, all life goes rotten.', author: 'Albert Camus' },
+        { quote: 'There is nothing permanent except change.', author: 'Heraclitus' },
+        { quote: 'Doubt is the origin of wisdom.', author: 'René Descartes' },
+        { quote: 'He who conquers himself is the mightiest warrior.', author: 'Confucius' },
+        { quote: 'The weak can never forgive. Forgiveness is the attribute of the strong.', author: 'Mahatma Gandhi' },
+        { quote: 'We are our choices.', author: 'Jean-Paul Sartre' },
+        { quote: 'Knowing is not enough; we must apply. Willing is not enough; we must do.', author: 'Johann Wolfgang von Goethe' },
+        { quote: 'The only way to do great work is to love what you do.', author: 'Steve Jobs' },
+        { quote: 'Life is really simple, but we insist on making it complicated.', author: 'Confucius' },
+        { quote: 'In the middle of difficulty lies opportunity.', author: 'Albert Einstein' },
+        { quote: 'Imagination is more important than knowledge.', author: 'Albert Einstein' },
+        { quote: 'Try not to become a man of success, but rather try to become a man of value.', author: 'Albert Einstein' },
+        { quote: 'A person who never made a mistake never tried anything new.', author: 'Albert Einstein' },
+        { quote: 'Peace comes from within. Do not seek it without.', author: 'Buddha' },
+        { quote: 'You will not be punished for your anger; you will be punished by your anger.', author: 'Buddha' },
+        { quote: 'Health is the greatest gift, contentment the greatest wealth, faithfulness the best relationship.', author: 'Buddha' },
+        { quote: 'The root of suffering is attachment.', author: 'Buddha' },
+        { quote: 'What you think, you become. What you feel, you attract. What you imagine, you create.', author: 'Buddha' },
+        { quote: 'Arise, awake, and do not stop until the goal is reached.', author: 'Swami Vivekananda' },
+        { quote: 'Take risks in your life. If you win, you can lead; if you lose, you can guide.', author: 'Swami Vivekananda' },
+        { quote: 'Strength is life; weakness is death.', author: 'Swami Vivekananda' },
+        { quote: 'All power is within you; you can do anything and everything.', author: 'Swami Vivekananda' },
+        { quote: 'Talk to yourself at least once in a day. Otherwise, you may miss meeting an excellent person in this world.', author: 'Swami Vivekananda' },
+        { quote: 'You cannot believe in God until you believe in yourself.', author: 'Swami Vivekananda' },
+        { quote: 'A man is not poor if he has little, but if he craves much.', author: 'Mahatma Gandhi' },
+        { quote: 'The best way to find yourself is to lose yourself in the service of others.', author: 'Mahatma Gandhi' },
+        { quote: 'Be the change that you wish to see in the world.', author: 'Mahatma Gandhi' },
+        { quote: 'Live as if you were to die tomorrow. Learn as if you were to live forever.', author: 'Mahatma Gandhi' },
+        { quote: 'Happiness is when what you think, what you say, and what you do are in harmony.', author: 'Mahatma Gandhi' },
+        { quote: 'Strength does not come from physical capacity. It comes from an indomitable will.', author: 'Mahatma Gandhi' },
+        { quote: 'An eye for an eye only ends up making the whole world blind.', author: 'Mahatma Gandhi' },
+        { quote: 'My life is my message.', author: 'Mahatma Gandhi' },
+        { quote: 'Nothing will work unless you do.', author: 'Maya Angelou' },
+        { quote: 'You may encounter many defeats, but you must not be defeated.', author: 'Maya Angelou' },
+        { quote: 'Do the best you can until you know better. Then when you know better, do better.', author: 'Maya Angelou' },
+        { quote: 'It always seems impossible until it\'s done.', author: 'Nelson Mandela' },
+        { quote: 'Education is the most powerful weapon which you can use to change the world.', author: 'Nelson Mandela' },
+        { quote: 'I never lose. I either win or learn.', author: 'Nelson Mandela' },
+        { quote: 'A winner is a dreamer who never gives up.', author: 'Nelson Mandela' },
+        { quote: 'The future belongs to those who believe in the beauty of their dreams.', author: 'Eleanor Roosevelt' },
+        { quote: 'No one can make you feel inferior without your consent.', author: 'Eleanor Roosevelt' },
+        { quote: 'Do one thing every day that scares you.', author: 'Eleanor Roosevelt' },
+        { quote: 'The purpose of our lives is to be happy.', author: 'Dalai Lama' },
+        { quote: 'Be kind whenever possible. It is always possible.', author: 'Dalai Lama' },
+        { quote: 'Our prime purpose in this life is to help others.', author: 'Dalai Lama' },
+        { quote: 'If you think you are too small to make a difference, try sleeping with a mosquito.', author: 'Dalai Lama' },
+        { quote: 'Happiness is not something ready made. It comes from your own actions.', author: 'Dalai Lama' },
+        { quote: 'The journey of a thousand miles begins with one step.', author: 'Lao Tzu' },
+        { quote: 'When I let go of what I am, I become what I might be.', author: 'Lao Tzu' },
+        { quote: 'Mastering others is strength. Mastering yourself is true power.', author: 'Lao Tzu' },
+        { quote: 'Knowing others is intelligence; knowing yourself is true wisdom.', author: 'Lao Tzu' },
+        { quote: 'A journey of a thousand miles begins beneath one\'s feet.', author: 'Lao Tzu' },
+        { quote: 'If your compassion does not include yourself, it is incomplete.', author: 'Jack Kornfield' },
+        { quote: 'The mind is not a vessel to be filled, but a fire to be kindled.', author: 'Plutarch' },
+        { quote: 'Luck is what happens when preparation meets opportunity.', author: 'Seneca' },
+        { quote: 'Difficulties show what men are.', author: 'Epictetus' },
+        { quote: 'First say to yourself what you would be; and then do what you have to do.', author: 'Epictetus' },
+        { quote: 'It is not things that disturb us, but our judgments about things.', author: 'Epictetus' },
+        { quote: 'He who is brave is free.', author: 'Seneca' },
+        { quote: 'It is never too late to be what you might have been.', author: 'George Eliot' },
+        { quote: 'It is our choices that show what we truly are, far more than our abilities.', author: 'J. K. Rowling' },
+        { quote: 'Whether you think you can, or you think you can\'t—you’re right.', author: 'Henry Ford' },
+        { quote: 'The secret of getting ahead is getting started.', author: 'Mark Twain' },
+        { quote: 'Twenty years from now you will be more disappointed by the things you didn\'t do than by the ones you did.', author: 'Mark Twain' },
+        { quote: 'The greatest glory in living lies not in never falling, but in rising every time we fall.', author: 'Nelson Mandela' },
+        { quote: 'It does not matter how slowly you go as long as you do not stop.', author: 'Confucius' },
+        { quote: 'Everything has beauty, but not everyone sees it.', author: 'Confucius' },
+        { quote: 'Our greatest glory is not in never falling, but in rising every time we fall.', author: 'Confucius' },
+        { quote: 'He who asks a question is a fool for five minutes; he who does not ask remains a fool forever.', author: 'Confucius' },
+        { quote: 'The man who moves a mountain begins by carrying away small stones.', author: 'Confucius' },
+        { quote: 'Do not wait for opportunity. Create it.', author: 'George Bernard Shaw' },
+        { quote: 'Life isn\'t about finding yourself. Life is about creating yourself.', author: 'George Bernard Shaw' },
+        { quote: 'A life spent making mistakes is not only more honorable, but more useful than a life spent doing nothing.', author: 'George Bernard Shaw' },
+        { quote: 'We don\'t remember days; we remember moments.', author: 'Cesare Pavese' },
+        { quote: 'Act as if what you do makes a difference. It does.', author: 'William James' },
+        { quote: 'The greatest use of life is to spend it for something that outlasts life.', author: 'William James' },
+        { quote: 'Believe you can and you\'re halfway there.', author: 'Theodore Roosevelt' },
+        { quote: 'Do what you can, with what you have, where you are.', author: 'Theodore Roosevelt' },
+        { quote: 'Comparison is the thief of joy.', author: 'Theodore Roosevelt' },
+        { quote: 'Keep your eyes on the stars, and your feet on the ground.', author: 'Theodore Roosevelt' },
+        { quote: 'Success is not final, failure is not fatal: it is the courage to continue that counts.', author: 'Winston Churchill' },
+        { quote: 'If you\'re going through hell, keep going.', author: 'Winston Churchill' },
+        { quote: 'We make a living by what we get, but we make a life by what we give.', author: 'Winston Churchill' },
+        { quote: 'To improve is to change; to be perfect is to change often.', author: 'Winston Churchill' },
+        { quote: 'The future depends on what you do today.', author: 'Mahatma Gandhi' },
+        { quote: 'Where there is love there is life.', author: 'Mahatma Gandhi' },
+        { quote: 'In a gentle way, you can shake the world.', author: 'Mahatma Gandhi' },
+        { quote: 'Glory lies in the attempt to reach one\'s goal and not in reaching it.', author: 'Mahatma Gandhi' },
+        { quote: 'Earth provides enough to satisfy every man\'s needs, but not every man\'s greed.', author: 'Mahatma Gandhi' },
+        { quote: 'There is no path to peace. Peace is the path.', author: 'Mahatma Gandhi' },
+        { quote: 'Service which is rendered without joy helps neither the servant nor the served.', author: 'Mahatma Gandhi' },
+        { quote: 'A happy man is he who is content with what he has.', author: 'Mahatma Gandhi' },
+        { quote: 'The important thing is not to stop questioning.', author: 'Albert Einstein' },
+        { quote: 'Logic will get you from A to B. Imagination will take you everywhere.', author: 'Albert Einstein' },
+        { quote: 'Life is like riding a bicycle. To keep your balance, you must keep moving.', author: 'Albert Einstein' },
+        { quote: 'The value of achievement lies in the achieving.', author: 'Albert Einstein' },
+        { quote: 'Only a life lived for others is a life worthwhile.', author: 'Albert Einstein' },
+        { quote: 'Once you stop learning, you start dying.', author: 'Albert Einstein' },
+        { quote: 'Strive not to be a success, but rather to be of value.', author: 'Albert Einstein' },
+        { quote: 'The true sign of intelligence is not knowledge but imagination.', author: 'Albert Einstein' },
+        { quote: 'Any fool can know. The point is to understand.', author: 'Albert Einstein' },
+        { quote: 'A question that sometimes drives me hazy: am I or are the others crazy?', author: 'Albert Einstein' },
+        { quote: 'The important thing is not to stop questioning. Curiosity has its own reason for existing.', author: 'Albert Einstein' },
+        { quote: 'I have no special talent. I am only passionately curious.', author: 'Albert Einstein' },
+        { quote: 'Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning.', author: 'Albert Einstein' },
+        { quote: 'The only source of knowledge is experience.', author: 'Albert Einstein' },
+        { quote: 'We cannot solve our problems with the same thinking we used when we created them.', author: 'Albert Einstein' },
+        { quote: 'The measure of intelligence is the ability to change.', author: 'Albert Einstein' },
+        { quote: 'Peace cannot be kept by force; it can only be achieved by understanding.', author: 'Albert Einstein' },
+        { quote: 'Everything should be made as simple as possible, but not simpler.', author: 'Albert Einstein' },
+        { quote: 'The hardest thing in the world to understand is the income tax.', author: 'Albert Einstein' },
+        { quote: 'The greatest scientists are artists as well.', author: 'Albert Einstein' },
+        { quote: 'Education is what remains after one has forgotten what one has learned in school.', author: 'Albert Einstein' },
+        { quote: 'I never think of the future. It comes soon enough.', author: 'Albert Einstein' },
+        { quote: 'We are all very ignorant. What happens is that we do not all ignore the same things.', author: 'Albert Einstein' },
+        { quote: 'Only those who attempt the absurd can achieve the impossible.', author: 'Albert Einstein' },
+        { quote: 'The secret to creativity is knowing how to hide your sources.', author: 'Albert Einstein' },
+        { quote: 'Reality is merely an illusion, albeit a very persistent one.', author: 'Albert Einstein' },
+        { quote: 'A clever person solves a problem. A wise person avoids it.', author: 'Albert Einstein' },
+        { quote: 'The monotony and solitude of a quiet life stimulates the creative mind.', author: 'Albert Einstein' },
+        { quote: 'The value of a college education is not the learning of many facts but the training of the mind to think.', author: 'Albert Einstein' },
+        { quote: 'Nothing is more important than empathy for another human being\'s suffering.', author: 'Dalai Lama' },
+        { quote: 'If you want others to be happy, practice compassion. If you want to be happy, practice compassion.', author: 'Dalai Lama' },
+        { quote: 'The way to change others\' minds is with affection, and not anger.', author: 'Dalai Lama' },
+        { quote: 'Remember that sometimes not getting what you want is a wonderful stroke of luck.', author: 'Dalai Lama' },
+        { quote: 'Sleep is the best meditation.', author: 'Dalai Lama' },
+        { quote: 'Silence is sometimes the best answer.', author: 'Dalai Lama' },
+        { quote: 'Choose to be optimistic. It feels better.', author: 'Dalai Lama' },
+        { quote: 'The goal is not to be better than the other man, but your previous self.', author: 'Dalai Lama' },
+        { quote: 'If you can, help others; if you cannot do that, at least do not harm them.', author: 'Dalai Lama' },
+        { quote: 'Open your arms to change, but don\'t let go of your values.', author: 'Dalai Lama' },
+        { quote: 'The more you are motivated by love, the more fearless and free your action will be.', author: 'Dalai Lama' },
+        { quote: 'Our ancient experience confirms at every point that everything is linked together, everything is inseparable.', author: 'Dalai Lama' },
+        { quote: 'The true hero is one who conquers his own anger and hatred.', author: 'Dalai Lama' },
+        { quote: 'Judge your success by what you had to give up in order to get it.', author: 'Dalai Lama' },
+        { quote: 'Three things cannot be long hidden: the sun, the moon, and the truth.', author: 'Buddha' },
+        { quote: 'Holding onto anger is like drinking poison and expecting the other person to die.', author: 'Buddha' },
+        { quote: 'The trouble is, you think you have time.', author: 'Buddha' },
+        { quote: 'You yourself, as much as anybody in the entire universe, deserve your love and affection.', author: 'Buddha' },
+        { quote: 'No one saves us but ourselves. No one can and no one may. We ourselves must walk the path.', author: 'Buddha' },
+        { quote: 'The only real failure in life is not to be true to the best one knows.', author: 'Buddha' },
+        { quote: 'Better than a thousand hollow words is one word that brings peace.', author: 'Buddha' },
+        { quote: 'Hatred does not cease by hatred, but only by love; this is the eternal rule.', author: 'Buddha' },
+        { quote: 'An idea that is developed and put into action is more important than an idea that exists only as an idea.', author: 'Buddha' },
+        { quote: 'If we could see the miracle of a single flower clearly, our whole life would change.', author: 'Buddha' },
+        { quote: 'Every morning we are born again. What we do today is what matters most.', author: 'Buddha' },
+        { quote: 'The secret of health for both mind and body is not to mourn for the past.', author: 'Buddha' },
+        { quote: 'You cannot travel the path until you have become the path itself.', author: 'Buddha' },
+        { quote: 'If you find no one to support you on the spiritual path, walk alone.', author: 'Buddha' },
+        { quote: 'Vibrations of thoughts are the things which constitute the universe.', author: 'Swami Vivekananda' },
+        { quote: 'The world is the great gymnasium where we come to make ourselves strong.', author: 'Swami Vivekananda' },
+        { quote: 'Be not in despair, the way is very difficult, like walking on the edge of a razor.', author: 'Swami Vivekananda' },
+        { quote: 'The greatest religion is to be true to your own nature. Have faith in yourselves.', author: 'Swami Vivekananda' },
+        { quote: 'They alone live who live for others.', author: 'Swami Vivekananda' },
+        { quote: 'Comfort is no test of truth. Truth is often far from being comfortable.', author: 'Swami Vivekananda' },
+        { quote: 'The very reason for nature\'s existence is for the education of the soul.', author: 'Swami Vivekananda' },
+        { quote: 'The fire that warms us can also consume us; it is not the fault of the fire.', author: 'Swami Vivekananda' },
+        { quote: 'The secret of religion lies not in theories but in practice.', author: 'Swami Vivekananda' },
+        { quote: 'In a conflict between the heart and the brain, follow your heart.', author: 'Swami Vivekananda' },
+        { quote: 'Do not be afraid of anything. You will do marvelous work.', author: 'Swami Vivekananda' },
+        { quote: 'Stand up, be bold, be strong. Take the whole responsibility on your own shoulders.', author: 'Swami Vivekananda' },
+        { quote: 'Condemn none: if you can stretch out a helping hand, do so.', author: 'Swami Vivekananda' },
+        { quote: 'We are what our thoughts have made us; so take care about what you think.', author: 'Swami Vivekananda' },
+        { quote: 'The great secret of true success is to work without attachment.', author: 'Swami Vivekananda' },
+        { quote: 'The secret of life is to have no fear. Never fear what is going to become of you.', author: 'Swami Vivekananda' },
+        { quote: 'All differences in this world are of degree, and not of kind, because oneness is the secret of everything.', author: 'Swami Vivekananda' },
+        { quote: 'Strength, strength it is that we want so much in this life, for what we call sin and sorrow have all one cause, and that is our weakness.', author: 'Swami Vivekananda' },
+        { quote: 'Purity, patience, and perseverance are the three essentials to success.', author: 'Swami Vivekananda' },
+        { quote: 'The great secret of true success is to work without attachment to results.', author: 'Swami Vivekananda' },
+        { quote: 'The best work is that which is done without expectation of reward.', author: 'Swami Vivekananda' },
+        { quote: 'The mind is but the subtle part of the body.', author: 'Swami Vivekananda' },
+        { quote: 'Truth can be stated in a thousand different ways, yet each one can be true.', author: 'Swami Vivekananda' },
+        { quote: 'Do not seek for success. Seek for perfection.', author: 'Swami Vivekananda' },
+        { quote: 'Each soul is potentially divine.', author: 'Swami Vivekananda' },
+        { quote: 'The goal of mankind is knowledge.', author: 'Swami Vivekananda' },
+        { quote: 'Work is worship.', author: 'Swami Vivekananda' },
+        { quote: 'In the history of mankind there has never been a great reform without some fanaticism.', author: 'Swami Vivekananda' },
+        { quote: 'Whatever you think, that you will be.', author: 'Swami Vivekananda' },
+        { quote: 'You have to grow from the inside out.', author: 'Swami Vivekananda' },
+        { quote: 'Arise, awake, and stop not till the goal is reached.', author: 'Swami Vivekananda' },
+        { quote: 'Truth alone triumphs.', author: 'Mahatma Gandhi' },
+        { quote: 'A nation\'s culture resides in the hearts and in the soul of its people.', author: 'Mahatma Gandhi' },
+        { quote: 'Faith is not something to grasp, it is a state to grow into.', author: 'Mahatma Gandhi' },
+        { quote: 'There is more to life than increasing its speed.', author: 'Mahatma Gandhi' },
+        { quote: 'Man becomes great exactly in the degree in which he works for the welfare of his fellow-men.', author: 'Mahatma Gandhi' },
+        { quote: 'A coward is incapable of exhibiting love; it is the prerogative of the brave.', author: 'Mahatma Gandhi' },
+        { quote: 'The difference between what we do and what we are capable of doing would suffice to solve most of the world\'s problem.', author: 'Mahatma Gandhi' },
+        { quote: 'You must be the change you want to see in the world.', author: 'Mahatma Gandhi' },
+        { quote: 'Earth has enough for everyone\'s need, but not enough for everyone\'s greed.', author: 'Mahatma Gandhi' },
+        { quote: 'A man is but the product of his thoughts. What he thinks, he becomes.', author: 'Mahatma Gandhi' },
+        { quote: 'Live simply so that others may simply live.', author: 'Mahatma Gandhi' },
+        { quote: 'Action expresses priorities.', author: 'Mahatma Gandhi' },
+        { quote: 'Prayer is the key of the morning and the bolt of the evening.', author: 'Mahatma Gandhi' },
+        { quote: 'The difference between a leader and a follower is about three feet.', author: 'Mahatma Gandhi' },
+        { quote: 'The future depends on what you do in the present.', author: 'Mahatma Gandhi' },
+        { quote: 'You must not lose faith in humanity. Humanity is an ocean; if a few drops are dirty, the ocean does not become dirty.', author: 'Mahatma Gandhi' },
+        { quote: 'There is no \'way to peace,\' peace is the way.', author: 'Mahatma Gandhi' },
+        { quote: 'Nonviolence is a weapon of the strong.', author: 'Mahatma Gandhi' },
+        { quote: 'Freedom is not worth having if it does not include the freedom to make mistakes.', author: 'Mahatma Gandhi' },
+        { quote: 'A man who was completely innocent, offered himself as a sacrifice for the good of others.', author: 'Mahatma Gandhi' },
+        { quote: 'The good man is the friend of all living things.', author: 'Mahatma Gandhi' },
+        { quote: 'An ounce of practice is worth more than tons of preaching.', author: 'Mahatma Gandhi' },
+        { quote: 'If patience is worth anything, it must endure to the end of time.', author: 'Mahatma Gandhi' },
+        { quote: 'There is a sufficiency in the world for man\'s need but not for man\'s greed.', author: 'Mahatma Gandhi' },
+        { quote: 'My religion is based on truth and non-violence. Truth is my God. Non-violence is the means of realizing Him.', author: 'Mahatma Gandhi' },
+        { quote: 'In matters of conscience, the law of majority has no place.', author: 'Mahatma Gandhi' },
+        { quote: 'A disciplined mind brings happiness.', author: 'Buddha' },
+        { quote: 'To understand everything is to forgive everything.', author: 'Buddha' },
+        { quote: 'All wrong-doing arises because of mind.', author: 'Buddha' },
+        { quote: 'Those who consider the unessential to be essential and see the essential as unessential reach not the essential.', author: 'Buddha' },
+        { quote: 'The foot feels the foot when it feels the ground.', author: 'Buddha' },
+        { quote: 'The past is already gone, the future is not yet here. There\'s only one moment for you to live.', author: 'Buddha' },
+        { quote: 'The only way to escape the suffering is to cease to desire.', author: 'Buddha' },
+        { quote: 'If you do not change direction, you may end up where you are heading.', author: 'Lao Tzu' },
+        { quote: 'A good traveler has no fixed plans and is not intent upon arriving.', author: 'Lao Tzu' },
+        { quote: 'He who knows that enough is enough will always have enough.', author: 'Lao Tzu' },
+        { quote: 'Silence is a source of great strength.', author: 'Lao Tzu' },
+        { quote: 'To attain knowledge, add things every day. To attain wisdom, remove things every day.', author: 'Lao Tzu' },
+        { quote: 'A man with outward courage dares to die; a man with inner courage dares to live.', author: 'Lao Tzu' },
+        { quote: 'When you are content to be simply yourself and don\'t compare or compete, everyone will respect you.', author: 'Lao Tzu' },
+        { quote: 'Nature does not hurry, yet everything is accomplished.', author: 'Lao Tzu' },
+        { quote: 'He who controls others may be powerful, but he who has mastered himself is mightier still.', author: 'Lao Tzu' },
+        { quote: 'The truth is rarely pure and never simple.', author: 'Oscar Wilde' },
+        { quote: 'Be yourself; everyone else is already taken.', author: 'Oscar Wilde' },
+        { quote: 'Experience is simply the name we give our mistakes.', author: 'Oscar Wilde' },
+        { quote: 'We are all in the gutter, but some of us are looking at the stars.', author: 'Oscar Wilde' },
+        { quote: 'To live is the rarest thing in the world. Most people exist, that is all.', author: 'Oscar Wilde' },
+        { quote: 'Always forgive your enemies; nothing annoys them so much.', author: 'Oscar Wilde' },
+        { quote: 'What seems to us as bitter trials are often blessings in disguise.', author: 'Oscar Wilde' },
+        { quote: 'Education is an admirable thing, but it is well to remember from time to time that nothing worth knowing can be taught.', author: 'Oscar Wilde' },
+        { quote: 'A dreamer is one who can only find his way by moonlight.', author: 'Oscar Wilde' },
+        { quote: 'The only person you are destined to become is the person you decide to be.', author: 'Ralph Waldo Emerson' },
+        { quote: 'What lies behind us and what lies before us are tiny matters compared to what lies within us.', author: 'Ralph Waldo Emerson' },
+        { quote: 'Nothing great was ever achieved without enthusiasm.', author: 'Ralph Waldo Emerson' },
+        { quote: 'For every minute you are angry you lose sixty seconds of happiness.', author: 'Ralph Waldo Emerson' },
+        { quote: 'Once you make a decision, the universe conspires to make it happen.', author: 'Ralph Waldo Emerson' },
+        { quote: 'Adopt the pace of nature: her secret is patience.', author: 'Ralph Waldo Emerson' },
+        { quote: 'The reward of a thing well done is having done it.', author: 'Ralph Waldo Emerson' },
+        { quote: 'The creation of a thousand forests is in one acorn.', author: 'Ralph Waldo Emerson' },
+        { quote: 'Write it on your heart that every day is the best day in the year.', author: 'Ralph Waldo Emerson' },
+        { quote: 'It is not length of life, but depth of life.', author: 'Ralph Waldo Emerson' },
+        { quote: 'A foolish consistency is the hobgoblin of little minds.', author: 'Ralph Waldo Emerson' },
+        { quote: 'Nothing can bring you peace but yourself.', author: 'Ralph Waldo Emerson' },
+        { quote: 'The purpose of life is not to be happy. It is to be useful.', author: 'Ralph Waldo Emerson' },
+        { quote: 'The privilege of a lifetime is to become who you truly are.', author: 'Carl Jung' },
+        { quote: 'Until you make the unconscious conscious, it will direct your life and you will call it fate.', author: 'Carl Jung' },
+        { quote: 'Your visions will become clear only when you can look into your own heart.', author: 'Carl Jung' },
+        { quote: 'Everything that irritates us about others can lead us to an understanding of ourselves.', author: 'Carl Jung' },
+        { quote: 'Knowing your own darkness is the best method for dealing with the darknesses of other people.', author: 'Carl Jung' },
+        { quote: 'Who looks outside, dreams; who looks inside, awakes.', author: 'Carl Jung' },
+        { quote: 'Loneliness does not come from having no people around you, but from being unable to communicate the things that seem important.', author: 'Carl Jung' },
+        { quote: 'The meeting of two personalities is like the contact of two chemical substances.', author: 'Carl Jung' },
+        { quote: 'I am not what happened to me, I am what I choose to become.', author: 'Carl Jung' },
+        { quote: 'Your perception will become clear only when you can look into your own heart.', author: 'Carl Jung' },
+        { quote: 'You are not here to prove yourself. You are here to discover yourself.', author: 'Original' },
+        { quote: 'True discipline begins when you stop waiting for perfect conditions; small choices eventually become a life.', author: 'Original' },
+        { quote: 'The direction of your attention shapes the direction of your life.', author: 'Original' },
+        { quote: 'What you practice quietly becomes what you can do confidently.', author: 'Original' },
+        { quote: 'A calm mind can see possibilities that fear cannot.', author: 'Original' },
+        { quote: 'Progress becomes sustainable when it is rooted in meaning.', author: 'Original' },
+        { quote: 'The person you become is built by what you repeat.', author: 'Original' },
+        { quote: 'Clarity often arrives after the first honest action.', author: 'Original' },
+        { quote: 'Your future is influenced by what you are willing to do today.', author: 'Original' },
+        { quote: 'Freedom grows when your choices are guided by values rather than impulses.', author: 'Original' },
+        { quote: 'A better life is usually built one deliberate decision at a time.', author: 'Original' },
+        { quote: 'Choose what matters over what is merely urgent.', author: 'Original' },
+        { quote: 'Act according to your values even when nobody is watching.', author: 'Original' },
+        { quote: 'Learn to separate what you can control from what you cannot.', author: 'Original' },
+        { quote: 'Measure progress by direction rather than speed.', author: 'Original' },
+        { quote: 'Turn repeated small actions into a way of life.', author: 'Original' },
+        { quote: 'Make peace with slow and honest progress.', author: 'Original' },
+        { quote: 'Question the story your fear is telling you.', author: 'Original' },
+        { quote: 'Give your attention to what deserves your life.', author: 'Original' },
+        { quote: 'Stop confusing discomfort with failure.', author: 'Original' },
+        { quote: 'Let experience teach you without letting it define you.', author: 'Original' },
+        { quote: 'Replace reaction with deliberate choice.', author: 'Original' },
+        { quote: 'Become willing to begin before you feel ready.', author: 'Original' },
+        { quote: 'Accept that growth often looks ordinary while it is happening.', author: 'Original' },
+        { quote: 'Stop asking for certainty and start building understanding.', author: 'Original' },
+        { quote: 'Protect your energy by choosing your commitments carefully.', author: 'Original' },
+        { quote: 'Learn to finish what you repeatedly start.', author: 'Original' },
+        { quote: 'Allow silence to reveal what noise has hidden.', author: 'Original' },
+        { quote: 'Treat every mistake as information rather than identity.', author: 'Original' },
+        { quote: 'Become responsible for the next step, not the entire journey.', author: 'Original' },
+        { quote: 'We are more often frightened than hurt; and we suffer more from imagination than from reality.', author: 'Seneca' },
+        { quote: 'Ignorance is the cause of fear.', author: 'Seneca' },
+        { quote: 'As long as you live, keep learning how to live.', author: 'Seneca' },
+        { quote: 'If a man knows not to which port he sails, no wind is favorable.', author: 'Seneca' },
+        { quote: 'Only time can heal what reason cannot.', author: 'Seneca' }
+  ];
+
+
+      /* Use the exact unique array without artificial padding */
+      const quotesArchivePool = [...masterQuotes]; 
+      const totalQuotesCount = quotesArchivePool.length;
+
+      /* --- 2. FORMAT DATE (e.g. 10 Sep 2026) --- */
+      const today = new Date();
+      const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      const formattedDate = `${today.getDate()} ${months[today.getMonth()]} ${today.getFullYear()}`;
+
+      const dateBadge = document.getElementById('currentDateBadge');
+      const exportDateText = document.getElementById('exportDateText');
+      if (dateBadge) dateBadge.innerText = formattedDate;
+      if (exportDateText) exportDateText.innerText = formattedDate;
+
+      /* --- 3. SPOTLIGHT QUOTES OF THE MOMENT --- */
+      const dailyQuoteText = document.getElementById('dailyQuoteText');
+      const dailyQuoteAuthor = document.getElementById('dailyQuoteAuthor');
+      const shuffleBtn = document.getElementById('shuffleBtn');
+      const copyDailyBtn = document.getElementById('copyDailyBtn');
+      const copyDailyText = document.getElementById('copyDailyText');
+      const starSpotlightBtn = document.getElementById('starSpotlightBtn');
+      const starSpotlightIcon = document.getElementById('starSpotlightIcon');
+      const exportQuoteText = document.getElementById('exportQuoteText');
+      const exportAuthorText = document.getElementById('exportAuthorText');
+      let currentSpotlightIndex = 0;
+
+      function getSavedQuotes() {
+        return JSON.parse(localStorage.getItem('saved_quotes_jk') || '[]');
+      }
+
+      function isQuoteSaved(quoteText) {
+        const saved = getSavedQuotes();
+        return saved.some(item => item.quote === quoteText);
+      }
+
+      function updateSpotlightStarState() {
+        const item = masterQuotes[currentSpotlightIndex % masterQuotes.length];
+        if (isQuoteSaved(item.quote)) {
+          starSpotlightIcon.className = "fa-solid fa-star text-amber-500";
+        } else {
+          starSpotlightIcon.className = "fa-regular fa-star";
+        }
+      }
+
+      function updateSpotlight(index) {
+        currentSpotlightIndex = index;
+        const item = masterQuotes[index % masterQuotes.length];
+
+        if (dailyQuoteText && dailyQuoteAuthor) {
+          dailyQuoteText.style.opacity = '0';
+          setTimeout(() => {
+            dailyQuoteText.innerText = `“${item.quote}”`;
+            dailyQuoteAuthor.innerText = `— ${item.author}`;
+            dailyQuoteText.style.opacity = '1';
+          }, 180);
+        }
+
+        if (exportQuoteText && exportAuthorText) {
+          exportQuoteText.innerText = `“${item.quote}”`;
+          exportAuthorText.innerText = `— ${item.author}`;
+        }
+
+        updateSpotlightStarState();
+      }
+
+      function pickRandomSpotlight(forceNext = false) {
+        let nextIndex;
+        if (forceNext) {
+          nextIndex = (currentSpotlightIndex + 1) % masterQuotes.length;
+        } else {
+          nextIndex = Math.floor(Math.random() * masterQuotes.length);
+        }
+        updateSpotlight(nextIndex);
+      }
+
+      pickRandomSpotlight();
+
+      if (shuffleBtn) {
+        shuffleBtn.addEventListener('click', () => {
+          pickRandomSpotlight(true);
+        });
+      }
+
+      /* --- 4. TOAST NOTIFICATION --- */
+      const toastPill = document.getElementById('toastPill');
+      const toastMessage = document.getElementById('toastMessage');
+      let toastTimer = null;
+
+      function showToast(msg = 'Quote copied to clipboard!') {
+        if (!toastPill) return;
+        toastMessage.innerText = msg;
+        toastPill.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => {
+          toastPill.classList.remove('show');
+        }, 2200);
+      }
+
+      if (copyDailyBtn) {
+        copyDailyBtn.addEventListener('click', async () => {
+          const item = masterQuotes[currentSpotlightIndex % masterQuotes.length];
+          const text = `“${item.quote}” — ${item.author}`;
+          try {
+            await navigator.clipboard.writeText(text);
+            copyDailyText.innerText = 'Copied!';
+            showToast('Quote copied to clipboard!');
+            setTimeout(() => { copyDailyText.innerText = 'Copy'; }, 2000);
+          } catch (e) {
+            console.error(e);
+          }
+        });
+      }
+
+      /* --- 5. FAVORITES SYSTEM (STORED IN DEVICE ONLY) --- */
+      const bottomSavedBtn = document.getElementById('bottomSavedBtn');
+      const bottomSavedCount = document.getElementById('bottomSavedCount');
+      const closeFavBtn = document.getElementById('closeFavBtn');
+      const favBackdrop = document.getElementById('favBackdrop');
+      const favListContainer = document.getElementById('favListContainer');
+      const favCountFooter = document.getElementById('favCountFooter');
+      const clearAllFavBtn = document.getElementById('clearAllFavBtn');
+
+      function updateFavCountBadges() {
+        const count = getSavedQuotes().length;
+        if (bottomSavedCount) bottomSavedCount.innerText = count;
+        if (favCountFooter) favCountFooter.innerText = `${count} Quotes Saved`;
+      }
+
+      function toggleSaveQuote(quote, author) {
+        let saved = getSavedQuotes();
+        const index = saved.findIndex(item => item.quote === quote);
+        if (index > -1) {
+          saved.splice(index, 1);
+          showToast('Removed from saved quotes');
+        } else {
+          saved.unshift({ quote, author, date: formattedDate });
+          showToast('Saved to your favorites ⭐');
+        }
+        localStorage.setItem('saved_quotes_jk', JSON.stringify(saved));
+        updateFavCountBadges();
+        renderFavoritesList();
+        updateSpotlightStarState();
+        renderQuotesArchive();
+      }
+
+      function renderFavoritesList() {
+        if (!favListContainer) return;
+        const saved = getSavedQuotes();
+        favListContainer.innerHTML = '';
+
+        if (saved.length === 0) {
+          favListContainer.innerHTML = `
+            <div class="h-full flex flex-col items-center justify-center text-center p-8 text-textMuted">
+              <i class="fa-regular fa-star text-4xl text-brandPurpleLight mb-3"></i>
+              <p class="font-bold text-base text-textDark">No saved quotes yet</p>
+              <p class="text-xs mt-1">Tap the star icon next to any quote to save it here.</p>
+            </div>
+          `;
+          return;
+        }
+
+        saved.forEach((item, i) => {
+          const el = document.createElement('div');
+          el.className = 'p-4 rounded-2xl bg-[#FAF5FF] border border-footerBorder flex flex-col justify-between gap-3';
+          el.innerHTML = `
+            <p class="font-brand font-medium text-sm text-textDark">“${item.quote}”</p>
+            <div class="flex items-center justify-between pt-2 border-t border-footerBorder/60 text-xs">
+              <span class="font-bold text-brandPurple">— ${item.author}</span>
+              <div class="flex items-center gap-2">
+                <button type="button" class="text-textMuted hover:text-brandPurple transition" onclick="quickDownloadQuote('${item.quote.replace(/'/g, "\\'")}', '${item.author.replace(/'/g, "\\'")}')" title="Download 1:1">
+                  <i class="fa-solid fa-download text-xs"></i>
+                </button>
+                <button type="button" class="text-textMuted hover:text-red-500 transition" onclick="removeFavoriteByIndex(${i})" title="Remove">
+                  <i class="fa-solid fa-trash text-xs"></i>
+                </button>
+              </div>
+            </div>
+          `;
+          favListContainer.appendChild(el);
+        });
+      }
+
+      window.removeFavoriteByIndex = function(idx) {
+        let saved = getSavedQuotes();
+        saved.splice(idx, 1);
+        localStorage.setItem('saved_quotes_jk', JSON.stringify(saved));
+        updateFavCountBadges();
+        renderFavoritesList();
+        updateSpotlightStarState();
+        renderQuotesArchive();
+        showToast('Quote removed');
+      };
+
+      if (bottomSavedBtn) {
+        bottomSavedBtn.addEventListener('click', () => {
+          document.body.classList.add('fav-open');
+          renderFavoritesList();
+        });
+      }
+
+      if (closeFavBtn) {
+        closeFavBtn.addEventListener('click', () => {
+          document.body.classList.remove('fav-open');
+        });
+      }
+
+      if (favBackdrop) {
+        favBackdrop.addEventListener('click', () => {
+          document.body.classList.remove('fav-open');
+        });
+      }
+
+      if (clearAllFavBtn) {
+        clearAllFavBtn.addEventListener('click', () => {
+          if (confirm('Clear all saved quotes from this device?')) {
+            localStorage.removeItem('saved_quotes_jk');
+            updateFavCountBadges();
+            renderFavoritesList();
+            updateSpotlightStarState();
+            renderQuotesArchive();
+            showToast('All saved quotes cleared');
+          }
+        });
+      }
+
+      if (starSpotlightBtn) {
+        starSpotlightBtn.addEventListener('click', () => {
+          const item = masterQuotes[currentSpotlightIndex % masterQuotes.length];
+          toggleSaveQuote(item.quote, item.author);
+        });
+      }
+
+      updateFavCountBadges();
+
+      /* --- 6. 1:1 SQUARE IMAGE RENDERER --- */
+      async function render1x1SquareCanvas(quoteText, authorName) {
+        const q = quoteText || masterQuotes[currentSpotlightIndex % masterQuotes.length].quote;
+        const a = authorName || masterQuotes[currentSpotlightIndex % masterQuotes.length].author;
+
+        if (exportQuoteText) exportQuoteText.innerText = `“${q}”`;
+        if (exportAuthorText) exportAuthorText.innerText = `— ${a}`;
+        if (exportDateText) exportDateText.innerText = formattedDate;
+
+        const wrapper = document.getElementById('squareExportWrapper');
+        return await html2canvas(wrapper, {
+          width: 1080,
+          height: 1080,
+          scale: 1,
+          backgroundColor: '#FAF5FF',
+          useCORS: true
+        });
+      }
+
+      window.quickDownloadQuote = async function(quoteText, authorName) {
+        showToast('Rendering 1:1 image...');
+        try {
+          const canvas = await render1x1SquareCanvas(quoteText, authorName);
+          const imageURL = canvas.toDataURL('image/png');
+          const downloadLink = document.createElement('a');
+          downloadLink.download = `quote-1x1-${formattedDate.replace(/\s+/g, '-')}.png`;
+          downloadLink.href = imageURL;
+          downloadLink.click();
+          showToast('1:1 image downloaded!');
+        } catch (err) {
+          console.error(err);
+          showToast('Failed to download image.');
+        }
+      };
+
+      const downloadImgBtn = document.getElementById('downloadImgBtn');
+      if (downloadImgBtn) {
+        downloadImgBtn.addEventListener('click', () => {
+          const item = masterQuotes[currentSpotlightIndex % masterQuotes.length];
+          quickDownloadQuote(item.quote, item.author);
+        });
+      }
+
+      const shareBtn = document.getElementById('shareBtn');
+      if (shareBtn) {
+        shareBtn.addEventListener('click', async () => {
+          showToast('Preparing 1:1 image for share...');
+          try {
+            const canvas = await render1x1SquareCanvas();
+            canvas.toBlob(async (blob) => {
+              if (!blob) {
+                showToast('Failed to generate image file.');
+                return;
+              }
+              const file = new File([blob], `quote-1x1-${formattedDate.replace(/\s+/g, '-')}.png`, { type: 'image/png' });
+              const item = masterQuotes[currentSpotlightIndex % masterQuotes.length];
+              const shareText = `“${item.quote}” — ${item.author} (${formattedDate})`;
+
+              if (navigator.canShare && navigator.canShare({ files: [file] })) {
+                try {
+                  await navigator.share({
+                    files: [file],
+                    title: 'Quote of the Moment',
+                    text: shareText
+                  });
+                } catch (err) {
+                  console.log('Share dismissed');
+                }
+              } else if (navigator.share) {
+                try {
+                  await navigator.share({
+                    title: 'Quote of the Moment',
+                    text: `${shareText}\n${window.location.href}`
+                  });
+                } catch (err) {
+                  console.log('Share dismissed');
+                }
+              } else {
+                await navigator.clipboard.writeText(`${shareText}\n${window.location.href}`);
+                showToast('Quote link copied to clipboard!');
+              }
+            }, 'image/png');
+          } catch (err) {
+            console.error(err);
+            showToast('Sharing not supported on this browser.');
+          }
+        });
+      }
+
+      /* --- 7. FLIP CARD ACTION: RANDOMIZED QUOTES EVERY FLIP --- */
+      window.flipOracleCard = function(cardEl, cardType) {
+        const inner = cardEl.querySelector('.flip-inner');
+        if (!inner) return;
+
+        const isCurrentlyFlipped = inner.classList.contains('is-flipped');
+        
+        // Pick new randomized quote every single time flipped
+        if (!isCurrentlyFlipped) {
+          const randomIdx = Math.floor(Math.random() * masterQuotes.length);
+          const chosen = masterQuotes[randomIdx];
+          
+          const qText = cardEl.querySelector('.oracle-quote-text');
+          const aText = cardEl.querySelector('.oracle-author-text');
+          if (qText && aText) {
+            qText.innerText = `“${chosen.quote}”`;
+            aText.innerText = `— ${chosen.author}`;
+          }
+        }
+        
+        inner.classList.toggle('is-flipped');
+      };
+
+      window.downloadCustomOracle = function(btnEl) {
+        const cardBack = btnEl.closest('.flip-back');
+        if (!cardBack) return;
+        const q = cardBack.querySelector('.oracle-quote-text').innerText.replace(/[“”"]/g, '');
+        const a = cardBack.querySelector('.oracle-author-text').innerText.replace(/^—\s*/, '');
+        quickDownloadQuote(q, a);
+      };
+
+      /* --- 8. ARCHIVE SECTION WITH 4 QUOTES PER PAGE & NUMERIC NAVIGATION --- */
+      const quotesCardsGrid = document.getElementById('quotesCardsGrid');
+      const loadMoreBtn = document.getElementById('loadMoreBtn');
+      const showingCounter = document.getElementById('showingCounter');
+      const numericPagesContainer = document.getElementById('numericPagesContainer');
+
+      const pageSize = 4; 
+      let currentPage = 1;
+      const totalPages = Math.ceil(quotesArchivePool.length / pageSize);
+
+      function goToPage(page) {
+        if (page < 1 || page > totalPages) return;
+        currentPage = page;
+        renderQuotesArchive();
+        renderPaginationButtons();
+
+        // Smoothly scroll user to where the quotes begin
+        const archiveSection = document.getElementById('archiveQuotesSection');
+        if (archiveSection) {
+          archiveSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+
+      function renderPaginationButtons() {
+        if (!numericPagesContainer) return;
+        numericPagesContainer.innerHTML = '';
+
+        const maxPagesToShow = 5;
+        let startPage = Math.max(1, currentPage - Math.floor(maxPagesToShow / 2));
+        let endPage = Math.min(totalPages, startPage + maxPagesToShow - 1);
+
+        if (endPage - startPage + 1 < maxPagesToShow) {
+          startPage = Math.max(1, endPage - maxPagesToShow + 1);
+        }
+
+        // Previous Page Arrow
+        if (currentPage > 1) {
+          const prevBtn = document.createElement('button');
+          prevBtn.type = 'button';
+          prevBtn.className = 'h-9 px-3.5 rounded-full text-xs font-bold border border-footerBorder bg-white text-textDark hover:bg-[#FAF5FF] active:scale-95 transition shadow-xs flex items-center gap-1';
+          prevBtn.innerHTML = '<i class="fa-solid fa-chevron-left text-[10px]"></i>';
+          prevBtn.title = "Previous Page";
+          prevBtn.addEventListener('click', () => goToPage(currentPage - 1));
+          numericPagesContainer.appendChild(prevBtn);
+        }
+
+        // Exactly 5 to 6 Page Jump Buttons
+        for (let p = startPage; p <= endPage; p++) {
+          const pageBtn = document.createElement('button');
+          pageBtn.type = 'button';
+          const isCurrent = p === currentPage;
+          pageBtn.className = `h-9 min-w-[38px] px-2.5 rounded-full text-xs font-bold transition active:scale-95 shadow-xs ${
+            isCurrent
+              ? 'bg-brandPurple text-white shadow-sm'
+              : 'border border-footerBorder bg-white text-textDark hover:bg-[#FAF5FF]'
+          }`;
+          pageBtn.innerText = p;
+          pageBtn.addEventListener('click', () => goToPage(p));
+          numericPagesContainer.appendChild(pageBtn);
+        }
+
+        // Next Page Arrow
+        if (currentPage < totalPages) {
+          const nextBtn = document.createElement('button');
+          nextBtn.type = 'button';
+          nextBtn.className = 'h-9 px-3.5 rounded-full text-xs font-bold border border-footerBorder bg-white text-textDark hover:bg-[#FAF5FF] active:scale-95 transition shadow-xs flex items-center gap-1';
+          nextBtn.innerHTML = '<i class="fa-solid fa-chevron-right text-[10px]"></i>';
+          nextBtn.title = "Next Page";
+          nextBtn.addEventListener('click', () => goToPage(currentPage + 1));
+          numericPagesContainer.appendChild(nextBtn);
+        }
+      }
+
+      function renderQuotesArchive() {
+        if (!quotesCardsGrid) return;
+        quotesCardsGrid.innerHTML = '';
+
+        const startIndex = (currentPage - 1) * pageSize;
+        const currentSlice = quotesArchivePool.slice(startIndex, startIndex + pageSize);
+
+        currentSlice.forEach((item, idx) => {
+          const quoteIndex = startIndex + idx + 1;
+          const card = document.createElement('div');
+          card.className = 'quote-card bg-white p-6 sm:p-7 rounded-[26px] border border-footerBorder shadow-sm hover-lift flex flex-col justify-between relative group';
+          
+          const isSaved = isQuoteSaved(item.quote);
+          const starClass = isSaved ? 'fa-solid fa-star text-amber-500' : 'fa-regular fa-star text-textMuted hover:text-amber-500';
+
+          card.innerHTML = `
+            <div class="mb-5">
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-xs font-semibold text-brandPurple bg-[#FAF5FF] px-2.5 py-0.5 rounded-full border border-footerBorder">
+                  #${quoteIndex}
+                </span>
+                
+                <!-- Actions: Star Favorite, Download 1:1, Copy -->
+                <div class="flex items-center gap-2">
+                  <button type="button" class="card-star-btn p-1.5 rounded-lg transition active:scale-90" data-quote="${item.quote.replace(/"/g, '&quot;')}" data-author="${item.author.replace(/"/g, '&quot;')}" title="Save Favorite">
+                    <i class="${starClass} text-xs"></i>
+                  </button>
+                  <button type="button" class="card-dl-btn text-textMuted hover:text-brandPurple transition p-1.5 rounded-lg active:scale-90" data-quote="${item.quote.replace(/"/g, '&quot;')}" data-author="${item.author.replace(/"/g, '&quot;')}" title="Download Image">
+                    <i class="fa-solid fa-download text-xs"></i>
+                  </button>
+                  <button type="button" class="card-copy-btn text-textMuted hover:text-brandPurple transition p-1.5 rounded-lg active:scale-90" data-quote="“${item.quote}” — ${item.author}" title="Copy Quote">
+                    <i class="fa-regular fa-copy text-xs"></i>
+                  </button>
+                </div>
+              </div>
+              <p class="font-brand font-semibold text-base sm:text-lg text-textDark leading-relaxed">
+                “${item.quote}”
+              </p>
+            </div>
+            <div class="pt-3.5 border-t border-footerBorder/60 flex items-center justify-between text-xs text-textMuted font-medium">
+              <span class="font-bold text-brandPurple">— ${item.author}</span>
+              <span>Wisdom</span>
+            </div>
+          `;
+          quotesCardsGrid.appendChild(card);
+        });
+
+        if (showingCounter) {
+          showingCounter.innerText = `Showing Page ${currentPage}`;
+        }
+      }
+
+      if (loadMoreBtn) {
+        loadMoreBtn.addEventListener('click', () => {
+          if (currentPage < totalPages) {
+            goToPage(currentPage + 1);
+          }
+        });
+      }
+
+      // Delegate card action clicks
+      if (quotesCardsGrid) {
+        quotesCardsGrid.addEventListener('click', async (e) => {
+          // Copy
+          const copyBtn = e.target.closest('.card-copy-btn');
+          if (copyBtn) {
+            const quote = copyBtn.getAttribute('data-quote');
+            if (quote) {
+              await navigator.clipboard.writeText(quote);
+              const icon = copyBtn.querySelector('i');
+              if (icon) {
+                icon.className = 'fa-solid fa-check text-brandPurple text-xs';
+                setTimeout(() => { icon.className = 'fa-regular fa-copy text-xs'; }, 1800);
+              }
+              showToast('Quote copied to clipboard!');
+            }
+            return;
+          }
+
+          // Download 1:1
+          const dlBtn = e.target.closest('.card-dl-btn');
+          if (dlBtn) {
+            const quote = dlBtn.getAttribute('data-quote');
+            const author = dlBtn.getAttribute('data-author');
+            if (quote && author) {
+              quickDownloadQuote(quote, author);
+            }
+            return;
+          }
+
+          // Star / Favorite
+          const starBtn = e.target.closest('.card-star-btn');
+          if (starBtn) {
+            const quote = starBtn.getAttribute('data-quote');
+            const author = starBtn.getAttribute('data-author');
+            if (quote && author) {
+              toggleSaveQuote(quote, author);
+            }
+            return;
+          }
+        });
+      }
+
+      // Initial Render
+      renderQuotesArchive();
+      renderPaginationButtons();
+
+      /* --- 9. SCROLL REVEALS & DOCK CONTROLS --- */
+      let lastScrollY = window.scrollY;
+      let scrollTimer = null;
+      const navShell = document.getElementById('navShell');
+      const backToTopBtn = document.getElementById('backToTopBtn');
+
+      window.addEventListener('scroll', () => {
+        const currentScrollY = window.scrollY;
+        if (currentScrollY > lastScrollY && currentScrollY > 80) {
+          navShell.classList.add('dock-hidden');
+        } else {
+          navShell.classList.remove('dock-hidden');
+        }
+        lastScrollY = currentScrollY;
+
+        if (currentScrollY > 300) {
+          backToTopBtn.classList.add('is-active');
+          clearTimeout(scrollTimer);
+          scrollTimer = setTimeout(() => {
+            backToTopBtn.classList.remove('is-active');
+          }, 1200);
+        } else {
+          backToTopBtn.classList.remove('is-active');
+        }
+      }, { passive: true });
+
+      backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      /* --- 10. MOBILE DRAWER --- */
+      const openBtn = document.getElementById('openDrawerBtn');
+      const closeBtn = document.getElementById('closeDrawerBtn');
+      const mobileBackdrop = document.getElementById('mobileBackdrop');
+      const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+      function openDrawer() { document.body.classList.add('drawer-open'); }
+      function closeDrawer() { document.body.classList.remove('drawer-open'); }
+
+      if(openBtn) openBtn.addEventListener('click', openDrawer);
+      if(closeBtn) closeBtn.addEventListener('click', closeDrawer);
+      if(mobileBackdrop) mobileBackdrop.addEventListener('click', closeDrawer);
+      mobileLinks.forEach(link => link.addEventListener('click', closeDrawer));
+
+      /* --- 11. SCROLL REVEAL OBSERVER --- */
+      const revealElements = document.querySelectorAll('.reveal-on-scroll');
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
+        });
+      }, { threshold: 0.1 }); 
+      revealElements.forEach(el => revealObserver.observe(el));
+
+    })();
+  </script>
+</body>
+</html>
