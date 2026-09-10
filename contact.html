@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Contact — Jasmeet Kaur</title>
+
+  <meta name="description" content="Get in touch with Jasmeet Kaur for collaborations, inquiries, feedback, or to join our student and self-improvement community.">
+
+  <!-- Mobile Browser Theme Color -->
+  <meta name="theme-color" content="#FAF5FF">
+  <meta name="color-scheme" content="light">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+
+  <!-- Official Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="https://i.ibb.co/ks55RRy3/jk-final.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="https://i.ibb.co/ks55RRy3/jk-final.png">
+  <link rel="apple-touch-icon" href="https://i.ibb.co/ks55RRy3/jk-final.png">
+
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandPurple: '#7928CA',
+            brandPurpleDeep: '#581C87',
+            brandPurpleHover: '#6D28D9',
+            brandPurpleLight: '#EDE4FC',
+            warmBg: '#FAF5FF',
+            warmCard: '#FFFFFF',
+            textDark: '#190A2E',
+            textMuted: '#6B5282',
+            footerWarm: '#F5ECFF',
+            footerBorder: '#E0C5FC'
+          },
+          fontFamily: {
+            sans: ['"Poppins"', 'system-ui', '-apple-system', 'sans-serif'],
+            brand: ['"Poppins"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* TOTAL ANTI-COPY & INTERACTION PROTECTION */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-user-select: none !important;
+      -moz-user-select: none !important;
+      -ms-user-select: none !important;
+      user-select: none !important;
+    }
+
+    /* OVERRIDE FOR INPUTS - Allow selection inside inputs to type */
+    input, textarea, select {
+      -webkit-user-select: text !important;
+      -moz-user-select: text !important;
+      -ms-user-select: text !important;
+      user-select: text !important;
+    }
+
+    img {
+      pointer-events: none !important;
+      -webkit-user-drag: none !important;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+      background-color: #FAF5FF !important;
+      color-scheme: light;
+    }
+
+    body {
+      background-color: #FAF5FF !important;
+      color: #190A2E;
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* SMOOTH ENTRANCE ANIMATION */
+    @keyframes fadeUpIn {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .animate-entrance {
+      animation: fadeUpIn 0.8s ease-out forwards;
+      opacity: 0;
+    }
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.25s; }
+    .delay-3 { animation-delay: 0.4s; }
+
+    /* DIRECTIONAL SCROLL REVEAL ANIMATIONS */
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .reveal-on-scroll.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* SUBTLE HERO BACKGROUND GLOWS */
+    .hero-glow-1 {
+      position: absolute;
+      top: -5%;
+      left: -10%;
+      width: 50vw;
+      height: 50vw;
+      background: radial-gradient(circle, rgba(121, 40, 202, 0.1) 0%, transparent 60%);
+      border-radius: 50%;
+      z-index: -1;
+      pointer-events: none;
+    }
+    .hero-glow-2 {
+      position: absolute;
+      top: 40%;
+      right: -10%;
+      width: 40vw;
+      height: 40vw;
+      background: radial-gradient(circle, rgba(147, 51, 234, 0.08) 0%, transparent 60%);
+      border-radius: 50%;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* FLOATING ANIMATION FOR MODAL ICON */
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+      100% { transform: translateY(0px); }
+    }
+    .animate-float {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    /* MODAL CUTTING PROGRESS BAR */
+    @keyframes shrinkBar {
+      from { transform: scaleX(1); }
+      to { transform: scaleX(0); }
+    }
+    .animate-shrink {
+      animation: shrinkBar 3s linear forwards;
+      transform-origin: left;
+    }
+
+    /* FLOATING DOCK AUTO-HIDE */
+    .dock-container {
+      transition: transform 0.45s ease, opacity 0.3s ease;
+    }
+    .dock-hidden {
+      transform: translateY(-150%) !important;
+      opacity: 0;
+    }
+
+    .heading-accent {
+      color: #190A2E;
+      text-shadow: 0 4px 18px rgba(121, 40, 202, 0.1);
+    }
+
+    /* CARD HOVER */
+    .hover-lift {
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .hover-lift:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 28px -6px rgba(121, 40, 202, 0.12);
+    }
+
+    /* FULL SCREEN MOBILE DRAWER */
+    .side-drawer-backdrop { display: none !important; }
+    .side-drawer-panel { display: none !important; }
+    body.drawer-open .side-drawer-backdrop { display: block !important; }
+    body.drawer-open .side-drawer-panel { display: flex !important; }
+
+    /* SMART IDLE-HIDE BACK TO TOP BUTTON */
+    .back-to-top-btn {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px) scale(0.9);
+      transition: all 0.35s ease;
+    }
+    .back-to-top-btn.is-active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1);
+    }
+  </style>
+</head>
+<body class="selection:bg-transparent bg-[#FAF5FF] min-h-screen relative flex flex-col">
+
+  <div class="hero-glow-1"></div>
+  <div class="hero-glow-2"></div>
+
+  <!-- FLOATING iOS-STYLE HEADER BAR -->
+  <div class="dock-container fixed top-2 sm:top-4 z-50 w-[98%] left-[1%] sm:w-[94%] sm:left-[3%] lg:w-full lg:left-0 lg:px-6 transition-all duration-300" id="navShell">
+    <header class="w-full max-w-[1350px] mx-auto bg-white/95 backdrop-blur-xl border border-footerBorder rounded-full py-3 sm:py-3.5 px-4 sm:px-6 lg:px-8 flex items-center justify-between shadow-[0_8px_25px_rgba(121,40,202,0.06)] animate-entrance">
+      
+      <!-- Brand Logo & Heading -->
+      <a href="index.html" class="flex items-center gap-2.5 sm:gap-3.5 shrink-0 group ml-2 sm:ml-4 md:ml-6">
+        <img src="https://i.ibb.co/ks55RRy3/jk-final.png" alt="JK Official Logo" class="h-10 sm:h-12 md:h-13 w-auto object-contain shrink-0 -translate-y-1.5 sm:-translate-y-2 transition-transform group-hover:scale-105">
+        <span class="font-brand font-bold text-[22px] sm:text-[25px] md:text-[28px] lg:text-[30px] tracking-tight text-black leading-none flex items-center">
+          JASMEET KAUR
+        </span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden lg:flex items-center gap-1.5 bg-[#FAF5FF] p-1.5 rounded-full border border-footerBorder">
+        <a href="index.html" class="text-[14px] font-medium text-textMuted hover:text-brandPurple hover:bg-white px-5 py-2 rounded-full transition">Home</a>
+        <a href="about.html" class="text-[14px] font-medium text-textMuted hover:text-brandPurple hover:bg-white px-5 py-2 rounded-full transition">About</a>
+        <a href="self-improvement.html" class="text-[14px] font-medium text-textMuted hover:text-brandPurple hover:bg-white px-5 py-2 rounded-full transition">Self Improvement</a>
+        <a href="videos.html" class="text-[14px] font-medium text-textMuted hover:text-brandPurple hover:bg-white px-5 py-2 rounded-full transition">Video</a>
+        <a href="quotes.html" class="text-[14px] font-medium text-textMuted hover:text-brandPurple hover:bg-white px-5 py-2 rounded-full transition">Quotes</a>
+        <a href="contact.html" class="text-[14px] font-semibold text-white bg-brandPurple px-5 py-2 rounded-full shadow-sm">Contact</a>
+      </nav>
+
+      <!-- Right Header Action & Classic Hamburger Icon -->
+      <div class="flex items-center gap-3">
+        <a href="https://youtube.com/@jasmeetkaurr1" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 bg-brandPurple hover:bg-brandPurpleHover text-white px-5 py-2.5 rounded-full text-[13px] font-semibold transition-transform hover:-translate-y-0.5 shadow-md shadow-brandPurple/20">
+          <i class="fa-brands fa-youtube text-base"></i>
+          <span>Subscribe to Channel</span>
+        </a>
+        
+        <button class="lg:hidden h-10 w-10 sm:h-11 sm:w-11 rounded-full bg-brandPurpleLight text-brandPurple flex items-center justify-center border border-footerBorder focus:outline-none transition active:scale-95 shadow-sm" id="openDrawerBtn" aria-label="Open Navigation">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+    </header>
+  </div>
+
+  <!-- MOBILE NAVIGATION DRAWER -->
+  <div class="side-drawer-backdrop fixed inset-0 bg-black/30 backdrop-blur-sm z-50" id="mobileBackdrop"></div>
+  <div class="side-drawer-panel fixed inset-0 w-full bg-[#FAF5FF] z-50 flex flex-col justify-between overflow-hidden" id="mobileDrawer">
+    
+    <div class="flex justify-between items-center px-6 py-5 border-b border-footerBorder bg-white/60 backdrop-blur-md">
+      <div class="flex items-center gap-2.5">
+        <img src="https://i.ibb.co/ks55RRy3/jk-final.png" alt="JK Official Logo" class="h-9 w-auto object-contain -translate-y-1">
+        <strong class="font-brand font-bold text-[23px] tracking-tight text-black leading-none">JASMEET KAUR</strong>
+      </div>
+      <button class="h-10 w-10 rounded-full bg-white text-textDark font-bold text-base flex items-center justify-center border border-footerBorder shadow-sm active:scale-90 transition" id="closeDrawerBtn">✕</button>
+    </div>
+
+    <nav class="flex-1 overflow-y-auto px-6 py-8 flex flex-col justify-center gap-3">
+      <a href="index.html" class="mobile-nav-link flex items-center justify-between py-4 px-6 rounded-2xl font-semibold text-lg text-textDark bg-white/80 border border-footerBorder/60 hover:bg-white transition">
+        <span>Home</span>
+        <i class="fa-solid fa-chevron-right text-xs text-brandPurple/60"></i>
+      </a>
+      <a href="about.html" class="mobile-nav-link flex items-center justify-between py-4 px-6 rounded-2xl font-semibold text-lg text-textDark bg-white/80 border border-footerBorder/60 hover:bg-white transition">
+        <span>About</span>
+        <i class="fa-solid fa-chevron-right text-xs text-brandPurple/60"></i>
+      </a>
+      <a href="self-improvement.html" class="mobile-nav-link flex items-center justify-between py-4 px-6 rounded-2xl font-semibold text-lg text-textDark bg-white/80 border border-footerBorder/60 hover:bg-white transition">
+        <span>Self Improvement</span>
+        <i class="fa-solid fa-chevron-right text-xs text-brandPurple/60"></i>
+      </a>
+      <a href="videos.html" class="mobile-nav-link flex items-center justify-between py-4 px-6 rounded-2xl font-semibold text-lg text-textDark bg-white/80 border border-footerBorder/60 hover:bg-white transition">
+        <span>Video</span>
+        <i class="fa-solid fa-chevron-right text-xs text-brandPurple/60"></i>
+      </a>
+      <a href="quotes.html" class="mobile-nav-link flex items-center justify-between py-4 px-6 rounded-2xl font-semibold text-lg text-textDark bg-white/80 border border-footerBorder/60 hover:bg-white transition">
+        <span>Quotes</span>
+        <i class="fa-solid fa-chevron-right text-xs text-brandPurple/60"></i>
+      </a>
+      <a href="contact.html" class="mobile-nav-link flex items-center justify-between py-4 px-6 rounded-2xl font-bold text-lg text-white bg-brandPurple shadow-sm transition">
+        <span>Contact</span>
+        <i class="fa-solid fa-arrow-right text-xs opacity-80"></i>
+      </a>
+    </nav>
+
+    <div class="px-6 py-6 border-t border-footerBorder bg-white/60 backdrop-blur-md">
+      <a href="https://youtube.com/@jasmeetkaurr1" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2.5 w-full text-center bg-brandPurple hover:bg-brandPurpleHover text-white py-3.5 rounded-full font-semibold text-sm shadow-md shadow-brandPurple/25 transition">
+        <i class="fa-brands fa-youtube text-lg"></i>
+        <span>Subscribe to Channel</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- MAIN CONTACT CONTENT -->
+  <main id="contact-page" class="relative z-10 flex-grow">
+    
+    <!-- Hero Section -->
+    <section class="pt-32 sm:pt-40 md:pt-48 pb-12 sm:pb-16 relative">
+      <div class="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-8 text-center animate-entrance">
+        <span class="inline-block py-1.5 px-4 rounded-full bg-white border border-footerBorder text-xs font-bold text-brandPurple tracking-widest uppercase mb-6 shadow-sm">
+          Get In Touch
+        </span>
+        <h1 class="text-[34px] sm:text-[42px] md:text-[52px] lg:text-[60px] font-bold tracking-tight text-textDark leading-[1.15] mb-6 heading-accent">
+          Start the Conversation.<br>
+          <span class="text-brandPurple">Let's Grow Together.</span>
+        </h1>
+        <p class="text-base sm:text-lg text-textMuted font-medium leading-relaxed max-w-2xl mx-auto">
+          Have a question, a business proposal, or an idea to share? Reach out directly via the form below, join the official WhatsApp channel, or drop an email.
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact Content Section -->
+    <section class="py-10 sm:py-16 relative">
+      <div class="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-8">
+        <div class="flex flex-col md:flex-row gap-10 lg:gap-16 items-start">
+          
+          <!-- Left Side: Contact Details & Channels (Merged in Mobile, Boxed in Tablet/Laptop) -->
+          <div class="w-full md:w-5/12 reveal-on-scroll space-y-8">
+            <div>
+              <h2 class="text-3xl font-bold text-textDark mb-6 tracking-tight">Direct Channels</h2>
+              
+              <div class="space-y-5">
+                <!-- Business Inquiries -->
+                <div class="flex items-start gap-4 py-3 px-1 md:p-5 rounded-none md:rounded-2xl bg-transparent md:bg-white border-0 md:border md:border-footerBorder shadow-none md:shadow-sm md:hover-lift">
+                  <div class="h-11 w-11 rounded-full bg-brandPurpleLight text-brandPurple flex items-center justify-center text-base shrink-0 border border-footerBorder/60 shadow-xs">
+                    <i class="fa-solid fa-envelope"></i>
+                  </div>
+                  <div>
+                    <h3 class="text-xs font-bold text-brandPurple uppercase tracking-widest mb-1">Business Inquiries</h3>
+                    <a href="mailto:workwithjasmeetkaur@gmail.com" class="text-sm sm:text-base font-semibold text-textDark hover:text-brandPurple transition lowercase break-all">
+                      workwithjasmeetkaur@gmail.com
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Active Channel -->
+                <div class="flex items-start gap-4 py-3 px-1 md:p-5 rounded-none md:rounded-2xl bg-transparent md:bg-white border-0 md:border md:border-footerBorder shadow-none md:shadow-sm md:hover-lift">
+                  <div class="h-11 w-11 rounded-full bg-brandPurpleLight text-brandPurple flex items-center justify-center text-base shrink-0 border border-footerBorder/60 shadow-xs">
+                    <i class="fa-brands fa-youtube text-red-600"></i>
+                  </div>
+                  <div>
+                    <h3 class="text-xs font-bold text-brandPurple uppercase tracking-widest mb-1">Active Channel</h3>
+                    <a href="https://youtube.com/@jasmeetkaurr1" target="_blank" rel="noopener noreferrer" class="text-sm sm:text-base font-semibold text-textDark hover:text-brandPurple transition">
+                      New Channel
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Previous Channel -->
+                <div class="flex items-start gap-4 py-3 px-1 md:p-5 rounded-none md:rounded-2xl bg-transparent md:bg-white border-0 md:border md:border-footerBorder shadow-none md:shadow-sm md:hover-lift">
+                  <div class="h-11 w-11 rounded-full bg-brandPurpleLight text-brandPurple flex items-center justify-center text-base shrink-0 border border-footerBorder/60 shadow-xs">
+                    <i class="fa-solid fa-box-archive"></i>
+                  </div>
+                  <div>
+                    <h3 class="text-xs font-bold text-brandPurple uppercase tracking-widest mb-1">Previous Channel</h3>
+                    <a href="https://youtube.com/@jasmeetmaann" target="_blank" rel="noopener noreferrer" class="text-sm sm:text-base font-semibold text-textDark hover:text-brandPurple transition">
+                      Previous Channel
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- WhatsApp Community Card -->
+            <div class="p-6 sm:p-7 rounded-[26px] bg-white border border-footerBorder shadow-sm text-left relative overflow-hidden hover-lift">
+              <div class="flex items-center gap-3.5 mb-3">
+                <div class="h-11 w-11 rounded-full bg-[#25D366]/15 text-[#25D366] flex items-center justify-center text-xl shrink-0">
+                  <i class="fa-brands fa-whatsapp"></i>
+                </div>
+                <h3 class="font-brand font-bold text-xl text-black">WhatsApp Channel</h3>
+              </div>
+              <p class="text-textMuted text-sm leading-relaxed mb-5 font-medium">
+                Join our free WhatsApp community to get direct video announcements and for more.
+              </p>
+              <a href="https://whatsapp.com/channel/0029VbDSDNbBadmVifXshS3F" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20b858] text-white py-3 px-6 rounded-full font-semibold text-sm shadow-sm transition active:scale-95 w-full sm:w-auto">
+                <i class="fa-brands fa-whatsapp text-base"></i>
+                <span>Join WhatsApp Channel</span>
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Right Side: Contact Form (Merged in Mobile, Boxed in Tablet/Laptop) -->
+          <div class="w-full md:w-7/12 reveal-on-scroll reveal-delay-1 relative" id="contactFormWrapper">
+            
+            <div class="p-0 sm:p-8 md:p-12 lg:p-14 bg-transparent md:bg-white border-0 md:border md:border-footerBorder shadow-none md:shadow-[0_8px_30px_rgba(121,40,202,0.04)] rounded-none md:rounded-[2rem] transition-all md:hover:shadow-[0_12px_40px_rgba(121,40,202,0.08)]">
+              
+              <h3 class="text-3xl sm:text-4xl font-bold text-textDark mb-2 tracking-tight">Send a Message</h3>
+              <p class="text-textMuted text-sm mb-8 font-medium">Fill out the details below and I'll get back to you as soon as possible.</p>
+              
+              <form action="https://api.web3forms.com/submit" method="POST" id="web3Form" class="space-y-6 relative z-10">
+                <input type="hidden" name="access_key" value="dc2ef085-e8cf-4d72-afdf-d35cfe027cbf">
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div class="reveal-on-scroll reveal-delay-1">
+                    <label for="name" class="block text-xs font-bold text-textDark uppercase tracking-wider mb-2 ml-1">Full Name *</label>
+                    <input type="text" id="name" name="name" required class="w-full bg-white md:bg-[#FAF5FF]/50 border border-footerBorder text-textDark text-base px-5 py-4 rounded-xl focus:outline-none focus:border-brandPurple focus:ring-1 focus:ring-brandPurple transition-all shadow-sm placeholder-gray-400" placeholder="Enter your full name...">
+                  </div>
+                  <div class="reveal-on-scroll reveal-delay-2">
+                    <label for="company" class="block text-xs font-bold text-textMuted uppercase tracking-wider mb-2 ml-1">Company / Channel Name</label>
+                    <input type="text" id="company" name="company" class="w-full bg-white md:bg-[#FAF5FF]/50 border border-footerBorder text-textDark text-base px-5 py-4 rounded-xl focus:outline-none focus:border-brandPurple focus:ring-1 focus:ring-brandPurple transition-all shadow-sm placeholder-gray-400" placeholder="Enter your company name...">
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div class="reveal-on-scroll reveal-delay-2">
+                    <label for="email" class="block text-xs font-bold text-textDark uppercase tracking-wider mb-2 ml-1">Email Address *</label>
+                    <input type="email" id="email" name="email" required pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" class="w-full bg-white md:bg-[#FAF5FF]/50 border border-footerBorder text-textDark text-base px-5 py-4 rounded-xl focus:outline-none focus:border-brandPurple focus:ring-1 focus:ring-brandPurple transition-all shadow-sm placeholder-gray-400" placeholder="Enter your email ID...">
+                  </div>
+                  <div class="reveal-on-scroll reveal-delay-3">
+                    <label for="phone" class="block text-xs font-bold text-textDark uppercase tracking-wider mb-2 ml-1">Phone Number *</label>
+                    <div class="flex gap-2">
+                      <select name="country_code" class="bg-white md:bg-[#FAF5FF]/50 border border-footerBorder text-textDark text-base px-3 py-4 rounded-xl focus:outline-none focus:border-brandPurple focus:ring-1 focus:ring-brandPurple transition-all cursor-pointer shadow-sm shrink-0">
+                        <option value="+91" selected>🇮🇳 +91</option>
+                        <option value="+1">🇺🇸 +1</option>
+                        <option value="+44">🇬🇧 +44</option>
+                        <option value="+971">🇦🇪 +971</option>
+                        <option value="+65">🇸🇬 +65</option>
+                      </select>
+                      <input type="tel" id="phone" name="phone" required maxlength="10" pattern="[0-9]{10}" title="Please enter exactly 10 digits" class="w-full bg-white md:bg-[#FAF5FF]/50 border border-footerBorder text-textDark text-base px-5 py-4 rounded-xl focus:outline-none focus:border-brandPurple focus:ring-1 focus:ring-brandPurple transition-all shadow-sm placeholder-gray-400" placeholder="9876543210" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="reveal-on-scroll reveal-delay-3">
+                  <label for="service" class="block text-xs font-bold text-textMuted uppercase tracking-wider mb-2 ml-1">Inquiry Type</label>
+                  <div class="relative">
+                    <select id="service" name="service" class="w-full bg-white md:bg-[#FAF5FF]/50 border border-footerBorder text-textDark text-base px-5 py-4 rounded-xl focus:outline-none focus:border-brandPurple focus:ring-1 focus:ring-brandPurple transition-all appearance-none cursor-pointer shadow-sm text-gray-500">
+                      <option value="" disabled selected>Select an inquiry topic...</option>
+                      <option value="Collaboration" class="text-textDark">Brand Collaboration / Sponsorship</option>
+                      <option value="Community" class="text-textDark">Community &amp; Student Query</option>
+                      <option value="Feedback" class="text-textDark">Video Feedback &amp; Suggestions</option>
+                      <option value="Other" class="text-textDark">General Message</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-5 text-brandPurple">
+                      <i class="fa-solid fa-chevron-down text-sm"></i>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="reveal-on-scroll reveal-delay-3">
+                  <label for="message" class="block text-xs font-bold text-textMuted uppercase tracking-wider mb-2 ml-1">Message</label>
+                  <textarea id="message" name="message" rows="4" class="w-full bg-white md:bg-[#FAF5FF]/50 border border-footerBorder text-textDark text-base px-5 py-4 rounded-xl focus:outline-none focus:border-brandPurple focus:ring-1 focus:ring-brandPurple transition-all resize-none shadow-sm placeholder-gray-400" placeholder="Tell us about your requirements..."></textarea>
+                </div>
+
+                <div class="reveal-on-scroll reveal-delay-4">
+                  <button type="submit" id="submitBtn" class="w-full bg-brandPurple text-white font-bold py-4 rounded-xl shadow-md transition-all hover:-translate-y-1 hover:shadow-lg hover:bg-brandPurpleHover active:scale-95 flex items-center justify-center gap-2 mt-4">
+                    <span id="btnText">Send Message</span>
+                    <i class="fa-solid fa-paper-plane text-sm ml-1" id="btnIcon"></i>
+                  </button>
+                </div>
+              </form>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- SOLID LIGHT PURPLE FOOTER WITH 8PX WHITE STRIPE SEPARATOR -->
+  <footer class="bg-[#F5ECFF] rounded-t-[40px] w-full pt-16 pb-10 border-t-[8px] border-white shadow-[0_-8px_15px_rgba(121,40,202,0.04)] reveal-on-scroll relative z-10 mt-auto">
+    <div class="max-w-[1300px] mx-auto px-6 sm:px-12">
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 pb-10 border-b border-footerBorder text-left">
+        
+        <!-- Column 1: Brand & Description -->
+        <div>
+          <div class="flex items-center gap-2.5 mb-3">
+            <img src="https://i.ibb.co/ks55RRy3/jk-final.png" alt="JK Official Logo" class="h-10 w-auto object-contain shrink-0 -translate-y-1">
+            <span class="font-brand font-bold text-[22px] tracking-tight text-black">JASMEET KAUR</span>
+          </div>
+          <p class="text-xs sm:text-sm text-textMuted leading-relaxed max-w-sm font-normal">
+            Empowering students and teenagers for self-improvement, building resilient daily habits, and creating a disciplined mindset.
+          </p>
+        </div>
+
+        <!-- Column 2: Quick Access -->
+        <div>
+          <h4 class="text-xs font-bold text-brandPurple uppercase tracking-widest mb-4">Quick Access</h4>
+          <ul class="flex flex-col gap-2.5 text-xs sm:text-sm font-medium text-textMuted">
+            <li><a href="index.html" class="hover:text-brandPurple hover:translate-x-1 inline-block transition">Home</a></li>
+            <li><a href="about.html" class="hover:text-brandPurple hover:translate-x-1 inline-block transition">About</a></li>
+            <li><a href="self-improvement.html" class="hover:text-brandPurple hover:translate-x-1 inline-block transition">Self Improvement</a></li>
+            <li><a href="videos.html" class="hover:text-brandPurple hover:translate-x-1 inline-block transition">Video</a></li>
+            <li><a href="quotes.html" class="hover:text-brandPurple hover:translate-x-1 inline-block transition">Quotes</a></li>
+            <li><a href="contact.html" class="text-brandPurple font-bold hover:translate-x-1 inline-block transition">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Official Channels & Business Inquiries -->
+        <div>
+          <h4 class="text-xs font-bold text-brandPurple uppercase tracking-widest mb-4">Official Channels</h4>
+          <div class="flex flex-col gap-3.5 text-xs sm:text-sm mb-6">
+            
+            <!-- New Channel -->
+            <a href="https://youtube.com/@jasmeetkaurr1" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 text-black hover:text-brandPurple transition group">
+              <i class="fa-brands fa-youtube text-red-600 text-lg shrink-0 group-hover:scale-110 transition-transform"></i>
+              <span class="font-semibold text-black text-[14px]">New Channel</span>
+            </a>
+
+            <!-- Previous Channel -->
+            <a href="https://youtube.com/@jasmeetmaann" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 text-black hover:text-brandPurple transition group">
+              <i class="fa-brands fa-youtube text-brandPurple text-lg shrink-0 group-hover:scale-110 transition-transform"></i>
+              <span class="font-semibold text-black text-[14px]">Previous Channel</span>
+            </a>
+
+            <!-- WhatsApp Channel -->
+            <a href="https://whatsapp.com/channel/0029VbDSDNbBadmVifXshS3F" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 text-black hover:text-brandPurple transition group">
+              <i class="fa-brands fa-whatsapp text-[#25D366] text-lg shrink-0 group-hover:scale-110 transition-transform"></i>
+              <span class="font-semibold text-black text-[14px]">WhatsApp Channel</span>
+            </a>
+
+          </div>
+
+          <!-- Business Inquiries -->
+          <div>
+            <h5 class="text-xs font-bold text-brandPurple uppercase tracking-widest mb-2">Business Inquiries</h5>
+            <a href="mailto:workwithjasmeetkaur@gmail.com" class="inline-flex items-center gap-2 text-sm sm:text-base font-semibold text-black hover:text-brandPurple transition lowercase break-all group">
+              <i class="fa-solid fa-envelope text-brandPurple text-sm shrink-0 group-hover:scale-110 transition-transform"></i>
+              <span>workwithjasmeetkaur@gmail.com</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer Bottom Copyright & Creator on New Line -->
+      <div class="pt-6 text-center text-xs text-textMuted font-medium flex flex-col items-center justify-center gap-1.5">
+        <div>© 2026 Jasmeet Kaur. All Rights Reserved.</div>
+        <div>Created by Gagan Nishad</div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- MIDDLE-OF-SCREEN SUCCESS POPUP MODAL (CS PRERANA ANIMATED ENGINE) -->
+  <div id="successModal" class="fixed inset-0 z-[60] bg-black/40 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 invisible transition-all duration-300">
+    <div id="modalContent" class="bg-white rounded-3xl p-8 max-w-md w-full text-center relative overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300">
+      <div id="modalProgressBar" class="absolute bottom-0 left-0 h-1.5 bg-brandPurple w-full"></div>
+      <div class="h-20 w-20 mx-auto rounded-full bg-purple-50 text-brandPurple flex items-center justify-center mb-6 border border-purple-100 shadow-sm animate-float">
+        <i class="fa-solid fa-check text-4xl"></i>
+      </div>
+      <h3 class="text-2xl font-bold text-textDark mb-3">Congratulations 🎉</h3>
+      <p class="text-base text-textMuted font-medium mb-8">Message Successfully Sent!<br>Thank you For Submitting.</p>
+      <button type="button" id="closeModalBtn" class="block w-full bg-brandPurple text-white font-bold py-3.5 rounded-xl shadow-md hover:bg-brandPurpleHover transition-colors active:scale-95">Continue</button>
+    </div>
+  </div>
+
+  <!-- SMART IDLE-HIDE BACK TO TOP BUTTON -->
+  <button type="button" class="back-to-top-btn fixed bottom-5 right-5 z-40 bg-brandPurple hover:bg-brandPurpleHover text-white h-11 w-11 rounded-full shadow-[0_6px_20px_rgba(121,40,202,0.3)] flex items-center justify-center focus:outline-none active:scale-90" id="backToTopBtn" aria-label="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="12" y1="19" x2="12" y2="5"></line>
+      <polyline points="5 12 12 5 19 12"></polyline>
+    </svg>
+  </button>
+
+  <!-- JS ENGINE -->
+  <script>
+    (function() {
+      "use strict";
+
+      /* --- 1. AUTO-HIDE HEADER ON SCROLL --- */
+      let lastScrollY = window.scrollY;
+      let scrollTimer = null;
+      const navShell = document.getElementById('navShell');
+      const backToTopBtn = document.getElementById('backToTopBtn');
+
+      window.addEventListener('scroll', () => {
+        const currentScrollY = window.scrollY;
+        if (currentScrollY > lastScrollY && currentScrollY > 80) {
+          navShell.classList.add('dock-hidden');
+        } else {
+          navShell.classList.remove('dock-hidden');
+        }
+        lastScrollY = currentScrollY;
+
+        // Back to top idle-hide behavior
+        if (currentScrollY > 300) {
+          backToTopBtn.classList.add('is-active');
+          clearTimeout(scrollTimer);
+          scrollTimer = setTimeout(() => {
+            backToTopBtn.classList.remove('is-active');
+          }, 1200);
+        } else {
+          backToTopBtn.classList.remove('is-active');
+        }
+      }, { passive: true });
+
+      backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      /* --- 2. MOBILE DRAWER CONTROLS --- */
+      const openBtn = document.getElementById('openDrawerBtn');
+      const closeBtn = document.getElementById('closeDrawerBtn');
+      const mobileBackdrop = document.getElementById('mobileBackdrop');
+      const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+      function openDrawer() { document.body.classList.add('drawer-open'); }
+      function closeDrawer() { document.body.classList.remove('drawer-open'); }
+
+      if(openBtn) openBtn.addEventListener('click', openDrawer);
+      if(closeBtn) closeBtn.addEventListener('click', closeDrawer);
+      if(mobileBackdrop) mobileBackdrop.addEventListener('click', closeDrawer);
+      mobileLinks.forEach(link => link.addEventListener('click', closeDrawer));
+
+      /* --- 3. SCROLL REVEAL ANIMATIONS --- */
+      const revealElements = document.querySelectorAll('.reveal-on-scroll');
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
+        });
+      }, { threshold: 0.1 }); 
+      revealElements.forEach(el => revealObserver.observe(el));
+
+      /* --- 4. TOTAL ANTI-COPY & SECURITY LOCKOUT --- */
+      document.addEventListener("contextmenu", (e) => e.preventDefault());
+      document.addEventListener("selectstart", (e) => {
+        if(e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return true;
+        e.preventDefault();
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "F12" || e.keyCode === 44 || (e.ctrlKey && ["c", "u", "s", "p", "a", "i"].includes(e.key.toLowerCase())) || (e.ctrlKey && e.shiftKey && ["I", "J", "C"].includes(e.key))) {
+          e.preventDefault();
+          return false;
+        }
+      });
+
+      /* --- 5. SCROLL-TRIGGERED TYPING ANIMATION (SEQUENTIAL PLACEHOLDERS) --- */
+      const typingInputs = [
+        { id: 'name', text: 'Enter your full name...' },
+        { id: 'company', text: 'Enter your company or channel name...' },
+        { id: 'email', text: 'Enter your email ID...' },
+        { id: 'message', text: 'Tell us about your requirements...' }
+      ];
+
+      async function runSequentialTyping() {
+        if (sessionStorage.getItem('typingAnimationDone_jk')) {
+          typingInputs.forEach(item => {
+            const el = document.getElementById(item.id);
+            if (el && !el.value) el.setAttribute('placeholder', item.text);
+          });
+          return; 
+        }
+
+        for (const item of typingInputs) {
+          const el = document.getElementById(item.id);
+          if (!el) continue;
+          
+          const originalPlaceholder = el.getAttribute('placeholder');
+          el.setAttribute('placeholder', '');
+          
+          let isFocused = false;
+          el.addEventListener('focus', () => { isFocused = true; el.setAttribute('placeholder', originalPlaceholder); });
+          
+          await typeText(el, item.text, () => isFocused, originalPlaceholder);
+          await new Promise(r => setTimeout(r, 450)); 
+        }
+        
+        sessionStorage.setItem('typingAnimationDone_jk', 'true');
+      }
+
+      function typeText(el, text, isFocusedCallback, originalPlaceholder) {
+        return new Promise(resolve => {
+          let charIndex = 0;
+          const interval = setInterval(() => {
+            if (isFocusedCallback()) {
+              clearInterval(interval);
+              resolve();
+              return;
+            }
+            
+            el.setAttribute('placeholder', text.slice(0, charIndex));
+            charIndex++;
+
+            if (charIndex > text.length) {
+              clearInterval(interval);
+              resolve();
+            }
+          }, 45);
+        });
+      }
+
+      const formSection = document.getElementById('contactFormWrapper');
+      if (formSection) {
+        const typeObserver = new IntersectionObserver((entries) => {
+          if(entries[0].isIntersecting && !sessionStorage.getItem('typingAnimationDone_jk')) {
+            runSequentialTyping();
+            typeObserver.disconnect(); 
+          }
+        }, { threshold: 0.25 }); 
+        typeObserver.observe(formSection);
+      }
+
+      /* --- 6. WEB3FORMS AJAX SUBMISSION & MODAL BEHAVIOR --- */
+      const form = document.getElementById('web3Form');
+      const submitBtn = document.getElementById('submitBtn');
+      const btnText = document.getElementById('btnText');
+      const btnIcon = document.getElementById('btnIcon');
+      const successModal = document.getElementById('successModal');
+      const modalContent = document.getElementById('modalContent');
+      const modalProgressBar = document.getElementById('modalProgressBar');
+      const closeModalBtn = document.getElementById('closeModalBtn');
+
+      function closeSuccessModal() {
+        successModal.classList.remove('opacity-100', 'visible');
+        successModal.classList.add('opacity-0', 'invisible');
+        modalContent.classList.remove('scale-100');
+        modalContent.classList.add('scale-95');
+        modalProgressBar.classList.remove('animate-shrink');
+        
+        if (form) form.reset();
+        const selectEl = document.getElementById('service');
+        if(selectEl) selectEl.classList.add('text-gray-500');
+      }
+
+      function triggerSuccessModal() {
+        successModal.classList.remove('opacity-0', 'invisible');
+        successModal.classList.add('opacity-100', 'visible');
+        modalContent.classList.remove('scale-95');
+        modalContent.classList.add('scale-100');
+        modalProgressBar.classList.add('animate-shrink');
+
+        setTimeout(() => {
+          if(successModal.classList.contains('visible')) {
+            closeSuccessModal();
+          }
+        }, 3000);
+      }
+
+      if (closeModalBtn) {
+        closeModalBtn.addEventListener('click', closeSuccessModal);
+      }
+
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          submitBtn.disabled = true;
+          btnText.innerHTML = `Sending...`;
+          btnIcon.className = "fa-solid fa-circle-notch fa-spin ml-2";
+
+          const formData = new FormData(form);
+          fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData })
+          .then(async (response) => {
+            let json = await response.json();
+            if (response.status == 200) {
+              triggerSuccessModal();
+              
+              submitBtn.disabled = false;
+              btnText.innerHTML = `Send Message`;
+              btnIcon.className = "fa-solid fa-paper-plane text-sm ml-1";
+            } else {
+              submitBtn.disabled = false;
+              btnText.innerHTML = `Send Message`;
+              btnIcon.className = "fa-solid fa-paper-plane text-sm ml-1";
+              alert(json.message || "Something went wrong! Please try again.");
+            }
+          })
+          .catch(error => {
+            console.error(error);
+            submitBtn.disabled = false;
+            btnText.innerHTML = `Send Message`;
+            btnIcon.className = "fa-solid fa-paper-plane text-sm ml-1";
+            alert("Something went wrong! Please check your network connection.");
+          });
+        });
+        
+        const selectEl = document.getElementById('service');
+        if(selectEl) {
+          selectEl.addEventListener('change', function() {
+            if(this.value !== "") {
+              this.classList.remove('text-gray-500');
+              this.classList.add('text-textDark');
+            }
+          });
+        }
+      }
+
+    })();
+  </script>
+</body>
+</html>
