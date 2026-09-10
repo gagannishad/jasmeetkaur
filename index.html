@@ -3,21 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Jasmeet Kaur — Build Systems That Run</title>
+  <title>Jasmeet Kaur</title>
 
-  <!-- Google & Mobile Browser Address Bar / Status Bar Theme Fulfillment (Lightest Purplish Solid Hue) -->
+  <meta name="description" content="Empowering students and creators through self-improvement, building resilient habits, and disciplined daily systems.">
+
+  <!-- Mobile Browser Theme Color -->
   <meta name="theme-color" content="#FAF5FF">
-  <meta name="msapplication-navbutton-color" content="#FAF5FF">
+  <meta name="color-scheme" content="light">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
 
   <!-- Official Favicon -->
-  <link rel="icon" type="image/png" href="https://i.ibb.co/PGDt0QPt/jk-logos.png">
-  <link rel="apple-touch-icon" href="https://i.ibb.co/PGDt0QPt/jk-logos.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://i.ibb.co/Dg5vY5bS/jk-final-logos.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="https://i.ibb.co/Dg5vY5bS/jk-final-logos.png">
+  <link rel="apple-touch-icon" href="https://i.ibb.co/Dg5vY5bS/jk-final-logos.png">
 
   <!-- Google Fonts: Poppins -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -39,7 +43,7 @@
             footerBorder: '#E0C5FC'
           },
           fontFamily: {
-            sans: ['"Poppins"', 'sans-serif'],
+            sans: ['"Poppins"', 'system-ui', '-apple-system', 'sans-serif'],
             brand: ['"Poppins"', 'sans-serif']
           }
         }
@@ -67,7 +71,6 @@
       -webkit-user-drag: none !important;
     }
 
-    /* FULL-SCREEN IMMERSIVE LIGHTEST PURPLE SOLID BASE (NO GRADIENTS) */
     html {
       scroll-behavior: smooth;
       overflow-x: hidden;
@@ -108,7 +111,6 @@
       opacity: 0;
     }
 
-    /* ORIGINAL CLEAN TEXT ACCENT */
     .heading-accent {
       color: #190A2E;
       text-shadow: 0 4px 18px rgba(121, 40, 202, 0.1);
@@ -135,7 +137,7 @@
       box-shadow: 0 14px 28px -6px rgba(121, 40, 202, 0.1);
     }
 
-    /* 16:9 CAROUSEL */
+    /* 16:9 CAROUSEL WITH NATURAL BLEND TRANSITIONS */
     .service-carousel {
       position: relative;
       overflow: hidden;
@@ -166,17 +168,11 @@
       object-fit: cover;
       border-radius: 20px;
       opacity: 0;
-      transform: scale(1);
-      transition: opacity 0.75s ease, transform 0.95s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      transition: opacity 0.9s ease-in-out;
       pointer-events: none;
     }
     .service-carousel-slide.active {
       opacity: 1;
-    }
-    @media (hover: hover) {
-      .service-carousel:hover .service-carousel-slide.active {
-        transform: scale(1.03);
-      }
     }
     .service-carousel-dots {
       position: absolute;
@@ -234,10 +230,10 @@
   <div class="dock-container fixed top-2 sm:top-4 z-50 w-[98%] left-[1%] sm:w-[94%] sm:left-[3%] lg:w-full lg:left-0 lg:px-6 transition-all duration-300" id="navShell">
     <header class="w-full max-w-[1350px] mx-auto bg-white/95 backdrop-blur-xl border border-footerBorder rounded-full py-3 sm:py-3.5 px-4 sm:px-6 lg:px-8 flex items-center justify-between shadow-[0_8px_25px_rgba(121,40,202,0.06)]">
       
-      <!-- Free-Standing Brand Logo & Title -->
-      <a href="index.html" class="flex items-center gap-1.5 shrink-0 group">
-        <img src="https://i.ibb.co/PGDt0QPt/jk-logos.png" alt="JK Official Logo" class="h-8 sm:h-10 md:h-11 w-auto object-contain shrink-0 transition-transform group-hover:scale-105">
-        <span class="font-brand font-bold text-[20px] sm:text-[23px] md:text-[26px] lg:text-[28px] tracking-tight text-black leading-none">
+      <!-- Brand Logo & Heading -->
+      <a href="index.html" class="flex items-center gap-2.5 sm:gap-3.5 shrink-0 group ml-2 sm:ml-4 md:ml-6">
+        <img src="https://i.ibb.co/Dg5vY5bS/jk-final-logos.png" alt="JK Official Logo" class="h-10 sm:h-12 md:h-13 w-auto object-contain shrink-0 -translate-y-1.5 sm:-translate-y-2 transition-transform group-hover:scale-105">
+        <span class="font-brand font-bold text-[22px] sm:text-[25px] md:text-[28px] lg:text-[30px] tracking-tight text-black leading-none flex items-center">
           JASMEET KAUR
         </span>
       </a>
@@ -245,14 +241,14 @@
       <!-- Desktop Navigation (6 Items) -->
       <nav class="hidden lg:flex items-center gap-1.5 bg-[#FAF5FF] p-1.5 rounded-full border border-footerBorder">
         <a href="index.html" class="text-[14px] font-semibold text-white bg-brandPurple px-5 py-2 rounded-full shadow-sm">Home</a>
-        <a href="about.html" class="text-[14px] font-medium text-textMuted hover:text-brandPurple hover:bg-white px-5 py-2 rounded-full transition">About Us</a>
+        <a href="about.html" class="text-[14px] font-medium text-textMuted hover:text-brandPurple hover:bg-white px-5 py-2 rounded-full transition">About</a>
         <a href="self-improvement.html" class="text-[14px] font-medium text-textMuted hover:text-brandPurple hover:bg-white px-5 py-2 rounded-full transition">Self Improvement</a>
         <a href="videos.html" class="text-[14px] font-medium text-textMuted hover:text-brandPurple hover:bg-white px-5 py-2 rounded-full transition">Video</a>
         <a href="quotes.html" class="text-[14px] font-medium text-textMuted hover:text-brandPurple hover:bg-white px-5 py-2 rounded-full transition">Quotes</a>
-        <a href="contact.html" class="text-[14px] font-medium text-textMuted hover:text-brandPurple hover:bg-white px-5 py-2 rounded-full transition">Contact Us</a>
+        <a href="contact.html" class="text-[14px] font-medium text-textMuted hover:text-brandPurple hover:bg-white px-5 py-2 rounded-full transition">Contact</a>
       </nav>
 
-      <!-- Right Header Action & Classic 3-Line Hamburger Icon -->
+      <!-- Right Header Action & Classic Hamburger Icon -->
       <div class="flex items-center gap-3">
         <a href="https://youtube.com/@jasmeetkaurr1" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 bg-brandPurple hover:bg-brandPurpleHover text-white px-5 py-2.5 rounded-full text-[13px] font-semibold transition-transform hover:-translate-y-0.5 shadow-md shadow-brandPurple/20">
           <i class="fa-brands fa-youtube text-base"></i>
@@ -271,27 +267,25 @@
     </header>
   </div>
 
-  <!-- LIGHTEST PURPLE MOBILE & TABLET NAVIGATION DRAWER (NO NUMBERS, CLEAN MODERN FORMAT) -->
+  <!-- MOBILE NAVIGATION DRAWER -->
   <div class="side-drawer-backdrop fixed inset-0 bg-black/30 backdrop-blur-sm z-50" id="mobileBackdrop"></div>
   <div class="side-drawer-panel fixed inset-0 w-full bg-[#FAF5FF] z-50 flex flex-col justify-between overflow-hidden" id="mobileDrawer">
     
-    <!-- Drawer Top Bar -->
     <div class="flex justify-between items-center px-6 py-5 border-b border-footerBorder bg-white/60 backdrop-blur-md">
-      <div class="flex items-center gap-2">
-        <img src="https://i.ibb.co/PGDt0QPt/jk-logos.png" alt="JK Official Logo" class="h-8 w-auto object-contain">
-        <strong class="font-brand font-bold text-[21px] tracking-tight text-black leading-none">JASMEET KAUR</strong>
+      <div class="flex items-center gap-2.5">
+        <img src="https://i.ibb.co/Dg5vY5bS/jk-final-logos.png" alt="JK Official Logo" class="h-9 w-auto object-contain -translate-y-1">
+        <strong class="font-brand font-bold text-[23px] tracking-tight text-black leading-none">JASMEET KAUR</strong>
       </div>
       <button class="h-10 w-10 rounded-full bg-white text-textDark font-bold text-base flex items-center justify-center border border-footerBorder shadow-sm active:scale-90 transition" id="closeDrawerBtn">✕</button>
     </div>
 
-    <!-- Clean Modern Menu Links (No Numbers, Pill-Hover Styling) -->
     <nav class="flex-1 overflow-y-auto px-6 py-8 flex flex-col justify-center gap-3">
       <a href="index.html" class="mobile-nav-link flex items-center justify-between py-4 px-6 rounded-2xl font-bold text-lg text-white bg-brandPurple shadow-sm transition">
         <span>Home</span>
         <i class="fa-solid fa-arrow-right text-xs opacity-80"></i>
       </a>
       <a href="about.html" class="mobile-nav-link flex items-center justify-between py-4 px-6 rounded-2xl font-semibold text-lg text-textDark bg-white/80 border border-footerBorder/60 hover:bg-white transition">
-        <span>About Us</span>
+        <span>About</span>
         <i class="fa-solid fa-chevron-right text-xs text-brandPurple/60"></i>
       </a>
       <a href="self-improvement.html" class="mobile-nav-link flex items-center justify-between py-4 px-6 rounded-2xl font-semibold text-lg text-textDark bg-white/80 border border-footerBorder/60 hover:bg-white transition">
@@ -307,12 +301,11 @@
         <i class="fa-solid fa-chevron-right text-xs text-brandPurple/60"></i>
       </a>
       <a href="contact.html" class="mobile-nav-link flex items-center justify-between py-4 px-6 rounded-2xl font-semibold text-lg text-textDark bg-white/80 border border-footerBorder/60 hover:bg-white transition">
-        <span>Contact Us</span>
+        <span>Contact</span>
         <i class="fa-solid fa-chevron-right text-xs text-brandPurple/60"></i>
       </a>
     </nav>
 
-    <!-- Drawer Footer CTA -->
     <div class="px-6 py-6 border-t border-footerBorder bg-white/60 backdrop-blur-md">
       <a href="https://youtube.com/@jasmeetkaurr1" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2.5 w-full text-center bg-brandPurple hover:bg-brandPurpleHover text-white py-3.5 rounded-full font-semibold text-sm shadow-md shadow-brandPurple/25 transition">
         <i class="fa-brands fa-youtube text-lg"></i>
@@ -321,45 +314,58 @@
     </div>
   </div>
 
-  <!-- HERO SECTION: UNIFORM LIGHTEST PURPLE SOLID THEME ACROSS ALL DEVICES -->
+  <!-- HERO SECTION -->
   <main class="pt-24 sm:pt-36 md:pt-44 lg:pt-48 pb-16 sm:pb-24 relative overflow-hidden bg-[#FAF5FF]" id="home">
     <section class="pb-10 sm:pb-16 bg-transparent relative z-10">
       <div class="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-8">
         <div class="max-w-4xl mx-auto text-center flex flex-col items-center relative z-10">
           
-          <!-- Capsules: Clean Flat Border Format -->
-          <div class="w-full flex items-center justify-center pb-0 mt-0 sm:mt-3 md:mt-4 mb-6 sm:mb-8 animate-hero delay-1">
-            <div class="flex items-center justify-center gap-3 flex-row px-1">
+          <!-- Capsules: Harmonized Color, Separate Pills, Clean Text Only -->
+          <div class="w-full flex items-center justify-center pb-0 mt-0 sm:mt-2 mb-6 sm:mb-8 animate-hero delay-1">
+            <div class="flex items-center justify-center gap-3 sm:gap-4 flex-row flex-wrap px-1">
               
               <!-- Capsule 1: Student -->
-              <div class="bg-white border border-footerBorder text-black pr-4 pl-2 py-0.5 rounded-full text-[12px] sm:text-[13px] font-semibold tracking-wide flex items-center gap-2 leading-tight shadow-sm hover-lift">
-                <div class="bg-brandPurpleLight h-5 w-5 rounded-full text-brandPurple flex items-center justify-center shrink-0">
-                  <i class="fa-solid fa-graduation-cap text-[10px]"></i>
-                </div>
-                <span>Student</span>
+              <div class="inline-flex items-center gap-2 bg-brandPurpleLight/60 backdrop-blur-sm py-1.5 px-4 rounded-full border border-brandPurple/25 shadow-[0_2px_10px_rgba(121,40,202,0.06)] hover-lift cursor-default">
+                <span class="flex h-5 w-5 items-center justify-center rounded-full bg-white text-brandPurple border border-brandPurple/20 shrink-0">
+                  <i class="fa-solid fa-graduation-cap text-[9.5px]"></i>
+                </span>
+                <span class="text-[12.5px] sm:text-[13.5px] font-semibold text-brandPurpleDeep tracking-tight">Student</span>
               </div>
 
               <!-- Capsule 2: Content Creator -->
-              <div class="bg-white border border-footerBorder text-black pr-4 pl-2 py-0.5 rounded-full text-[12px] sm:text-[13px] font-semibold tracking-wide flex items-center gap-2 leading-tight shadow-sm hover-lift">
-                <div class="bg-brandPurpleLight h-5 w-5 rounded-full text-brandPurple flex items-center justify-center shrink-0">
-                  <i class="fa-solid fa-clapperboard text-[10px]"></i>
-                </div>
-                <span>Content Creator</span>
+              <div class="inline-flex items-center gap-2 bg-brandPurpleLight/60 backdrop-blur-sm py-1.5 px-4 rounded-full border border-brandPurple/25 shadow-[0_2px_10px_rgba(121,40,202,0.06)] hover-lift cursor-default">
+                <span class="flex h-5 w-5 items-center justify-center rounded-full bg-white text-brandPurple border border-brandPurple/20 shrink-0">
+                  <i class="fa-solid fa-clapperboard text-[9.5px]"></i>
+                </span>
+                <span class="text-[12.5px] sm:text-[13.5px] font-semibold text-brandPurpleDeep tracking-tight">Content Creator</span>
               </div>
 
             </div>
           </div>
 
-          <!-- Original Heading Format -->
+          <!-- Original Heading -->
           <h1 class="font-brand font-bold text-[30px] sm:text-[42px] md:text-[52px] lg:text-[60px] tracking-tight leading-[1.18] mb-6 sm:mb-8 max-w-4xl animate-hero delay-2 heading-accent">
-            Build Systems That Run Even When You Feel Like Quitting.
+            You Don't Need to Be Ready.
+            You Just Need to Start.
           </h1>
 
           <p class="text-base sm:text-lg md:text-xl text-textMuted font-normal leading-relaxed mb-10 sm:mb-12 max-w-[740px] animate-hero delay-3">
-            Real discipline isn't about feeling motivated or ready. It is about building daily habits that keep going through setbacks, self-doubt, and exhaustion.
+            Life isn’t about having everything figured out. It’s about learning, growing, making mistakes, starting again, and becoming someone you’re proud of. There will be moments when you feel lost but keep Learning, keep Growing<span class="desktop-only">, and keep Becoming.</span>
           </p>
+          
+          <style>
+            .desktop-only {
+              display: inline;
+            }
 
-          <!-- Action Buttons with Breathable Gap -->
+            @media (max-width: 768px) {
+              .desktop-only {
+                display: none;
+              }
+            }
+          </style>
+
+          <!-- Action Buttons -->
           <div class="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 md:gap-10 w-full sm:w-auto animate-hero delay-4">
             <a href="https://youtube.com/@jasmeetkaurr1" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-brandPurple hover:bg-brandPurpleHover text-white py-3.5 px-9 rounded-full font-semibold text-base shadow-lg shadow-brandPurple/20 transition-transform hover:-translate-y-1">
               <i class="fa-brands fa-youtube text-lg"></i>
@@ -374,7 +380,7 @@
       </div>
     </section>
 
-    <!-- METRICS BANNER (Single Line on Laptop/Tablet) -->
+    <!-- METRICS BANNER -->
     <section class="py-8 sm:py-10 border-y border-footerBorder bg-[#FAF5FF] scroll-reveal" id="statsBanner">
       <div class="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6 items-center">
@@ -407,26 +413,27 @@
       </div>
     </section>
 
-    <!-- CONTENT HIGHLIGHTS: STRICT ZIGZAG ON LAPTOP, INCREASED TEXT SIZES, NO HOVER ZOOM -->
+    <!-- CONTENT HIGHLIGHTS -->
     <section class="py-16 sm:py-24 bg-[#F5ECFF]" id="highlights">
       <div class="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-8">
         
         <div class="text-center max-w-2xl mx-auto mb-14 sm:mb-20 scroll-reveal">
-          <span class="text-sm font-semibold text-brandPurple tracking-widest uppercase block mb-2">Key Highlights</span>
+          <span class="text-sm font-semibold text-brandPurple tracking-widest uppercase block mb-2">Key learning</span>
           <h2 class="font-brand font-bold text-2xl sm:text-3xl md:text-4xl text-black tracking-tight">
-            Documented Lessons &amp; Mindset Shifts
+            Things I'm Learning While Building Myself
           </h2>
         </div>
 
         <div class="space-y-12 sm:space-y-16 md:space-y-24">
 
-          <!-- 01. Starting Over From Zero (Image Left, Text Right) -->
+          <!-- 01. Starting Over From Zero -->
           <article class="relative flex flex-col md:flex-row items-center gap-0 md:gap-10 lg:gap-12 scroll-reveal">
             <div class="order-1 relative z-10 w-[99%] mx-auto md:w-[54%] md:mx-0">
               <div class="service-carousel" data-carousel>
                 <div class="service-carousel-track">
-                  <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=1200&q=80" alt="Filming room setup" class="service-carousel-slide active">
-                  <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1200&q=80" alt="Desk setup" class="service-carousel-slide">
+                  <img src="https://i.ibb.co/fVw4bDBw/learning-1-1.png" alt="Learning 01 - 1" class="service-carousel-slide active">
+                  <!-- Second image mapped to the right side on mobile screens -->
+                  <img src="https://i.ibb.co/cc4zcrH7/learning-1-1.png" alt="Learning 01 - 2" class="service-carousel-slide max-md:object-right">
                 </div>
                 <div class="service-carousel-dots">
                   <button type="button" class="service-carousel-dot active"></button>
@@ -435,7 +442,7 @@
               </div>
             </div>
             <div class="order-2 relative z-20 w-[88%] sm:w-[82%] md:w-[46%] mx-auto md:mx-0 -mt-8 md:mt-0 bg-white md:bg-transparent p-5 sm:p-6 md:p-0 rounded-2xl md:rounded-none shadow-sm md:shadow-none border border-footerBorder md:border-none text-center md:text-left">
-              <span class="text-xs sm:text-sm font-bold text-brandPurple uppercase tracking-widest">Episode 01</span>
+              <span class="text-xs sm:text-sm font-bold text-brandPurple uppercase tracking-widest">Learning 01</span>
               <h3 class="font-brand font-bold text-xl sm:text-2xl md:text-[28px] lg:text-[30px] text-black mt-2 mb-3 leading-tight">Starting Over from Zero</h3>
               <p class="text-base sm:text-lg text-textMuted leading-relaxed">
                 When setbacks happen, sitting back and crying changes nothing. Pick yourself up, stand on your feet, and run again without waiting for perfect conditions.
@@ -443,13 +450,13 @@
             </div>
           </article>
 
-          <!-- 02. Systems Over Goals (Image Right, Text Left) -->
+          <!-- 02. Systems Over Goals -->
           <article class="relative flex flex-col md:flex-row-reverse items-center gap-0 md:gap-10 lg:gap-12 scroll-reveal">
             <div class="order-1 md:order-2 relative z-10 w-[99%] mx-auto md:w-[54%] md:mx-0">
               <div class="service-carousel" data-carousel>
                 <div class="service-carousel-track">
-                  <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1200&q=80" alt="Notebook planning" class="service-carousel-slide active">
-                  <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=1200&q=80" alt="Study desk setup" class="service-carousel-slide">
+                  <img src="https://i.ibb.co/3mnt86d5/learning-2-1.png" alt="Learning 02 - 1" class="service-carousel-slide active">
+                  <img src="https://i.ibb.co/NgHnHhtJ/learning-2-2.png" alt="Learning 02 - 2" class="service-carousel-slide">
                 </div>
                 <div class="service-carousel-dots">
                   <button type="button" class="service-carousel-dot active"></button>
@@ -458,7 +465,7 @@
               </div>
             </div>
             <div class="order-2 md:order-1 relative z-20 w-[88%] sm:w-[82%] md:w-[46%] mx-auto md:mx-0 -mt-8 md:mt-0 bg-white md:bg-transparent p-5 sm:p-6 md:p-0 rounded-2xl md:rounded-none shadow-sm md:shadow-none border border-footerBorder md:border-none text-center md:text-left">
-              <span class="text-xs sm:text-sm font-bold text-brandPurple uppercase tracking-widest">Episode 02</span>
+              <span class="text-xs sm:text-sm font-bold text-brandPurple uppercase tracking-widest">Learning 02</span>
               <h3 class="font-brand font-bold text-xl sm:text-2xl md:text-[28px] lg:text-[30px] text-black mt-2 mb-3 leading-tight">Systems Over Goals</h3>
               <p class="text-base sm:text-lg text-textMuted leading-relaxed">
                 Winners and losers have identical ambitions. The separation comes entirely from the small, reliable systems you execute repeatedly every day.
@@ -466,13 +473,13 @@
             </div>
           </article>
 
-          <!-- 03. Action When You Don't Want To (Image Left, Text Right) -->
+          <!-- 03. Action When You Don't Want To -->
           <article class="relative flex flex-col md:flex-row items-center gap-0 md:gap-10 lg:gap-12 scroll-reveal">
             <div class="order-1 relative z-10 w-[99%] mx-auto md:w-[54%] md:mx-0">
               <div class="service-carousel" data-carousel>
                 <div class="service-carousel-track">
-                  <img src="https://images.unsplash.com/photo-1506784365847-bbad939e9335?auto=format&fit=crop&w=1200&q=80" alt="Daily routine execution" class="service-carousel-slide active">
-                  <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80" alt="Relentless focus" class="service-carousel-slide">
+                  <img src="https://i.ibb.co/0y81BZJL/learning-3-1.png" alt="Learning 03 - 1" class="service-carousel-slide active">
+                  <img src="https://i.ibb.co/CpkBnGB1/learning-3-2.png" alt="Learning 03 - 2" class="service-carousel-slide">
                 </div>
                 <div class="service-carousel-dots">
                   <button type="button" class="service-carousel-dot active"></button>
@@ -481,7 +488,7 @@
               </div>
             </div>
             <div class="order-2 relative z-20 w-[88%] sm:w-[82%] md:w-[46%] mx-auto md:mx-0 -mt-8 md:mt-0 bg-white md:bg-transparent p-5 sm:p-6 md:p-0 rounded-2xl md:rounded-none shadow-sm md:shadow-none border border-footerBorder md:border-none text-center md:text-left">
-              <span class="text-xs sm:text-sm font-bold text-brandPurple uppercase tracking-widest">Episode 03</span>
+              <span class="text-xs sm:text-sm font-bold text-brandPurple uppercase tracking-widest">Learning 03</span>
               <h3 class="font-brand font-bold text-xl sm:text-2xl md:text-[28px] lg:text-[30px] text-black mt-2 mb-3 leading-tight">Action When You Don't Want To</h3>
               <p class="text-base sm:text-lg text-textMuted leading-relaxed">
                 Clarity alone won't change your reality. The difference maker is opening your books and filming even when your back aches and motivation is completely gone.
@@ -489,13 +496,13 @@
             </div>
           </article>
 
-          <!-- 04. Comparison as Fuel (Image Right, Text Left) -->
+          <!-- 04. Comparison as Fuel -->
           <article class="relative flex flex-col md:flex-row-reverse items-center gap-0 md:gap-10 lg:gap-12 scroll-reveal">
             <div class="order-1 md:order-2 relative z-10 w-[99%] mx-auto md:w-[54%] md:mx-0">
               <div class="service-carousel" data-carousel>
                 <div class="service-carousel-track">
-                  <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80" alt="Teenagers learning together" class="service-carousel-slide active">
-                  <img src="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=1200&q=80" alt="Focused students" class="service-carousel-slide">
+                  <img src="https://i.ibb.co/ycymdKfz/learning-4-1.png" alt="Learning 04 - 1" class="service-carousel-slide active">
+                  <img src="https://i.ibb.co/nsV1vM2V/learning-4-2.png" alt="Learning 04 - 2" class="service-carousel-slide">
                 </div>
                 <div class="service-carousel-dots">
                   <button type="button" class="service-carousel-dot active"></button>
@@ -504,7 +511,7 @@
               </div>
             </div>
             <div class="order-2 md:order-1 relative z-20 w-[88%] sm:w-[82%] md:w-[46%] mx-auto md:mx-0 -mt-8 md:mt-0 bg-white md:bg-transparent p-5 sm:p-6 md:p-0 rounded-2xl md:rounded-none shadow-sm md:shadow-none border border-footerBorder md:border-none text-center md:text-left">
-              <span class="text-xs sm:text-sm font-bold text-brandPurple uppercase tracking-widest">Episode 04</span>
+              <span class="text-xs sm:text-sm font-bold text-brandPurple uppercase tracking-widest">Learning 04</span>
               <h3 class="font-brand font-bold text-xl sm:text-2xl md:text-[28px] lg:text-[30px] text-black mt-2 mb-3 leading-tight">Comparison as Fuel</h3>
               <p class="text-base sm:text-lg text-textMuted leading-relaxed">
                 Comparison is not your enemy unless it depresses you. When you see others your age achieving big goals, let it be proof that you can accomplish it too.
@@ -512,13 +519,13 @@
             </div>
           </article>
 
-          <!-- 05. The Power of Gratitude (Image Left, Text Right) -->
+          <!-- 05. The Power of Gratitude -->
           <article class="relative flex flex-col md:flex-row items-center gap-0 md:gap-10 lg:gap-12 scroll-reveal">
             <div class="order-1 relative z-10 w-[99%] mx-auto md:w-[54%] md:mx-0">
               <div class="service-carousel" data-carousel>
                 <div class="service-carousel-track">
-                  <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=80" alt="Mindfulness and perspective" class="service-carousel-slide active">
-                  <img src="https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&w=1200&q=80" alt="Journaling daily thoughts" class="service-carousel-slide">
+                  <img src="https://i.ibb.co/21xrHZ8C/learning-5-1.png" alt="Learning 05 - 1" class="service-carousel-slide active">
+                  <img src="https://i.ibb.co/ZR04GxNf/learning-5-2.png" alt="Learning 05 - 2" class="service-carousel-slide">
                 </div>
                 <div class="service-carousel-dots">
                   <button type="button" class="service-carousel-dot active"></button>
@@ -527,7 +534,7 @@
               </div>
             </div>
             <div class="order-2 relative z-20 w-[88%] sm:w-[82%] md:w-[44%] mx-auto md:mx-0 -mt-8 md:mt-0 bg-white md:bg-transparent p-5 sm:p-6 md:p-0 rounded-2xl md:rounded-none shadow-sm md:shadow-none border border-footerBorder md:border-none text-center md:text-left">
-              <span class="text-xs font-semibold text-brandPurple uppercase tracking-widest">Episode 05</span>
+              <span class="text-xs font-semibold text-brandPurple uppercase tracking-widest">Learning 05</span>
               <h3 class="font-brand font-semibold text-lg sm:text-xl md:text-2xl text-textDark mt-1.5 mb-2.5">The Power of Gratitude</h3>
               <p class="text-sm text-textMuted leading-relaxed">
                 A grateful heart is like a miracle that brings more blessings. Trust the path, celebrate the small progress, and keep showing up consistently.
@@ -541,7 +548,7 @@
 
   </main>
 
-  <!-- SOLID LIGHT PURPLE FOOTER WITH 8PX WHITE STRIPE SEPARATOR ON TOP -->
+  <!-- SOLID LIGHT PURPLE FOOTER WITH 8PX WHITE STRIPE SEPARATOR -->
   <footer class="bg-[#F5ECFF] rounded-t-[40px] w-full pt-16 pb-10 border-t-[8px] border-white shadow-[0_-8px_15px_rgba(121,40,202,0.04)] reveal-on-scroll relative z-10 mt-auto" id="contact">
     <div class="max-w-[1300px] mx-auto px-6 sm:px-12">
       
@@ -549,9 +556,9 @@
         
         <!-- Column 1: Brand & Description -->
         <div>
-          <div class="flex items-center gap-1.5 mb-3">
-            <img src="https://i.ibb.co/PGDt0QPt/jk-logos.png" alt="JK Official Logo" class="h-8 w-auto object-contain shrink-0">
-            <span class="font-brand font-bold text-[20px] sm:text-[22px] tracking-tight text-black">JASMEET KAUR</span>
+          <div class="flex items-center gap-2.5 mb-3">
+            <img src="https://i.ibb.co/Dg5vY5bS/jk-final-logos.png" alt="JK Official Logo" class="h-10 w-auto object-contain shrink-0 -translate-y-1">
+            <span class="font-brand font-bold text-[22px] tracking-tight text-black">JASMEET KAUR</span>
           </div>
           <p class="text-xs sm:text-sm text-textMuted leading-relaxed max-w-sm font-normal">
             Empowering students and teenagers for self-improvement, building resilient daily habits, and creating a disciplined mindset.
@@ -595,7 +602,7 @@
             </a>
 
             <!-- Previous Channel -->
-            <a href="https://youtube.com/@jasmeetmaann" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 text-black hover:text-brandPurple transition group">
+            <a href="https://youtube.com/@jasmeetmaann" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 text-black hover:text-brandPurple transition group"[cite: 1]>
               <i class="fa-brands fa-youtube text-brandPurple text-lg shrink-0 group-hover:scale-110 transition-transform"></i>
               <span class="font-semibold text-black text-[14px]">Previous Channel</span>
             </a>
@@ -605,7 +612,7 @@
           <!-- Business Inquiries -->
           <div>
             <h5 class="text-xs font-bold text-brandPurple uppercase tracking-widest mb-2">Business Inquiries</h5>
-            <a href="mailto:workwithjasmeetkaur@gmail.com" class="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-semibold text-black hover:text-brandPurple transition break-all group">
+            <a href="mailto:workwithjasmeetkaur@gmail.com" class="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-semibold text-black hover:text-brandPurple transition break-all group"[cite: 1]>
               <i class="fa-solid fa-envelope text-brandPurple text-xs shrink-0 group-hover:scale-110 transition-transform"></i>
               <span>workwithjasmeetkaur@gmail.com</span>
             </a>
@@ -614,15 +621,16 @@
 
       </div>
 
-      <!-- Footer Bottom Copyright -->
-      <div class="pt-6 text-center text-xs text-textMuted">
-        © 2026 Jasmeet Kaur. All Rights Reserved.
+      <!-- Footer Bottom Copyright & Creator on Separate Next Line -->
+      <div class="pt-6 text-center text-xs text-textMuted font-medium flex flex-col items-center justify-center gap-1.5">
+        <div>© 2026 Jasmeet Kaur. All Rights Reserved.</div>
+        <div>Created by Gagan Nishad</div>
       </div>
 
     </div>
   </footer>
 
-  <!-- SMART IDLE-HIDE FLOATING SCROLL TO TOP BUTTON -->
+  <!-- SMART IDLE-HIDE BACK TO TOP BUTTON -->
   <button type="button" class="back-to-top-btn fixed bottom-5 right-5 z-40 bg-brandPurple hover:bg-brandPurpleHover text-white h-11 w-11 rounded-full shadow-[0_6px_20px_rgba(121,40,202,0.3)] flex items-center justify-center focus:outline-none active:scale-90" id="backToTopBtn" aria-label="Back to top">
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
       <line x1="12" y1="19" x2="12" y2="5"></line>
@@ -635,7 +643,7 @@
     (function() {
       "use strict";
 
-      // 1. DOCK AUTO-HIDE & DIRECTIONAL UPWARD-ONLY ANIMATIONS
+      // 1. DOCK AUTO-HIDE, SCROLL IDLE-HIDE BUTTON & DIRECTIONAL REVEALS
       let lastScrollY = window.scrollY;
       let scrollTimer = null;
       const navShell = document.getElementById('navShell');
@@ -646,7 +654,7 @@
         const currentScrollY = window.scrollY;
         const isScrollingDown = currentScrollY > lastScrollY;
 
-        // Auto-hide navigation header
+        // Auto-hide navigation header on scroll down
         if (isScrollingDown && currentScrollY > 70) {
           navShell.classList.add('dock-hidden');
         } else {
@@ -672,7 +680,7 @@
           clearTimeout(scrollTimer);
           scrollTimer = setTimeout(() => {
             backToTopBtn.classList.remove('is-active');
-          }, 1500);
+          }, 1200);
         } else {
           backToTopBtn.classList.remove('is-active');
         }
@@ -704,7 +712,7 @@
         link.addEventListener('click', closeDrawer);
       });
 
-      // 3. STATS COUNTERS
+      // 3. STATS COUNTERS (Smooth Pace)
       const statsBanner = document.getElementById('statsBanner');
       const counters = document.querySelectorAll('.counter');
       let animated = false;
@@ -712,15 +720,15 @@
       function runCounters() {
         counters.forEach(counter => {
           const target = +counter.getAttribute('data-target');
-          const speed = target > 1000 ? 55 : 25;
-          const increment = Math.ceil(target / speed);
+          const totalSteps = 80;
+          const increment = Math.max(1, Math.ceil(target / totalSteps));
           let count = 0;
 
           const update = () => {
             count += increment;
             if (count < target) {
               counter.innerText = target > 1000 ? count.toLocaleString() : count;
-              setTimeout(update, 25);
+              setTimeout(update, 35);
             } else {
               counter.innerText = target > 1000 ? target.toLocaleString() : target;
             }
@@ -752,7 +760,7 @@
 
       revealItems.forEach(el => revealObserver.observe(el));
 
-      // 5. CAROUSEL AUTOMATION
+      // 5. CAROUSEL AUTOMATION (3-SECOND SEAMLESS CROSSFADE)
       const carousels = document.querySelectorAll('[data-carousel]');
       carousels.forEach(c => {
         const slides = [...c.querySelectorAll('.service-carousel-slide')];
@@ -769,7 +777,7 @@
         function start() {
           if (!isPlaying) {
             clearInterval(t);
-            t = setInterval(() => show(i + 1), 3200); 
+            t = setInterval(() => show(i + 1), 3000); 
             isPlaying = true;
           }
         }
