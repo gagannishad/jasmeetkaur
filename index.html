@@ -657,22 +657,22 @@
     (function() {
       "use strict";
 
-      // Global Scroll Status (Tracks whether user is actively scrolling or stopped)
+      // Track active scrolling state across page
       let isScrolling = false;
       let scrollStopTimer = null;
       const carouselHandlers = [];
 
       window.addEventListener('scroll', () => {
         isScrolling = true;
-        // Pause active carousels immediately when scrolling starts
+        // Pause carousels while user is in motion
         carouselHandlers.forEach(h => h.pauseWhileScrolling());
 
         clearTimeout(scrollStopTimer);
         scrollStopTimer = setTimeout(() => {
           isScrolling = false;
-          // Re-evaluate and resume carousel when scrolling stops and user rests on it
+          // Resume carousel when user stops scrolling on top of it
           carouselHandlers.forEach(h => h.resumeIfVisible());
-        }, 150); // 150ms after user stops scrolling
+        }, 150);
       }, { passive: true });
 
       // 1. DOCK AUTO-HIDE, SCROLL IDLE-HIDE BUTTON & DIRECTIONAL REVEALS
@@ -792,7 +792,7 @@
 
       revealItems.forEach(el => revealObserver.observe(el));
 
-      // 5. CAROUSEL: CHANGES EVERY 5 SECONDS ONLY WHEN STOPPED & VISIBLE
+      // 5. CAROUSEL: 3 SECONDS ONLY WHEN STOPPED & VISIBLE
       const carousels = document.querySelectorAll('[data-carousel]');
       carousels.forEach(c => {
         const slides = [...c.querySelectorAll('.service-carousel-slide')];
@@ -811,10 +811,9 @@
         function start() {
           stop();
           if (isVisible && !isScrolling && !isHovered) {
-            // Exactly 5 seconds when stopped on section
             timer = setInterval(() => {
               show(i + 1);
-            }, 5000);
+            }, 3000);
           }
         }
 
@@ -842,7 +841,6 @@
 
         show(0);
 
-        // Register handlers for scroll state
         carouselHandlers.push({
           pauseWhileScrolling: () => stop(),
           resumeIfVisible: () => {
@@ -850,7 +848,6 @@
           }
         });
 
-        // Intersection observer to track if section is in viewport
         const observer = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
             isVisible = entry.isIntersecting;
@@ -878,6 +875,7 @@
         "Get Started."
       ];
 
+
       const rotatingWord = document.getElementById("rotating-word");
       const heroSection = document.getElementById("home");
       let wordIndex = 0;
@@ -886,21 +884,17 @@
       function changeWord() {
         if (!rotatingWord) return;
 
-        // Slide current word up and fade out
         rotatingWord.style.transform = "translateY(-100%)";
         rotatingWord.style.opacity = "0";
 
         setTimeout(() => {
-          // Advance to next word
           wordIndex = (wordIndex + 1) % words.length;
           rotatingWord.textContent = words[wordIndex];
 
-          // Instantly position new word below
           rotatingWord.style.transition = "none";
           rotatingWord.style.transform = "translateY(100%)";
           rotatingWord.style.opacity = "0";
 
-          // Trigger smooth slide-in and fade-in up to natural baseline
           requestAnimationFrame(() => {
             rotatingWord.style.transition = "transform 0.5s ease, opacity 0.5s ease";
             rotatingWord.style.transform = "translateY(0)";
@@ -925,7 +919,6 @@
       if (heroSection) {
         const heroObserver = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
-            // When top hero is on screen, slide text. When you scroll to the bottom, stop sliding.
             if (entry.isIntersecting) {
               startTextSlider();
             } else {
