@@ -361,7 +361,7 @@
           <!-- HEADING 1 WITH CS SAMPLE-STYLE ROTATING WORD SLIDER -->
           <h1 class="font-brand font-bold text-[30px] sm:text-[42px] md:text-[52px] lg:text-[60px] tracking-tight leading-[1.2] mb-6 sm:mb-8 max-w-4xl animate-hero delay-2 heading-accent">
             You Don't Need to Be Ready.<br class="hidden sm:inline">
-            You Just Need to <span class="rotating-word-container"><span id="rotating-word">Start Now.</span></span>
+            You Just Need to <span class="rotating-word-container"><span id="rotating-word">Start.</span></span>
           </h1>
 
           <p class="text-base sm:text-lg md:text-xl text-textMuted font-normal leading-relaxed mb-10 sm:mb-12 max-w-[740px] animate-hero delay-3">
@@ -616,7 +616,7 @@
             </a>
 
             <!-- Previous Channel -->
-            <a href="https://youtube.com/@jasmeetmaann" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 text-black hover:text-brandPurple transition group">
+            <a href="https://youtube.com/@jasmeetmaann" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 text-black hover:text-brandPurple transition group"[cite: 1]>
               <i class="fa-brands fa-youtube text-brandPurple text-lg shrink-0 group-hover:scale-110 transition-transform"></i>
               <span class="font-semibold text-black text-[14px]">Previous Channel</span>
             </a>
@@ -626,7 +626,7 @@
           <!-- Business Inquiries -->
           <div>
             <h5 class="text-xs font-bold text-brandPurple uppercase tracking-widest mb-2">Business Inquiries</h5>
-            <a href="mailto:workwithjasmeetkaur@gmail.com" class="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-semibold text-black hover:text-brandPurple transition break-all group">
+            <a href="mailto:workwithjasmeetkaur@gmail.com" class="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-semibold text-black hover:text-brandPurple transition break-all group"[cite: 1]>
               <i class="fa-solid fa-envelope text-brandPurple text-xs shrink-0 group-hover:scale-110 transition-transform"></i>
               <span>workwithjasmeetkaur@gmail.com</span>
             </a>
@@ -656,6 +656,24 @@
   <script>
     (function() {
       "use strict";
+
+      // Global Scroll Status (Tracks whether user is actively scrolling or stopped)
+      let isScrolling = false;
+      let scrollStopTimer = null;
+      const carouselHandlers = [];
+
+      window.addEventListener('scroll', () => {
+        isScrolling = true;
+        // Pause active carousels immediately when scrolling starts
+        carouselHandlers.forEach(h => h.pauseWhileScrolling());
+
+        clearTimeout(scrollStopTimer);
+        scrollStopTimer = setTimeout(() => {
+          isScrolling = false;
+          // Re-evaluate and resume carousel when scrolling stops and user rests on it
+          carouselHandlers.forEach(h => h.resumeIfVisible());
+        }, 150); // 150ms after user stops scrolling
+      }, { passive: true });
 
       // 1. DOCK AUTO-HIDE, SCROLL IDLE-HIDE BUTTON & DIRECTIONAL REVEALS
       let lastScrollY = window.scrollY;
@@ -774,13 +792,15 @@
 
       revealItems.forEach(el => revealObserver.observe(el));
 
-      // 5. CAROUSEL AUTOMATION (3-SECOND SEAMLESS CROSSFADE)
+      // 5. CAROUSEL: CHANGES EVERY 5 SECONDS ONLY WHEN STOPPED & VISIBLE
       const carousels = document.querySelectorAll('[data-carousel]');
       carousels.forEach(c => {
         const slides = [...c.querySelectorAll('.service-carousel-slide')];
         const dots = [...c.querySelectorAll('.service-carousel-dot')];
-        let i = 0, t;
-        let isPlaying = false;
+        let i = 0;
+        let timer = null;
+        let isVisible = false;
+        let isHovered = false;
 
         function show(n) {
           i = (n + slides.length) % slides.length;
@@ -789,16 +809,20 @@
         }
 
         function start() {
-          if (!isPlaying) {
-            clearInterval(t);
-            t = setInterval(() => show(i + 1), 3000); 
-            isPlaying = true;
+          stop();
+          if (isVisible && !isScrolling && !isHovered) {
+            // Exactly 5 seconds when stopped on section
+            timer = setInterval(() => {
+              show(i + 1);
+            }, 5000);
           }
         }
 
         function stop() {
-          clearInterval(t);
-          isPlaying = false;
+          if (timer) {
+            clearInterval(timer);
+            timer = null;
+          }
         }
 
         dots.forEach((x, k) => x.addEventListener('click', () => { 
@@ -807,39 +831,53 @@
           start(); 
         }));
         
-        c.addEventListener('mouseenter', stop);
-        c.addEventListener('mouseleave', start);
+        c.addEventListener('mouseenter', () => {
+          isHovered = true;
+          stop();
+        });
+        c.addEventListener('mouseleave', () => {
+          isHovered = false;
+          start();
+        });
 
         show(0);
 
+        // Register handlers for scroll state
+        carouselHandlers.push({
+          pauseWhileScrolling: () => stop(),
+          resumeIfVisible: () => {
+            if (isVisible) start();
+          }
+        });
+
+        // Intersection observer to track if section is in viewport
         const observer = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
-            if (entry.isIntersecting) {
+            isVisible = entry.isIntersecting;
+            if (isVisible && !isScrolling) {
               start();
             } else {
               stop();
             }
           });
-        }, { threshold: 0.3 }); 
+        }, { threshold: 0.4 }); 
 
         observer.observe(c);
       });
 
-      // 6. CS SAMPLE ROTATING WORD SLIDER
+      // 6. HERO TEXT ROTATOR (SLIDES ONLY WHEN IN VIEW AT TOP; STOPS WHEN SCROLLED DOWN)
       const words = [
         "Take Action.",
+        "Start Now.",
+        "Take the Step.",
         "Build Now.",
-                "Learn More.",
-                        "Keep Going.",
-                        "Talk Less.",
-                        "Do More.",
-                        "Stop Scrolling.",
-                        "Become Better.",
         "Get Started."
       ];
 
       const rotatingWord = document.getElementById("rotating-word");
+      const heroSection = document.getElementById("home");
       let wordIndex = 0;
+      let textTimer = null;
 
       function changeWord() {
         if (!rotatingWord) return;
@@ -867,8 +905,35 @@
         }, 500);
       }
 
-      // Rotate every 2.5 seconds
-      setInterval(changeWord, 2500);
+      function startTextSlider() {
+        if (!textTimer) {
+          textTimer = setInterval(changeWord, 2500);
+        }
+      }
+
+      function stopTextSlider() {
+        if (textTimer) {
+          clearInterval(textTimer);
+          textTimer = null;
+        }
+      }
+
+      if (heroSection) {
+        const heroObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            // When top hero is on screen, slide text. When you scroll to the bottom, stop sliding.
+            if (entry.isIntersecting) {
+              startTextSlider();
+            } else {
+              stopTextSlider();
+            }
+          });
+        }, { threshold: 0.15 });
+
+        heroObserver.observe(heroSection);
+      } else {
+        startTextSlider();
+      }
 
     })();
   </script>
