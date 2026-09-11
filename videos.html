@@ -80,7 +80,7 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Staggered Entrance Animations */
+    /* Staggered Animations */
     @keyframes heroFadeUp {
       0% { opacity: 0; transform: translateY(22px); }
       100% { opacity: 1; transform: translateY(0); }
@@ -93,7 +93,7 @@
     .delay-2 { animation-delay: 0.18s; }
     .delay-3 { animation-delay: 0.28s; }
 
-    /* Floating Header Auto-Hide */
+    /* Dock Header Transition */
     .dock-container {
       transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
     }
@@ -102,7 +102,7 @@
       opacity: 0;
     }
 
-    /* Directional Scroll Reveal */
+    /* Scroll Reveal */
     .scroll-reveal {
       opacity: 0;
       transform: translateY(28px);
@@ -120,35 +120,24 @@
       background: #FFFFFF;
       overflow: hidden;
       position: relative;
+      border: 1px solid #E0C5FC;
+      border-radius: 22px;
+      box-shadow: 0 4px 18px rgba(121, 40, 202, 0.05);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+    }
+    .video-card-item:hover {
+      transform: translateY(-5px);
+      border-color: #D3B0FA;
+      box-shadow: 0 14px 30px -8px rgba(121, 40, 202, 0.14);
     }
 
-    /* Mobile: Flush edge-to-edge flow with distinct card separation */
-    @media (max-width: 639px) {
-      .video-card-item {
-        border-radius: 18px;
-        border: 1.5px solid #E0C5FC;
-        background: #FFFFFF;
-        box-shadow: 0 4px 18px rgba(121, 40, 202, 0.07);
-        margin-bottom: 0.75rem;
-      }
+    /* Soft lighter border when video is playing */
+    .video-card-item.is-active-card {
+      border: 1.5px solid #D8B4FE !important;
+      box-shadow: 0 10px 25px -5px rgba(216, 180, 254, 0.45);
     }
 
-    /* Tablet & Laptop: Elegant elevated cards */
-    @media (min-width: 640px) {
-      .video-card-item {
-        border: 1px solid #E0C5FC;
-        border-radius: 22px;
-        box-shadow: 0 6px 20px rgba(121, 40, 202, 0.06);
-        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
-      }
-      .video-card-item:hover {
-        transform: translateY(-5px);
-        border-color: #7928CA;
-        box-shadow: 0 16px 32px -8px rgba(121, 40, 202, 0.16);
-      }
-    }
-
-    /* 16:9 Screen Container */
+    /* Video Screen Container - Clean Thumbnail (No Icon Overlay) */
     .video-screen-container {
       position: relative;
       width: 100%;
@@ -157,7 +146,6 @@
       overflow: hidden;
       cursor: pointer;
     }
-
     .video-screen-container img {
       width: 100%;
       height: 100%;
@@ -165,7 +153,6 @@
       display: block;
       transition: transform 0.4s ease;
     }
-
     .video-card-item:hover .video-screen-container img {
       transform: scale(1.02);
     }
@@ -177,20 +164,74 @@
       display: block;
     }
 
-    /* Interactive Play Button */
-    .custom-play-btn {
-      transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
-      box-shadow: 0 4px 12px rgba(121, 40, 202, 0.25);
+    /* Interactive Title Button with Animated Play/Pause States */
+    .interactive-play-btn {
+      position: relative;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #7928CA;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(121, 40, 202, 0.22);
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, background 0.3s ease;
     }
-    .video-card-item:hover .custom-play-btn {
+    .interactive-play-btn:hover {
       transform: scale(1.08);
-      background-color: #581C87;
+      background: #6D28D9;
+      box-shadow: 0 6px 16px rgba(121, 40, 202, 0.35);
     }
-    .custom-play-btn:active {
-      transform: scale(0.95);
+    .interactive-play-btn:active {
+      transform: scale(0.92);
     }
 
-    /* Fullscreen Mobile Drawer */
+    /* Play Icon State */
+    .icon-play {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Pause State: 2 Animated Lines */
+    .icon-pause {
+      display: none;
+      gap: 3.5px;
+      align-items: center;
+      justify-content: center;
+      height: 14px;
+    }
+    .pause-bar {
+      width: 3px;
+      height: 13px;
+      background-color: #ffffff;
+      border-radius: 4px;
+      animation: pulseBar 1.2s infinite ease-in-out alternate;
+    }
+    .pause-bar:nth-child(2) {
+      animation-delay: 0.3s;
+    }
+    @keyframes pulseBar {
+      0% { transform: scaleY(0.8); }
+      100% { transform: scaleY(1.15); }
+    }
+
+    /* When playing */
+    .interactive-play-btn.playing {
+      background: #6D28D9;
+      box-shadow: 0 0 0 3px rgba(216, 180, 254, 0.5);
+    }
+    .interactive-play-btn.playing .icon-play {
+      display: none;
+    }
+    .interactive-play-btn.playing .icon-pause {
+      display: flex;
+    }
+
+    /* Drawer */
     .side-drawer-backdrop { display: none !important; }
     .side-drawer-panel { display: none !important; }
     body.drawer-open .side-drawer-backdrop { display: block !important; }
@@ -348,13 +389,23 @@
             <div class="video-screen-container" data-videoid="gb4BclhYa7E">
               <img src="https://img.youtube.com/vi/gb4BclhYa7E/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/gb4BclhYa7E/hqdefault.jpg';" alt="If you're a student watch this - ( Class 12th Student)">
             </div>
-            <div class="p-4 sm:p-5 flex items-start gap-3.5 bg-white flex-1">
-              <button type="button" class="custom-play-btn h-9 w-9 rounded-full bg-brandPurple text-white flex items-center justify-center shrink-0 mt-0.5 cursor-pointer" data-playtarget="gb4BclhYa7E" aria-label="Play video">
-                <i class="fa-solid fa-play text-xs ml-0.5"></i>
-              </button>
-              <h3 class="font-brand font-semibold text-[15px] sm:text-[16px] text-textDark leading-snug">
-                If you're a student watch this - ( Class 12th Student)
-              </h3>
+            <div class="p-4 sm:p-5 flex flex-col justify-between bg-white flex-1 gap-3">
+              <div class="flex items-start gap-3">
+                <button type="button" class="interactive-play-btn" data-playtarget="gb4BclhYa7E" aria-label="Play or pause video">
+                  <span class="icon-play"><i class="fa-solid fa-play text-xs ml-0.5"></i></span>
+                  <span class="icon-pause">
+                    <span class="pause-bar"></span>
+                    <span class="pause-bar"></span>
+                  </span>
+                </button>
+                <h3 class="font-brand font-semibold text-[15px] sm:text-[16px] text-textDark leading-snug">
+                  If you're a student watch this - ( Class 12th Student)
+                </h3>
+              </div>
+              <div class="flex items-center justify-end gap-1.5 text-xs font-medium text-textMuted pr-1">
+                <i class="fa-regular fa-eye text-brandPurple text-[11px]"></i>
+                <span>4.1K views</span>
+              </div>
             </div>
           </article>
 
@@ -363,13 +414,23 @@
             <div class="video-screen-container" data-videoid="5pG0OYNcaos">
               <img src="https://img.youtube.com/vi/5pG0OYNcaos/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/5pG0OYNcaos/hqdefault.jpg';" alt="Before I turn 18 , I need to tell u this">
             </div>
-            <div class="p-4 sm:p-5 flex items-start gap-3.5 bg-white flex-1">
-              <button type="button" class="custom-play-btn h-9 w-9 rounded-full bg-brandPurple text-white flex items-center justify-center shrink-0 mt-0.5 cursor-pointer" data-playtarget="5pG0OYNcaos" aria-label="Play video">
-                <i class="fa-solid fa-play text-xs ml-0.5"></i>
-              </button>
-              <h3 class="font-brand font-semibold text-[15px] sm:text-[16px] text-textDark leading-snug">
-                Before I turn 18 , I need to tell u this
-              </h3>
+            <div class="p-4 sm:p-5 flex flex-col justify-between bg-white flex-1 gap-3">
+              <div class="flex items-start gap-3">
+                <button type="button" class="interactive-play-btn" data-playtarget="5pG0OYNcaos" aria-label="Play or pause video">
+                  <span class="icon-play"><i class="fa-solid fa-play text-xs ml-0.5"></i></span>
+                  <span class="icon-pause">
+                    <span class="pause-bar"></span>
+                    <span class="pause-bar"></span>
+                  </span>
+                </button>
+                <h3 class="font-brand font-semibold text-[15px] sm:text-[16px] text-textDark leading-snug">
+                  Before I turn 18 , I need to tell u this
+                </h3>
+              </div>
+              <div class="flex items-center justify-end gap-1.5 text-xs font-medium text-textMuted pr-1">
+                <i class="fa-regular fa-eye text-brandPurple text-[11px]"></i>
+                <span>6.2K views</span>
+              </div>
             </div>
           </article>
 
@@ -378,13 +439,23 @@
             <div class="video-screen-container" data-videoid="Yg62Ros5kHA">
               <img src="https://img.youtube.com/vi/Yg62Ros5kHA/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/Yg62Ros5kHA/hqdefault.jpg';" alt="At 17, These 5 Things are Changing My LIFE">
             </div>
-            <div class="p-4 sm:p-5 flex items-start gap-3.5 bg-white flex-1">
-              <button type="button" class="custom-play-btn h-9 w-9 rounded-full bg-brandPurple text-white flex items-center justify-center shrink-0 mt-0.5 cursor-pointer" data-playtarget="Yg62Ros5kHA" aria-label="Play video">
-                <i class="fa-solid fa-play text-xs ml-0.5"></i>
-              </button>
-              <h3 class="font-brand font-semibold text-[15px] sm:text-[16px] text-textDark leading-snug">
-                At 17, These 5 Things are Changing My LIFE
-              </h3>
+            <div class="p-4 sm:p-5 flex flex-col justify-between bg-white flex-1 gap-3">
+              <div class="flex items-start gap-3">
+                <button type="button" class="interactive-play-btn" data-playtarget="Yg62Ros5kHA" aria-label="Play or pause video">
+                  <span class="icon-play"><i class="fa-solid fa-play text-xs ml-0.5"></i></span>
+                  <span class="icon-pause">
+                    <span class="pause-bar"></span>
+                    <span class="pause-bar"></span>
+                  </span>
+                </button>
+                <h3 class="font-brand font-semibold text-[15px] sm:text-[16px] text-textDark leading-snug">
+                  At 17, These 5 Things are Changing My LIFE
+                </h3>
+              </div>
+              <div class="flex items-center justify-end gap-1.5 text-xs font-medium text-textMuted pr-1">
+                <i class="fa-regular fa-eye text-brandPurple text-[11px]"></i>
+                <span>13.5K views</span>
+              </div>
             </div>
           </article>
 
@@ -393,13 +464,23 @@
             <div class="video-screen-container" data-videoid="3ZtVBlfeLKw">
               <img src="https://img.youtube.com/vi/3ZtVBlfeLKw/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/3ZtVBlfeLKw/hqdefault.jpg';" alt="How to get what you want ? - 3 ways that i follow">
             </div>
-            <div class="p-4 sm:p-5 flex items-start gap-3.5 bg-white flex-1">
-              <button type="button" class="custom-play-btn h-9 w-9 rounded-full bg-brandPurple text-white flex items-center justify-center shrink-0 mt-0.5 cursor-pointer" data-playtarget="3ZtVBlfeLKw" aria-label="Play video">
-                <i class="fa-solid fa-play text-xs ml-0.5"></i>
-              </button>
-              <h3 class="font-brand font-semibold text-[15px] sm:text-[16px] text-textDark leading-snug">
-                How to get what you want ? - 3 ways that i follow
-              </h3>
+            <div class="p-4 sm:p-5 flex flex-col justify-between bg-white flex-1 gap-3">
+              <div class="flex items-start gap-3">
+                <button type="button" class="interactive-play-btn" data-playtarget="3ZtVBlfeLKw" aria-label="Play or pause video">
+                  <span class="icon-play"><i class="fa-solid fa-play text-xs ml-0.5"></i></span>
+                  <span class="icon-pause">
+                    <span class="pause-bar"></span>
+                    <span class="pause-bar"></span>
+                  </span>
+                </button>
+                <h3 class="font-brand font-semibold text-[15px] sm:text-[16px] text-textDark leading-snug">
+                  How to get what you want ? - 3 ways that i follow
+                </h3>
+              </div>
+              <div class="flex items-center justify-end gap-1.5 text-xs font-medium text-textMuted pr-1">
+                <i class="fa-regular fa-eye text-brandPurple text-[11px]"></i>
+                <span>8.9K views</span>
+              </div>
             </div>
           </article>
 
@@ -408,13 +489,23 @@
             <div class="video-screen-container" data-videoid="EevaoB3omTA">
               <img src="https://img.youtube.com/vi/EevaoB3omTA/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/EevaoB3omTA/hqdefault.jpg';" alt="Last video on this channel ( bye guys )">
             </div>
-            <div class="p-4 sm:p-5 flex items-start gap-3.5 bg-white flex-1">
-              <button type="button" class="custom-play-btn h-9 w-9 rounded-full bg-brandPurple text-white flex items-center justify-center shrink-0 mt-0.5 cursor-pointer" data-playtarget="EevaoB3omTA" aria-label="Play video">
-                <i class="fa-solid fa-play text-xs ml-0.5"></i>
-              </button>
-              <h3 class="font-brand font-semibold text-[15px] sm:text-[16px] text-textDark leading-snug">
-                Last video on this channel ( bye guys )
-              </h3>
+            <div class="p-4 sm:p-5 flex flex-col justify-between bg-white flex-1 gap-3">
+              <div class="flex items-start gap-3">
+                <button type="button" class="interactive-play-btn" data-playtarget="EevaoB3omTA" aria-label="Play or pause video">
+                  <span class="icon-play"><i class="fa-solid fa-play text-xs ml-0.5"></i></span>
+                  <span class="icon-pause">
+                    <span class="pause-bar"></span>
+                    <span class="pause-bar"></span>
+                  </span>
+                </button>
+                <h3 class="font-brand font-semibold text-[15px] sm:text-[16px] text-textDark leading-snug">
+                  Last video on this channel ( bye guys )
+                </h3>
+              </div>
+              <div class="flex items-center justify-end gap-1.5 text-xs font-medium text-textMuted pr-1">
+                <i class="fa-regular fa-eye text-brandPurple text-[11px]"></i>
+                <span>27.8K views</span>
+              </div>
             </div>
           </article>
 
@@ -423,13 +514,23 @@
             <div class="video-screen-container" data-videoid="ymKfVEbDZMo">
               <img src="https://img.youtube.com/vi/ymKfVEbDZMo/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/ymKfVEbDZMo/hqdefault.jpg';" alt="The Art of Becoming Dangerously Self Educated">
             </div>
-            <div class="p-4 sm:p-5 flex items-start gap-3.5 bg-white flex-1">
-              <button type="button" class="custom-play-btn h-9 w-9 rounded-full bg-brandPurple text-white flex items-center justify-center shrink-0 mt-0.5 cursor-pointer" data-playtarget="ymKfVEbDZMo" aria-label="Play video">
-                <i class="fa-solid fa-play text-xs ml-0.5"></i>
-              </button>
-              <h3 class="font-brand font-semibold text-[15px] sm:text-[16px] text-textDark leading-snug">
-                The Art of Becoming Dangerously Self Educated
-              </h3>
+            <div class="p-4 sm:p-5 flex flex-col justify-between bg-white flex-1 gap-3">
+              <div class="flex items-start gap-3">
+                <button type="button" class="interactive-play-btn" data-playtarget="ymKfVEbDZMo" aria-label="Play or pause video">
+                  <span class="icon-play"><i class="fa-solid fa-play text-xs ml-0.5"></i></span>
+                  <span class="icon-pause">
+                    <span class="pause-bar"></span>
+                    <span class="pause-bar"></span>
+                  </span>
+                </button>
+                <h3 class="font-brand font-semibold text-[15px] sm:text-[16px] text-textDark leading-snug">
+                  The Art of Becoming Dangerously Self Educated
+                </h3>
+              </div>
+              <div class="flex items-center justify-end gap-1.5 text-xs font-medium text-textMuted pr-1">
+                <i class="fa-regular fa-eye text-brandPurple text-[11px]"></i>
+                <span>31.2K views</span>
+              </div>
             </div>
           </article>
 
@@ -458,13 +559,23 @@
             <div class="video-screen-container" data-videoid="kocLCFuWtcc">
               <img src="https://img.youtube.com/vi/kocLCFuWtcc/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/kocLCFuWtcc/hqdefault.jpg';" alt="At 17, I Learned 5 Hard Truths Most Teenagers Ignore">
             </div>
-            <div class="p-4 sm:p-5 flex items-start gap-3.5 bg-white flex-1">
-              <button type="button" class="custom-play-btn h-9 w-9 rounded-full bg-brandPurple text-white flex items-center justify-center shrink-0 mt-0.5 cursor-pointer" data-playtarget="kocLCFuWtcc" aria-label="Play video">
-                <i class="fa-solid fa-play text-xs ml-0.5"></i>
-              </button>
-              <h3 class="font-brand font-semibold text-[15px] sm:text-[16px] text-textDark leading-snug">
-                At 17, I Learned 5 Hard Truths Most Teenagers Ignore
-              </h3>
+            <div class="p-4 sm:p-5 flex flex-col justify-between bg-white flex-1 gap-3">
+              <div class="flex items-start gap-3">
+                <button type="button" class="interactive-play-btn" data-playtarget="kocLCFuWtcc" aria-label="Play or pause video">
+                  <span class="icon-play"><i class="fa-solid fa-play text-xs ml-0.5"></i></span>
+                  <span class="icon-pause">
+                    <span class="pause-bar"></span>
+                    <span class="pause-bar"></span>
+                  </span>
+                </button>
+                <h3 class="font-brand font-semibold text-[15px] sm:text-[16px] text-textDark leading-snug">
+                  At 17, I Learned 5 Hard Truths Most Teenagers Ignore
+                </h3>
+              </div>
+              <div class="flex items-center justify-end gap-1.5 text-xs font-medium text-textMuted pr-1">
+                <i class="fa-regular fa-eye text-brandPurple text-[11px]"></i>
+                <span>104K views</span>
+              </div>
             </div>
           </article>
 
@@ -473,13 +584,23 @@
             <div class="video-screen-container" data-videoid="rlxtGcCDaD4">
               <img src="https://img.youtube.com/vi/rlxtGcCDaD4/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/rlxtGcCDaD4/hqdefault.jpg';" alt="How I Improved My Accent Naturally">
             </div>
-            <div class="p-4 sm:p-5 flex items-start gap-3.5 bg-white flex-1">
-              <button type="button" class="custom-play-btn h-9 w-9 rounded-full bg-brandPurple text-white flex items-center justify-center shrink-0 mt-0.5 cursor-pointer" data-playtarget="rlxtGcCDaD4" aria-label="Play video">
-                <i class="fa-solid fa-play text-xs ml-0.5"></i>
-              </button>
-              <h3 class="font-brand font-semibold text-[15px] sm:text-[16px] text-textDark leading-snug">
-                How I Improved My Accent Naturally
-              </h3>
+            <div class="p-4 sm:p-5 flex flex-col justify-between bg-white flex-1 gap-3">
+              <div class="flex items-start gap-3">
+                <button type="button" class="interactive-play-btn" data-playtarget="rlxtGcCDaD4" aria-label="Play or pause video">
+                  <span class="icon-play"><i class="fa-solid fa-play text-xs ml-0.5"></i></span>
+                  <span class="icon-pause">
+                    <span class="pause-bar"></span>
+                    <span class="pause-bar"></span>
+                  </span>
+                </button>
+                <h3 class="font-brand font-semibold text-[15px] sm:text-[16px] text-textDark leading-snug">
+                  How I Improved My Accent Naturally
+                </h3>
+              </div>
+              <div class="flex items-center justify-end gap-1.5 text-xs font-medium text-textMuted pr-1">
+                <i class="fa-regular fa-eye text-brandPurple text-[11px]"></i>
+                <span>65K views</span>
+              </div>
             </div>
           </article>
 
@@ -488,13 +609,23 @@
             <div class="video-screen-container" data-videoid="ZUIjoVhARdg">
               <img src="https://img.youtube.com/vi/ZUIjoVhARdg/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/ZUIjoVhARdg/hqdefault.jpg';" alt="I Tried Fixing My Life at 17 ( self improvement )">
             </div>
-            <div class="p-4 sm:p-5 flex items-start gap-3.5 bg-white flex-1">
-              <button type="button" class="custom-play-btn h-9 w-9 rounded-full bg-brandPurple text-white flex items-center justify-center shrink-0 mt-0.5 cursor-pointer" data-playtarget="ZUIjoVhARdg" aria-label="Play video">
-                <i class="fa-solid fa-play text-xs ml-0.5"></i>
-              </button>
-              <h3 class="font-brand font-semibold text-[15px] sm:text-[16px] text-textDark leading-snug">
-                I Tried Fixing My Life at 17 ( self improvement )
-              </h3>
+            <div class="p-4 sm:p-5 flex flex-col justify-between bg-white flex-1 gap-3">
+              <div class="flex items-start gap-3">
+                <button type="button" class="interactive-play-btn" data-playtarget="ZUIjoVhARdg" aria-label="Play or pause video">
+                  <span class="icon-play"><i class="fa-solid fa-play text-xs ml-0.5"></i></span>
+                  <span class="icon-pause">
+                    <span class="pause-bar"></span>
+                    <span class="pause-bar"></span>
+                  </span>
+                </button>
+                <h3 class="font-brand font-semibold text-[15px] sm:text-[16px] text-textDark leading-snug">
+                  I Tried Fixing My Life at 17 ( self improvement )
+                </h3>
+              </div>
+              <div class="flex items-center justify-end gap-1.5 text-xs font-medium text-textMuted pr-1">
+                <i class="fa-regular fa-eye text-brandPurple text-[11px]"></i>
+                <span>52K views</span>
+              </div>
             </div>
           </article>
 
@@ -503,13 +634,23 @@
             <div class="video-screen-container" data-videoid="EevaoB3omTA">
               <img src="https://img.youtube.com/vi/EevaoB3omTA/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/EevaoB3omTA/hqdefault.jpg';" alt="Last video on this channel ( bye guys )">
             </div>
-            <div class="p-4 sm:p-5 flex items-start gap-3.5 bg-white flex-1">
-              <button type="button" class="custom-play-btn h-9 w-9 rounded-full bg-brandPurple text-white flex items-center justify-center shrink-0 mt-0.5 cursor-pointer" data-playtarget="EevaoB3omTA" aria-label="Play video">
-                <i class="fa-solid fa-play text-xs ml-0.5"></i>
-              </button>
-              <h3 class="font-brand font-semibold text-[15px] sm:text-[16px] text-textDark leading-snug">
-                Last video on this channel ( bye guys )
-              </h3>
+            <div class="p-4 sm:p-5 flex flex-col justify-between bg-white flex-1 gap-3">
+              <div class="flex items-start gap-3">
+                <button type="button" class="interactive-play-btn" data-playtarget="EevaoB3omTA" aria-label="Play or pause video">
+                  <span class="icon-play"><i class="fa-solid fa-play text-xs ml-0.5"></i></span>
+                  <span class="icon-pause">
+                    <span class="pause-bar"></span>
+                    <span class="pause-bar"></span>
+                  </span>
+                </button>
+                <h3 class="font-brand font-semibold text-[15px] sm:text-[16px] text-textDark leading-snug">
+                  Last video on this channel ( bye guys )
+                </h3>
+              </div>
+              <div class="flex items-center justify-end gap-1.5 text-xs font-medium text-textMuted pr-1">
+                <i class="fa-regular fa-eye text-brandPurple text-[11px]"></i>
+                <span>27.8K views</span>
+              </div>
             </div>
           </article>
 
@@ -518,13 +659,23 @@
             <div class="video-screen-container" data-videoid="ymKfVEbDZMo">
               <img src="https://img.youtube.com/vi/ymKfVEbDZMo/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/ymKfVEbDZMo/hqdefault.jpg';" alt="The Art of Becoming Dangerously Self Educated">
             </div>
-            <div class="p-4 sm:p-5 flex items-start gap-3.5 bg-white flex-1">
-              <button type="button" class="custom-play-btn h-9 w-9 rounded-full bg-brandPurple text-white flex items-center justify-center shrink-0 mt-0.5 cursor-pointer" data-playtarget="ymKfVEbDZMo" aria-label="Play video">
-                <i class="fa-solid fa-play text-xs ml-0.5"></i>
-              </button>
-              <h3 class="font-brand font-semibold text-[15px] sm:text-[16px] text-textDark leading-snug">
-                The Art of Becoming Dangerously Self Educated
-              </h3>
+            <div class="p-4 sm:p-5 flex flex-col justify-between bg-white flex-1 gap-3">
+              <div class="flex items-start gap-3">
+                <button type="button" class="interactive-play-btn" data-playtarget="ymKfVEbDZMo" aria-label="Play or pause video">
+                  <span class="icon-play"><i class="fa-solid fa-play text-xs ml-0.5"></i></span>
+                  <span class="icon-pause">
+                    <span class="pause-bar"></span>
+                    <span class="pause-bar"></span>
+                  </span>
+                </button>
+                <h3 class="font-brand font-semibold text-[15px] sm:text-[16px] text-textDark leading-snug">
+                  The Art of Becoming Dangerously Self Educated
+                </h3>
+              </div>
+              <div class="flex items-center justify-end gap-1.5 text-xs font-medium text-textMuted pr-1">
+                <i class="fa-regular fa-eye text-brandPurple text-[11px]"></i>
+                <span>31.2K views</span>
+              </div>
             </div>
           </article>
 
@@ -533,13 +684,23 @@
             <div class="video-screen-container" data-videoid="HpT6r9ODcXg">
               <img src="https://img.youtube.com/vi/HpT6r9ODcXg/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/HpT6r9ODcXg/hqdefault.jpg';" alt="At 17 , These 3 Rules Are Fixing My Life">
             </div>
-            <div class="p-4 sm:p-5 flex items-start gap-3.5 bg-white flex-1">
-              <button type="button" class="custom-play-btn h-9 w-9 rounded-full bg-brandPurple text-white flex items-center justify-center shrink-0 mt-0.5 cursor-pointer" data-playtarget="HpT6r9ODcXg" aria-label="Play video">
-                <i class="fa-solid fa-play text-xs ml-0.5"></i>
-              </button>
-              <h3 class="font-brand font-semibold text-[15px] sm:text-[16px] text-textDark leading-snug">
-                At 17 , These 3 Rules Are Fixing My Life
-              </h3>
+            <div class="p-4 sm:p-5 flex flex-col justify-between bg-white flex-1 gap-3">
+              <div class="flex items-start gap-3">
+                <button type="button" class="interactive-play-btn" data-playtarget="HpT6r9ODcXg" aria-label="Play or pause video">
+                  <span class="icon-play"><i class="fa-solid fa-play text-xs ml-0.5"></i></span>
+                  <span class="icon-pause">
+                    <span class="pause-bar"></span>
+                    <span class="pause-bar"></span>
+                  </span>
+                </button>
+                <h3 class="font-brand font-semibold text-[15px] sm:text-[16px] text-textDark leading-snug">
+                  At 17 , These 3 Rules Are Fixing My Life
+                </h3>
+              </div>
+              <div class="flex items-center justify-end gap-1.5 text-xs font-medium text-textMuted pr-1">
+                <i class="fa-regular fa-eye text-brandPurple text-[11px]"></i>
+                <span>19.4K views</span>
+              </div>
             </div>
           </article>
 
@@ -601,7 +762,7 @@
               <span class="font-semibold text-black text-[14px]">New Channel</span>
             </a>
 
-            <a href="https://youtube.com/@jasmeetmaann" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 text-black hover:text-brandPurple transition group">
+            <a href="https://youtube.com/@jasmeetmaann" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 text-black hover:text-brandPurple transition group" cite="1">
               <i class="fa-brands fa-youtube text-brandPurple text-lg shrink-0 group-hover:scale-110 transition-transform"></i>
               <span class="font-semibold text-black text-[14px]">Previous Channel</span>
             </a>
@@ -610,7 +771,7 @@
 
           <div>
             <h5 class="text-xs font-bold text-brandPurple uppercase tracking-widest mb-2">Business Inquiries</h5>
-            <a href="mailto:workwithjasmeetkaur@gmail.com" class="inline-flex items-center gap-2 text-sm sm:text-base font-semibold text-black hover:text-brandPurple transition lowercase break-all group">
+            <a href="mailto:workwithjasmeetkaur@gmail.com" class="inline-flex items-center gap-2 text-sm sm:text-base font-semibold text-black hover:text-brandPurple transition lowercase break-all group" cite="1">
               <i class="fa-solid fa-envelope text-brandPurple text-sm shrink-0 group-hover:scale-110 transition-transform"></i>
               <span>workwithjasmeetkaur@gmail.com</span>
             </a>
@@ -641,67 +802,96 @@
     (function() {
       "use strict";
 
-      // 1. SINGLE-VIDEO ACTIVE PLAYBACK CONTROLLER
-      let activeVideoContainer = null;
-      let activeOriginalHTML = "";
+      // 1. SMART SINGLE-VIDEO ACTIVE PLAYBACK CONTROLLER
+      let activeCard = null;
+      let activeOriginalScreenHTML = "";
+      let isPlaying = false;
 
       function resetActivePlayer() {
-        if (activeVideoContainer && activeOriginalHTML) {
-          activeVideoContainer.innerHTML = activeOriginalHTML;
-          // Reattach click handler to restored cover
-          const restoredId = activeVideoContainer.getAttribute('data-videoid');
-          activeVideoContainer.addEventListener('click', function() {
-            playVideoOnScreen(this, restoredId);
-          });
-          activeVideoContainer = null;
-          activeOriginalHTML = "";
+        if (activeCard && activeOriginalScreenHTML) {
+          const screen = activeCard.querySelector('.video-screen-container');
+          const btn = activeCard.querySelector('.interactive-play-btn');
+
+          if (screen) {
+            screen.innerHTML = activeOriginalScreenHTML;
+            const videoId = screen.getAttribute('data-videoid');
+            screen.addEventListener('click', function() {
+              handlePlayToggle(activeCard, videoId);
+            });
+          }
+          if (btn) btn.classList.remove('playing');
+          activeCard.classList.remove('is-active-card');
+
+          activeCard = null;
+          activeOriginalScreenHTML = "";
+          isPlaying = false;
         }
       }
 
-      function playVideoOnScreen(container, videoId) {
-        if (!container || !videoId) return;
+      function handlePlayToggle(card, videoId) {
+        if (!card || !videoId) return;
 
-        // If another video is currently playing, reset it back to thumbnail
-        if (activeVideoContainer && activeVideoContainer !== container) {
+        const screen = card.querySelector('.video-screen-container');
+        const btn = card.querySelector('.interactive-play-btn');
+        const iframe = screen ? screen.querySelector('iframe') : null;
+
+        // Reset previous video if another one is started
+        if (activeCard && activeCard !== card) {
           resetActivePlayer();
         }
 
-        // Store original thumbnail layout for restoring later
-        if (!container.querySelector('iframe')) {
-          activeOriginalHTML = container.innerHTML;
-          activeVideoContainer = container;
+        if (!iframe) {
+          // Mount YouTube iFrame with lighter border active state
+          activeOriginalScreenHTML = screen.innerHTML;
+          activeCard = card;
+          isPlaying = true;
 
-          // Streamlined clean YouTube player
-          container.innerHTML = `
+          card.classList.add('is-active-card');
+          if (btn) btn.classList.add('playing');
+
+          screen.innerHTML = `
             <iframe 
-              src="https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&controls=1&iv_load_policy=3" 
+              src="https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&enablejsapi=1&rel=0&modestbranding=1&controls=1" 
               title="YouTube Video Player" 
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
               allowfullscreen>
             </iframe>
           `;
+        } else {
+          // Toggle play / pause state via postMessage API
+          if (isPlaying) {
+            iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+            isPlaying = false;
+            if (btn) btn.classList.remove('playing');
+          } else {
+            iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+            isPlaying = true;
+            if (btn) btn.classList.add('playing');
+            card.classList.add('is-active-card');
+          }
         }
       }
 
-      // Thumbnail Click Triggers
-      document.querySelectorAll('.video-screen-container').forEach(screen => {
-        screen.addEventListener('click', function() {
-          const videoId = this.getAttribute('data-videoid');
-          playVideoOnScreen(this, videoId);
-        });
-      });
+      // Card Screen Click
+      document.querySelectorAll('.video-card-item').forEach(card => {
+        const screen = card.querySelector('.video-screen-container');
+        const btn = card.querySelector('.interactive-play-btn');
+        const videoId = screen ? screen.getAttribute('data-videoid') : null;
 
-      // Play Button Click Triggers
-      document.querySelectorAll('.custom-play-btn').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-          e.stopPropagation();
-          const videoId = this.getAttribute('data-playtarget');
-          const card = this.closest('.video-card-item');
-          const screen = card ? card.querySelector('.video-screen-container') : null;
-          if (screen && videoId) {
-            playVideoOnScreen(screen, videoId);
-          }
-        });
+        if (screen && videoId) {
+          screen.addEventListener('click', function(e) {
+            if (!this.querySelector('iframe')) {
+              handlePlayToggle(card, videoId);
+            }
+          });
+        }
+
+        if (btn && videoId) {
+          btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            handlePlayToggle(card, videoId);
+          });
+        }
       });
 
       // 2. DOCK AUTO-HIDE & SCROLL BEHAVIOR
@@ -770,7 +960,7 @@
         link.addEventListener('click', closeDrawer);
       });
 
-      // 4. INTERSECTION OBSERVER FOR ENTRANCES
+      // 4. INTERSECTION OBSERVER ENTRANCES
       const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
