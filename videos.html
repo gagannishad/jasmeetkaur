@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Video Library — Jasmeet Kaur</title>
-  <meta name="description" content="Watch authentic student guidance, discipline systems, and mindset talks directly on our website.">
+  <title>Self Improvement — Jasmeet Kaur</title>
+
+  <meta name="description" content="Actionable self-improvement frameworks, daily systems over goals, and discipline rebuild guides for teenagers and students by Jasmeet Kaur.">
 
   <!-- Mobile Browser Theme Color -->
   <meta name="theme-color" content="#FAF5FF">
@@ -14,13 +15,14 @@
   <meta name="mobile-web-app-capable" content="yes">
 
   <!-- Official Favicon -->
-  <link rel="icon" type="image/png" sizes="32x32" href="https://i.ibb.co/Dg5vY5bS/jk-final-logos.png">
-  <link rel="apple-touch-icon" href="https://i.ibb.co/Dg5vY5bS/jk-final-logos.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://i.ibb.co/ks55RRy3/jk-final.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="https://i.ibb.co/ks55RRy3/jk-final.png">
+  <link rel="apple-touch-icon" href="https://i.ibb.co/ks55RRy3/jk-final.png">
 
   <!-- Google Fonts: Poppins -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <script src="https://cdn.tailwindcss.com"></script>
@@ -50,6 +52,7 @@
   </script>
 
   <style>
+    /* ANTI-COPY & INTERACTION PROTECTION */
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
@@ -57,7 +60,10 @@
       -webkit-tap-highlight-color: transparent;
       touch-action: pan-x pan-y;
       -webkit-user-select: none !important;
+      -moz-user-select: none !important;
+      -ms-user-select: none !important;
       user-select: none !important;
+      -webkit-user-drag: none !important;
     }
 
     img {
@@ -69,6 +75,7 @@
       scroll-behavior: smooth;
       overflow-x: hidden;
       background-color: #FAF5FF !important;
+      color-scheme: light;
     }
 
     body {
@@ -76,24 +83,62 @@
       color: #190A2E;
       font-family: 'Poppins', sans-serif;
       font-size: 15px;
-      line-height: 1.6;
+      font-weight: 400;
+      line-height: 1.65;
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Staggered Animations */
+    /* SMOOTH STAGGERED OPENING ANIMATION */
     @keyframes heroFadeUp {
-      0% { opacity: 0; transform: translateY(22px); }
+      0% { opacity: 0; transform: translateY(24px); }
       100% { opacity: 1; transform: translateY(0); }
     }
-    .animate-hero {
+    .animate-entrance {
       animation: heroFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
       opacity: 0;
     }
     .delay-1 { animation-delay: 0.08s; }
     .delay-2 { animation-delay: 0.18s; }
     .delay-3 { animation-delay: 0.28s; }
+    .delay-4 { animation-delay: 0.38s; }
 
-    /* Dock Header Transition */
+    /* DIRECTIONAL SCROLL REVEAL ANIMATIONS */
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .reveal-on-scroll.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* AMBIENT RADIAL GLOWS */
+    .hero-glow-1 {
+      position: absolute;
+      top: -120px;
+      left: -100px;
+      width: 580px;
+      height: 580px;
+      background: radial-gradient(circle, rgba(121, 40, 202, 0.12) 0%, transparent 68%);
+      border-radius: 50%;
+      z-index: -1;
+      pointer-events: none;
+    }
+    .hero-glow-2 {
+      position: absolute;
+      top: 480px;
+      right: -120px;
+      width: 550px;
+      height: 550px;
+      background: radial-gradient(circle, rgba(147, 51, 234, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* FLOATING HEADER AUTO-HIDE */
     .dock-container {
       transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
     }
@@ -102,147 +147,44 @@
       opacity: 0;
     }
 
-    /* Scroll Reveal */
-    .scroll-reveal {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .scroll-reveal.has-opened {
-      opacity: 1 !important;
-      transform: translateY(0) !important;
+    .heading-accent {
+      color: #190A2E;
+      text-shadow: 0 4px 18px rgba(121, 40, 202, 0.1);
     }
 
-    /* Video Card Architecture */
-    .video-card-item {
-      display: flex;
-      flex-direction: column;
-      background: #FFFFFF;
-      overflow: hidden;
-      position: relative;
-      border: 1px solid #E0C5FC;
-      border-radius: 22px;
-      box-shadow: 0 4px 18px rgba(121, 40, 202, 0.05);
+    /* CARD HOVER ELEVATION */
+    .hover-lift {
       transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
     }
-    .video-card-item:hover {
-      transform: translateY(-5px);
-      border-color: #D3B0FA;
-      box-shadow: 0 14px 30px -8px rgba(121, 40, 202, 0.14);
+    .hover-lift:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px -8px rgba(121, 40, 202, 0.14);
+      border-color: #C084FC;
     }
 
-    /* Soft lighter border when video is playing */
-    .video-card-item.is-active-card {
-      border: 1.5px solid #D8B4FE !important;
-      box-shadow: 0 10px 25px -5px rgba(216, 180, 254, 0.45);
+    /* HABIT CHECKLIST INTERACTIVE ITEM */
+    .habit-check-item {
+      transition: all 0.25s ease;
+    }
+    .habit-check-item.done {
+      background-color: #EDE4FC;
+      border-color: #C084FC;
+      text-decoration: line-through;
+      color: #6B5282;
     }
 
-    /* Video Screen Container - Clean Thumbnail (No Icon Overlay) */
-    .video-screen-container {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      background-color: #120422;
-      overflow: hidden;
-      cursor: pointer;
-    }
-    .video-screen-container img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.4s ease;
-    }
-    .video-card-item:hover .video-screen-container img {
-      transform: scale(1.02);
-    }
-
-    .video-screen-container iframe {
-      width: 100%;
-      height: 100%;
-      border: 0;
-      display: block;
-    }
-
-    /* Interactive Title Button with Animated Play/Pause States */
-    .interactive-play-btn {
-      position: relative;
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      background: #7928CA;
-      color: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      cursor: pointer;
-      box-shadow: 0 4px 12px rgba(121, 40, 202, 0.22);
-      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, background 0.3s ease;
-    }
-    .interactive-play-btn:hover {
-      transform: scale(1.08);
-      background: #6D28D9;
-      box-shadow: 0 6px 16px rgba(121, 40, 202, 0.35);
-    }
-    .interactive-play-btn:active {
-      transform: scale(0.92);
-    }
-
-    /* Play Icon State */
-    .icon-play {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    /* Pause State: 2 Animated Lines */
-    .icon-pause {
-      display: none;
-      gap: 3.5px;
-      align-items: center;
-      justify-content: center;
-      height: 14px;
-    }
-    .pause-bar {
-      width: 3px;
-      height: 13px;
-      background-color: #ffffff;
-      border-radius: 4px;
-      animation: pulseBar 1.2s infinite ease-in-out alternate;
-    }
-    .pause-bar:nth-child(2) {
-      animation-delay: 0.3s;
-    }
-    @keyframes pulseBar {
-      0% { transform: scaleY(0.8); }
-      100% { transform: scaleY(1.15); }
-    }
-
-    /* When playing */
-    .interactive-play-btn.playing {
-      background: #6D28D9;
-      box-shadow: 0 0 0 3px rgba(216, 180, 254, 0.5);
-    }
-    .interactive-play-btn.playing .icon-play {
-      display: none;
-    }
-    .interactive-play-btn.playing .icon-pause {
-      display: flex;
-    }
-
-    /* Drawer */
+    /* FULL SCREEN MOBILE DRAWER */
     .side-drawer-backdrop { display: none !important; }
     .side-drawer-panel { display: none !important; }
     body.drawer-open .side-drawer-backdrop { display: block !important; }
     body.drawer-open .side-drawer-panel { display: flex !important; }
 
-    /* Back To Top Button */
+    /* SMART IDLE-HIDE BACK TO TOP BUTTON */
     .back-to-top-btn {
       opacity: 0;
       visibility: hidden;
       transform: translateY(20px) scale(0.9);
-      transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s ease;
+      transition: all 0.35s ease;
     }
     .back-to-top-btn.is-active {
       opacity: 1;
@@ -251,15 +193,18 @@
     }
   </style>
 </head>
-<body>
+<body class="selection:bg-transparent bg-[#FAF5FF] min-h-screen relative flex flex-col">
+
+  <div class="hero-glow-1"></div>
+  <div class="hero-glow-2"></div>
 
   <!-- FLOATING iOS-STYLE HEADER BAR -->
   <div class="dock-container fixed top-2 sm:top-4 z-50 w-[98%] left-[1%] sm:w-[94%] sm:left-[3%] lg:w-full lg:left-0 lg:px-6 transition-all duration-300" id="navShell">
-    <header class="w-full max-w-[1350px] mx-auto bg-white/95 backdrop-blur-xl border border-footerBorder rounded-full py-3 sm:py-3.5 px-4 sm:px-6 lg:px-8 flex items-center justify-between shadow-[0_8px_25px_rgba(121,40,202,0.06)]">
+    <header class="w-full max-w-[1350px] mx-auto bg-white/95 backdrop-blur-xl border border-footerBorder rounded-full py-3 sm:py-3.5 px-4 sm:px-6 lg:px-8 flex items-center justify-between shadow-[0_8px_25px_rgba(121,40,202,0.06)] animate-entrance">
       
-      <!-- Brand Logo -->
+      <!-- Brand Logo & Heading -->
       <a href="index.html" class="flex items-center gap-2.5 sm:gap-3.5 shrink-0 group ml-2 sm:ml-4 md:ml-6">
-        <img src="https://i.ibb.co/Dg5vY5bS/jk-final-logos.png" alt="JK Official Logo" class="h-10 sm:h-12 md:h-13 w-auto object-contain shrink-0 -translate-y-1.5 sm:-translate-y-2 transition-transform group-hover:scale-105">
+        <img src="https://i.ibb.co/ks55RRy3/jk-final.png" alt="JK Official Logo" class="h-10 sm:h-12 md:h-13 w-auto object-contain shrink-0 -translate-y-1.5 sm:-translate-y-2 transition-transform group-hover:scale-105">
         <span class="font-brand font-bold text-[22px] sm:text-[25px] md:text-[28px] lg:text-[30px] tracking-tight text-black leading-none flex items-center">
           JASMEET KAUR
         </span>
@@ -269,13 +214,13 @@
       <nav class="hidden lg:flex items-center gap-1.5 bg-[#FAF5FF] p-1.5 rounded-full border border-footerBorder">
         <a href="index.html" class="text-[14px] font-medium text-textMuted hover:text-brandPurple hover:bg-white px-5 py-2 rounded-full transition">Home</a>
         <a href="about.html" class="text-[14px] font-medium text-textMuted hover:text-brandPurple hover:bg-white px-5 py-2 rounded-full transition">About</a>
-        <a href="self-improvement.html" class="text-[14px] font-medium text-textMuted hover:text-brandPurple hover:bg-white px-5 py-2 rounded-full transition">Self Improvement</a>
-        <a href="videos.html" class="text-[14px] font-semibold text-white bg-brandPurple px-5 py-2 rounded-full shadow-sm">Video</a>
+        <a href="self-improvement.html" class="text-[14px] font-semibold text-white bg-brandPurple px-5 py-2 rounded-full shadow-sm">Self Improvement</a>
+        <a href="videos.html" class="text-[14px] font-medium text-textMuted hover:text-brandPurple hover:bg-white px-5 py-2 rounded-full transition">Video</a>
         <a href="quotes.html" class="text-[14px] font-medium text-textMuted hover:text-brandPurple hover:bg-white px-5 py-2 rounded-full transition">Quotes</a>
         <a href="contact.html" class="text-[14px] font-medium text-textMuted hover:text-brandPurple hover:bg-white px-5 py-2 rounded-full transition">Contact</a>
       </nav>
 
-      <!-- Right Header Actions -->
+      <!-- Right Action & Hamburger -->
       <div class="flex items-center gap-3">
         <a href="https://youtube.com/@jasmeetkaurr1" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 bg-brandPurple hover:bg-brandPurpleHover text-white px-5 py-2.5 rounded-full text-[13px] font-semibold transition-transform hover:-translate-y-0.5 shadow-md shadow-brandPurple/20">
           <i class="fa-brands fa-youtube text-base"></i>
@@ -294,12 +239,13 @@
     </header>
   </div>
 
-  <!-- FULLSCREEN MOBILE NAVIGATION DRAWER -->
+  <!-- MOBILE NAVIGATION DRAWER -->
   <div class="side-drawer-backdrop fixed inset-0 bg-black/30 backdrop-blur-sm z-50" id="mobileBackdrop"></div>
   <div class="side-drawer-panel fixed inset-0 w-full bg-[#FAF5FF] z-50 flex flex-col justify-between overflow-hidden" id="mobileDrawer">
+    
     <div class="flex justify-between items-center px-6 py-5 border-b border-footerBorder bg-white/60 backdrop-blur-md">
       <div class="flex items-center gap-2.5">
-        <img src="https://i.ibb.co/Dg5vY5bS/jk-final-logos.png" alt="JK Official Logo" class="h-9 w-auto object-contain -translate-y-1">
+        <img src="https://i.ibb.co/ks55RRy3/jk-final.png" alt="JK Official Logo" class="h-9 w-auto object-contain -translate-y-1">
         <strong class="font-brand font-bold text-[23px] tracking-tight text-black leading-none">JASMEET KAUR</strong>
       </div>
       <button class="h-10 w-10 rounded-full bg-white text-textDark font-bold text-base flex items-center justify-center border border-footerBorder shadow-sm active:scale-90 transition" id="closeDrawerBtn">✕</button>
@@ -314,13 +260,13 @@
         <span>About</span>
         <i class="fa-solid fa-chevron-right text-xs text-brandPurple/60"></i>
       </a>
-      <a href="self-improvement.html" class="mobile-nav-link flex items-center justify-between py-4 px-6 rounded-2xl font-semibold text-lg text-textDark bg-white/80 border border-footerBorder/60 hover:bg-white transition">
+      <a href="self-improvement.html" class="mobile-nav-link flex items-center justify-between py-4 px-6 rounded-2xl font-bold text-lg text-white bg-brandPurple shadow-sm transition">
         <span>Self Improvement</span>
-        <i class="fa-solid fa-chevron-right text-xs text-brandPurple/60"></i>
-      </a>
-      <a href="videos.html" class="mobile-nav-link flex items-center justify-between py-4 px-6 rounded-2xl font-bold text-lg text-white bg-brandPurple shadow-sm transition">
-        <span>Video</span>
         <i class="fa-solid fa-arrow-right text-xs opacity-80"></i>
+      </a>
+      <a href="videos.html" class="mobile-nav-link flex items-center justify-between py-4 px-6 rounded-2xl font-semibold text-lg text-textDark bg-white/80 border border-footerBorder/60 hover:bg-white transition">
+        <span>Video</span>
+        <i class="fa-solid fa-chevron-right text-xs text-brandPurple/60"></i>
       </a>
       <a href="quotes.html" class="mobile-nav-link flex items-center justify-between py-4 px-6 rounded-2xl font-semibold text-lg text-textDark bg-white/80 border border-footerBorder/60 hover:bg-white transition">
         <span>Quotes</span>
@@ -340,378 +286,240 @@
     </div>
   </div>
 
-  <!-- HERO SECTION -->
-  <main class="pt-24 sm:pt-36 md:pt-40 pb-8 relative overflow-hidden bg-[#FAF5FF]" id="videoVault">
-    <section class="pb-6 sm:pb-10 bg-transparent relative z-10">
-      <div class="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-8 text-center flex flex-col items-center">
+  <!-- MAIN SELF IMPROVEMENT CONTENT -->
+  <main id="self-improvement-page" class="relative z-10 flex-grow">
+    
+    <!-- Hero Header Section -->
+    <section class="pt-32 sm:pt-40 md:pt-48 pb-10 sm:pb-16 relative">
+      <div class="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-8 text-center animate-entrance">
         
-        <!-- Category Pill -->
-        <div class="w-full flex items-center justify-center pb-0 mt-0 sm:mt-1 mb-5 sm:mb-6 animate-hero delay-1">
-          <div class="inline-flex items-center gap-2 bg-brandPurpleLight/80 backdrop-blur-sm py-1.5 px-4 rounded-full border border-brandPurple/25 shadow-sm cursor-default">
-            <span class="flex h-5 w-5 items-center justify-center rounded-full bg-white text-brandPurple border border-brandPurple/20 shrink-0">
-              <i class="fa-brands fa-youtube text-[10px]"></i>
+        <div class="w-full flex items-center justify-center pb-0 mb-4 animate-entrance delay-1">
+          <div class="inline-flex items-center gap-2 bg-brandPurpleLight/70 backdrop-blur-md py-1.5 px-4 rounded-full border border-brandPurple/20 shadow-sm hover-lift cursor-default">
+            <span class="flex h-5 w-5 items-center justify-center rounded-full bg-brandPurple text-white text-[9.5px]">
+              <i class="fa-solid fa-bolt"></i>
             </span>
-            <span class="text-[13px] font-bold text-brandPurpleDeep tracking-tight">YouTube Videos</span>
+            <span class="text-[12.5px] sm:text-[13.5px] font-semibold text-brandPurple tracking-wide">Daily Systems Architecture</span>
           </div>
         </div>
 
-        <!-- Headline -->
-        <h1 class="font-brand font-bold text-[32px] sm:text-[44px] md:text-[52px] tracking-tight leading-[1.2] mb-3 max-w-3xl animate-hero delay-2 text-textDark">
-          Real Process. <span class="text-brandPurple">Real Mindset.</span>
+        <h1 class="text-[34px] sm:text-[44px] md:text-[54px] lg:text-[62px] font-bold tracking-tight text-textDark leading-[1.14] mb-5 heading-accent animate-entrance delay-2">
+          Systems Over Goals.<br>
+          <span class="text-brandPurple">Habits Over Willpower.</span>
         </h1>
-
-        <!-- Subtitle -->
-        <p class="text-base sm:text-lg md:text-xl text-textMuted font-medium leading-relaxed max-w-[720px] animate-hero delay-3">
-          Watch our latest video and our most popular videos.
+        <p class="text-base sm:text-lg md:text-xl text-textMuted font-normal leading-relaxed max-w-[760px] mx-auto animate-entrance delay-3">
+          Goals tell you where you want to go; systems ensure you actually get there. Explore battle-tested frameworks to rewire daily routines, eliminate friction, and build discipline that sustains on low-energy days.
         </p>
 
       </div>
     </section>
 
-    <!-- SECTION 1: MY LATEST VIDEOS -->
-    <section class="py-6 sm:py-10 relative scroll-reveal">
-      <div class="w-full max-w-[1240px] mx-auto px-3 sm:px-6 md:px-8">
+    <!-- SECTION 1: THE 4-STAGE HABIT LOOP (ATOMIC SYSTEMS) -->
+    <section class="py-14 sm:py-20 bg-white/70 backdrop-blur-sm border-y border-footerBorder" id="habit-loop">
+      <div class="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-8">
         
-        <div class="flex items-center mb-6 pb-3 border-b border-footerBorder">
-          <div class="flex items-center gap-3">
-            <span class="h-8 w-1.5 rounded-full bg-brandPurple"></span>
-            <h2 class="font-brand font-bold text-2xl sm:text-3xl md:text-4xl text-textDark tracking-tight">
-              My Latest Videos
-            </h2>
-          </div>
+        <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-16 reveal-on-scroll">
+          <span class="text-xs font-bold text-brandPurple uppercase tracking-widest block mb-1">Behavioral Mechanics</span>
+          <h2 class="font-brand font-bold text-2xl sm:text-3xl md:text-4xl text-black tracking-tight">
+            The 4 Laws of Habit Engineering
+          </h2>
+          <p class="text-sm text-textMuted mt-2 font-medium">How to make good habits inevitable and break bad ones at the root.</p>
         </div>
 
-        <!-- 6 Videos Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           
-          <!-- Latest 1: gb4BclhYa7E -->
-          <article class="video-card-item">
-            <div class="video-screen-container" data-videoid="gb4BclhYa7E">
-              <img src="https://img.youtube.com/vi/gb4BclhYa7E/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/gb4BclhYa7E/hqdefault.jpg';" alt="If you're a student watch this - ( Class 12th Student)">
-            </div>
-            <div class="p-4 sm:p-5 flex flex-col justify-between bg-white flex-1 gap-3">
-              <div class="flex items-start gap-3">
-                <button type="button" class="interactive-play-btn" data-playtarget="gb4BclhYa7E" aria-label="Play or pause video">
-                  <span class="icon-play"><i class="fa-solid fa-play text-xs ml-0.5"></i></span>
-                  <span class="icon-pause">
-                    <span class="pause-bar"></span>
-                    <span class="pause-bar"></span>
-                  </span>
-                </button>
-                <h3 class="font-brand font-semibold text-[15px] sm:text-[16px] text-textDark leading-snug">
-                  If you're a student watch this - ( Class 12th Student)
-                </h3>
+          <!-- Stage 1 -->
+          <div class="bg-[#FAF5FF] p-6 sm:p-7 rounded-[24px] border border-footerBorder hover-lift flex flex-col justify-between reveal-on-scroll">
+            <div>
+              <div class="flex items-center justify-between mb-5">
+                <span class="h-10 w-10 rounded-xl bg-brandPurple text-white flex items-center justify-center font-bold text-sm">01</span>
+                <span class="text-[11px] font-semibold text-brandPurple bg-white px-2.5 py-1 rounded-full border border-footerBorder uppercase">The Trigger</span>
               </div>
-              <div class="flex items-center justify-end gap-1.5 text-xs font-medium text-textMuted pr-1">
-                <i class="fa-regular fa-eye text-brandPurple text-[11px]"></i>
-                <span>4.1K views</span>
-              </div>
+              <h3 class="font-brand font-bold text-lg text-black mb-2">Make It Obvious</h3>
+              <p class="text-xs sm:text-sm text-textMuted leading-relaxed">
+                Design your environment so visual cues trigger action automatically. Place your textbook on your desk the night before or keep your water bottle in plain sight.
+              </p>
             </div>
-          </article>
+            <div class="mt-5 pt-3 border-t border-footerBorder/60 text-[11px] font-semibold text-brandPurple">
+              Inverse: Make it invisible
+            </div>
+          </div>
 
-          <!-- Latest 2: 5pG0OYNcaos -->
-          <article class="video-card-item">
-            <div class="video-screen-container" data-videoid="5pG0OYNcaos">
-              <img src="https://img.youtube.com/vi/5pG0OYNcaos/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/5pG0OYNcaos/hqdefault.jpg';" alt="Before I turn 18 , I need to tell u this">
-            </div>
-            <div class="p-4 sm:p-5 flex flex-col justify-between bg-white flex-1 gap-3">
-              <div class="flex items-start gap-3">
-                <button type="button" class="interactive-play-btn" data-playtarget="5pG0OYNcaos" aria-label="Play or pause video">
-                  <span class="icon-play"><i class="fa-solid fa-play text-xs ml-0.5"></i></span>
-                  <span class="icon-pause">
-                    <span class="pause-bar"></span>
-                    <span class="pause-bar"></span>
-                  </span>
-                </button>
-                <h3 class="font-brand font-semibold text-[15px] sm:text-[16px] text-textDark leading-snug">
-                  Before I turn 18 , I need to tell u this
-                </h3>
+          <!-- Stage 2 -->
+          <div class="bg-[#FAF5FF] p-6 sm:p-7 rounded-[24px] border border-footerBorder hover-lift flex flex-col justify-between reveal-on-scroll">
+            <div>
+              <div class="flex items-center justify-between mb-5">
+                <span class="h-10 w-10 rounded-xl bg-brandPurple text-white flex items-center justify-center font-bold text-sm">02</span>
+                <span class="text-[11px] font-semibold text-brandPurple bg-white px-2.5 py-1 rounded-full border border-footerBorder uppercase">The Desire</span>
               </div>
-              <div class="flex items-center justify-end gap-1.5 text-xs font-medium text-textMuted pr-1">
-                <i class="fa-regular fa-eye text-brandPurple text-[11px]"></i>
-                <span>6.2K views</span>
-              </div>
+              <h3 class="font-brand font-bold text-lg text-black mb-2">Make It Attractive</h3>
+              <p class="text-xs sm:text-sm text-textMuted leading-relaxed">
+                Pair tasks you need to do with things you want to do. Bundle your favorite podcast exclusively with gym sessions or study at your favorite clean workspace.
+              </p>
             </div>
-          </article>
+            <div class="mt-5 pt-3 border-t border-footerBorder/60 text-[11px] font-semibold text-brandPurple">
+              Inverse: Make it unattractive
+            </div>
+          </div>
 
-          <!-- Latest 3: Yg62Ros5kHA -->
-          <article class="video-card-item">
-            <div class="video-screen-container" data-videoid="Yg62Ros5kHA">
-              <img src="https://img.youtube.com/vi/Yg62Ros5kHA/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/Yg62Ros5kHA/hqdefault.jpg';" alt="At 17, These 5 Things are Changing My LIFE">
-            </div>
-            <div class="p-4 sm:p-5 flex flex-col justify-between bg-white flex-1 gap-3">
-              <div class="flex items-start gap-3">
-                <button type="button" class="interactive-play-btn" data-playtarget="Yg62Ros5kHA" aria-label="Play or pause video">
-                  <span class="icon-play"><i class="fa-solid fa-play text-xs ml-0.5"></i></span>
-                  <span class="icon-pause">
-                    <span class="pause-bar"></span>
-                    <span class="pause-bar"></span>
-                  </span>
-                </button>
-                <h3 class="font-brand font-semibold text-[15px] sm:text-[16px] text-textDark leading-snug">
-                  At 17, These 5 Things are Changing My LIFE
-                </h3>
+          <!-- Stage 3 -->
+          <div class="bg-[#FAF5FF] p-6 sm:p-7 rounded-[24px] border border-footerBorder hover-lift flex flex-col justify-between reveal-on-scroll">
+            <div>
+              <div class="flex items-center justify-between mb-5">
+                <span class="h-10 w-10 rounded-xl bg-brandPurple text-white flex items-center justify-center font-bold text-sm">03</span>
+                <span class="text-[11px] font-semibold text-brandPurple bg-white px-2.5 py-1 rounded-full border border-footerBorder uppercase">The Friction</span>
               </div>
-              <div class="flex items-center justify-end gap-1.5 text-xs font-medium text-textMuted pr-1">
-                <i class="fa-regular fa-eye text-brandPurple text-[11px]"></i>
-                <span>13.5K views</span>
-              </div>
+              <h3 class="font-brand font-bold text-lg text-black mb-2">Make It Easy</h3>
+              <p class="text-xs sm:text-sm text-textMuted leading-relaxed">
+                Lower friction until resistance vanishes. Follow the 2-minute rule: start with 2 minutes of writing or 5 push-ups so you never skip the starting line.
+              </p>
             </div>
-          </article>
+            <div class="mt-5 pt-3 border-t border-footerBorder/60 text-[11px] font-semibold text-brandPurple">
+              Inverse: Make it difficult
+            </div>
+          </div>
 
-          <!-- Latest 4: 3ZtVBlfeLKw -->
-          <article class="video-card-item">
-            <div class="video-screen-container" data-videoid="3ZtVBlfeLKw">
-              <img src="https://img.youtube.com/vi/3ZtVBlfeLKw/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/3ZtVBlfeLKw/hqdefault.jpg';" alt="How to get what you want ? - 3 ways that i follow">
-            </div>
-            <div class="p-4 sm:p-5 flex flex-col justify-between bg-white flex-1 gap-3">
-              <div class="flex items-start gap-3">
-                <button type="button" class="interactive-play-btn" data-playtarget="3ZtVBlfeLKw" aria-label="Play or pause video">
-                  <span class="icon-play"><i class="fa-solid fa-play text-xs ml-0.5"></i></span>
-                  <span class="icon-pause">
-                    <span class="pause-bar"></span>
-                    <span class="pause-bar"></span>
-                  </span>
-                </button>
-                <h3 class="font-brand font-semibold text-[15px] sm:text-[16px] text-textDark leading-snug">
-                  How to get what you want ? - 3 ways that i follow
-                </h3>
+          <!-- Stage 4 -->
+          <div class="bg-[#FAF5FF] p-6 sm:p-7 rounded-[24px] border border-footerBorder hover-lift flex flex-col justify-between reveal-on-scroll">
+            <div>
+              <div class="flex items-center justify-between mb-5">
+                <span class="h-10 w-10 rounded-xl bg-brandPurple text-white flex items-center justify-center font-bold text-sm">04</span>
+                <span class="text-[11px] font-semibold text-brandPurple bg-white px-2.5 py-1 rounded-full border border-footerBorder uppercase">The Loop</span>
               </div>
-              <div class="flex items-center justify-end gap-1.5 text-xs font-medium text-textMuted pr-1">
-                <i class="fa-regular fa-eye text-brandPurple text-[11px]"></i>
-                <span>8.9K views</span>
-              </div>
+              <h3 class="font-brand font-bold text-lg text-black mb-2">Make It Satisfying</h3>
+              <p class="text-xs sm:text-sm text-textMuted leading-relaxed">
+                Immediate reward solidifies long-term habits. Check off visual habit trackers or mark the calendar. What gets immediately rewarded gets repeated.
+              </p>
             </div>
-          </article>
-
-          <!-- Latest 5: EevaoB3omTA -->
-          <article class="video-card-item">
-            <div class="video-screen-container" data-videoid="EevaoB3omTA">
-              <img src="https://img.youtube.com/vi/EevaoB3omTA/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/EevaoB3omTA/hqdefault.jpg';" alt="Last video on this channel ( bye guys )">
+            <div class="mt-5 pt-3 border-t border-footerBorder/60 text-[11px] font-semibold text-brandPurple">
+              Inverse: Make it painful
             </div>
-            <div class="p-4 sm:p-5 flex flex-col justify-between bg-white flex-1 gap-3">
-              <div class="flex items-start gap-3">
-                <button type="button" class="interactive-play-btn" data-playtarget="EevaoB3omTA" aria-label="Play or pause video">
-                  <span class="icon-play"><i class="fa-solid fa-play text-xs ml-0.5"></i></span>
-                  <span class="icon-pause">
-                    <span class="pause-bar"></span>
-                    <span class="pause-bar"></span>
-                  </span>
-                </button>
-                <h3 class="font-brand font-semibold text-[15px] sm:text-[16px] text-textDark leading-snug">
-                  Last video on this channel ( bye guys )
-                </h3>
-              </div>
-              <div class="flex items-center justify-end gap-1.5 text-xs font-medium text-textMuted pr-1">
-                <i class="fa-regular fa-eye text-brandPurple text-[11px]"></i>
-                <span>27.8K views</span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Latest 6: ymKfVEbDZMo -->
-          <article class="video-card-item">
-            <div class="video-screen-container" data-videoid="ymKfVEbDZMo">
-              <img src="https://img.youtube.com/vi/ymKfVEbDZMo/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/ymKfVEbDZMo/hqdefault.jpg';" alt="The Art of Becoming Dangerously Self Educated">
-            </div>
-            <div class="p-4 sm:p-5 flex flex-col justify-between bg-white flex-1 gap-3">
-              <div class="flex items-start gap-3">
-                <button type="button" class="interactive-play-btn" data-playtarget="ymKfVEbDZMo" aria-label="Play or pause video">
-                  <span class="icon-play"><i class="fa-solid fa-play text-xs ml-0.5"></i></span>
-                  <span class="icon-pause">
-                    <span class="pause-bar"></span>
-                    <span class="pause-bar"></span>
-                  </span>
-                </button>
-                <h3 class="font-brand font-semibold text-[15px] sm:text-[16px] text-textDark leading-snug">
-                  The Art of Becoming Dangerously Self Educated
-                </h3>
-              </div>
-              <div class="flex items-center justify-end gap-1.5 text-xs font-medium text-textMuted pr-1">
-                <i class="fa-regular fa-eye text-brandPurple text-[11px]"></i>
-                <span>31.2K views</span>
-              </div>
-            </div>
-          </article>
+          </div>
 
         </div>
+
       </div>
     </section>
 
-    <!-- SECTION 2: MY MOST POPULAR VIDEOS -->
-    <section class="py-10 sm:py-16 relative scroll-reveal">
-      <div class="w-full max-w-[1240px] mx-auto px-3 sm:px-6 md:px-8">
+    <!-- SECTION 2: INTERACTIVE ROUTINE ARCHITECTURE (MORNING, DEEP WORK, EVENING) -->
+    <section class="py-16 sm:py-24 bg-[#FAF5FF]" id="daily-systems">
+      <div class="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-8">
         
-        <div class="flex items-center mb-6 pb-3 border-b border-footerBorder">
-          <div class="flex items-center gap-3">
-            <span class="h-8 w-1.5 rounded-full bg-brandPurple"></span>
-            <h2 class="font-brand font-bold text-2xl sm:text-3xl md:text-4xl text-textDark tracking-tight">
-              My Most Popular Videos
-            </h2>
-          </div>
+        <div class="text-center max-w-2xl mx-auto mb-14 sm:mb-16 reveal-on-scroll">
+          <span class="text-xs font-bold text-brandPurple uppercase tracking-widest block mb-1">Practical Framework</span>
+          <h2 class="font-brand font-bold text-2xl sm:text-3xl md:text-4xl text-black tracking-tight">
+            The 3 Daily Operating Protocols
+          </h2>
+          <p class="text-sm text-textMuted mt-2 font-medium">Standardize the day's critical inflection points to conserve cognitive energy.</p>
         </div>
 
-        <!-- 6 Videos Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           
-          <!-- Pop 1: kocLCFuWtcc -->
-          <article class="video-card-item">
-            <div class="video-screen-container" data-videoid="kocLCFuWtcc">
-              <img src="https://img.youtube.com/vi/kocLCFuWtcc/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/kocLCFuWtcc/hqdefault.jpg';" alt="At 17, I Learned 5 Hard Truths Most Teenagers Ignore">
-            </div>
-            <div class="p-4 sm:p-5 flex flex-col justify-between bg-white flex-1 gap-3">
-              <div class="flex items-start gap-3">
-                <button type="button" class="interactive-play-btn" data-playtarget="kocLCFuWtcc" aria-label="Play or pause video">
-                  <span class="icon-play"><i class="fa-solid fa-play text-xs ml-0.5"></i></span>
-                  <span class="icon-pause">
-                    <span class="pause-bar"></span>
-                    <span class="pause-bar"></span>
-                  </span>
-                </button>
-                <h3 class="font-brand font-semibold text-[15px] sm:text-[16px] text-textDark leading-snug">
-                  At 17, I Learned 5 Hard Truths Most Teenagers Ignore
-                </h3>
+          <!-- Protocol 1: Morning Non-Negotiables -->
+          <div class="bg-white p-7 sm:p-8 rounded-[28px] border border-footerBorder shadow-sm hover-lift flex flex-col justify-between reveal-on-scroll">
+            <div>
+              <div class="h-12 w-12 rounded-2xl bg-brandPurpleLight text-brandPurple flex items-center justify-center text-xl mb-6 shadow-sm">
+                <i class="fa-solid fa-sun"></i>
               </div>
-              <div class="flex items-center justify-end gap-1.5 text-xs font-medium text-textMuted pr-1">
-                <i class="fa-regular fa-eye text-brandPurple text-[11px]"></i>
-                <span>104K views</span>
-              </div>
-            </div>
-          </article>
+              <span class="text-xs font-bold text-brandPurple uppercase tracking-widest">Phase 01</span>
+              <h3 class="font-brand font-bold text-xl text-black mt-1 mb-3">Morning Ignition Protocol</h3>
+              <p class="text-textMuted text-xs sm:text-sm leading-relaxed mb-6">
+                Never start your morning in reactive mode. Win the first 60 minutes before external demands take over your attention.
+              </p>
 
-          <!-- Pop 2: rlxtGcCDaD4 -->
-          <article class="video-card-item">
-            <div class="video-screen-container" data-videoid="rlxtGcCDaD4">
-              <img src="https://img.youtube.com/vi/rlxtGcCDaD4/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/rlxtGcCDaD4/hqdefault.jpg';" alt="How I Improved My Accent Naturally">
-            </div>
-            <div class="p-4 sm:p-5 flex flex-col justify-between bg-white flex-1 gap-3">
-              <div class="flex items-start gap-3">
-                <button type="button" class="interactive-play-btn" data-playtarget="rlxtGcCDaD4" aria-label="Play or pause video">
-                  <span class="icon-play"><i class="fa-solid fa-play text-xs ml-0.5"></i></span>
-                  <span class="icon-pause">
-                    <span class="pause-bar"></span>
-                    <span class="pause-bar"></span>
-                  </span>
-                </button>
-                <h3 class="font-brand font-semibold text-[15px] sm:text-[16px] text-textDark leading-snug">
-                  How I Improved My Accent Naturally
-                </h3>
-              </div>
-              <div class="flex items-center justify-end gap-1.5 text-xs font-medium text-textMuted pr-1">
-                <i class="fa-regular fa-eye text-brandPurple text-[11px]"></i>
-                <span>65K views</span>
+              <div class="space-y-2.5">
+                <div class="habit-check-item flex items-center gap-3 p-3 rounded-xl border border-footerBorder bg-[#FAF5FF] text-xs font-medium cursor-pointer" onclick="this.classList.toggle('done')">
+                  <i class="fa-solid fa-droplet text-brandPurple"></i>
+                  <span>500ml water + natural sunlight</span>
+                </div>
+                <div class="habit-check-item flex items-center gap-3 p-3 rounded-xl border border-footerBorder bg-[#FAF5FF] text-xs font-medium cursor-pointer" onclick="this.classList.toggle('done')">
+                  <i class="fa-solid fa-ban text-brandPurple"></i>
+                  <span>Zero screen time for first 30 mins</span>
+                </div>
+                <div class="habit-check-item flex items-center gap-3 p-3 rounded-xl border border-footerBorder bg-[#FAF5FF] text-xs font-medium cursor-pointer" onclick="this.classList.toggle('done')">
+                  <i class="fa-solid fa-list-check text-brandPurple"></i>
+                  <span>Define the single #1 priority task</span>
+                </div>
               </div>
             </div>
-          </article>
+            <div class="mt-6 pt-4 border-t border-footerBorder/60 text-[11px] font-semibold text-textMuted">
+              Click items to test checklist state
+            </div>
+          </div>
 
-          <!-- Pop 3: ZUIjoVhARdg -->
-          <article class="video-card-item">
-            <div class="video-screen-container" data-videoid="ZUIjoVhARdg">
-              <img src="https://img.youtube.com/vi/ZUIjoVhARdg/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/ZUIjoVhARdg/hqdefault.jpg';" alt="I Tried Fixing My Life at 17 ( self improvement )">
-            </div>
-            <div class="p-4 sm:p-5 flex flex-col justify-between bg-white flex-1 gap-3">
-              <div class="flex items-start gap-3">
-                <button type="button" class="interactive-play-btn" data-playtarget="ZUIjoVhARdg" aria-label="Play or pause video">
-                  <span class="icon-play"><i class="fa-solid fa-play text-xs ml-0.5"></i></span>
-                  <span class="icon-pause">
-                    <span class="pause-bar"></span>
-                    <span class="pause-bar"></span>
-                  </span>
-                </button>
-                <h3 class="font-brand font-semibold text-[15px] sm:text-[16px] text-textDark leading-snug">
-                  I Tried Fixing My Life at 17 ( self improvement )
-                </h3>
+          <!-- Protocol 2: Deep Work Sprint -->
+          <div class="bg-white p-7 sm:p-8 rounded-[28px] border border-footerBorder shadow-sm hover-lift flex flex-col justify-between reveal-on-scroll">
+            <div>
+              <div class="h-12 w-12 rounded-2xl bg-brandPurpleLight text-brandPurple flex items-center justify-center text-xl mb-6 shadow-sm">
+                <i class="fa-solid fa-fire"></i>
               </div>
-              <div class="flex items-center justify-end gap-1.5 text-xs font-medium text-textMuted pr-1">
-                <i class="fa-regular fa-eye text-brandPurple text-[11px]"></i>
-                <span>52K views</span>
-              </div>
-            </div>
-          </article>
+              <span class="text-xs font-bold text-brandPurple uppercase tracking-widest">Phase 02</span>
+              <h3 class="font-brand font-bold text-xl text-black mt-1 mb-3">90-Minute Focus Blocks</h3>
+              <p class="text-textMuted text-xs sm:text-sm leading-relaxed mb-6">
+                Shallow work burns time without progress. One uninterrupted 90-minute block accomplishes more than 5 hours of distracted multitasking.
+              </p>
 
-          <!-- Pop 4: EevaoB3omTA -->
-          <article class="video-card-item">
-            <div class="video-screen-container" data-videoid="EevaoB3omTA">
-              <img src="https://img.youtube.com/vi/EevaoB3omTA/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/EevaoB3omTA/hqdefault.jpg';" alt="Last video on this channel ( bye guys )">
-            </div>
-            <div class="p-4 sm:p-5 flex flex-col justify-between bg-white flex-1 gap-3">
-              <div class="flex items-start gap-3">
-                <button type="button" class="interactive-play-btn" data-playtarget="EevaoB3omTA" aria-label="Play or pause video">
-                  <span class="icon-play"><i class="fa-solid fa-play text-xs ml-0.5"></i></span>
-                  <span class="icon-pause">
-                    <span class="pause-bar"></span>
-                    <span class="pause-bar"></span>
-                  </span>
-                </button>
-                <h3 class="font-brand font-semibold text-[15px] sm:text-[16px] text-textDark leading-snug">
-                  Last video on this channel ( bye guys )
-                </h3>
-              </div>
-              <div class="flex items-center justify-end gap-1.5 text-xs font-medium text-textMuted pr-1">
-                <i class="fa-regular fa-eye text-brandPurple text-[11px]"></i>
-                <span>27.8K views</span>
+              <div class="space-y-2.5">
+                <div class="habit-check-item flex items-center gap-3 p-3 rounded-xl border border-footerBorder bg-[#FAF5FF] text-xs font-medium cursor-pointer" onclick="this.classList.toggle('done')">
+                  <i class="fa-solid fa-door-closed text-brandPurple"></i>
+                  <span>Phone isolated in another room</span>
+                </div>
+                <div class="habit-check-item flex items-center gap-3 p-3 rounded-xl border border-footerBorder bg-[#FAF5FF] text-xs font-medium cursor-pointer" onclick="this.classList.toggle('done')">
+                  <i class="fa-solid fa-headphones text-brandPurple"></i>
+                  <span>Binaural beats or brown noise loop</span>
+                </div>
+                <div class="habit-check-item flex items-center gap-3 p-3 rounded-xl border border-footerBorder bg-[#FAF5FF] text-xs font-medium cursor-pointer" onclick="this.classList.toggle('done')">
+                  <i class="fa-solid fa-hourglass-end text-brandPurple"></i>
+                  <span>Single-tab browser enforcement</span>
+                </div>
               </div>
             </div>
-          </article>
+            <div class="mt-6 pt-4 border-t border-footerBorder/60 text-[11px] font-semibold text-textMuted">
+              Click items to test checklist state
+            </div>
+          </div>
 
-          <!-- Pop 5: ymKfVEbDZMo -->
-          <article class="video-card-item">
-            <div class="video-screen-container" data-videoid="ymKfVEbDZMo">
-              <img src="https://img.youtube.com/vi/ymKfVEbDZMo/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/ymKfVEbDZMo/hqdefault.jpg';" alt="The Art of Becoming Dangerously Self Educated">
-            </div>
-            <div class="p-4 sm:p-5 flex flex-col justify-between bg-white flex-1 gap-3">
-              <div class="flex items-start gap-3">
-                <button type="button" class="interactive-play-btn" data-playtarget="ymKfVEbDZMo" aria-label="Play or pause video">
-                  <span class="icon-play"><i class="fa-solid fa-play text-xs ml-0.5"></i></span>
-                  <span class="icon-pause">
-                    <span class="pause-bar"></span>
-                    <span class="pause-bar"></span>
-                  </span>
-                </button>
-                <h3 class="font-brand font-semibold text-[15px] sm:text-[16px] text-textDark leading-snug">
-                  The Art of Becoming Dangerously Self Educated
-                </h3>
+          <!-- Protocol 3: Evening Decompression -->
+          <div class="bg-white p-7 sm:p-8 rounded-[28px] border border-footerBorder shadow-sm hover-lift flex flex-col justify-between reveal-on-scroll">
+            <div>
+              <div class="h-12 w-12 rounded-2xl bg-brandPurpleLight text-brandPurple flex items-center justify-center text-xl mb-6 shadow-sm">
+                <i class="fa-solid fa-moon"></i>
               </div>
-              <div class="flex items-center justify-end gap-1.5 text-xs font-medium text-textMuted pr-1">
-                <i class="fa-regular fa-eye text-brandPurple text-[11px]"></i>
-                <span>31.2K views</span>
-              </div>
-            </div>
-          </article>
+              <span class="text-xs font-bold text-brandPurple uppercase tracking-widest">Phase 03</span>
+              <h3 class="font-brand font-bold text-xl text-black mt-1 mb-3">Evening Shutdown Audit</h3>
+              <p class="text-textMuted text-xs sm:text-sm leading-relaxed mb-6">
+                How you end your day determines how tomorrow begins. Close mental loops so your mind doesn't obsess over unfinished work in bed.
+              </p>
 
-          <!-- Pop 6: HpT6r9ODcXg -->
-          <article class="video-card-item">
-            <div class="video-screen-container" data-videoid="HpT6r9ODcXg">
-              <img src="https://img.youtube.com/vi/HpT6r9ODcXg/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/HpT6r9ODcXg/hqdefault.jpg';" alt="At 17 , These 3 Rules Are Fixing My Life">
-            </div>
-            <div class="p-4 sm:p-5 flex flex-col justify-between bg-white flex-1 gap-3">
-              <div class="flex items-start gap-3">
-                <button type="button" class="interactive-play-btn" data-playtarget="HpT6r9ODcXg" aria-label="Play or pause video">
-                  <span class="icon-play"><i class="fa-solid fa-play text-xs ml-0.5"></i></span>
-                  <span class="icon-pause">
-                    <span class="pause-bar"></span>
-                    <span class="pause-bar"></span>
-                  </span>
-                </button>
-                <h3 class="font-brand font-semibold text-[15px] sm:text-[16px] text-textDark leading-snug">
-                  At 17 , These 3 Rules Are Fixing My Life
-                </h3>
-              </div>
-              <div class="flex items-center justify-end gap-1.5 text-xs font-medium text-textMuted pr-1">
-                <i class="fa-regular fa-eye text-brandPurple text-[11px]"></i>
-                <span>19.4K views</span>
+              <div class="space-y-2.5">
+                <div class="habit-check-item flex items-center gap-3 p-3 rounded-xl border border-footerBorder bg-[#FAF5FF] text-xs font-medium cursor-pointer" onclick="this.classList.toggle('done')">
+                  <i class="fa-solid fa-pen-to-square text-brandPurple"></i>
+                  <span>Daily review: What worked & what didn't</span>
+                </div>
+                <div class="habit-check-item flex items-center gap-3 p-3 rounded-xl border border-footerBorder bg-[#FAF5FF] text-xs font-medium cursor-pointer" onclick="this.classList.toggle('done')">
+                  <i class="fa-solid fa-calendar-day text-brandPurple"></i>
+                  <span>Lay out clothes & materials for tomorrow</span>
+                </div>
+                <div class="habit-check-item flex items-center gap-3 p-3 rounded-xl border border-footerBorder bg-[#FAF5FF] text-xs font-medium cursor-pointer" onclick="this.classList.toggle('done')">
+                  <i class="fa-solid fa-power-off text-brandPurple"></i>
+                  <span>Digital shutdown 45 mins before sleep</span>
+                </div>
               </div>
             </div>
-          </article>
+            <div class="mt-6 pt-4 border-t border-footerBorder/60 text-[11px] font-semibold text-textMuted">
+              Click items to test checklist state
+            </div>
+          </div>
 
         </div>
+
       </div>
     </section>
 
+  
   </main>
 
   <!-- SOLID LIGHT PURPLE FOOTER -->
-  <footer class="bg-[#F5ECFF] rounded-t-[40px] w-full pt-16 pb-10 border-t-[8px] border-white shadow-[0_-8px_15px_rgba(121,40,202,0.04)] scroll-reveal relative z-10 mt-auto" id="contact">
+  <footer class="bg-[#F5ECFF] rounded-t-[40px] w-full pt-16 pb-10 border-t-[8px] border-white shadow-[0_-8px_15px_rgba(121,40,202,0.04)] reveal-on-scroll relative z-10 mt-auto">
     <div class="max-w-[1300px] mx-auto px-6 sm:px-12">
       
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 pb-10 border-b border-footerBorder text-left">
@@ -719,7 +527,7 @@
         <!-- Column 1: Brand & Description -->
         <div>
           <div class="flex items-center gap-2.5 mb-3">
-            <img src="https://i.ibb.co/Dg5vY5bS/jk-final-logos.png" alt="JK Official Logo" class="h-10 w-auto object-contain shrink-0 -translate-y-1">
+            <img src="https://i.ibb.co/ks55RRy3/jk-final.png" alt="JK Official Logo" class="h-10 w-auto object-contain shrink-0 -translate-y-1">
             <span class="font-brand font-bold text-[22px] tracking-tight text-black">JASMEET KAUR</span>
           </div>
           <p class="text-xs sm:text-sm text-textMuted leading-relaxed max-w-sm font-normal">
@@ -731,47 +539,38 @@
         <div>
           <h4 class="text-xs font-bold text-brandPurple uppercase tracking-widest mb-4">Quick Access</h4>
           <ul class="flex flex-col gap-2.5 text-xs sm:text-sm font-medium text-textMuted">
-            <li>
-              <a href="index.html" class="hover:text-brandPurple hover:translate-x-1 inline-block transition">Home</a>
-            </li>
-            <li>
-              <a href="about.html" class="hover:text-brandPurple hover:translate-x-1 inline-block transition">About Us</a>
-            </li>
-            <li>
-              <a href="self-improvement.html" class="hover:text-brandPurple hover:translate-x-1 inline-block transition">Self Improvement</a>
-            </li>
-            <li>
-              <a href="videos.html" class="text-brandPurple font-bold hover:translate-x-1 inline-block transition">Video</a>
-            </li>
-            <li>
-              <a href="quotes.html" class="hover:text-brandPurple hover:translate-x-1 inline-block transition">Quotes</a>
-            </li>
-            <li>
-              <a href="contact.html" class="hover:text-brandPurple hover:translate-x-1 inline-block transition">Contact Us</a>
-            </li>
+            <li><a href="index.html" class="hover:text-brandPurple hover:translate-x-1 inline-block transition">Home</a></li>
+            <li><a href="about.html" class="hover:text-brandPurple hover:translate-x-1 inline-block transition">About</a></li>
+            <li><a href="self-improvement.html" class="text-brandPurple font-bold hover:translate-x-1 inline-block transition">Self Improvement</a></li>
+            <li><a href="videos.html" class="hover:text-brandPurple hover:translate-x-1 inline-block transition">Video</a></li>
+            <li><a href="quotes.html" class="hover:text-brandPurple hover:translate-x-1 inline-block transition">Quotes</a></li>
+            <li><a href="contact.html" class="hover:text-brandPurple hover:translate-x-1 inline-block transition">Contact</a></li>
           </ul>
         </div>
 
-        <!-- Column 3: Official Channels & Inquiries -->
+        <!-- Column 3: Official Channels & Business Inquiries -->
         <div>
           <h4 class="text-xs font-bold text-brandPurple uppercase tracking-widest mb-4">Official Channels</h4>
           <div class="flex flex-col gap-3.5 text-xs sm:text-sm mb-6">
             
+            <!-- New Channel -->
             <a href="https://youtube.com/@jasmeetkaurr1" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 text-black hover:text-brandPurple transition group">
               <i class="fa-brands fa-youtube text-red-600 text-lg shrink-0 group-hover:scale-110 transition-transform"></i>
               <span class="font-semibold text-black text-[14px]">New Channel</span>
             </a>
 
-            <a href="https://youtube.com/@jasmeetmaann" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 text-black hover:text-brandPurple transition group" cite="1">
+            <!-- Previous Channel -->
+            <a href="https://youtube.com/@jasmeetmaann" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 text-black hover:text-brandPurple transition group">
               <i class="fa-brands fa-youtube text-brandPurple text-lg shrink-0 group-hover:scale-110 transition-transform"></i>
               <span class="font-semibold text-black text-[14px]">Previous Channel</span>
             </a>
 
           </div>
 
+          <!-- Business Inquiries -->
           <div>
             <h5 class="text-xs font-bold text-brandPurple uppercase tracking-widest mb-2">Business Inquiries</h5>
-            <a href="mailto:workwithjasmeetkaur@gmail.com" class="inline-flex items-center gap-2 text-sm sm:text-base font-semibold text-black hover:text-brandPurple transition lowercase break-all group" cite="1">
+            <a href="mailto:workwithjasmeetkaur@gmail.com" class="inline-flex items-center gap-2 text-sm sm:text-base font-semibold text-black hover:text-brandPurple transition lowercase break-all group">
               <i class="fa-solid fa-envelope text-brandPurple text-sm shrink-0 group-hover:scale-110 transition-transform"></i>
               <span>workwithjasmeetkaur@gmail.com</span>
             </a>
@@ -780,7 +579,7 @@
 
       </div>
 
-      <!-- Footer Bottom -->
+      <!-- Footer Bottom Copyright & Creator on New Line -->
       <div class="pt-6 text-center text-xs text-textMuted font-medium flex flex-col items-center justify-center gap-1.5">
         <div>© 2026 Jasmeet Kaur. All Rights Reserved.</div>
         <div>Created by Gagan Nishad</div>
@@ -802,148 +601,37 @@
     (function() {
       "use strict";
 
-      // 1. SMART SINGLE-VIDEO ACTIVE PLAYBACK CONTROLLER
-      let activeCard = null;
-      let activeOriginalScreenHTML = "";
-      let isPlaying = false;
-
-      function resetActivePlayer() {
-        if (activeCard && activeOriginalScreenHTML) {
-          const screen = activeCard.querySelector('.video-screen-container');
-          const btn = activeCard.querySelector('.interactive-play-btn');
-
-          if (screen) {
-            screen.innerHTML = activeOriginalScreenHTML;
-            const videoId = screen.getAttribute('data-videoid');
-            screen.addEventListener('click', function() {
-              handlePlayToggle(activeCard, videoId);
-            });
-          }
-          if (btn) btn.classList.remove('playing');
-          activeCard.classList.remove('is-active-card');
-
-          activeCard = null;
-          activeOriginalScreenHTML = "";
-          isPlaying = false;
-        }
-      }
-
-      function handlePlayToggle(card, videoId) {
-        if (!card || !videoId) return;
-
-        const screen = card.querySelector('.video-screen-container');
-        const btn = card.querySelector('.interactive-play-btn');
-        const iframe = screen ? screen.querySelector('iframe') : null;
-
-        // Reset previous video if another one is started
-        if (activeCard && activeCard !== card) {
-          resetActivePlayer();
-        }
-
-        if (!iframe) {
-          // Mount YouTube iFrame with lighter border active state
-          activeOriginalScreenHTML = screen.innerHTML;
-          activeCard = card;
-          isPlaying = true;
-
-          card.classList.add('is-active-card');
-          if (btn) btn.classList.add('playing');
-
-          screen.innerHTML = `
-            <iframe 
-              src="https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&enablejsapi=1&rel=0&modestbranding=1&controls=1" 
-              title="YouTube Video Player" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-              allowfullscreen>
-            </iframe>
-          `;
-        } else {
-          // Toggle play / pause state via postMessage API
-          if (isPlaying) {
-            iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
-            isPlaying = false;
-            if (btn) btn.classList.remove('playing');
-          } else {
-            iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
-            isPlaying = true;
-            if (btn) btn.classList.add('playing');
-            card.classList.add('is-active-card');
-          }
-        }
-      }
-
-      // Card Screen Click
-      document.querySelectorAll('.video-card-item').forEach(card => {
-        const screen = card.querySelector('.video-screen-container');
-        const btn = card.querySelector('.interactive-play-btn');
-        const videoId = screen ? screen.getAttribute('data-videoid') : null;
-
-        if (screen && videoId) {
-          screen.addEventListener('click', function(e) {
-            if (!this.querySelector('iframe')) {
-              handlePlayToggle(card, videoId);
-            }
-          });
-        }
-
-        if (btn && videoId) {
-          btn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            handlePlayToggle(card, videoId);
-          });
-        }
-      });
-
-      // 2. DOCK AUTO-HIDE & SCROLL BEHAVIOR
+      /* --- 1. DOCK AUTO-HIDE & BACK TO TOP --- */
       let lastScrollY = window.scrollY;
       let scrollTimer = null;
       const navShell = document.getElementById('navShell');
       const backToTopBtn = document.getElementById('backToTopBtn');
-      const revealItems = document.querySelectorAll('.scroll-reveal');
 
-      function checkDirectionalScroll() {
+      window.addEventListener('scroll', () => {
         const currentScrollY = window.scrollY;
-        const isScrollingDown = currentScrollY > lastScrollY;
-
-        if (isScrollingDown && currentScrollY > 70) {
+        if (currentScrollY > lastScrollY && currentScrollY > 80) {
           navShell.classList.add('dock-hidden');
         } else {
           navShell.classList.remove('dock-hidden');
         }
-
-        if (isScrollingDown) {
-          const triggerBottom = window.innerHeight * 0.92;
-          revealItems.forEach(item => {
-            if (!item.classList.contains('has-opened')) {
-              const rect = item.getBoundingClientRect();
-              if (rect.top < triggerBottom) {
-                item.classList.add('has-opened');
-              }
-            }
-          });
-        }
+        lastScrollY = currentScrollY;
 
         if (currentScrollY > 300) {
           backToTopBtn.classList.add('is-active');
           clearTimeout(scrollTimer);
           scrollTimer = setTimeout(() => {
             backToTopBtn.classList.remove('is-active');
-          }, 1400);
+          }, 1200);
         } else {
           backToTopBtn.classList.remove('is-active');
         }
-
-        lastScrollY = currentScrollY;
-      }
-
-      window.addEventListener('scroll', checkDirectionalScroll, { passive: true });
-      window.addEventListener('DOMContentLoaded', checkDirectionalScroll);
+      }, { passive: true });
 
       backToTopBtn.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
 
-      // 3. MOBILE DRAWER NAVIGATION
+      /* --- 2. MOBILE DRAWER CONTROLS --- */
       const openBtn = document.getElementById('openDrawerBtn');
       const closeBtn = document.getElementById('closeDrawerBtn');
       const mobileBackdrop = document.getElementById('mobileBackdrop');
@@ -952,24 +640,33 @@
       function openDrawer() { document.body.classList.add('drawer-open'); }
       function closeDrawer() { document.body.classList.remove('drawer-open'); }
 
-      if(openBtn) openBtn.addEventListener('click', openDrawer);
-      if(closeBtn) closeBtn.addEventListener('click', closeDrawer);
-      if(mobileBackdrop) mobileBackdrop.addEventListener('click', closeDrawer);
-      
-      mobileLinks.forEach(link => {
-        link.addEventListener('click', closeDrawer);
-      });
+      if (openBtn) openBtn.addEventListener('click', openDrawer);
+      if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+      if (mobileBackdrop) mobileBackdrop.addEventListener('click', closeDrawer);
+      mobileLinks.forEach(link => link.addEventListener('click', closeDrawer));
 
-      // 4. INTERSECTION OBSERVER ENTRANCES
+      /* --- 3. DIRECTIONAL SCROLL REVEALS --- */
+      const revealElements = document.querySelectorAll('.reveal-on-scroll');
       const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('has-opened');
+            entry.target.classList.add('is-visible');
           }
         });
-      }, { threshold: 0.08 }); 
+      }, { threshold: 0.1 }); 
+      revealElements.forEach(el => revealObserver.observe(el));
 
-      revealItems.forEach(el => revealObserver.observe(el));
+      /* --- 4. ANTI-COPY & SHORTCUT LOCKOUT --- */
+      document.addEventListener('contextmenu', e => e.preventDefault());
+      document.addEventListener('keydown', e => {
+        if (
+          e.key === 'F12' ||
+          (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) ||
+          (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.key === 's' || e.key === 'S' || e.key === 'c' || e.key === 'C'))
+        ) {
+          e.preventDefault();
+        }
+      });
 
     })();
   </script>
