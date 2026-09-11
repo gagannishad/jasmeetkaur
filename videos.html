@@ -137,7 +137,7 @@
       box-shadow: 0 10px 25px -5px rgba(216, 180, 254, 0.45);
     }
 
-    /* Video Screen Container - Clean Thumbnail (No Icon Overlay) */
+    /* Video Screen Container */
     .video-screen-container {
       position: relative;
       width: 100%;
@@ -145,6 +145,7 @@
       background-color: #120422;
       overflow: hidden;
       cursor: pointer;
+      transition: transform 0.3s ease;
     }
     .video-screen-container img {
       width: 100%;
@@ -164,11 +165,28 @@
       display: block;
     }
 
+    /* Zoom / Fullscreen Modal Overlay */
+    .video-screen-container.video-fullscreen-mode {
+      position: fixed !important;
+      inset: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      max-width: 100vw !important;
+      max-height: 100vh !important;
+      z-index: 99999 !important;
+      background-color: #000000 !important;
+      border-radius: 0 !important;
+      aspect-ratio: auto !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
     /* Interactive Title Button with Animated Play/Pause States */
     .interactive-play-btn {
       position: relative;
-      width: 38px;
-      height: 38px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
       background: #7928CA;
       color: #ffffff;
@@ -189,24 +207,22 @@
       transform: scale(0.92);
     }
 
-    /* Play Icon State */
     .icon-play {
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    /* Pause State: 2 Animated Lines */
     .icon-pause {
       display: none;
-      gap: 3.5px;
+      gap: 3px;
       align-items: center;
       justify-content: center;
       height: 14px;
     }
     .pause-bar {
       width: 3px;
-      height: 13px;
+      height: 12px;
       background-color: #ffffff;
       border-radius: 4px;
       animation: pulseBar 1.2s infinite ease-in-out alternate;
@@ -219,7 +235,6 @@
       100% { transform: scaleY(1.15); }
     }
 
-    /* When playing */
     .interactive-play-btn.playing {
       background: #6D28D9;
       box-shadow: 0 0 0 3px rgba(216, 180, 254, 0.5);
@@ -229,6 +244,32 @@
     }
     .interactive-play-btn.playing .icon-pause {
       display: flex;
+    }
+
+    /* Right-side Fullscreen / Zoom Button */
+    .fullscreen-zoom-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: #FAF5FF;
+      color: #7928CA;
+      border: 1px solid #E0C5FC;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .fullscreen-zoom-btn:hover {
+      background: #7928CA;
+      color: #ffffff;
+      border-color: #7928CA;
+      transform: scale(1.08);
+      box-shadow: 0 4px 12px rgba(121, 40, 202, 0.2);
+    }
+    .fullscreen-zoom-btn:active {
+      transform: scale(0.92);
     }
 
     /* Drawer */
@@ -389,8 +430,8 @@
             <div class="video-screen-container" data-videoid="gb4BclhYa7E">
               <img src="https://img.youtube.com/vi/gb4BclhYa7E/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/gb4BclhYa7E/hqdefault.jpg';" alt="If you're a student watch this - ( Class 12th Student)">
             </div>
-            <div class="p-4 sm:p-5 flex flex-col justify-between bg-white flex-1 gap-3">
-              <div class="flex items-start gap-3">
+            <div class="p-4 sm:p-5 flex items-center justify-between bg-white flex-1 gap-3">
+              <div class="flex items-center gap-3 flex-1 min-w-0">
                 <button type="button" class="interactive-play-btn" data-playtarget="gb4BclhYa7E" aria-label="Play or pause video">
                   <span class="icon-play"><i class="fa-solid fa-play text-xs ml-0.5"></i></span>
                   <span class="icon-pause">
@@ -398,14 +439,13 @@
                     <span class="pause-bar"></span>
                   </span>
                 </button>
-                <h3 class="font-brand font-semibold text-[15px] sm:text-[16px] text-textDark leading-snug">
+                <h3 class="font-brand font-semibold text-[14px] sm:text-[15px] text-textDark leading-snug truncate">
                   If you're a student watch this - ( Class 12th Student)
                 </h3>
               </div>
-              <div class="flex items-center justify-end gap-1.5 text-xs font-medium text-textMuted pr-1">
-                <i class="fa-regular fa-eye text-brandPurple text-[11px]"></i>
-                <span></span>
-              </div>
+              <button type="button" class="fullscreen-zoom-btn" title="Fullscreen / Zoom Video" aria-label="Fullscreen / Zoom Video">
+                <i class="fa-solid fa-expand text-xs"></i>
+              </button>
             </div>
           </article>
 
@@ -414,8 +454,8 @@
             <div class="video-screen-container" data-videoid="5pG0OYNcaos">
               <img src="https://img.youtube.com/vi/5pG0OYNcaos/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/5pG0OYNcaos/hqdefault.jpg';" alt="Before I turn 18 , I need to tell u this">
             </div>
-            <div class="p-4 sm:p-5 flex flex-col justify-between bg-white flex-1 gap-3">
-              <div class="flex items-start gap-3">
+            <div class="p-4 sm:p-5 flex items-center justify-between bg-white flex-1 gap-3">
+              <div class="flex items-center gap-3 flex-1 min-w-0">
                 <button type="button" class="interactive-play-btn" data-playtarget="5pG0OYNcaos" aria-label="Play or pause video">
                   <span class="icon-play"><i class="fa-solid fa-play text-xs ml-0.5"></i></span>
                   <span class="icon-pause">
@@ -423,14 +463,13 @@
                     <span class="pause-bar"></span>
                   </span>
                 </button>
-                <h3 class="font-brand font-semibold text-[15px] sm:text-[16px] text-textDark leading-snug">
+                <h3 class="font-brand font-semibold text-[14px] sm:text-[15px] text-textDark leading-snug truncate">
                   Before I turn 18 , I need to tell u this
                 </h3>
               </div>
-              <div class="flex items-center justify-end gap-1.5 text-xs font-medium text-textMuted pr-1">
-                <i class="fa-regular fa-eye text-brandPurple text-[11px]"></i>
-                <span></span>
-              </div>
+              <button type="button" class="fullscreen-zoom-btn" title="Fullscreen / Zoom Video" aria-label="Fullscreen / Zoom Video">
+                <i class="fa-solid fa-expand text-xs"></i>
+              </button>
             </div>
           </article>
 
@@ -439,8 +478,8 @@
             <div class="video-screen-container" data-videoid="Yg62Ros5kHA">
               <img src="https://img.youtube.com/vi/Yg62Ros5kHA/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/Yg62Ros5kHA/hqdefault.jpg';" alt="At 17, These 5 Things are Changing My LIFE">
             </div>
-            <div class="p-4 sm:p-5 flex flex-col justify-between bg-white flex-1 gap-3">
-              <div class="flex items-start gap-3">
+            <div class="p-4 sm:p-5 flex items-center justify-between bg-white flex-1 gap-3">
+              <div class="flex items-center gap-3 flex-1 min-w-0">
                 <button type="button" class="interactive-play-btn" data-playtarget="Yg62Ros5kHA" aria-label="Play or pause video">
                   <span class="icon-play"><i class="fa-solid fa-play text-xs ml-0.5"></i></span>
                   <span class="icon-pause">
@@ -448,14 +487,13 @@
                     <span class="pause-bar"></span>
                   </span>
                 </button>
-                <h3 class="font-brand font-semibold text-[15px] sm:text-[16px] text-textDark leading-snug">
+                <h3 class="font-brand font-semibold text-[14px] sm:text-[15px] text-textDark leading-snug truncate">
                   At 17, These 5 Things are Changing My LIFE
                 </h3>
               </div>
-              <div class="flex items-center justify-end gap-1.5 text-xs font-medium text-textMuted pr-1">
-                <i class="fa-regular fa-eye text-brandPurple text-[11px]"></i>
-                <span></span>
-              </div>
+              <button type="button" class="fullscreen-zoom-btn" title="Fullscreen / Zoom Video" aria-label="Fullscreen / Zoom Video">
+                <i class="fa-solid fa-expand text-xs"></i>
+              </button>
             </div>
           </article>
 
@@ -464,8 +502,8 @@
             <div class="video-screen-container" data-videoid="3ZtVBlfeLKw">
               <img src="https://img.youtube.com/vi/3ZtVBlfeLKw/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/3ZtVBlfeLKw/hqdefault.jpg';" alt="How to get what you want ? - 3 ways that i follow">
             </div>
-            <div class="p-4 sm:p-5 flex flex-col justify-between bg-white flex-1 gap-3">
-              <div class="flex items-start gap-3">
+            <div class="p-4 sm:p-5 flex items-center justify-between bg-white flex-1 gap-3">
+              <div class="flex items-center gap-3 flex-1 min-w-0">
                 <button type="button" class="interactive-play-btn" data-playtarget="3ZtVBlfeLKw" aria-label="Play or pause video">
                   <span class="icon-play"><i class="fa-solid fa-play text-xs ml-0.5"></i></span>
                   <span class="icon-pause">
@@ -473,14 +511,13 @@
                     <span class="pause-bar"></span>
                   </span>
                 </button>
-                <h3 class="font-brand font-semibold text-[15px] sm:text-[16px] text-textDark leading-snug">
+                <h3 class="font-brand font-semibold text-[14px] sm:text-[15px] text-textDark leading-snug truncate">
                   How to get what you want ? - 3 ways that i follow
                 </h3>
               </div>
-              <div class="flex items-center justify-end gap-1.5 text-xs font-medium text-textMuted pr-1">
-                <i class="fa-regular fa-eye text-brandPurple text-[11px]"></i>
-                <span></span>
-              </div>
+              <button type="button" class="fullscreen-zoom-btn" title="Fullscreen / Zoom Video" aria-label="Fullscreen / Zoom Video">
+                <i class="fa-solid fa-expand text-xs"></i>
+              </button>
             </div>
           </article>
 
@@ -489,8 +526,8 @@
             <div class="video-screen-container" data-videoid="EevaoB3omTA">
               <img src="https://img.youtube.com/vi/EevaoB3omTA/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/EevaoB3omTA/hqdefault.jpg';" alt="Last video on this channel ( bye guys )">
             </div>
-            <div class="p-4 sm:p-5 flex flex-col justify-between bg-white flex-1 gap-3">
-              <div class="flex items-start gap-3">
+            <div class="p-4 sm:p-5 flex items-center justify-between bg-white flex-1 gap-3">
+              <div class="flex items-center gap-3 flex-1 min-w-0">
                 <button type="button" class="interactive-play-btn" data-playtarget="EevaoB3omTA" aria-label="Play or pause video">
                   <span class="icon-play"><i class="fa-solid fa-play text-xs ml-0.5"></i></span>
                   <span class="icon-pause">
@@ -498,14 +535,13 @@
                     <span class="pause-bar"></span>
                   </span>
                 </button>
-                <h3 class="font-brand font-semibold text-[15px] sm:text-[16px] text-textDark leading-snug">
+                <h3 class="font-brand font-semibold text-[14px] sm:text-[15px] text-textDark leading-snug truncate">
                   Last video on this channel ( bye guys )
                 </h3>
               </div>
-              <div class="flex items-center justify-end gap-1.5 text-xs font-medium text-textMuted pr-1">
-                <i class="fa-regular fa-eye text-brandPurple text-[11px]"></i>
-                <span></span>
-              </div>
+              <button type="button" class="fullscreen-zoom-btn" title="Fullscreen / Zoom Video" aria-label="Fullscreen / Zoom Video">
+                <i class="fa-solid fa-expand text-xs"></i>
+              </button>
             </div>
           </article>
 
@@ -514,8 +550,8 @@
             <div class="video-screen-container" data-videoid="ymKfVEbDZMo">
               <img src="https://img.youtube.com/vi/ymKfVEbDZMo/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/ymKfVEbDZMo/hqdefault.jpg';" alt="The Art of Becoming Dangerously Self Educated">
             </div>
-            <div class="p-4 sm:p-5 flex flex-col justify-between bg-white flex-1 gap-3">
-              <div class="flex items-start gap-3">
+            <div class="p-4 sm:p-5 flex items-center justify-between bg-white flex-1 gap-3">
+              <div class="flex items-center gap-3 flex-1 min-w-0">
                 <button type="button" class="interactive-play-btn" data-playtarget="ymKfVEbDZMo" aria-label="Play or pause video">
                   <span class="icon-play"><i class="fa-solid fa-play text-xs ml-0.5"></i></span>
                   <span class="icon-pause">
@@ -523,14 +559,13 @@
                     <span class="pause-bar"></span>
                   </span>
                 </button>
-                <h3 class="font-brand font-semibold text-[15px] sm:text-[16px] text-textDark leading-snug">
+                <h3 class="font-brand font-semibold text-[14px] sm:text-[15px] text-textDark leading-snug truncate">
                   The Art of Becoming Dangerously Self Educated
                 </h3>
               </div>
-              <div class="flex items-center justify-end gap-1.5 text-xs font-medium text-textMuted pr-1">
-                <i class="fa-regular fa-eye text-brandPurple text-[11px]"></i>
-                <span></span>
-              </div>
+              <button type="button" class="fullscreen-zoom-btn" title="Fullscreen / Zoom Video" aria-label="Fullscreen / Zoom Video">
+                <i class="fa-solid fa-expand text-xs"></i>
+              </button>
             </div>
           </article>
 
@@ -559,8 +594,8 @@
             <div class="video-screen-container" data-videoid="kocLCFuWtcc">
               <img src="https://img.youtube.com/vi/kocLCFuWtcc/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/kocLCFuWtcc/hqdefault.jpg';" alt="At 17, I Learned 5 Hard Truths Most Teenagers Ignore">
             </div>
-            <div class="p-4 sm:p-5 flex flex-col justify-between bg-white flex-1 gap-3">
-              <div class="flex items-start gap-3">
+            <div class="p-4 sm:p-5 flex items-center justify-between bg-white flex-1 gap-3">
+              <div class="flex items-center gap-3 flex-1 min-w-0">
                 <button type="button" class="interactive-play-btn" data-playtarget="kocLCFuWtcc" aria-label="Play or pause video">
                   <span class="icon-play"><i class="fa-solid fa-play text-xs ml-0.5"></i></span>
                   <span class="icon-pause">
@@ -568,14 +603,13 @@
                     <span class="pause-bar"></span>
                   </span>
                 </button>
-                <h3 class="font-brand font-semibold text-[15px] sm:text-[16px] text-textDark leading-snug">
+                <h3 class="font-brand font-semibold text-[14px] sm:text-[15px] text-textDark leading-snug truncate">
                   At 17, I Learned 5 Hard Truths Most Teenagers Ignore
                 </h3>
               </div>
-              <div class="flex items-center justify-end gap-1.5 text-xs font-medium text-textMuted pr-1">
-                <i class="fa-regular fa-eye text-brandPurple text-[11px]"></i>
-                <span></span>
-              </div>
+              <button type="button" class="fullscreen-zoom-btn" title="Fullscreen / Zoom Video" aria-label="Fullscreen / Zoom Video">
+                <i class="fa-solid fa-expand text-xs"></i>
+              </button>
             </div>
           </article>
 
@@ -584,8 +618,8 @@
             <div class="video-screen-container" data-videoid="rlxtGcCDaD4">
               <img src="https://img.youtube.com/vi/rlxtGcCDaD4/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/rlxtGcCDaD4/hqdefault.jpg';" alt="How I Improved My Accent Naturally">
             </div>
-            <div class="p-4 sm:p-5 flex flex-col justify-between bg-white flex-1 gap-3">
-              <div class="flex items-start gap-3">
+            <div class="p-4 sm:p-5 flex items-center justify-between bg-white flex-1 gap-3">
+              <div class="flex items-center gap-3 flex-1 min-w-0">
                 <button type="button" class="interactive-play-btn" data-playtarget="rlxtGcCDaD4" aria-label="Play or pause video">
                   <span class="icon-play"><i class="fa-solid fa-play text-xs ml-0.5"></i></span>
                   <span class="icon-pause">
@@ -593,14 +627,13 @@
                     <span class="pause-bar"></span>
                   </span>
                 </button>
-                <h3 class="font-brand font-semibold text-[15px] sm:text-[16px] text-textDark leading-snug">
+                <h3 class="font-brand font-semibold text-[14px] sm:text-[15px] text-textDark leading-snug truncate">
                   How I Improved My Accent Naturally
                 </h3>
               </div>
-              <div class="flex items-center justify-end gap-1.5 text-xs font-medium text-textMuted pr-1">
-                <i class="fa-regular fa-eye text-brandPurple text-[11px]"></i>
-                <span></span>
-              </div>
+              <button type="button" class="fullscreen-zoom-btn" title="Fullscreen / Zoom Video" aria-label="Fullscreen / Zoom Video">
+                <i class="fa-solid fa-expand text-xs"></i>
+              </button>
             </div>
           </article>
 
@@ -609,8 +642,8 @@
             <div class="video-screen-container" data-videoid="ZUIjoVhARdg">
               <img src="https://img.youtube.com/vi/ZUIjoVhARdg/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/ZUIjoVhARdg/hqdefault.jpg';" alt="I Tried Fixing My Life at 17 ( self improvement )">
             </div>
-            <div class="p-4 sm:p-5 flex flex-col justify-between bg-white flex-1 gap-3">
-              <div class="flex items-start gap-3">
+            <div class="p-4 sm:p-5 flex items-center justify-between bg-white flex-1 gap-3">
+              <div class="flex items-center gap-3 flex-1 min-w-0">
                 <button type="button" class="interactive-play-btn" data-playtarget="ZUIjoVhARdg" aria-label="Play or pause video">
                   <span class="icon-play"><i class="fa-solid fa-play text-xs ml-0.5"></i></span>
                   <span class="icon-pause">
@@ -618,14 +651,13 @@
                     <span class="pause-bar"></span>
                   </span>
                 </button>
-                <h3 class="font-brand font-semibold text-[15px] sm:text-[16px] text-textDark leading-snug">
+                <h3 class="font-brand font-semibold text-[14px] sm:text-[15px] text-textDark leading-snug truncate">
                   I Tried Fixing My Life at 17 ( self improvement )
                 </h3>
               </div>
-              <div class="flex items-center justify-end gap-1.5 text-xs font-medium text-textMuted pr-1">
-                <i class="fa-regular fa-eye text-brandPurple text-[11px]"></i>
-                <span></span>
-              </div>
+              <button type="button" class="fullscreen-zoom-btn" title="Fullscreen / Zoom Video" aria-label="Fullscreen / Zoom Video">
+                <i class="fa-solid fa-expand text-xs"></i>
+              </button>
             </div>
           </article>
 
@@ -634,8 +666,8 @@
             <div class="video-screen-container" data-videoid="EevaoB3omTA">
               <img src="https://img.youtube.com/vi/EevaoB3omTA/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/EevaoB3omTA/hqdefault.jpg';" alt="Last video on this channel ( bye guys )">
             </div>
-            <div class="p-4 sm:p-5 flex flex-col justify-between bg-white flex-1 gap-3">
-              <div class="flex items-start gap-3">
+            <div class="p-4 sm:p-5 flex items-center justify-between bg-white flex-1 gap-3">
+              <div class="flex items-center gap-3 flex-1 min-w-0">
                 <button type="button" class="interactive-play-btn" data-playtarget="EevaoB3omTA" aria-label="Play or pause video">
                   <span class="icon-play"><i class="fa-solid fa-play text-xs ml-0.5"></i></span>
                   <span class="icon-pause">
@@ -643,14 +675,13 @@
                     <span class="pause-bar"></span>
                   </span>
                 </button>
-                <h3 class="font-brand font-semibold text-[15px] sm:text-[16px] text-textDark leading-snug">
+                <h3 class="font-brand font-semibold text-[14px] sm:text-[15px] text-textDark leading-snug truncate">
                   Last video on this channel ( bye guys )
                 </h3>
               </div>
-              <div class="flex items-center justify-end gap-1.5 text-xs font-medium text-textMuted pr-1">
-                <i class="fa-regular fa-eye text-brandPurple text-[11px]"></i>
-                <span></span>
-              </div>
+              <button type="button" class="fullscreen-zoom-btn" title="Fullscreen / Zoom Video" aria-label="Fullscreen / Zoom Video">
+                <i class="fa-solid fa-expand text-xs"></i>
+              </button>
             </div>
           </article>
 
@@ -659,8 +690,8 @@
             <div class="video-screen-container" data-videoid="ymKfVEbDZMo">
               <img src="https://img.youtube.com/vi/ymKfVEbDZMo/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/ymKfVEbDZMo/hqdefault.jpg';" alt="The Art of Becoming Dangerously Self Educated">
             </div>
-            <div class="p-4 sm:p-5 flex flex-col justify-between bg-white flex-1 gap-3">
-              <div class="flex items-start gap-3">
+            <div class="p-4 sm:p-5 flex items-center justify-between bg-white flex-1 gap-3">
+              <div class="flex items-center gap-3 flex-1 min-w-0">
                 <button type="button" class="interactive-play-btn" data-playtarget="ymKfVEbDZMo" aria-label="Play or pause video">
                   <span class="icon-play"><i class="fa-solid fa-play text-xs ml-0.5"></i></span>
                   <span class="icon-pause">
@@ -668,14 +699,13 @@
                     <span class="pause-bar"></span>
                   </span>
                 </button>
-                <h3 class="font-brand font-semibold text-[15px] sm:text-[16px] text-textDark leading-snug">
+                <h3 class="font-brand font-semibold text-[14px] sm:text-[15px] text-textDark leading-snug truncate">
                   The Art of Becoming Dangerously Self Educated
                 </h3>
               </div>
-              <div class="flex items-center justify-end gap-1.5 text-xs font-medium text-textMuted pr-1">
-                <i class="fa-regular fa-eye text-brandPurple text-[11px]"></i>
-                <span></span>
-              </div>
+              <button type="button" class="fullscreen-zoom-btn" title="Fullscreen / Zoom Video" aria-label="Fullscreen / Zoom Video">
+                <i class="fa-solid fa-expand text-xs"></i>
+              </button>
             </div>
           </article>
 
@@ -684,8 +714,8 @@
             <div class="video-screen-container" data-videoid="HpT6r9ODcXg">
               <img src="https://img.youtube.com/vi/HpT6r9ODcXg/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/HpT6r9ODcXg/hqdefault.jpg';" alt="At 17 , These 3 Rules Are Fixing My Life">
             </div>
-            <div class="p-4 sm:p-5 flex flex-col justify-between bg-white flex-1 gap-3">
-              <div class="flex items-start gap-3">
+            <div class="p-4 sm:p-5 flex items-center justify-between bg-white flex-1 gap-3">
+              <div class="flex items-center gap-3 flex-1 min-w-0">
                 <button type="button" class="interactive-play-btn" data-playtarget="HpT6r9ODcXg" aria-label="Play or pause video">
                   <span class="icon-play"><i class="fa-solid fa-play text-xs ml-0.5"></i></span>
                   <span class="icon-pause">
@@ -693,14 +723,13 @@
                     <span class="pause-bar"></span>
                   </span>
                 </button>
-                <h3 class="font-brand font-semibold text-[15px] sm:text-[16px] text-textDark leading-snug">
+                <h3 class="font-brand font-semibold text-[14px] sm:text-[15px] text-textDark leading-snug truncate">
                   At 17 , These 3 Rules Are Fixing My Life
                 </h3>
               </div>
-              <div class="flex items-center justify-end gap-1.5 text-xs font-medium text-textMuted pr-1">
-                <i class="fa-regular fa-eye text-brandPurple text-[11px]"></i>
-                <span></span>
-              </div>
+              <button type="button" class="fullscreen-zoom-btn" title="Fullscreen / Zoom Video" aria-label="Fullscreen / Zoom Video">
+                <i class="fa-solid fa-expand text-xs"></i>
+              </button>
             </div>
           </article>
 
@@ -762,7 +791,7 @@
               <span class="font-semibold text-black text-[14px]">New Channel</span>
             </a>
 
-            <a href="https://youtube.com/@jasmeetmaann" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 text-black hover:text-brandPurple transition group" cite="1">
+            <a href="https://youtube.com/@jasmeetmaann" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 text-black hover:text-brandPurple transition group"[cite: 1]>
               <i class="fa-brands fa-youtube text-brandPurple text-lg shrink-0 group-hover:scale-110 transition-transform"></i>
               <span class="font-semibold text-black text-[14px]">Previous Channel</span>
             </a>
@@ -771,7 +800,7 @@
 
           <div>
             <h5 class="text-xs font-bold text-brandPurple uppercase tracking-widest mb-2">Business Inquiries</h5>
-            <a href="mailto:workwithjasmeetkaur@gmail.com" class="inline-flex items-center gap-2 text-sm sm:text-base font-semibold text-black hover:text-brandPurple transition lowercase break-all group" cite="1">
+            <a href="mailto:workwithjasmeetkaur@gmail.com" class="inline-flex items-center gap-2 text-sm sm:text-base font-semibold text-black hover:text-brandPurple transition lowercase break-all group"[cite: 1]>
               <i class="fa-solid fa-envelope text-brandPurple text-sm shrink-0 group-hover:scale-110 transition-transform"></i>
               <span>workwithjasmeetkaur@gmail.com</span>
             </a>
@@ -835,13 +864,11 @@
         const btn = card.querySelector('.interactive-play-btn');
         const iframe = screen ? screen.querySelector('iframe') : null;
 
-        // Reset previous video if another one is started
         if (activeCard && activeCard !== card) {
           resetActivePlayer();
         }
 
         if (!iframe) {
-          // Mount YouTube iFrame with lighter border active state
           activeOriginalScreenHTML = screen.innerHTML;
           activeCard = card;
           isPlaying = true;
@@ -858,7 +885,6 @@
             </iframe>
           `;
         } else {
-          // Toggle play / pause state via postMessage API
           if (isPlaying) {
             iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
             isPlaying = false;
@@ -876,6 +902,7 @@
       document.querySelectorAll('.video-card-item').forEach(card => {
         const screen = card.querySelector('.video-screen-container');
         const btn = card.querySelector('.interactive-play-btn');
+        const zoomBtn = card.querySelector('.fullscreen-zoom-btn');
         const videoId = screen ? screen.getAttribute('data-videoid') : null;
 
         if (screen && videoId) {
@@ -890,6 +917,32 @@
           btn.addEventListener('click', function(e) {
             e.stopPropagation();
             handlePlayToggle(card, videoId);
+          });
+        }
+
+        // Fullscreen / Zoom Trigger
+        if (zoomBtn && screen && videoId) {
+          zoomBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+
+            // Ensure video is mounted first
+            if (!screen.querySelector('iframe')) {
+              handlePlayToggle(card, videoId);
+            }
+
+            const targetElement = screen.querySelector('iframe') || screen;
+
+            // Trigger Fullscreen API with cross-browser support
+            if (targetElement.requestFullscreen) {
+              targetElement.requestFullscreen();
+            } else if (targetElement.webkitRequestFullscreen) {
+              targetElement.webkitRequestFullscreen();
+            } else if (targetElement.msRequestFullscreen) {
+              targetElement.msRequestFullscreen();
+            } else {
+              // Fallback viewport overlay zoom
+              screen.classList.toggle('video-fullscreen-mode');
+            }
           });
         }
       });
