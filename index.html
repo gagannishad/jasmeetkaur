@@ -131,10 +131,10 @@
       white-space: nowrap;
     }
 
-    /* UPWARD-ONLY DIRECTIONAL SCROLL ANIMATION */
+    /* STRICT DOWNWARD-ONLY DIRECTIONAL SCROLL ANIMATION */
     .scroll-reveal {
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(35px);
       transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
       will-change: opacity, transform;
     }
@@ -152,7 +152,7 @@
       box-shadow: 0 14px 28px -6px rgba(121, 40, 202, 0.1);
     }
 
-    /* 16:9 CAROUSEL WITH NATURAL BLEND TRANSITIONS */
+    /* 16:9 CAROUSEL WITH SMOOTH FADE TRANSITIONS */
     .service-carousel {
       position: relative;
       overflow: hidden;
@@ -183,26 +183,33 @@
       object-fit: cover;
       border-radius: 20px;
       opacity: 0;
-      transition: opacity 0.9s ease-in-out;
+      transition: opacity 1s ease-in-out;
       pointer-events: none;
     }
     .service-carousel-slide.active {
       opacity: 1;
     }
+
+    /* CAROUSEL TOGGLE DOTS (HIDDEN ON MOBILE, DISPLAYED ON >=768px) */
     .service-carousel-dots {
-      position: absolute;
-      left: 50%;
-      bottom: 14px;
-      transform: translateX(-50%);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      padding: 5px 12px;
-      border-radius: 999px;
-      background: rgba(25, 10, 46, 0.55);
-      backdrop-filter: blur(6px);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      z-index: 10;
+      display: none !important;
+    }
+    @media(min-width: 768px) {
+      .service-carousel-dots {
+        position: absolute;
+        left: 50%;
+        bottom: 14px;
+        transform: translateX(-50%);
+        display: flex !important;
+        align-items: center;
+        gap: 6px;
+        padding: 5px 12px;
+        border-radius: 999px;
+        background: rgba(25, 10, 46, 0.55);
+        backdrop-filter: blur(6px);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        z-index: 10;
+      }
     }
     .service-carousel-dot {
       width: 6px;
@@ -217,6 +224,40 @@
     .service-carousel-dot.active {
       width: 18px;
       background: #7928CA;
+    }
+
+    /* BULLETPROOF ZIG-ZAG ARCHITECTURE FOR TABLET & LAPTOP (>=768px) */
+    @media (min-width: 768px) {
+      .learning-row {
+        display: flex !important;
+        align-items: center !important;
+        gap: 2.5rem !important;
+      }
+      .learning-row.zigzag-normal {
+        flex-direction: row !important;
+      }
+      .learning-row.zigzag-normal .learning-carousel-box {
+        order: 1 !important;
+        width: 54% !important;
+      }
+      .learning-row.zigzag-normal .learning-content-box {
+        order: 2 !important;
+        width: 46% !important;
+        text-align: left !important;
+      }
+
+      .learning-row.zigzag-reverse {
+        flex-direction: row-reverse !important;
+      }
+      .learning-row.zigzag-reverse .learning-carousel-box {
+        order: 2 !important;
+        width: 54% !important;
+      }
+      .learning-row.zigzag-reverse .learning-content-box {
+        order: 1 !important;
+        width: 46% !important;
+        text-align: left !important;
+      }
     }
 
     /* FULL SCREEN MOBILE DRAWER */
@@ -335,7 +376,7 @@
       <div class="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-8">
         <div class="max-w-4xl mx-auto text-center flex flex-col items-center relative z-10">
           
-          <!-- Capsules: Harmonized Color, Separate Pills, Clean Text Only -->
+          <!-- Capsules -->
           <div class="w-full flex items-center justify-center pb-0 mt-0 sm:mt-2 mb-6 sm:mb-8 animate-hero delay-1">
             <div class="flex items-center justify-center gap-3 sm:gap-4 flex-row flex-wrap px-1">
               
@@ -358,7 +399,7 @@
             </div>
           </div>
 
-          <!-- HEADING 1 WITH CS SAMPLE-STYLE ROTATING WORD SLIDER -->
+          <!-- HEADING 1 WITH ROTATING WORD SLIDER -->
           <h1 class="font-brand font-bold text-[30px] sm:text-[42px] md:text-[52px] lg:text-[60px] tracking-tight leading-[1.2] mb-6 sm:mb-8 max-w-4xl animate-hero delay-2 heading-accent">
             You Don't Need to Be Ready.<br class="hidden sm:inline">
             You Just Need to <span class="rotating-word-container"><span id="rotating-word">Start Now.</span></span>
@@ -404,7 +445,7 @@
           <div class="py-5 px-6 rounded-[20px] bg-white border border-footerBorder shadow-sm flex items-center justify-center gap-3.5 hover-lift">
             <i class="fa-solid fa-users text-[22px] sm:text-[24px] text-brandPurple shrink-0"></i>
             <h2 class="text-2xl sm:text-[26px] lg:text-[28px] font-bold text-brandPurple tracking-tight whitespace-nowrap">
-              <span class="counter" data-target="14">0</span>k subscribers
+              <span class="counter" data-target="14">0</span>k+ subscribers
             </h2>
           </div>
 
@@ -441,12 +482,12 @@
 
         <div class="space-y-12 sm:space-y-16 md:space-y-24">
 
-          <!-- 01. Starting Over From Zero -->
-          <article class="relative flex flex-col md:flex-row items-center gap-0 md:gap-10 lg:gap-12 scroll-reveal">
-            <div class="order-1 relative z-10 w-[99%] mx-auto md:w-[54%] md:mx-0">
+          <!-- 01. Starting Over From Zero (NORMAL: Carousel Left, Text Right) -->
+          <article class="learning-row zigzag-normal relative flex flex-col md:flex-row items-center gap-0 md:gap-10 lg:gap-12 scroll-reveal">
+            <div class="learning-carousel-box relative z-10 w-[99%] mx-auto md:w-[54%] md:mx-0">
               <div class="service-carousel" data-carousel>
                 <div class="service-carousel-track">
-                  <img src="https://i.ibb.co/fVw4bDBw/learning-1-1.png" alt="Learning 01 - 1" class="service-carousel-slide active">
+                  <img src="https://i.ibb.co/Pz93bxXp/learning-1-1-best.png" alt="Learning-1-1-best" class="service-carousel-slide active">
                   <img src="https://i.ibb.co/cc4zcrH7/learning-1-1.png" alt="Learning 01 - 2" class="service-carousel-slide max-md:object-right">
                 </div>
                 <div class="service-carousel-dots">
@@ -455,22 +496,22 @@
                 </div>
               </div>
             </div>
-            <div class="order-2 relative z-20 w-[88%] sm:w-[82%] md:w-[46%] mx-auto md:mx-0 -mt-8 md:mt-0 bg-white md:bg-transparent p-5 sm:p-6 md:p-0 rounded-2xl md:rounded-none shadow-sm md:shadow-none border border-footerBorder md:border-none text-center md:text-left">
+            <div class="learning-content-box relative z-20 w-[88%] sm:w-[82%] md:w-[46%] mx-auto md:mx-0 -mt-8 md:mt-0 bg-white md:bg-transparent p-5 sm:p-6 md:p-0 rounded-2xl md:rounded-none shadow-sm md:shadow-none border border-footerBorder md:border-none text-center md:text-left">
               <span class="text-xs sm:text-sm font-bold text-brandPurple uppercase tracking-widest">Learning 01</span>
-              <h3 class="font-brand font-bold text-xl sm:text-2xl md:text-[28px] lg:text-[30px] text-black mt-2 mb-3 leading-tight">Starting Over from Zero</h3>
-              <p class="text-base sm:text-lg text-textMuted leading-relaxed">
+              <h3 class="font-brand font-bold text-xl sm:text-2xl md:text-[32px] lg:text-[34px] text-black mt-2 mb-3 md:mb-4 leading-tight">Starting Over from Zero</h3>
+              <p class="text-base sm:text-lg md:text-xl text-textMuted leading-relaxed md:leading-relaxed">
                 When setbacks happen, sitting back and crying changes nothing. Pick yourself up, stand on your feet, and run again without waiting for perfect conditions.
               </p>
             </div>
           </article>
 
-          <!-- 02. Systems Over Goals -->
-          <article class="relative flex flex-col md:flex-row-reverse items-center gap-0 md:gap-10 lg:gap-12 scroll-reveal">
-            <div class="order-1 md:order-2 relative z-10 w-[99%] mx-auto md:w-[54%] md:mx-0">
+          <!-- 02. Systems Over Goals (REVERSE: Text Left, Carousel Right on Laptop/Tablet) -->
+          <article class="learning-row zigzag-reverse relative flex flex-col md:flex-row-reverse items-center gap-0 md:gap-10 lg:gap-12 scroll-reveal">
+            <div class="learning-carousel-box relative z-10 w-[99%] mx-auto md:w-[54%] md:mx-0">
               <div class="service-carousel" data-carousel>
                 <div class="service-carousel-track">
-                  <img src="https://i.ibb.co/3mnt86d5/learning-2-1.png" alt="Learning 02 - 1" class="service-carousel-slide active">
-                  <img src="https://i.ibb.co/NgHnHhtJ/learning-2-2.png" alt="Learning 02 - 2" class="service-carousel-slide">
+                  <img src="https://i.ibb.co/KzxnM1sy/learning-2-1.png" alt="Learning 02 - 1" class="service-carousel-slide active">
+                  <img src="https://i.ibb.co/XfV9J5Nx/learning-2-2.png" alt="Learning 02 - 2" class="service-carousel-slide">
                 </div>
                 <div class="service-carousel-dots">
                   <button type="button" class="service-carousel-dot active"></button>
@@ -478,22 +519,22 @@
                 </div>
               </div>
             </div>
-            <div class="order-2 md:order-1 relative z-20 w-[88%] sm:w-[82%] md:w-[46%] mx-auto md:mx-0 -mt-8 md:mt-0 bg-white md:bg-transparent p-5 sm:p-6 md:p-0 rounded-2xl md:rounded-none shadow-sm md:shadow-none border border-footerBorder md:border-none text-center md:text-left">
+            <div class="learning-content-box relative z-20 w-[88%] sm:w-[82%] md:w-[46%] mx-auto md:mx-0 -mt-8 md:mt-0 bg-white md:bg-transparent p-5 sm:p-6 md:p-0 rounded-2xl md:rounded-none shadow-sm md:shadow-none border border-footerBorder md:border-none text-center md:text-left">
               <span class="text-xs sm:text-sm font-bold text-brandPurple uppercase tracking-widest">Learning 02</span>
-              <h3 class="font-brand font-bold text-xl sm:text-2xl md:text-[28px] lg:text-[30px] text-black mt-2 mb-3 leading-tight">Systems Over Goals</h3>
-              <p class="text-base sm:text-lg text-textMuted leading-relaxed">
+              <h3 class="font-brand font-bold text-xl sm:text-2xl md:text-[32px] lg:text-[34px] text-black mt-2 mb-3 md:mb-4 leading-tight">Systems Over Goals</h3>
+              <p class="text-base sm:text-lg md:text-xl text-textMuted leading-relaxed md:leading-relaxed">
                 Winners and losers have identical ambitions. The separation comes entirely from the small, reliable systems you execute repeatedly every day.
               </p>
             </div>
           </article>
 
-          <!-- 03. Action When You Don't Want To -->
-          <article class="relative flex flex-col md:flex-row items-center gap-0 md:gap-10 lg:gap-12 scroll-reveal">
-            <div class="order-1 relative z-10 w-[99%] mx-auto md:w-[54%] md:mx-0">
+          <!-- 03. Action When You Don't Want To (NORMAL: Carousel Left, Text Right) -->
+          <article class="learning-row zigzag-normal relative flex flex-col md:flex-row items-center gap-0 md:gap-10 lg:gap-12 scroll-reveal">
+            <div class="learning-carousel-box relative z-10 w-[99%] mx-auto md:w-[54%] md:mx-0">
               <div class="service-carousel" data-carousel>
                 <div class="service-carousel-track">
-                  <img src="https://i.ibb.co/0y81BZJL/learning-3-1.png" alt="Learning 03 - 1" class="service-carousel-slide active">
-                  <img src="https://i.ibb.co/CpkBnGB1/learning-3-2.png" alt="Learning 03 - 2" class="service-carousel-slide">
+                  <img src="https://i.ibb.co/dJGHq8N0/learning-3-1.png" alt="Learning 03 - 1" class="service-carousel-slide active max-md:object-right">
+                  <img src="https://i.ibb.co/FbxRGDLm/learning-3-2.png" alt="Learning 03 - 2" class="service-carousel-slide">
                 </div>
                 <div class="service-carousel-dots">
                   <button type="button" class="service-carousel-dot active"></button>
@@ -501,22 +542,22 @@
                 </div>
               </div>
             </div>
-            <div class="order-2 relative z-20 w-[88%] sm:w-[82%] md:w-[46%] mx-auto md:mx-0 -mt-8 md:mt-0 bg-white md:bg-transparent p-5 sm:p-6 md:p-0 rounded-2xl md:rounded-none shadow-sm md:shadow-none border border-footerBorder md:border-none text-center md:text-left">
+            <div class="learning-content-box relative z-20 w-[88%] sm:w-[82%] md:w-[46%] mx-auto md:mx-0 -mt-8 md:mt-0 bg-white md:bg-transparent p-5 sm:p-6 md:p-0 rounded-2xl md:rounded-none shadow-sm md:shadow-none border border-footerBorder md:border-none text-center md:text-left">
               <span class="text-xs sm:text-sm font-bold text-brandPurple uppercase tracking-widest">Learning 03</span>
-              <h3 class="font-brand font-bold text-xl sm:text-2xl md:text-[28px] lg:text-[30px] text-black mt-2 mb-3 leading-tight">Action When You Don't Want To</h3>
-              <p class="text-base sm:text-lg text-textMuted leading-relaxed">
+              <h3 class="font-brand font-bold text-xl sm:text-2xl md:text-[32px] lg:text-[34px] text-black mt-2 mb-3 md:mb-4 leading-tight">Action When You Don't Want To</h3>
+              <p class="text-base sm:text-lg md:text-xl text-textMuted leading-relaxed md:leading-relaxed">
                 Clarity alone won't change your reality. The difference maker is opening your books and filming even when your back aches and motivation is completely gone.
               </p>
             </div>
           </article>
 
-          <!-- 04. Comparison as Fuel -->
-          <article class="relative flex flex-col md:flex-row-reverse items-center gap-0 md:gap-10 lg:gap-12 scroll-reveal">
-            <div class="order-1 md:order-2 relative z-10 w-[99%] mx-auto md:w-[54%] md:mx-0">
+          <!-- 04. Comparison as Fuel (REVERSE: Text Left, Carousel Right on Laptop/Tablet) -->
+          <article class="learning-row zigzag-reverse relative flex flex-col md:flex-row-reverse items-center gap-0 md:gap-10 lg:gap-12 scroll-reveal">
+            <div class="learning-carousel-box relative z-10 w-[99%] mx-auto md:w-[54%] md:mx-0">
               <div class="service-carousel" data-carousel>
                 <div class="service-carousel-track">
                   <img src="https://i.ibb.co/ycymdKfz/learning-4-1.png" alt="Learning 04 - 1" class="service-carousel-slide active">
-                  <img src="https://i.ibb.co/nsV1vM2V/learning-4-2.png" alt="Learning 04 - 2" class="service-carousel-slide">
+                  <img src="https://i.ibb.co/7tQNMH1z/learning-4-2.png" alt="Learning 04 - 2" class="service-carousel-slide">
                 </div>
                 <div class="service-carousel-dots">
                   <button type="button" class="service-carousel-dot active"></button>
@@ -524,18 +565,18 @@
                 </div>
               </div>
             </div>
-            <div class="order-2 md:order-1 relative z-20 w-[88%] sm:w-[82%] md:w-[46%] mx-auto md:mx-0 -mt-8 md:mt-0 bg-white md:bg-transparent p-5 sm:p-6 md:p-0 rounded-2xl md:rounded-none shadow-sm md:shadow-none border border-footerBorder md:border-none text-center md:text-left">
+            <div class="learning-content-box relative z-20 w-[88%] sm:w-[82%] md:w-[46%] mx-auto md:mx-0 -mt-8 md:mt-0 bg-white md:bg-transparent p-5 sm:p-6 md:p-0 rounded-2xl md:rounded-none shadow-sm md:shadow-none border border-footerBorder md:border-none text-center md:text-left">
               <span class="text-xs sm:text-sm font-bold text-brandPurple uppercase tracking-widest">Learning 04</span>
-              <h3 class="font-brand font-bold text-xl sm:text-2xl md:text-[28px] lg:text-[30px] text-black mt-2 mb-3 leading-tight">Comparison as Fuel</h3>
-              <p class="text-base sm:text-lg text-textMuted leading-relaxed">
+              <h3 class="font-brand font-bold text-xl sm:text-2xl md:text-[32px] lg:text-[34px] text-black mt-2 mb-3 md:mb-4 leading-tight">Comparison as Fuel</h3>
+              <p class="text-base sm:text-lg md:text-xl text-textMuted leading-relaxed md:leading-relaxed">
                 Comparison is not your enemy unless it depresses you. When you see others your age achieving big goals, let it be proof that you can accomplish it too.
               </p>
             </div>
           </article>
 
-          <!-- 05. The Power of Gratitude -->
-          <article class="relative flex flex-col md:flex-row items-center gap-0 md:gap-10 lg:gap-12 scroll-reveal">
-            <div class="order-1 relative z-10 w-[99%] mx-auto md:w-[54%] md:mx-0">
+          <!-- 05. The Power of Gratitude (NORMAL: Carousel Left, Text Right) -->
+          <article class="learning-row zigzag-normal relative flex flex-col md:flex-row items-center gap-0 md:gap-10 lg:gap-12 scroll-reveal">
+            <div class="learning-carousel-box relative z-10 w-[99%] mx-auto md:w-[54%] md:mx-0">
               <div class="service-carousel" data-carousel>
                 <div class="service-carousel-track">
                   <img src="https://i.ibb.co/21xrHZ8C/learning-5-1.png" alt="Learning 05 - 1" class="service-carousel-slide active">
@@ -547,10 +588,10 @@
                 </div>
               </div>
             </div>
-            <div class="order-2 relative z-20 w-[88%] sm:w-[82%] md:w-[44%] mx-auto md:mx-0 -mt-8 md:mt-0 bg-white md:bg-transparent p-5 sm:p-6 md:p-0 rounded-2xl md:rounded-none shadow-sm md:shadow-none border border-footerBorder md:border-none text-center md:text-left">
-              <span class="text-xs font-semibold text-brandPurple uppercase tracking-widest">Learning 05</span>
-              <h3 class="font-brand font-semibold text-lg sm:text-xl md:text-2xl text-textDark mt-1.5 mb-2.5">The Power of Gratitude</h3>
-              <p class="text-sm text-textMuted leading-relaxed">
+            <div class="learning-content-box relative z-20 w-[88%] sm:w-[82%] md:w-[46%] mx-auto md:mx-0 -mt-8 md:mt-0 bg-white md:bg-transparent p-5 sm:p-6 md:p-0 rounded-2xl md:rounded-none shadow-sm md:shadow-none border border-footerBorder md:border-none text-center md:text-left">
+              <span class="text-xs sm:text-sm font-bold text-brandPurple uppercase tracking-widest">Learning 05</span>
+              <h3 class="font-brand font-bold text-xl sm:text-2xl md:text-[32px] lg:text-[34px] text-black mt-2 mb-3 md:mb-4 leading-tight">The Power of Gratitude</h3>
+              <p class="text-base sm:text-lg md:text-xl text-textMuted leading-relaxed md:leading-relaxed">
                 A grateful heart is like a miracle that brings more blessings. Trust the path, celebrate the small progress, and keep showing up consistently.
               </p>
             </div>
@@ -616,7 +657,7 @@
             </a>
 
             <!-- Previous Channel -->
-            <a href="https://youtube.com/@jasmeetmaann" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 text-black hover:text-brandPurple transition group"[cite: 1]>
+            <a href="https://youtube.com/@jasmeetmaann" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 text-black hover:text-brandPurple transition group">
               <i class="fa-brands fa-youtube text-brandPurple text-lg shrink-0 group-hover:scale-110 transition-transform"></i>
               <span class="font-semibold text-black text-[14px]">Previous Channel</span>
             </a>
@@ -626,7 +667,7 @@
           <!-- Business Inquiries -->
           <div>
             <h5 class="text-xs font-bold text-brandPurple uppercase tracking-widest mb-2">Business Inquiries</h5>
-            <a href="mailto:workwithjasmeetkaur@gmail.com" class="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-semibold text-black hover:text-brandPurple transition break-all group"[cite: 1]>
+            <a href="mailto:workwithjasmeetkaur@gmail.com" class="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-semibold text-black hover:text-brandPurple transition break-all group">
               <i class="fa-solid fa-envelope text-brandPurple text-xs shrink-0 group-hover:scale-110 transition-transform"></i>
               <span>workwithjasmeetkaur@gmail.com</span>
             </a>
@@ -657,25 +698,7 @@
     (function() {
       "use strict";
 
-      // Track active scrolling state across page
-      let isScrolling = false;
-      let scrollStopTimer = null;
-      const carouselHandlers = [];
-
-      window.addEventListener('scroll', () => {
-        isScrolling = true;
-        // Pause carousels while user is in motion
-        carouselHandlers.forEach(h => h.pauseWhileScrolling());
-
-        clearTimeout(scrollStopTimer);
-        scrollStopTimer = setTimeout(() => {
-          isScrolling = false;
-          // Resume carousel when user stops scrolling on top of it
-          carouselHandlers.forEach(h => h.resumeIfVisible());
-        }, 150);
-      }, { passive: true });
-
-      // 1. DOCK AUTO-HIDE, SCROLL IDLE-HIDE BUTTON & DIRECTIONAL REVEALS
+      // 1. DOCK AUTO-HIDE, STRICT FORWARD-ONLY ANIMATIONS & IDLE-HIDE BUTTON
       let lastScrollY = window.scrollY;
       let scrollTimer = null;
       const navShell = document.getElementById('navShell');
@@ -695,7 +718,7 @@
 
         // Trigger animations only when scrolling forward down the page
         if (isScrollingDown) {
-          const triggerBottom = window.innerHeight * 0.9;
+          const triggerBottom = window.innerHeight * 0.92;
           revealItems.forEach(item => {
             if (!item.classList.contains('has-opened')) {
               const rect = item.getBoundingClientRect();
@@ -744,7 +767,7 @@
         link.addEventListener('click', closeDrawer);
       });
 
-      // 3. STATS COUNTERS (Smooth Pace)
+      // 3. STATS COUNTERS
       const statsBanner = document.getElementById('statsBanner');
       const counters = document.querySelectorAll('.counter');
       let animated = false;
@@ -792,7 +815,7 @@
 
       revealItems.forEach(el => revealObserver.observe(el));
 
-      // 5. CAROUSEL: 3 SECONDS ONLY WHEN STOPPED & VISIBLE
+      // 5. CAROUSEL: EACH CHANGES EVERY 3 SECONDS WHEN VISIBLE ON SCREEN
       const carousels = document.querySelectorAll('[data-carousel]');
       carousels.forEach(c => {
         const slides = [...c.querySelectorAll('.service-carousel-slide')];
@@ -810,7 +833,7 @@
 
         function start() {
           stop();
-          if (isVisible && !isScrolling && !isHovered) {
+          if (isVisible && !isHovered) {
             timer = setInterval(() => {
               show(i + 1);
             }, 3000);
@@ -841,40 +864,33 @@
 
         show(0);
 
-        carouselHandlers.push({
-          pauseWhileScrolling: () => stop(),
-          resumeIfVisible: () => {
-            if (isVisible) start();
-          }
-        });
-
+        // Independent IntersectionObserver: only runs for the carousel that is currently on-screen
         const observer = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
             isVisible = entry.isIntersecting;
-            if (isVisible && !isScrolling) {
+            if (isVisible) {
               start();
             } else {
               stop();
             }
           });
-        }, { threshold: 0.4 }); 
+        }, { threshold: 0.25 }); 
 
         observer.observe(c);
       });
 
-      // 6. HERO TEXT ROTATOR (SLIDES ONLY WHEN IN VIEW AT TOP; STOPS WHEN SCROLLED DOWN)
+      // 6. HERO TEXT ROTATOR
       const words = [
-                "Take Action.",
+        "Take Action.",
         "Build Now.",
-                "Learn More.",
-                        "Keep Going.",
-                        "Talk Less.",
-                        "Do More.",
-                        "Stop Scrolling.",
-                        "Become Better.",
+        "Learn More.",
+        "Keep Going.",
+        "Talk Less.",
+        "Do More.",
+        "Stop Scrolling.",
+        "Become Better.",
         "Get Started."
       ];
-
 
       const rotatingWord = document.getElementById("rotating-word");
       const heroSection = document.getElementById("home");
