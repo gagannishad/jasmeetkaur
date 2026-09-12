@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Video Library - Jasmeet Kaur</title>
+  <title>Video Library — Jasmeet Kaur</title>
   <meta name="description" content="Watch authentic student guidance, discipline systems, and mindset talks directly on our website.">
 
   <!-- Mobile Browser Theme Color -->
@@ -14,8 +14,15 @@
   <meta name="mobile-web-app-capable" content="yes">
 
   <!-- Official Favicon -->
-  <link rel="icon" type="image/png" sizes="32x32" href="https://i.ibb.co/Q3VG6TB6/JK-Logo.webp">
-  <link rel="apple-touch-icon" href="https://i.ibb.co/Q3VG6TB6/JK-Logo.webp">
+  <link rel="icon" type="image/webp" sizes="32x32" href="https://i.ibb.co/4nLxjXyj/JK-Logo.webp">
+  <link rel="icon" type="image/webp" sizes="192x192" href="https://i.ibb.co/4nLxjXyj/JK-Logo.webp">
+  <link rel="apple-touch-icon" href="https://i.ibb.co/4nLxjXyj/JK-Logo.webp">
+
+  <!-- Preconnect YouTube CDNs for Instant Playback -->
+  <link rel="preconnect" href="https://www.youtube-nocookie.com">
+  <link rel="preconnect" href="https://www.google.com">
+  <link rel="preconnect" href="https://googleads.g.doubleclick.net">
+  <link rel="preconnect" href="https://static.doubleclick.net">
 
   <!-- Google Fonts: Poppins -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -113,163 +120,101 @@
       transform: translateY(0) !important;
     }
 
-    /* Video Card Architecture */
-    .video-card-item {
+    /* YouTube Style Clean Borderless Item */
+    .yt-video-item {
       display: flex;
       flex-direction: column;
-      background: #FFFFFF;
-      overflow: hidden;
       position: relative;
-      border: 1px solid #E0C5FC;
-      border-radius: 22px;
-      box-shadow: 0 4px 18px rgba(121, 40, 202, 0.05);
-      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+      background: transparent;
+      border: none !important;
+      border-radius: 18px;
+      padding: 4px;
+      transition: background-color 0.25s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .video-card-item:hover {
-      transform: translateY(-5px);
-      border-color: #D3B0FA;
-      box-shadow: 0 14px 30px -8px rgba(121, 40, 202, 0.14);
-    }
-
-    /* Soft lighter border when video is playing */
-    .video-card-item.is-active-card {
-      border: 1.5px solid #D8B4FE !important;
-      box-shadow: 0 10px 25px -5px rgba(216, 180, 254, 0.45);
+    .yt-video-item:hover {
+      background-color: rgba(255, 255, 255, 0.5);
     }
 
-    /* Video Screen Container */
-    .video-screen-container {
+    /* Seamless Thumbnail Screen */
+    .yt-thumb-wrapper {
       position: relative;
       width: 100%;
       aspect-ratio: 16 / 9;
-      background-color: #120422;
+      border-radius: 16px;
       overflow: hidden;
+      border: none !important;
+      background-color: #120422;
+      box-shadow: 0 6px 20px -4px rgba(121, 40, 202, 0.1);
       cursor: pointer;
-      transition: transform 0.3s ease;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
     }
-    .video-screen-container img {
+    .yt-video-item:hover .yt-thumb-wrapper {
+      transform: translateY(-3px) scale(1.01);
+      box-shadow: 0 14px 28px -6px rgba(121, 40, 202, 0.2);
+    }
+
+    .yt-thumb-wrapper img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
-      transition: transform 0.4s ease;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .video-card-item:hover .video-screen-container img {
-      transform: scale(1.02);
+    .yt-video-item:hover .yt-thumb-wrapper img {
+      transform: scale(1.05);
     }
 
-    .video-screen-container iframe {
+    .yt-thumb-wrapper iframe {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
       border: 0;
       display: block;
+      border-radius: 16px;
+      z-index: 5;
     }
 
-    /* Zoom / Fullscreen Modal Overlay */
-    .video-screen-container.video-fullscreen-mode {
-      position: fixed !important;
-      inset: 0 !important;
-      width: 100vw !important;
-      height: 100vh !important;
-      max-width: 100vw !important;
-      max-height: 100vh !important;
-      z-index: 99999 !important;
-      background-color: #000000 !important;
-      border-radius: 0 !important;
-      aspect-ratio: auto !important;
+    /* Quick YouTube Play Badge */
+    .yt-play-overlay {
+      position: absolute;
+      inset: 0;
       display: flex;
       align-items: center;
       justify-content: center;
+      background: radial-gradient(circle, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.4) 100%);
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      z-index: 2;
     }
-
-    /* Interactive Title Button with Animated Play/Pause States */
-    .interactive-play-btn {
-      position: relative;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: #7928CA;
-      color: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      cursor: pointer;
-      box-shadow: 0 4px 12px rgba(121, 40, 202, 0.22);
-      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, background 0.3s ease;
+    .yt-thumb-wrapper:hover .yt-play-overlay {
+      opacity: 1;
     }
-    .interactive-play-btn:hover {
-      transform: scale(1.08);
-      background: #6D28D9;
-      box-shadow: 0 6px 16px rgba(121, 40, 202, 0.35);
-    }
-    .interactive-play-btn:active {
-      transform: scale(0.92);
-    }
-
-    .icon-play {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .icon-pause {
-      display: none;
-      gap: 3px;
-      align-items: center;
-      justify-content: center;
-      height: 14px;
-    }
-    .pause-bar {
-      width: 3px;
-      height: 12px;
-      background-color: #ffffff;
-      border-radius: 4px;
-      animation: pulseBar 1.2s infinite ease-in-out alternate;
-    }
-    .pause-bar:nth-child(2) {
-      animation-delay: 0.3s;
-    }
-    @keyframes pulseBar {
-      0% { transform: scaleY(0.8); }
-      100% { transform: scaleY(1.15); }
-    }
-
-    .interactive-play-btn.playing {
-      background: #6D28D9;
-      box-shadow: 0 0 0 3px rgba(216, 180, 254, 0.5);
-    }
-    .interactive-play-btn.playing .icon-play {
-      display: none;
-    }
-    .interactive-play-btn.playing .icon-pause {
-      display: flex;
-    }
-
-    /* Right-side Fullscreen / Zoom Button */
-    .fullscreen-zoom-btn {
-      width: 34px;
+    .yt-play-icon {
+      width: 50px;
       height: 34px;
-      border-radius: 50%;
-      background: #FAF5FF;
-      color: #7928CA;
-      border: 1px solid #E0C5FC;
-      display: inline-flex;
+      background: #7928CA;
+      border-radius: 10px;
+      display: flex;
       align-items: center;
       justify-content: center;
-      flex-shrink: 0;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    .fullscreen-zoom-btn:hover {
-      background: #7928CA;
       color: #ffffff;
-      border-color: #7928CA;
-      transform: scale(1.08);
-      box-shadow: 0 4px 12px rgba(121, 40, 202, 0.2);
-    }
-    .fullscreen-zoom-btn:active {
+      box-shadow: 0 6px 18px rgba(121, 40, 202, 0.35);
       transform: scale(0.92);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease;
+    }
+    .yt-thumb-wrapper:hover .yt-play-icon {
+      transform: scale(1.06);
+      background: #ff0000;
+    }
+
+    /* Line Clamping for Titles */
+    .yt-title {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      line-height: 1.35;
     }
 
     /* Drawer */
@@ -300,7 +245,7 @@
       
       <!-- Brand Logo -->
       <a href="index.html" class="flex items-center gap-2.5 sm:gap-3.5 shrink-0 group ml-2 sm:ml-4 md:ml-6">
-        <img src="https://i.ibb.co/Q3VG6TB6/JK-Logo.webp" alt="JK Official Logo" class="h-10 sm:h-12 md:h-13 w-auto object-contain shrink-0 -translate-y-1.5 sm:-translate-y-2 transition-transform group-hover:scale-105">
+        <img src="https://i.ibb.co/4nLxjXyj/JK-Logo.webp" alt="JK Official Logo" class="h-10 sm:h-12 md:h-13 w-auto object-contain shrink-0 -translate-y-1.5 sm:-translate-y-2 transition-transform group-hover:scale-105">
         <span class="font-brand font-bold text-[22px] sm:text-[25px] md:text-[28px] lg:text-[30px] tracking-tight text-black leading-none flex items-center">
           JASMEET KAUR
         </span>
@@ -340,7 +285,7 @@
   <div class="side-drawer-panel fixed inset-0 w-full bg-[#FAF5FF] z-50 flex flex-col justify-between overflow-hidden" id="mobileDrawer">
     <div class="flex justify-between items-center px-6 py-5 border-b border-footerBorder bg-white/60 backdrop-blur-md">
       <div class="flex items-center gap-2.5">
-        <img src="https://i.ibb.co/Q3VG6TB6/JK-Logo.webp" alt="JK Official Logo" class="h-9 w-auto object-contain -translate-y-1">
+        <img src="https://i.ibb.co/4nLxjXyj/JK-Logo.webp" alt="JK Official Logo" class="h-9 w-auto object-contain -translate-y-1">
         <strong class="font-brand font-bold text-[23px] tracking-tight text-black leading-none">JASMEET KAUR</strong>
       </div>
       <button class="h-10 w-10 rounded-full bg-white text-textDark font-bold text-base flex items-center justify-center border border-footerBorder shadow-sm active:scale-90 transition" id="closeDrawerBtn">✕</button>
@@ -382,17 +327,17 @@
   </div>
 
   <!-- HERO SECTION -->
-  <main class="pt-24 sm:pt-36 md:pt-40 pb-8 relative overflow-hidden bg-[#FAF5FF]" id="videoVault">
-    <section class="pb-6 sm:pb-10 bg-transparent relative z-10">
+  <main class="pt-24 sm:pt-36 md:pt-40 pb-10 relative overflow-hidden bg-[#FAF5FF]" id="videoVault">
+    <section class="pb-6 sm:pb-8 bg-transparent relative z-10">
       <div class="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-8 text-center flex flex-col items-center">
         
         <!-- Category Pill -->
         <div class="w-full flex items-center justify-center pb-0 mt-0 sm:mt-1 mb-5 sm:mb-6 animate-hero delay-1">
           <div class="inline-flex items-center gap-2 bg-brandPurpleLight/80 backdrop-blur-sm py-1.5 px-4 rounded-full border border-brandPurple/25 shadow-sm cursor-default">
-            <span class="flex h-5 w-5 items-center justify-center rounded-full bg-white text-brandPurple border border-brandPurple/20 shrink-0">
-              <i class="fa-brands fa-youtube text-[10px]"></i>
+            <span class="flex h-5 w-5 items-center justify-center rounded-full bg-white text-red-600 border border-brandPurple/20 shrink-0">
+              <i class="fa-brands fa-youtube text-[11px]"></i>
             </span>
-            <span class="text-[13px] font-bold text-brandPurpleDeep tracking-tight">YouTube Videos</span>
+            <span class="text-[13px] font-bold text-brandPurpleDeep tracking-tight">YouTube Library</span>
           </div>
         </div>
 
@@ -403,169 +348,169 @@
 
         <!-- Subtitle -->
         <p class="text-base sm:text-lg md:text-xl text-textMuted font-medium leading-relaxed max-w-[720px] animate-hero delay-3">
-          Watch our latest video and our most popular videos.
+          Watch our latest video releases and our all-time most popular conversations.
         </p>
 
       </div>
     </section>
 
     <!-- SECTION 1: MY LATEST VIDEOS -->
-    <section class="py-6 sm:py-10 relative scroll-reveal">
-      <div class="w-full max-w-[1240px] mx-auto px-3 sm:px-6 md:px-8">
+    <section class="py-5 sm:py-7 relative scroll-reveal">
+      <div class="w-full max-w-[1280px] mx-auto px-4 sm:px-6 md:px-8">
         
-        <div class="flex items-center mb-6 pb-3 border-b border-footerBorder">
+        <div class="flex items-center mb-6">
           <div class="flex items-center gap-3">
-            <span class="h-8 w-1.5 rounded-full bg-brandPurple"></span>
-            <h2 class="font-brand font-bold text-2xl sm:text-3xl md:text-4xl text-textDark tracking-tight">
+            <span class="h-7 w-1.5 rounded-full bg-brandPurple"></span>
+            <h2 class="font-brand font-bold text-2xl sm:text-3xl text-textDark tracking-tight">
               My Latest Videos
             </h2>
           </div>
         </div>
 
         <!-- 6 Videos Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7">
           
           <!-- Latest 1: gb4BclhYa7E -->
-          <article class="video-card-item">
-            <div class="video-screen-container" data-videoid="gb4BclhYa7E">
+          <article class="yt-video-item">
+            <div class="yt-thumb-wrapper" data-videoid="gb4BclhYa7E">
               <img src="https://img.youtube.com/vi/gb4BclhYa7E/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/gb4BclhYa7E/hqdefault.jpg';" alt="If you're a student watch this - ( Class 12th Student)">
+              <div class="yt-play-overlay">
+                <div class="yt-play-icon">
+                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
+                </div>
+              </div>
             </div>
-            <div class="p-4 sm:p-5 flex items-center justify-between bg-white flex-1 gap-3">
-              <div class="flex items-center gap-3 flex-1 min-w-0">
-                <button type="button" class="interactive-play-btn" data-playtarget="gb4BclhYa7E" aria-label="Play or pause video">
-                  <span class="icon-play"><i class="fa-solid fa-play text-xs ml-0.5"></i></span>
-                  <span class="icon-pause">
-                    <span class="pause-bar"></span>
-                    <span class="pause-bar"></span>
-                  </span>
-                </button>
-                <h3 class="font-brand font-semibold text-[14px] sm:text-[15px] text-textDark leading-snug truncate">
+            <div class="flex items-start gap-3 mt-3.5 px-0.5">
+              <img src="https://i.ibb.co/4nLxjXyj/JK-Logo.webp" alt="Jasmeet Kaur" class="w-9 h-9 rounded-full object-cover shrink-0 mt-0.5">
+              <div class="flex-1 min-w-0">
+                <h3 class="font-brand font-semibold text-[15px] sm:text-[15.5px] text-textDark yt-title" title="If you're a student watch this - ( Class 12th Student)">
                   If you're a student watch this - ( Class 12th Student)
                 </h3>
+                <div class="flex items-center gap-1.5 mt-1 text-xs text-textMuted font-medium">
+                  <span>Jasmeet Kaur</span>
+                  <i class="fa-solid fa-circle-check text-[11px] text-brandPurple"></i>
+                </div>
               </div>
-              <button type="button" class="fullscreen-zoom-btn" title="Fullscreen / Zoom Video" aria-label="Fullscreen / Zoom Video">
-                <i class="fa-solid fa-expand text-xs"></i>
-              </button>
             </div>
           </article>
 
           <!-- Latest 2: 5pG0OYNcaos -->
-          <article class="video-card-item">
-            <div class="video-screen-container" data-videoid="5pG0OYNcaos">
+          <article class="yt-video-item">
+            <div class="yt-thumb-wrapper" data-videoid="5pG0OYNcaos">
               <img src="https://img.youtube.com/vi/5pG0OYNcaos/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/5pG0OYNcaos/hqdefault.jpg';" alt="Before I turn 18 , I need to tell u this">
+              <div class="yt-play-overlay">
+                <div class="yt-play-icon">
+                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
+                </div>
+              </div>
             </div>
-            <div class="p-4 sm:p-5 flex items-center justify-between bg-white flex-1 gap-3">
-              <div class="flex items-center gap-3 flex-1 min-w-0">
-                <button type="button" class="interactive-play-btn" data-playtarget="5pG0OYNcaos" aria-label="Play or pause video">
-                  <span class="icon-play"><i class="fa-solid fa-play text-xs ml-0.5"></i></span>
-                  <span class="icon-pause">
-                    <span class="pause-bar"></span>
-                    <span class="pause-bar"></span>
-                  </span>
-                </button>
-                <h3 class="font-brand font-semibold text-[14px] sm:text-[15px] text-textDark leading-snug truncate">
+            <div class="flex items-start gap-3 mt-3.5 px-0.5">
+              <img src="https://i.ibb.co/4nLxjXyj/JK-Logo.webp" alt="Jasmeet Kaur" class="w-9 h-9 rounded-full object-cover shrink-0 mt-0.5">
+              <div class="flex-1 min-w-0">
+                <h3 class="font-brand font-semibold text-[15px] sm:text-[15.5px] text-textDark yt-title" title="Before I turn 18 , I need to tell u this">
                   Before I turn 18 , I need to tell u this
                 </h3>
+                <div class="flex items-center gap-1.5 mt-1 text-xs text-textMuted font-medium">
+                  <span>Jasmeet Kaur</span>
+                  <i class="fa-solid fa-circle-check text-[11px] text-brandPurple"></i>
+                </div>
               </div>
-              <button type="button" class="fullscreen-zoom-btn" title="Fullscreen / Zoom Video" aria-label="Fullscreen / Zoom Video">
-                <i class="fa-solid fa-expand text-xs"></i>
-              </button>
             </div>
           </article>
 
           <!-- Latest 3: Yg62Ros5kHA -->
-          <article class="video-card-item">
-            <div class="video-screen-container" data-videoid="Yg62Ros5kHA">
+          <article class="yt-video-item">
+            <div class="yt-thumb-wrapper" data-videoid="Yg62Ros5kHA">
               <img src="https://img.youtube.com/vi/Yg62Ros5kHA/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/Yg62Ros5kHA/hqdefault.jpg';" alt="At 17, These 5 Things are Changing My LIFE">
+              <div class="yt-play-overlay">
+                <div class="yt-play-icon">
+                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
+                </div>
+              </div>
             </div>
-            <div class="p-4 sm:p-5 flex items-center justify-between bg-white flex-1 gap-3">
-              <div class="flex items-center gap-3 flex-1 min-w-0">
-                <button type="button" class="interactive-play-btn" data-playtarget="Yg62Ros5kHA" aria-label="Play or pause video">
-                  <span class="icon-play"><i class="fa-solid fa-play text-xs ml-0.5"></i></span>
-                  <span class="icon-pause">
-                    <span class="pause-bar"></span>
-                    <span class="pause-bar"></span>
-                  </span>
-                </button>
-                <h3 class="font-brand font-semibold text-[14px] sm:text-[15px] text-textDark leading-snug truncate">
+            <div class="flex items-start gap-3 mt-3.5 px-0.5">
+              <img src="https://i.ibb.co/4nLxjXyj/JK-Logo.webp" alt="Jasmeet Kaur" class="w-9 h-9 rounded-full object-cover shrink-0 mt-0.5">
+              <div class="flex-1 min-w-0">
+                <h3 class="font-brand font-semibold text-[15px] sm:text-[15.5px] text-textDark yt-title" title="At 17, These 5 Things are Changing My LIFE">
                   At 17, These 5 Things are Changing My LIFE
                 </h3>
+                <div class="flex items-center gap-1.5 mt-1 text-xs text-textMuted font-medium">
+                  <span>Jasmeet Kaur</span>
+                  <i class="fa-solid fa-circle-check text-[11px] text-brandPurple"></i>
+                </div>
               </div>
-              <button type="button" class="fullscreen-zoom-btn" title="Fullscreen / Zoom Video" aria-label="Fullscreen / Zoom Video">
-                <i class="fa-solid fa-expand text-xs"></i>
-              </button>
             </div>
           </article>
 
           <!-- Latest 4: 3ZtVBlfeLKw -->
-          <article class="video-card-item">
-            <div class="video-screen-container" data-videoid="3ZtVBlfeLKw">
+          <article class="yt-video-item">
+            <div class="yt-thumb-wrapper" data-videoid="3ZtVBlfeLKw">
               <img src="https://img.youtube.com/vi/3ZtVBlfeLKw/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/3ZtVBlfeLKw/hqdefault.jpg';" alt="How to get what you want ? - 3 ways that i follow">
+              <div class="yt-play-overlay">
+                <div class="yt-play-icon">
+                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
+                </div>
+              </div>
             </div>
-            <div class="p-4 sm:p-5 flex items-center justify-between bg-white flex-1 gap-3">
-              <div class="flex items-center gap-3 flex-1 min-w-0">
-                <button type="button" class="interactive-play-btn" data-playtarget="3ZtVBlfeLKw" aria-label="Play or pause video">
-                  <span class="icon-play"><i class="fa-solid fa-play text-xs ml-0.5"></i></span>
-                  <span class="icon-pause">
-                    <span class="pause-bar"></span>
-                    <span class="pause-bar"></span>
-                  </span>
-                </button>
-                <h3 class="font-brand font-semibold text-[14px] sm:text-[15px] text-textDark leading-snug truncate">
+            <div class="flex items-start gap-3 mt-3.5 px-0.5">
+              <img src="https://i.ibb.co/4nLxjXyj/JK-Logo.webp" alt="Jasmeet Kaur" class="w-9 h-9 rounded-full object-cover shrink-0 mt-0.5">
+              <div class="flex-1 min-w-0">
+                <h3 class="font-brand font-semibold text-[15px] sm:text-[15.5px] text-textDark yt-title" title="How to get what you want ? - 3 ways that i follow">
                   How to get what you want ? - 3 ways that i follow
                 </h3>
+                <div class="flex items-center gap-1.5 mt-1 text-xs text-textMuted font-medium">
+                  <span>Jasmeet Kaur</span>
+                  <i class="fa-solid fa-circle-check text-[11px] text-brandPurple"></i>
+                </div>
               </div>
-              <button type="button" class="fullscreen-zoom-btn" title="Fullscreen / Zoom Video" aria-label="Fullscreen / Zoom Video">
-                <i class="fa-solid fa-expand text-xs"></i>
-              </button>
             </div>
           </article>
 
           <!-- Latest 5: EevaoB3omTA -->
-          <article class="video-card-item">
-            <div class="video-screen-container" data-videoid="EevaoB3omTA">
+          <article class="yt-video-item">
+            <div class="yt-thumb-wrapper" data-videoid="EevaoB3omTA">
               <img src="https://img.youtube.com/vi/EevaoB3omTA/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/EevaoB3omTA/hqdefault.jpg';" alt="Last video on this channel ( bye guys )">
+              <div class="yt-play-overlay">
+                <div class="yt-play-icon">
+                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
+                </div>
+              </div>
             </div>
-            <div class="p-4 sm:p-5 flex items-center justify-between bg-white flex-1 gap-3">
-              <div class="flex items-center gap-3 flex-1 min-w-0">
-                <button type="button" class="interactive-play-btn" data-playtarget="EevaoB3omTA" aria-label="Play or pause video">
-                  <span class="icon-play"><i class="fa-solid fa-play text-xs ml-0.5"></i></span>
-                  <span class="icon-pause">
-                    <span class="pause-bar"></span>
-                    <span class="pause-bar"></span>
-                  </span>
-                </button>
-                <h3 class="font-brand font-semibold text-[14px] sm:text-[15px] text-textDark leading-snug truncate">
+            <div class="flex items-start gap-3 mt-3.5 px-0.5">
+              <img src="https://i.ibb.co/4nLxjXyj/JK-Logo.webp" alt="Jasmeet Kaur" class="w-9 h-9 rounded-full object-cover shrink-0 mt-0.5">
+              <div class="flex-1 min-w-0">
+                <h3 class="font-brand font-semibold text-[15px] sm:text-[15.5px] text-textDark yt-title" title="Last video on this channel ( bye guys )">
                   Last video on this channel ( bye guys )
                 </h3>
+                <div class="flex items-center gap-1.5 mt-1 text-xs text-textMuted font-medium">
+                  <span>Jasmeet Kaur</span>
+                  <i class="fa-solid fa-circle-check text-[11px] text-brandPurple"></i>
+                </div>
               </div>
-              <button type="button" class="fullscreen-zoom-btn" title="Fullscreen / Zoom Video" aria-label="Fullscreen / Zoom Video">
-                <i class="fa-solid fa-expand text-xs"></i>
-              </button>
             </div>
           </article>
 
           <!-- Latest 6: ymKfVEbDZMo -->
-          <article class="video-card-item">
-            <div class="video-screen-container" data-videoid="ymKfVEbDZMo">
+          <article class="yt-video-item">
+            <div class="yt-thumb-wrapper" data-videoid="ymKfVEbDZMo">
               <img src="https://img.youtube.com/vi/ymKfVEbDZMo/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/ymKfVEbDZMo/hqdefault.jpg';" alt="The Art of Becoming Dangerously Self Educated">
+              <div class="yt-play-overlay">
+                <div class="yt-play-icon">
+                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
+                </div>
+              </div>
             </div>
-            <div class="p-4 sm:p-5 flex items-center justify-between bg-white flex-1 gap-3">
-              <div class="flex items-center gap-3 flex-1 min-w-0">
-                <button type="button" class="interactive-play-btn" data-playtarget="ymKfVEbDZMo" aria-label="Play or pause video">
-                  <span class="icon-play"><i class="fa-solid fa-play text-xs ml-0.5"></i></span>
-                  <span class="icon-pause">
-                    <span class="pause-bar"></span>
-                    <span class="pause-bar"></span>
-                  </span>
-                </button>
-                <h3 class="font-brand font-semibold text-[14px] sm:text-[15px] text-textDark leading-snug truncate">
+            <div class="flex items-start gap-3 mt-3.5 px-0.5">
+              <img src="https://i.ibb.co/4nLxjXyj/JK-Logo.webp" alt="Jasmeet Kaur" class="w-9 h-9 rounded-full object-cover shrink-0 mt-0.5">
+              <div class="flex-1 min-w-0">
+                <h3 class="font-brand font-semibold text-[15px] sm:text-[15.5px] text-textDark yt-title" title="The Art of Becoming Dangerously Self Educated">
                   The Art of Becoming Dangerously Self Educated
                 </h3>
+                <div class="flex items-center gap-1.5 mt-1 text-xs text-textMuted font-medium">
+                  <span>Jasmeet Kaur</span>
+                  <i class="fa-solid fa-circle-check text-[11px] text-brandPurple"></i>
+                </div>
               </div>
-              <button type="button" class="fullscreen-zoom-btn" title="Fullscreen / Zoom Video" aria-label="Fullscreen / Zoom Video">
-                <i class="fa-solid fa-expand text-xs"></i>
-              </button>
             </div>
           </article>
 
@@ -574,162 +519,162 @@
     </section>
 
     <!-- SECTION 2: MY MOST POPULAR VIDEOS -->
-    <section class="py-10 sm:py-16 relative scroll-reveal">
-      <div class="w-full max-w-[1240px] mx-auto px-3 sm:px-6 md:px-8">
+    <section class="py-8 sm:py-12 relative scroll-reveal">
+      <div class="w-full max-w-[1280px] mx-auto px-4 sm:px-6 md:px-8">
         
-        <div class="flex items-center mb-6 pb-3 border-b border-footerBorder">
+        <div class="flex items-center mb-6">
           <div class="flex items-center gap-3">
-            <span class="h-8 w-1.5 rounded-full bg-brandPurple"></span>
-            <h2 class="font-brand font-bold text-2xl sm:text-3xl md:text-4xl text-textDark tracking-tight">
+            <span class="h-7 w-1.5 rounded-full bg-brandPurple"></span>
+            <h2 class="font-brand font-bold text-2xl sm:text-3xl text-textDark tracking-tight">
               My Most Popular Videos
             </h2>
           </div>
         </div>
 
         <!-- 6 Videos Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7">
           
           <!-- Pop 1: kocLCFuWtcc -->
-          <article class="video-card-item">
-            <div class="video-screen-container" data-videoid="kocLCFuWtcc">
+          <article class="yt-video-item">
+            <div class="yt-thumb-wrapper" data-videoid="kocLCFuWtcc">
               <img src="https://img.youtube.com/vi/kocLCFuWtcc/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/kocLCFuWtcc/hqdefault.jpg';" alt="At 17, I Learned 5 Hard Truths Most Teenagers Ignore">
+              <div class="yt-play-overlay">
+                <div class="yt-play-icon">
+                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
+                </div>
+              </div>
             </div>
-            <div class="p-4 sm:p-5 flex items-center justify-between bg-white flex-1 gap-3">
-              <div class="flex items-center gap-3 flex-1 min-w-0">
-                <button type="button" class="interactive-play-btn" data-playtarget="kocLCFuWtcc" aria-label="Play or pause video">
-                  <span class="icon-play"><i class="fa-solid fa-play text-xs ml-0.5"></i></span>
-                  <span class="icon-pause">
-                    <span class="pause-bar"></span>
-                    <span class="pause-bar"></span>
-                  </span>
-                </button>
-                <h3 class="font-brand font-semibold text-[14px] sm:text-[15px] text-textDark leading-snug truncate">
+            <div class="flex items-start gap-3 mt-3.5 px-0.5">
+              <img src="https://i.ibb.co/4nLxjXyj/JK-Logo.webp" alt="Jasmeet Kaur" class="w-9 h-9 rounded-full object-cover shrink-0 mt-0.5">
+              <div class="flex-1 min-w-0">
+                <h3 class="font-brand font-semibold text-[15px] sm:text-[15.5px] text-textDark yt-title" title="At 17, I Learned 5 Hard Truths Most Teenagers Ignore">
                   At 17, I Learned 5 Hard Truths Most Teenagers Ignore
                 </h3>
+                <div class="flex items-center gap-1.5 mt-1 text-xs text-textMuted font-medium">
+                  <span>Jasmeet Kaur</span>
+                  <i class="fa-solid fa-circle-check text-[11px] text-brandPurple"></i>
+                </div>
               </div>
-              <button type="button" class="fullscreen-zoom-btn" title="Fullscreen / Zoom Video" aria-label="Fullscreen / Zoom Video">
-                <i class="fa-solid fa-expand text-xs"></i>
-              </button>
             </div>
           </article>
 
           <!-- Pop 2: rlxtGcCDaD4 -->
-          <article class="video-card-item">
-            <div class="video-screen-container" data-videoid="rlxtGcCDaD4">
+          <article class="yt-video-item">
+            <div class="yt-thumb-wrapper" data-videoid="rlxtGcCDaD4">
               <img src="https://img.youtube.com/vi/rlxtGcCDaD4/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/rlxtGcCDaD4/hqdefault.jpg';" alt="How I Improved My Accent Naturally">
+              <div class="yt-play-overlay">
+                <div class="yt-play-icon">
+                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
+                </div>
+              </div>
             </div>
-            <div class="p-4 sm:p-5 flex items-center justify-between bg-white flex-1 gap-3">
-              <div class="flex items-center gap-3 flex-1 min-w-0">
-                <button type="button" class="interactive-play-btn" data-playtarget="rlxtGcCDaD4" aria-label="Play or pause video">
-                  <span class="icon-play"><i class="fa-solid fa-play text-xs ml-0.5"></i></span>
-                  <span class="icon-pause">
-                    <span class="pause-bar"></span>
-                    <span class="pause-bar"></span>
-                  </span>
-                </button>
-                <h3 class="font-brand font-semibold text-[14px] sm:text-[15px] text-textDark leading-snug truncate">
+            <div class="flex items-start gap-3 mt-3.5 px-0.5">
+              <img src="https://i.ibb.co/4nLxjXyj/JK-Logo.webp" alt="Jasmeet Kaur" class="w-9 h-9 rounded-full object-cover shrink-0 mt-0.5">
+              <div class="flex-1 min-w-0">
+                <h3 class="font-brand font-semibold text-[15px] sm:text-[15.5px] text-textDark yt-title" title="How I Improved My Accent Naturally">
                   How I Improved My Accent Naturally
                 </h3>
+                <div class="flex items-center gap-1.5 mt-1 text-xs text-textMuted font-medium">
+                  <span>Jasmeet Kaur</span>
+                  <i class="fa-solid fa-circle-check text-[11px] text-brandPurple"></i>
+                </div>
               </div>
-              <button type="button" class="fullscreen-zoom-btn" title="Fullscreen / Zoom Video" aria-label="Fullscreen / Zoom Video">
-                <i class="fa-solid fa-expand text-xs"></i>
-              </button>
             </div>
           </article>
 
           <!-- Pop 3: ZUIjoVhARdg -->
-          <article class="video-card-item">
-            <div class="video-screen-container" data-videoid="ZUIjoVhARdg">
+          <article class="yt-video-item">
+            <div class="yt-thumb-wrapper" data-videoid="ZUIjoVhARdg">
               <img src="https://img.youtube.com/vi/ZUIjoVhARdg/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/ZUIjoVhARdg/hqdefault.jpg';" alt="I Tried Fixing My Life at 17 ( self improvement )">
+              <div class="yt-play-overlay">
+                <div class="yt-play-icon">
+                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
+                </div>
+              </div>
             </div>
-            <div class="p-4 sm:p-5 flex items-center justify-between bg-white flex-1 gap-3">
-              <div class="flex items-center gap-3 flex-1 min-w-0">
-                <button type="button" class="interactive-play-btn" data-playtarget="ZUIjoVhARdg" aria-label="Play or pause video">
-                  <span class="icon-play"><i class="fa-solid fa-play text-xs ml-0.5"></i></span>
-                  <span class="icon-pause">
-                    <span class="pause-bar"></span>
-                    <span class="pause-bar"></span>
-                  </span>
-                </button>
-                <h3 class="font-brand font-semibold text-[14px] sm:text-[15px] text-textDark leading-snug truncate">
+            <div class="flex items-start gap-3 mt-3.5 px-0.5">
+              <img src="https://i.ibb.co/4nLxjXyj/JK-Logo.webp" alt="Jasmeet Kaur" class="w-9 h-9 rounded-full object-cover shrink-0 mt-0.5">
+              <div class="flex-1 min-w-0">
+                <h3 class="font-brand font-semibold text-[15px] sm:text-[15.5px] text-textDark yt-title" title="I Tried Fixing My Life at 17 ( self improvement )">
                   I Tried Fixing My Life at 17 ( self improvement )
                 </h3>
+                <div class="flex items-center gap-1.5 mt-1 text-xs text-textMuted font-medium">
+                  <span>Jasmeet Kaur</span>
+                  <i class="fa-solid fa-circle-check text-[11px] text-brandPurple"></i>
+                </div>
               </div>
-              <button type="button" class="fullscreen-zoom-btn" title="Fullscreen / Zoom Video" aria-label="Fullscreen / Zoom Video">
-                <i class="fa-solid fa-expand text-xs"></i>
-              </button>
             </div>
           </article>
 
           <!-- Pop 4: EevaoB3omTA -->
-          <article class="video-card-item">
-            <div class="video-screen-container" data-videoid="EevaoB3omTA">
+          <article class="yt-video-item">
+            <div class="yt-thumb-wrapper" data-videoid="EevaoB3omTA">
               <img src="https://img.youtube.com/vi/EevaoB3omTA/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/EevaoB3omTA/hqdefault.jpg';" alt="Last video on this channel ( bye guys )">
+              <div class="yt-play-overlay">
+                <div class="yt-play-icon">
+                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
+                </div>
+              </div>
             </div>
-            <div class="p-4 sm:p-5 flex items-center justify-between bg-white flex-1 gap-3">
-              <div class="flex items-center gap-3 flex-1 min-w-0">
-                <button type="button" class="interactive-play-btn" data-playtarget="EevaoB3omTA" aria-label="Play or pause video">
-                  <span class="icon-play"><i class="fa-solid fa-play text-xs ml-0.5"></i></span>
-                  <span class="icon-pause">
-                    <span class="pause-bar"></span>
-                    <span class="pause-bar"></span>
-                  </span>
-                </button>
-                <h3 class="font-brand font-semibold text-[14px] sm:text-[15px] text-textDark leading-snug truncate">
+            <div class="flex items-start gap-3 mt-3.5 px-0.5">
+              <img src="https://i.ibb.co/4nLxjXyj/JK-Logo.webp" alt="Jasmeet Kaur" class="w-9 h-9 rounded-full object-cover shrink-0 mt-0.5">
+              <div class="flex-1 min-w-0">
+                <h3 class="font-brand font-semibold text-[15px] sm:text-[15.5px] text-textDark yt-title" title="Last video on this channel ( bye guys )">
                   Last video on this channel ( bye guys )
                 </h3>
+                <div class="flex items-center gap-1.5 mt-1 text-xs text-textMuted font-medium">
+                  <span>Jasmeet Kaur</span>
+                  <i class="fa-solid fa-circle-check text-[11px] text-brandPurple"></i>
+                </div>
               </div>
-              <button type="button" class="fullscreen-zoom-btn" title="Fullscreen / Zoom Video" aria-label="Fullscreen / Zoom Video">
-                <i class="fa-solid fa-expand text-xs"></i>
-              </button>
             </div>
           </article>
 
           <!-- Pop 5: ymKfVEbDZMo -->
-          <article class="video-card-item">
-            <div class="video-screen-container" data-videoid="ymKfVEbDZMo">
+          <article class="yt-video-item">
+            <div class="yt-thumb-wrapper" data-videoid="ymKfVEbDZMo">
               <img src="https://img.youtube.com/vi/ymKfVEbDZMo/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/ymKfVEbDZMo/hqdefault.jpg';" alt="The Art of Becoming Dangerously Self Educated">
+              <div class="yt-play-overlay">
+                <div class="yt-play-icon">
+                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
+                </div>
+              </div>
             </div>
-            <div class="p-4 sm:p-5 flex items-center justify-between bg-white flex-1 gap-3">
-              <div class="flex items-center gap-3 flex-1 min-w-0">
-                <button type="button" class="interactive-play-btn" data-playtarget="ymKfVEbDZMo" aria-label="Play or pause video">
-                  <span class="icon-play"><i class="fa-solid fa-play text-xs ml-0.5"></i></span>
-                  <span class="icon-pause">
-                    <span class="pause-bar"></span>
-                    <span class="pause-bar"></span>
-                  </span>
-                </button>
-                <h3 class="font-brand font-semibold text-[14px] sm:text-[15px] text-textDark leading-snug truncate">
+            <div class="flex items-start gap-3 mt-3.5 px-0.5">
+              <img src="https://i.ibb.co/4nLxjXyj/JK-Logo.webp" alt="Jasmeet Kaur" class="w-9 h-9 rounded-full object-cover shrink-0 mt-0.5">
+              <div class="flex-1 min-w-0">
+                <h3 class="font-brand font-semibold text-[15px] sm:text-[15.5px] text-textDark yt-title" title="The Art of Becoming Dangerously Self Educated">
                   The Art of Becoming Dangerously Self Educated
                 </h3>
+                <div class="flex items-center gap-1.5 mt-1 text-xs text-textMuted font-medium">
+                  <span>Jasmeet Kaur</span>
+                  <i class="fa-solid fa-circle-check text-[11px] text-brandPurple"></i>
+                </div>
               </div>
-              <button type="button" class="fullscreen-zoom-btn" title="Fullscreen / Zoom Video" aria-label="Fullscreen / Zoom Video">
-                <i class="fa-solid fa-expand text-xs"></i>
-              </button>
             </div>
           </article>
 
           <!-- Pop 6: HpT6r9ODcXg -->
-          <article class="video-card-item">
-            <div class="video-screen-container" data-videoid="HpT6r9ODcXg">
+          <article class="yt-video-item">
+            <div class="yt-thumb-wrapper" data-videoid="HpT6r9ODcXg">
               <img src="https://img.youtube.com/vi/HpT6r9ODcXg/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/HpT6r9ODcXg/hqdefault.jpg';" alt="At 17 , These 3 Rules Are Fixing My Life">
+              <div class="yt-play-overlay">
+                <div class="yt-play-icon">
+                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
+                </div>
+              </div>
             </div>
-            <div class="p-4 sm:p-5 flex items-center justify-between bg-white flex-1 gap-3">
-              <div class="flex items-center gap-3 flex-1 min-w-0">
-                <button type="button" class="interactive-play-btn" data-playtarget="HpT6r9ODcXg" aria-label="Play or pause video">
-                  <span class="icon-play"><i class="fa-solid fa-play text-xs ml-0.5"></i></span>
-                  <span class="icon-pause">
-                    <span class="pause-bar"></span>
-                    <span class="pause-bar"></span>
-                  </span>
-                </button>
-                <h3 class="font-brand font-semibold text-[14px] sm:text-[15px] text-textDark leading-snug truncate">
+            <div class="flex items-start gap-3 mt-3.5 px-0.5">
+              <img src="https://i.ibb.co/4nLxjXyj/JK-Logo.webp" alt="Jasmeet Kaur" class="w-9 h-9 rounded-full object-cover shrink-0 mt-0.5">
+              <div class="flex-1 min-w-0">
+                <h3 class="font-brand font-semibold text-[15px] sm:text-[15.5px] text-textDark yt-title" title="At 17 , These 3 Rules Are Fixing My Life">
                   At 17 , These 3 Rules Are Fixing My Life
                 </h3>
+                <div class="flex items-center gap-1.5 mt-1 text-xs text-textMuted font-medium">
+                  <span>Jasmeet Kaur</span>
+                  <i class="fa-solid fa-circle-check text-[11px] text-brandPurple"></i>
+                </div>
               </div>
-              <button type="button" class="fullscreen-zoom-btn" title="Fullscreen / Zoom Video" aria-label="Fullscreen / Zoom Video">
-                <i class="fa-solid fa-expand text-xs"></i>
-              </button>
             </div>
           </article>
 
@@ -748,7 +693,7 @@
         <!-- Column 1: Brand & Description -->
         <div>
           <div class="flex items-center gap-2.5 mb-3">
-            <img src="https://i.ibb.co/Q3VG6TB6/JK-Logo.webp" alt="JK Official Logo" class="h-10 w-auto object-contain shrink-0 -translate-y-1">
+            <img src="https://i.ibb.co/4nLxjXyj/JK-Logo.webp" alt="JK Official Logo" class="h-10 w-auto object-contain shrink-0 -translate-y-1">
             <span class="font-brand font-bold text-[22px] tracking-tight text-black">JASMEET KAUR</span>
           </div>
           <p class="text-xs sm:text-sm text-textMuted leading-relaxed max-w-sm font-normal">
@@ -791,7 +736,7 @@
               <span class="font-semibold text-black text-[14px]">New Channel</span>
             </a>
 
-            <a href="https://youtube.com/@jasmeetmaann" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 text-black hover:text-brandPurple transition group"[cite: 1]>
+            <a href="https://youtube.com/@jasmeetmaann" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 text-black hover:text-brandPurple transition group[span_0](start_span)"[span_0](end_span)>
               <i class="fa-brands fa-youtube text-brandPurple text-lg shrink-0 group-hover:scale-110 transition-transform"></i>
               <span class="font-semibold text-black text-[14px]">Previous Channel</span>
             </a>
@@ -800,7 +745,7 @@
 
           <div>
             <h5 class="text-xs font-bold text-brandPurple uppercase tracking-widest mb-2">Business Inquiries</h5>
-            <a href="mailto:workwithjasmeetkaur@gmail.com" class="inline-flex items-center gap-2 text-sm sm:text-base font-semibold text-black hover:text-brandPurple transition lowercase break-all group"[cite: 1]>
+            <a href="mailto:workwithjasmeetkaur@gmail.com" class="inline-flex items-center gap-2 text-sm sm:text-base font-semibold text-black hover:text-brandPurple transition lowercase break-all group[span_1](start_span)"[span_1](end_span)>
               <i class="fa-solid fa-envelope text-brandPurple text-sm shrink-0 group-hover:scale-110 transition-transform"></i>
               <span>workwithjasmeetkaur@gmail.com</span>
             </a>
@@ -831,118 +776,54 @@
     (function() {
       "use strict";
 
-      // 1. SMART SINGLE-VIDEO ACTIVE PLAYBACK CONTROLLER
-      let activeCard = null;
-      let activeOriginalScreenHTML = "";
-      let isPlaying = false;
+      // 1. INSTANT ONE-CLICK YOUTUBE PLAYER (NO BLACK SCREEN DELAY)
+      let activeIframe = null;
+      let activeWrapper = null;
 
-      function resetActivePlayer() {
-        if (activeCard && activeOriginalScreenHTML) {
-          const screen = activeCard.querySelector('.video-screen-container');
-          const btn = activeCard.querySelector('.interactive-play-btn');
+      function playVideo(wrapper, videoId) {
+        if (!wrapper || !videoId) return;
 
-          if (screen) {
-            screen.innerHTML = activeOriginalScreenHTML;
-            const videoId = screen.getAttribute('data-videoid');
-            screen.addEventListener('click', function() {
-              handlePlayToggle(activeCard, videoId);
-            });
-          }
-          if (btn) btn.classList.remove('playing');
-          activeCard.classList.remove('is-active-card');
-
-          activeCard = null;
-          activeOriginalScreenHTML = "";
-          isPlaying = false;
+        // If clicking the currently playing video, toggle pause/play instantly via postMessage
+        if (activeWrapper === wrapper && activeIframe) {
+          try {
+            activeIframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+          } catch(err) {}
+          return;
         }
+
+        // Clean up previous playing video without reloading the entire page
+        if (activeWrapper && activeWrapper !== wrapper) {
+          const prevIframe = activeWrapper.querySelector('iframe');
+          if (prevIframe) prevIframe.remove();
+          const prevOverlay = activeWrapper.querySelector('.yt-play-overlay');
+          if (prevOverlay) prevOverlay.style.display = 'flex';
+          const prevImg = activeWrapper.querySelector('img');
+          if (prevImg) prevImg.style.display = 'block';
+        }
+
+        activeWrapper = wrapper;
+
+        // Create optimized iframe on-the-fly (no double re-rendering)
+        const iframe = document.createElement('iframe');
+        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&enablejsapi=1&rel=0&modestbranding=1&playsinline=1`;
+        iframe.title = "YouTube Video Player";
+        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+        iframe.allowFullscreen = true;
+
+        // Hide overlay and append iframe immediately
+        const overlay = wrapper.querySelector('.yt-play-overlay');
+        if (overlay) overlay.style.display = 'none';
+
+        wrapper.appendChild(iframe);
+        activeIframe = iframe;
       }
 
-      function handlePlayToggle(card, videoId) {
-        if (!card || !videoId) return;
-
-        const screen = card.querySelector('.video-screen-container');
-        const btn = card.querySelector('.interactive-play-btn');
-        const iframe = screen ? screen.querySelector('iframe') : null;
-
-        if (activeCard && activeCard !== card) {
-          resetActivePlayer();
-        }
-
-        if (!iframe) {
-          activeOriginalScreenHTML = screen.innerHTML;
-          activeCard = card;
-          isPlaying = true;
-
-          card.classList.add('is-active-card');
-          if (btn) btn.classList.add('playing');
-
-          screen.innerHTML = `
-            <iframe 
-              src="https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&enablejsapi=1&rel=0&modestbranding=1&controls=1" 
-              title="YouTube Video Player" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-              allowfullscreen>
-            </iframe>
-          `;
-        } else {
-          if (isPlaying) {
-            iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
-            isPlaying = false;
-            if (btn) btn.classList.remove('playing');
-          } else {
-            iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
-            isPlaying = true;
-            if (btn) btn.classList.add('playing');
-            card.classList.add('is-active-card');
-          }
-        }
-      }
-
-      // Card Screen Click
-      document.querySelectorAll('.video-card-item').forEach(card => {
-        const screen = card.querySelector('.video-screen-container');
-        const btn = card.querySelector('.interactive-play-btn');
-        const zoomBtn = card.querySelector('.fullscreen-zoom-btn');
-        const videoId = screen ? screen.getAttribute('data-videoid') : null;
-
-        if (screen && videoId) {
-          screen.addEventListener('click', function(e) {
-            if (!this.querySelector('iframe')) {
-              handlePlayToggle(card, videoId);
-            }
-          });
-        }
-
-        if (btn && videoId) {
-          btn.addEventListener('click', function(e) {
+      document.querySelectorAll('.yt-thumb-wrapper').forEach(wrapper => {
+        const videoId = wrapper.getAttribute('data-videoid');
+        if (videoId) {
+          wrapper.addEventListener('click', function(e) {
             e.stopPropagation();
-            handlePlayToggle(card, videoId);
-          });
-        }
-
-        // Fullscreen / Zoom Trigger
-        if (zoomBtn && screen && videoId) {
-          zoomBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-
-            // Ensure video is mounted first
-            if (!screen.querySelector('iframe')) {
-              handlePlayToggle(card, videoId);
-            }
-
-            const targetElement = screen.querySelector('iframe') || screen;
-
-            // Trigger Fullscreen API with cross-browser support
-            if (targetElement.requestFullscreen) {
-              targetElement.requestFullscreen();
-            } else if (targetElement.webkitRequestFullscreen) {
-              targetElement.webkitRequestFullscreen();
-            } else if (targetElement.msRequestFullscreen) {
-              targetElement.msRequestFullscreen();
-            } else {
-              // Fallback viewport overlay zoom
-              screen.classList.toggle('video-fullscreen-mode');
-            }
+            playVideo(this, videoId);
           });
         }
       });
