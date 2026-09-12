@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Video Library — Jasmeet Kaur</title>
-  <meta name="description" content="Watch authentic student guidance, discipline systems, and mindset talks directly on our website.">
+  <title>Articles & Guides — Jasmeet Kaur</title>
+
+  <meta name="description" content="In-depth blog essays, non-verbal body language breakdowns, charisma frameworks, daily habit design, and mindset architecture by Jasmeet Kaur.">
 
   <!-- Mobile Browser Theme Color -->
   <meta name="theme-color" content="#FAF5FF">
@@ -14,20 +15,14 @@
   <meta name="mobile-web-app-capable" content="yes">
 
   <!-- Official Favicon -->
-  <link rel="icon" type="image/webp" sizes="32x32" href="https://i.ibb.co/4nLxjXyj/JK-Logo.webp">
-  <link rel="icon" type="image/webp" sizes="192x192" href="https://i.ibb.co/4nLxjXyj/JK-Logo.webp">
-  <link rel="apple-touch-icon" href="https://i.ibb.co/4nLxjXyj/JK-Logo.webp">
-
-  <!-- Preconnect YouTube CDNs for Instant Playback -->
-  <link rel="preconnect" href="https://www.youtube-nocookie.com">
-  <link rel="preconnect" href="https://www.google.com">
-  <link rel="preconnect" href="https://googleads.g.doubleclick.net">
-  <link rel="preconnect" href="https://static.doubleclick.net">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://i.ibb.co/ks55RRy3/jk-final.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="https://i.ibb.co/ks55RRy3/jk-final.png">
+  <link rel="apple-touch-icon" href="https://i.ibb.co/ks55RRy3/jk-final.png">
 
   <!-- Google Fonts: Poppins -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <script src="https://cdn.tailwindcss.com"></script>
@@ -57,6 +52,7 @@
   </script>
 
   <style>
+    /* ANTI-COPY & INTERACTION PROTECTION */
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
@@ -64,7 +60,17 @@
       -webkit-tap-highlight-color: transparent;
       touch-action: pan-x pan-y;
       -webkit-user-select: none !important;
+      -moz-user-select: none !important;
+      -ms-user-select: none !important;
       user-select: none !important;
+      -webkit-user-drag: none !important;
+    }
+
+    input, textarea, select {
+      -webkit-user-select: text !important;
+      -moz-user-select: text !important;
+      -ms-user-select: text !important;
+      user-select: text !important;
     }
 
     img {
@@ -76,6 +82,7 @@
       scroll-behavior: smooth;
       overflow-x: hidden;
       background-color: #FAF5FF !important;
+      color-scheme: light;
     }
 
     body {
@@ -83,16 +90,17 @@
       color: #190A2E;
       font-family: 'Poppins', sans-serif;
       font-size: 15px;
-      line-height: 1.6;
+      font-weight: 400;
+      line-height: 1.65;
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Staggered Animations */
+    /* SMOOTH STAGGERED OPENING ANIMATION */
     @keyframes heroFadeUp {
-      0% { opacity: 0; transform: translateY(22px); }
+      0% { opacity: 0; transform: translateY(24px); }
       100% { opacity: 1; transform: translateY(0); }
     }
-    .animate-hero {
+    .animate-entrance {
       animation: heroFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
       opacity: 0;
     }
@@ -100,7 +108,19 @@
     .delay-2 { animation-delay: 0.18s; }
     .delay-3 { animation-delay: 0.28s; }
 
-    /* Dock Header Transition */
+    /* DIRECTIONAL SCROLL REVEAL ANIMATIONS */
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .reveal-on-scroll.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* FLOATING HEADER AUTO-HIDE */
     .dock-container {
       transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
     }
@@ -109,159 +129,77 @@
       opacity: 0;
     }
 
-    /* Scroll Reveal */
-    .scroll-reveal {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .scroll-reveal.has-opened {
-      opacity: 1 !important;
-      transform: translateY(0) !important;
+    .heading-accent {
+      color: #190A2E;
+      text-shadow: 0 4px 18px rgba(121, 40, 202, 0.1);
     }
 
-    /* YouTube Style Clean Borderless Item */
-    .yt-video-item {
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      background: transparent;
-      border: none !important;
-      border-radius: 18px;
-      padding: 4px;
-      transition: background-color 0.25s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    /* CARD HOVER ELEVATION */
+    .hover-lift {
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
     }
-    .yt-video-item:hover {
-      background-color: rgba(255, 255, 255, 0.5);
+    .hover-lift:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px -8px rgba(121, 40, 202, 0.12);
+      border-color: #C084FC;
     }
 
-    /* Seamless Thumbnail Screen */
-    .yt-thumb-wrapper {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      border-radius: 16px;
-      overflow: hidden;
-      border: none !important;
-      background-color: #120422;
-      box-shadow: 0 6px 20px -4px rgba(121, 40, 202, 0.1);
-      cursor: pointer;
-      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
-    }
-    .yt-video-item:hover .yt-thumb-wrapper {
-      transform: translateY(-3px) scale(1.01);
-      box-shadow: 0 14px 28px -6px rgba(121, 40, 202, 0.2);
-    }
-
-    .yt-thumb-wrapper img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .yt-video-item:hover .yt-thumb-wrapper img {
-      transform: scale(1.05);
-    }
-
-    .yt-thumb-wrapper iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-      display: block;
-      border-radius: 16px;
-      z-index: 5;
-    }
-
-    /* Quick YouTube Play Badge */
-    .yt-play-overlay {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: radial-gradient(circle, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.4) 100%);
-      opacity: 0;
-      transition: opacity 0.25s ease;
-      z-index: 2;
-    }
-    .yt-thumb-wrapper:hover .yt-play-overlay {
-      opacity: 1;
-    }
-    .yt-play-icon {
-      width: 50px;
-      height: 34px;
-      background: #7928CA;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #ffffff;
-      box-shadow: 0 6px 18px rgba(121, 40, 202, 0.35);
-      transform: scale(0.92);
-      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease;
-    }
-    .yt-thumb-wrapper:hover .yt-play-icon {
-      transform: scale(1.06);
-      background: #ff0000;
-    }
-
-    /* Line Clamping for Titles */
-    .yt-title {
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-      line-height: 1.35;
-    }
-
-    /* Drawer */
+    /* SIDE DRAWER */
     .side-drawer-backdrop { display: none !important; }
     .side-drawer-panel { display: none !important; }
     body.drawer-open .side-drawer-backdrop { display: block !important; }
     body.drawer-open .side-drawer-panel { display: flex !important; }
 
-    /* Back To Top Button */
+    /* MODAL */
+    .modal-active {
+      display: flex !important;
+    }
+
+    /* BACK TO TOP BUTTON */
     .back-to-top-btn {
       opacity: 0;
       visibility: hidden;
       transform: translateY(20px) scale(0.9);
-      transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s ease;
+      transition: all 0.35s ease;
     }
     .back-to-top-btn.is-active {
       opacity: 1;
       visibility: visible;
       transform: translateY(0) scale(1);
     }
+
+    .filter-btn.active {
+      background-color: #7928CA !important;
+      color: #FFFFFF !important;
+      border-color: #7928CA !important;
+    }
   </style>
 </head>
-<body>
+<body class="selection:bg-transparent bg-[#FAF5FF] min-h-screen relative flex flex-col">
 
   <!-- FLOATING iOS-STYLE HEADER BAR -->
   <div class="dock-container fixed top-2 sm:top-4 z-50 w-[98%] left-[1%] sm:w-[94%] sm:left-[3%] lg:w-full lg:left-0 lg:px-6 transition-all duration-300" id="navShell">
-    <header class="w-full max-w-[1350px] mx-auto bg-white/95 backdrop-blur-xl border border-footerBorder rounded-full py-3 sm:py-3.5 px-4 sm:px-6 lg:px-8 flex items-center justify-between shadow-[0_8px_25px_rgba(121,40,202,0.06)]">
+    <header class="w-full max-w-[1350px] mx-auto bg-white/95 backdrop-blur-xl border border-footerBorder rounded-full py-3 sm:py-3.5 px-4 sm:px-6 lg:px-8 flex items-center justify-between shadow-[0_8px_25px_rgba(121,40,202,0.06)] animate-entrance">
       
-      <!-- Brand Logo -->
+      <!-- Brand Logo & Heading -->
       <a href="index.html" class="flex items-center gap-2.5 sm:gap-3.5 shrink-0 group ml-2 sm:ml-4 md:ml-6">
-        <img src="https://i.ibb.co/4nLxjXyj/JK-Logo.webp" alt="JK Official Logo" class="h-10 sm:h-12 md:h-13 w-auto object-contain shrink-0 -translate-y-1.5 sm:-translate-y-2 transition-transform group-hover:scale-105">
+        <img src="https://i.ibb.co/ks55RRy3/jk-final.png" alt="JK Official Logo" class="h-10 sm:h-12 md:h-13 w-auto object-contain shrink-0 -translate-y-1.5 sm:-translate-y-2 transition-transform group-hover:scale-105">
         <span class="font-brand font-bold text-[22px] sm:text-[25px] md:text-[28px] lg:text-[30px] tracking-tight text-black leading-none flex items-center">
           JASMEET KAUR
         </span>
       </a>
 
-      <!-- Desktop Navigation -->
+      <!-- Desktop Navigation (6 Items) -->
       <nav class="hidden lg:flex items-center gap-1.5 bg-[#FAF5FF] p-1.5 rounded-full border border-footerBorder">
         <a href="index.html" class="text-[14px] font-medium text-textMuted hover:text-brandPurple hover:bg-white px-5 py-2 rounded-full transition">Home</a>
         <a href="about.html" class="text-[14px] font-medium text-textMuted hover:text-brandPurple hover:bg-white px-5 py-2 rounded-full transition">About</a>
         <a href="self-improvement.html" class="text-[14px] font-medium text-textMuted hover:text-brandPurple hover:bg-white px-5 py-2 rounded-full transition">Self Improvement</a>
-        <a href="videos.html" class="text-[14px] font-semibold text-white bg-brandPurple px-5 py-2 rounded-full shadow-sm">Video</a>
+        <a href="videos.html" class="text-[14px] font-medium text-textMuted hover:text-brandPurple hover:bg-white px-5 py-2 rounded-full transition">Video</a>
         <a href="quotes.html" class="text-[14px] font-medium text-textMuted hover:text-brandPurple hover:bg-white px-5 py-2 rounded-full transition">Quotes</a>
         <a href="contact.html" class="text-[14px] font-medium text-textMuted hover:text-brandPurple hover:bg-white px-5 py-2 rounded-full transition">Contact</a>
       </nav>
 
-      <!-- Right Header Actions -->
+      <!-- Right Header Action & Classic Hamburger Icon -->
       <div class="flex items-center gap-3">
         <a href="https://youtube.com/@jasmeetkaurr1" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 bg-brandPurple hover:bg-brandPurpleHover text-white px-5 py-2.5 rounded-full text-[13px] font-semibold transition-transform hover:-translate-y-0.5 shadow-md shadow-brandPurple/20">
           <i class="fa-brands fa-youtube text-base"></i>
@@ -280,12 +218,13 @@
     </header>
   </div>
 
-  <!-- FULLSCREEN MOBILE NAVIGATION DRAWER -->
+  <!-- MOBILE NAVIGATION DRAWER -->
   <div class="side-drawer-backdrop fixed inset-0 bg-black/30 backdrop-blur-sm z-50" id="mobileBackdrop"></div>
   <div class="side-drawer-panel fixed inset-0 w-full bg-[#FAF5FF] z-50 flex flex-col justify-between overflow-hidden" id="mobileDrawer">
+    
     <div class="flex justify-between items-center px-6 py-5 border-b border-footerBorder bg-white/60 backdrop-blur-md">
       <div class="flex items-center gap-2.5">
-        <img src="https://i.ibb.co/4nLxjXyj/JK-Logo.webp" alt="JK Official Logo" class="h-9 w-auto object-contain -translate-y-1">
+        <img src="https://i.ibb.co/ks55RRy3/jk-final.png" alt="JK Official Logo" class="h-9 w-auto object-contain -translate-y-1">
         <strong class="font-brand font-bold text-[23px] tracking-tight text-black leading-none">JASMEET KAUR</strong>
       </div>
       <button class="h-10 w-10 rounded-full bg-white text-textDark font-bold text-base flex items-center justify-center border border-footerBorder shadow-sm active:scale-90 transition" id="closeDrawerBtn">✕</button>
@@ -304,9 +243,9 @@
         <span>Self Improvement</span>
         <i class="fa-solid fa-chevron-right text-xs text-brandPurple/60"></i>
       </a>
-      <a href="videos.html" class="mobile-nav-link flex items-center justify-between py-4 px-6 rounded-2xl font-bold text-lg text-white bg-brandPurple shadow-sm transition">
+      <a href="videos.html" class="mobile-nav-link flex items-center justify-between py-4 px-6 rounded-2xl font-semibold text-lg text-textDark bg-white/80 border border-footerBorder/60 hover:bg-white transition">
         <span>Video</span>
-        <i class="fa-solid fa-arrow-right text-xs opacity-80"></i>
+        <i class="fa-solid fa-chevron-right text-xs text-brandPurple/60"></i>
       </a>
       <a href="quotes.html" class="mobile-nav-link flex items-center justify-between py-4 px-6 rounded-2xl font-semibold text-lg text-textDark bg-white/80 border border-footerBorder/60 hover:bg-white transition">
         <span>Quotes</span>
@@ -326,366 +265,132 @@
     </div>
   </div>
 
-  <!-- HERO SECTION -->
-  <main class="pt-24 sm:pt-36 md:pt-40 pb-10 relative overflow-hidden bg-[#FAF5FF]" id="videoVault">
-    <section class="pb-6 sm:pb-8 bg-transparent relative z-10">
-      <div class="max-w-[1240px] mx-auto px-4 sm:px-6 md:px-8 text-center flex flex-col items-center">
-        
-        <!-- Category Pill -->
-        <div class="w-full flex items-center justify-center pb-0 mt-0 sm:mt-1 mb-5 sm:mb-6 animate-hero delay-1">
-          <div class="inline-flex items-center gap-2 bg-brandPurpleLight/80 backdrop-blur-sm py-1.5 px-4 rounded-full border border-brandPurple/25 shadow-sm cursor-default">
-            <span class="flex h-5 w-5 items-center justify-center rounded-full bg-white text-red-600 border border-brandPurple/20 shrink-0">
-              <i class="fa-brands fa-youtube text-[11px]"></i>
-            </span>
-            <span class="text-[13px] font-bold text-brandPurpleDeep tracking-tight">YouTube Library</span>
+  <!-- SECRET PASSKEY MODAL -->
+  <div id="secretModal" class="fixed inset-0 bg-black/45 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+    <div class="bg-white max-w-md w-full rounded-[28px] border border-footerBorder p-7 sm:p-8 shadow-2xl animate-entrance">
+      <div class="flex items-center justify-between mb-4">
+        <div class="flex items-center gap-3">
+          <div class="h-10 w-10 rounded-2xl bg-brandPurpleLight text-brandPurple flex items-center justify-center text-base shadow-sm">
+            <i class="fa-solid fa-key"></i>
           </div>
+          <h3 class="font-brand font-bold text-xl text-black">Administrator Portal</h3>
+        </div>
+        <button id="closeSecretBtn" class="h-8 w-8 rounded-full bg-[#FAF5FF] text-textMuted hover:text-black flex items-center justify-center">✕</button>
+      </div>
+
+      <p class="text-xs text-textMuted mb-5">Enter your secret passkey to access author tools, draft blog essays, and attach images.</p>
+
+      <form id="secretPassForm" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-brandPurple uppercase tracking-wider mb-2" for="secretPassInput">Passkey</label>
+          <input type="password" id="secretPassInput" placeholder="Enter password..." class="w-full px-4 py-3 rounded-2xl border border-footerBorder bg-[#FAF5FF] text-sm text-textDark focus:outline-none focus:border-brandPurple focus:bg-white transition" required autocomplete="off">
         </div>
 
-        <!-- Headline -->
-        <h1 class="font-brand font-bold text-[32px] sm:text-[44px] md:text-[52px] tracking-tight leading-[1.2] mb-3 max-w-3xl animate-hero delay-2 text-textDark">
-          Real Process. <span class="text-brandPurple">Real Mindset.</span>
-        </h1>
+        <p id="secretPassError" class="text-xs text-red-500 font-semibold hidden">Incorrect passkey. Access denied.</p>
 
-        <!-- Subtitle -->
-        <p class="text-base sm:text-lg md:text-xl text-textMuted font-medium leading-relaxed max-w-[720px] animate-hero delay-3">
-          Watch our latest video releases and our all-time most popular conversations.
-        </p>
+        <button type="submit" class="w-full py-3.5 rounded-full bg-brandPurple hover:bg-brandPurpleHover text-white font-semibold text-sm shadow-md shadow-brandPurple/25 transition">
+          Authorize &amp; Open Studio
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MAIN BLOG ESSAYS AREA -->
+  <main class="relative z-10 flex-grow pt-32 sm:pt-40 md:pt-48 pb-16 sm:pb-24">
+    
+    <!-- Hero Header -->
+    <section class="pb-10 sm:pb-12 text-center max-w-[1240px] mx-auto px-4 sm:px-6 md:px-8">
+      
+      <div class="w-full flex items-center justify-center pb-0 mb-4 animate-entrance delay-1">
+        <div class="inline-flex items-center gap-2 bg-brandPurpleLight/70 backdrop-blur-md py-1.5 px-4 rounded-full border border-brandPurple/20 shadow-sm cursor-default">
+          <span class="flex h-5 w-5 items-center justify-center rounded-full bg-brandPurple text-white text-[9.5px]">
+            <i class="fa-solid fa-feather-pointed"></i>
+          </span>
+          <span class="text-[12.5px] sm:text-[13.5px] font-semibold text-brandPurple tracking-wide">The Long-Form Blog</span>
+        </div>
+      </div>
+
+      <h1 class="text-[34px] sm:text-[44px] md:text-[54px] lg:text-[62px] font-bold tracking-tight text-textDark leading-[1.14] mb-5 heading-accent animate-entrance delay-2">
+        Body Language. Communication.<br>
+        <span class="text-brandPurple">Personality &amp; Success.</span>
+      </h1>
+      <p class="text-base sm:text-lg md:text-xl text-textMuted font-normal leading-relaxed max-w-[760px] mx-auto animate-entrance delay-3">
+        Comprehensive, long-form essays dissecting non-verbal cues, public speaking magnetism, high-agency personality, and the daily architecture required to build lasting success.
+      </p>
+
+      <!-- Category Filter Pills -->
+      <div class="flex items-center justify-center gap-2 sm:gap-3 flex-wrap mt-8 animate-entrance delay-3" id="categoryFilters">
+        <button class="filter-btn active text-xs sm:text-sm font-semibold px-4 sm:px-5 py-2 rounded-full border border-footerBorder bg-white text-textDark transition hover:border-brandPurple" data-category="All">All Topics</button>
+        <button class="filter-btn text-xs sm:text-sm font-semibold px-4 sm:px-5 py-2 rounded-full border border-footerBorder bg-white text-textDark transition hover:border-brandPurple" data-category="Body Language & Non-Verbal">Body Language</button>
+        <button class="filter-btn text-xs sm:text-sm font-semibold px-4 sm:px-5 py-2 rounded-full border border-footerBorder bg-white text-textDark transition hover:border-brandPurple" data-category="Communication & Charisma">Communication</button>
+        <button class="filter-btn text-xs sm:text-sm font-semibold px-4 sm:px-5 py-2 rounded-full border border-footerBorder bg-white text-textDark transition hover:border-brandPurple" data-category="Personality & Identity">Personality</button>
+        <button class="filter-btn text-xs sm:text-sm font-semibold px-4 sm:px-5 py-2 rounded-full border border-footerBorder bg-white text-textDark transition hover:border-brandPurple" data-category="Success Mindset">Success Mindset</button>
+        <button class="filter-btn text-xs sm:text-sm font-semibold px-4 sm:px-5 py-2 rounded-full border border-footerBorder bg-white text-textDark transition hover:border-brandPurple" data-category="Habit Architecture">Daily Habits</button>
+      </div>
+
+    </section>
+
+    <!-- SECRET PUBLISHING DASHBOARD (TEXT & IMAGE ONLY - NO VIDEO) -->
+    <section id="hiddenPublisherSection" class="max-w-[1040px] mx-auto px-4 sm:px-6 mb-16 hidden">
+      <div class="p-6 sm:p-10 bg-white rounded-[32px] border-2 border-brandPurple shadow-2xl relative animate-entrance">
+        
+        <div class="flex items-center justify-between pb-5 border-b border-footerBorder mb-6">
+          <div class="flex items-center gap-3">
+            <span class="h-3.5 w-3.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <h2 class="font-brand font-bold text-xl sm:text-2xl text-black">New Blog Essay Studio</h2>
+          </div>
+          <button id="closeAdminStudioBtn" class="text-xs text-textMuted hover:text-red-600 font-semibold flex items-center gap-1.5 py-1.5 px-3 rounded-full bg-[#FAF5FF] border border-footerBorder transition">
+            <i class="fa-solid fa-lock text-xs"></i>
+            <span>Close &amp; Lock</span>
+          </button>
+        </div>
+
+        <form id="newArticleForm" class="space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="md:col-span-2">
+              <label class="block text-xs font-bold text-brandPurple uppercase tracking-wider mb-2">Blog Title</label>
+              <input type="text" id="articleTitleInput" placeholder="e.g., The Silent Power of Non-Verbal Dominance" class="w-full px-4 py-3 rounded-2xl border border-footerBorder bg-[#FAF5FF] text-sm text-textDark focus:outline-none focus:border-brandPurple focus:bg-white transition" required>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-brandPurple uppercase tracking-wider mb-2">Category</label>
+              <select id="articleCategoryInput" class="w-full px-4 py-3 rounded-2xl border border-footerBorder bg-[#FAF5FF] text-sm text-textDark focus:outline-none focus:border-brandPurple focus:bg-white transition" required>
+                <option value="Body Language & Non-Verbal">Body Language &amp; Non-Verbal</option>
+                <option value="Communication & Charisma">Communication &amp; Charisma</option>
+                <option value="Personality & Identity">Personality &amp; Identity</option>
+                <option value="Success Mindset">Success Mindset</option>
+                <option value="Habit Architecture">Habit Architecture</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-brandPurple uppercase tracking-wider mb-2">Article Featured Image URL</label>
+            <input type="url" id="articleImageInput" placeholder="https://i.ibb.co/.../image.webp" class="w-full px-4 py-3 rounded-2xl border border-footerBorder bg-[#FAF5FF] text-sm text-textDark focus:outline-none focus:border-brandPurple focus:bg-white transition" required>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-brandPurple uppercase tracking-wider mb-2">Long-Form Essay Content (Double enter creates paragraphs)</label>
+            <textarea id="articleBodyInput" rows="12" placeholder="Write your long blog article here. Include deep breakdowns, psychology models, step-by-step physical cues, and reflections..." class="w-full px-4 py-3.5 rounded-2xl border border-footerBorder bg-[#FAF5FF] text-sm text-textDark focus:outline-none focus:border-brandPurple focus:bg-white transition" required></textarea>
+          </div>
+
+          <button type="submit" class="w-full py-4 rounded-full bg-brandPurple hover:bg-brandPurpleHover text-white font-semibold text-base shadow-lg shadow-brandPurple/25 transition-transform hover:-translate-y-0.5">
+            <i class="fa-solid fa-paper-plane mr-2"></i>
+            Publish Blog Article
+          </button>
+        </form>
 
       </div>
     </section>
 
-    <!-- SECTION 1: MY LATEST VIDEOS -->
-    <section class="py-5 sm:py-7 relative scroll-reveal">
-      <div class="w-full max-w-[1280px] mx-auto px-4 sm:px-6 md:px-8">
-        
-        <div class="flex items-center mb-6">
-          <div class="flex items-center gap-3">
-            <span class="h-7 w-1.5 rounded-full bg-brandPurple"></span>
-            <h2 class="font-brand font-bold text-2xl sm:text-3xl text-textDark tracking-tight">
-              My Latest Videos
-            </h2>
-          </div>
-        </div>
-
-        <!-- 6 Videos Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7">
-          
-          <!-- Latest 1: gb4BclhYa7E -->
-          <article class="yt-video-item">
-            <div class="yt-thumb-wrapper" data-videoid="gb4BclhYa7E">
-              <img src="https://img.youtube.com/vi/gb4BclhYa7E/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/gb4BclhYa7E/hqdefault.jpg';" alt="If you're a student watch this - ( Class 12th Student)">
-              <div class="yt-play-overlay">
-                <div class="yt-play-icon">
-                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
-                </div>
-              </div>
-            </div>
-            <div class="flex items-start gap-3 mt-3.5 px-0.5">
-              <img src="https://i.ibb.co/4nLxjXyj/JK-Logo.webp" alt="Jasmeet Kaur" class="w-9 h-9 rounded-full object-cover shrink-0 mt-0.5">
-              <div class="flex-1 min-w-0">
-                <h3 class="font-brand font-semibold text-[15px] sm:text-[15.5px] text-textDark yt-title" title="If you're a student watch this - ( Class 12th Student)">
-                  If you're a student watch this - ( Class 12th Student)
-                </h3>
-                <div class="flex items-center gap-1.5 mt-1 text-xs text-textMuted font-medium">
-                  <span>Jasmeet Kaur</span>
-                  <i class="fa-solid fa-circle-check text-[11px] text-brandPurple"></i>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- Latest 2: 5pG0OYNcaos -->
-          <article class="yt-video-item">
-            <div class="yt-thumb-wrapper" data-videoid="5pG0OYNcaos">
-              <img src="https://img.youtube.com/vi/5pG0OYNcaos/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/5pG0OYNcaos/hqdefault.jpg';" alt="Before I turn 18 , I need to tell u this">
-              <div class="yt-play-overlay">
-                <div class="yt-play-icon">
-                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
-                </div>
-              </div>
-            </div>
-            <div class="flex items-start gap-3 mt-3.5 px-0.5">
-              <img src="https://i.ibb.co/4nLxjXyj/JK-Logo.webp" alt="Jasmeet Kaur" class="w-9 h-9 rounded-full object-cover shrink-0 mt-0.5">
-              <div class="flex-1 min-w-0">
-                <h3 class="font-brand font-semibold text-[15px] sm:text-[15.5px] text-textDark yt-title" title="Before I turn 18 , I need to tell u this">
-                  Before I turn 18 , I need to tell u this
-                </h3>
-                <div class="flex items-center gap-1.5 mt-1 text-xs text-textMuted font-medium">
-                  <span>Jasmeet Kaur</span>
-                  <i class="fa-solid fa-circle-check text-[11px] text-brandPurple"></i>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- Latest 3: Yg62Ros5kHA -->
-          <article class="yt-video-item">
-            <div class="yt-thumb-wrapper" data-videoid="Yg62Ros5kHA">
-              <img src="https://img.youtube.com/vi/Yg62Ros5kHA/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/Yg62Ros5kHA/hqdefault.jpg';" alt="At 17, These 5 Things are Changing My LIFE">
-              <div class="yt-play-overlay">
-                <div class="yt-play-icon">
-                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
-                </div>
-              </div>
-            </div>
-            <div class="flex items-start gap-3 mt-3.5 px-0.5">
-              <img src="https://i.ibb.co/4nLxjXyj/JK-Logo.webp" alt="Jasmeet Kaur" class="w-9 h-9 rounded-full object-cover shrink-0 mt-0.5">
-              <div class="flex-1 min-w-0">
-                <h3 class="font-brand font-semibold text-[15px] sm:text-[15.5px] text-textDark yt-title" title="At 17, These 5 Things are Changing My LIFE">
-                  At 17, These 5 Things are Changing My LIFE
-                </h3>
-                <div class="flex items-center gap-1.5 mt-1 text-xs text-textMuted font-medium">
-                  <span>Jasmeet Kaur</span>
-                  <i class="fa-solid fa-circle-check text-[11px] text-brandPurple"></i>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- Latest 4: 3ZtVBlfeLKw -->
-          <article class="yt-video-item">
-            <div class="yt-thumb-wrapper" data-videoid="3ZtVBlfeLKw">
-              <img src="https://img.youtube.com/vi/3ZtVBlfeLKw/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/3ZtVBlfeLKw/hqdefault.jpg';" alt="How to get what you want ? - 3 ways that i follow">
-              <div class="yt-play-overlay">
-                <div class="yt-play-icon">
-                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
-                </div>
-              </div>
-            </div>
-            <div class="flex items-start gap-3 mt-3.5 px-0.5">
-              <img src="https://i.ibb.co/4nLxjXyj/JK-Logo.webp" alt="Jasmeet Kaur" class="w-9 h-9 rounded-full object-cover shrink-0 mt-0.5">
-              <div class="flex-1 min-w-0">
-                <h3 class="font-brand font-semibold text-[15px] sm:text-[15.5px] text-textDark yt-title" title="How to get what you want ? - 3 ways that i follow">
-                  How to get what you want ? - 3 ways that i follow
-                </h3>
-                <div class="flex items-center gap-1.5 mt-1 text-xs text-textMuted font-medium">
-                  <span>Jasmeet Kaur</span>
-                  <i class="fa-solid fa-circle-check text-[11px] text-brandPurple"></i>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- Latest 5: EevaoB3omTA -->
-          <article class="yt-video-item">
-            <div class="yt-thumb-wrapper" data-videoid="EevaoB3omTA">
-              <img src="https://img.youtube.com/vi/EevaoB3omTA/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/EevaoB3omTA/hqdefault.jpg';" alt="Last video on this channel ( bye guys )">
-              <div class="yt-play-overlay">
-                <div class="yt-play-icon">
-                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
-                </div>
-              </div>
-            </div>
-            <div class="flex items-start gap-3 mt-3.5 px-0.5">
-              <img src="https://i.ibb.co/4nLxjXyj/JK-Logo.webp" alt="Jasmeet Kaur" class="w-9 h-9 rounded-full object-cover shrink-0 mt-0.5">
-              <div class="flex-1 min-w-0">
-                <h3 class="font-brand font-semibold text-[15px] sm:text-[15.5px] text-textDark yt-title" title="Last video on this channel ( bye guys )">
-                  Last video on this channel ( bye guys )
-                </h3>
-                <div class="flex items-center gap-1.5 mt-1 text-xs text-textMuted font-medium">
-                  <span>Jasmeet Kaur</span>
-                  <i class="fa-solid fa-circle-check text-[11px] text-brandPurple"></i>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- Latest 6: ymKfVEbDZMo -->
-          <article class="yt-video-item">
-            <div class="yt-thumb-wrapper" data-videoid="ymKfVEbDZMo">
-              <img src="https://img.youtube.com/vi/ymKfVEbDZMo/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/ymKfVEbDZMo/hqdefault.jpg';" alt="The Art of Becoming Dangerously Self Educated">
-              <div class="yt-play-overlay">
-                <div class="yt-play-icon">
-                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
-                </div>
-              </div>
-            </div>
-            <div class="flex items-start gap-3 mt-3.5 px-0.5">
-              <img src="https://i.ibb.co/4nLxjXyj/JK-Logo.webp" alt="Jasmeet Kaur" class="w-9 h-9 rounded-full object-cover shrink-0 mt-0.5">
-              <div class="flex-1 min-w-0">
-                <h3 class="font-brand font-semibold text-[15px] sm:text-[15.5px] text-textDark yt-title" title="The Art of Becoming Dangerously Self Educated">
-                  The Art of Becoming Dangerously Self Educated
-                </h3>
-                <div class="flex items-center gap-1.5 mt-1 text-xs text-textMuted font-medium">
-                  <span>Jasmeet Kaur</span>
-                  <i class="fa-solid fa-circle-check text-[11px] text-brandPurple"></i>
-                </div>
-              </div>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 2: MY MOST POPULAR VIDEOS -->
-    <section class="py-8 sm:py-12 relative scroll-reveal">
-      <div class="w-full max-w-[1280px] mx-auto px-4 sm:px-6 md:px-8">
-        
-        <div class="flex items-center mb-6">
-          <div class="flex items-center gap-3">
-            <span class="h-7 w-1.5 rounded-full bg-brandPurple"></span>
-            <h2 class="font-brand font-bold text-2xl sm:text-3xl text-textDark tracking-tight">
-              My Most Popular Videos
-            </h2>
-          </div>
-        </div>
-
-        <!-- 6 Videos Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7">
-          
-          <!-- Pop 1: kocLCFuWtcc -->
-          <article class="yt-video-item">
-            <div class="yt-thumb-wrapper" data-videoid="kocLCFuWtcc">
-              <img src="https://img.youtube.com/vi/kocLCFuWtcc/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/kocLCFuWtcc/hqdefault.jpg';" alt="At 17, I Learned 5 Hard Truths Most Teenagers Ignore">
-              <div class="yt-play-overlay">
-                <div class="yt-play-icon">
-                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
-                </div>
-              </div>
-            </div>
-            <div class="flex items-start gap-3 mt-3.5 px-0.5">
-              <img src="https://i.ibb.co/4nLxjXyj/JK-Logo.webp" alt="Jasmeet Kaur" class="w-9 h-9 rounded-full object-cover shrink-0 mt-0.5">
-              <div class="flex-1 min-w-0">
-                <h3 class="font-brand font-semibold text-[15px] sm:text-[15.5px] text-textDark yt-title" title="At 17, I Learned 5 Hard Truths Most Teenagers Ignore">
-                  At 17, I Learned 5 Hard Truths Most Teenagers Ignore
-                </h3>
-                <div class="flex items-center gap-1.5 mt-1 text-xs text-textMuted font-medium">
-                  <span>Jasmeet Kaur</span>
-                  <i class="fa-solid fa-circle-check text-[11px] text-brandPurple"></i>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- Pop 2: rlxtGcCDaD4 -->
-          <article class="yt-video-item">
-            <div class="yt-thumb-wrapper" data-videoid="rlxtGcCDaD4">
-              <img src="https://img.youtube.com/vi/rlxtGcCDaD4/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/rlxtGcCDaD4/hqdefault.jpg';" alt="How I Improved My Accent Naturally">
-              <div class="yt-play-overlay">
-                <div class="yt-play-icon">
-                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
-                </div>
-              </div>
-            </div>
-            <div class="flex items-start gap-3 mt-3.5 px-0.5">
-              <img src="https://i.ibb.co/4nLxjXyj/JK-Logo.webp" alt="Jasmeet Kaur" class="w-9 h-9 rounded-full object-cover shrink-0 mt-0.5">
-              <div class="flex-1 min-w-0">
-                <h3 class="font-brand font-semibold text-[15px] sm:text-[15.5px] text-textDark yt-title" title="How I Improved My Accent Naturally">
-                  How I Improved My Accent Naturally
-                </h3>
-                <div class="flex items-center gap-1.5 mt-1 text-xs text-textMuted font-medium">
-                  <span>Jasmeet Kaur</span>
-                  <i class="fa-solid fa-circle-check text-[11px] text-brandPurple"></i>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- Pop 3: ZUIjoVhARdg -->
-          <article class="yt-video-item">
-            <div class="yt-thumb-wrapper" data-videoid="ZUIjoVhARdg">
-              <img src="https://img.youtube.com/vi/ZUIjoVhARdg/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/ZUIjoVhARdg/hqdefault.jpg';" alt="I Tried Fixing My Life at 17 ( self improvement )">
-              <div class="yt-play-overlay">
-                <div class="yt-play-icon">
-                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
-                </div>
-              </div>
-            </div>
-            <div class="flex items-start gap-3 mt-3.5 px-0.5">
-              <img src="https://i.ibb.co/4nLxjXyj/JK-Logo.webp" alt="Jasmeet Kaur" class="w-9 h-9 rounded-full object-cover shrink-0 mt-0.5">
-              <div class="flex-1 min-w-0">
-                <h3 class="font-brand font-semibold text-[15px] sm:text-[15.5px] text-textDark yt-title" title="I Tried Fixing My Life at 17 ( self improvement )">
-                  I Tried Fixing My Life at 17 ( self improvement )
-                </h3>
-                <div class="flex items-center gap-1.5 mt-1 text-xs text-textMuted font-medium">
-                  <span>Jasmeet Kaur</span>
-                  <i class="fa-solid fa-circle-check text-[11px] text-brandPurple"></i>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- Pop 4: EevaoB3omTA -->
-          <article class="yt-video-item">
-            <div class="yt-thumb-wrapper" data-videoid="EevaoB3omTA">
-              <img src="https://img.youtube.com/vi/EevaoB3omTA/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/EevaoB3omTA/hqdefault.jpg';" alt="Last video on this channel ( bye guys )">
-              <div class="yt-play-overlay">
-                <div class="yt-play-icon">
-                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
-                </div>
-              </div>
-            </div>
-            <div class="flex items-start gap-3 mt-3.5 px-0.5">
-              <img src="https://i.ibb.co/4nLxjXyj/JK-Logo.webp" alt="Jasmeet Kaur" class="w-9 h-9 rounded-full object-cover shrink-0 mt-0.5">
-              <div class="flex-1 min-w-0">
-                <h3 class="font-brand font-semibold text-[15px] sm:text-[15.5px] text-textDark yt-title" title="Last video on this channel ( bye guys )">
-                  Last video on this channel ( bye guys )
-                </h3>
-                <div class="flex items-center gap-1.5 mt-1 text-xs text-textMuted font-medium">
-                  <span>Jasmeet Kaur</span>
-                  <i class="fa-solid fa-circle-check text-[11px] text-brandPurple"></i>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- Pop 5: ymKfVEbDZMo -->
-          <article class="yt-video-item">
-            <div class="yt-thumb-wrapper" data-videoid="ymKfVEbDZMo">
-              <img src="https://img.youtube.com/vi/ymKfVEbDZMo/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/ymKfVEbDZMo/hqdefault.jpg';" alt="The Art of Becoming Dangerously Self Educated">
-              <div class="yt-play-overlay">
-                <div class="yt-play-icon">
-                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
-                </div>
-              </div>
-            </div>
-            <div class="flex items-start gap-3 mt-3.5 px-0.5">
-              <img src="https://i.ibb.co/4nLxjXyj/JK-Logo.webp" alt="Jasmeet Kaur" class="w-9 h-9 rounded-full object-cover shrink-0 mt-0.5">
-              <div class="flex-1 min-w-0">
-                <h3 class="font-brand font-semibold text-[15px] sm:text-[15.5px] text-textDark yt-title" title="The Art of Becoming Dangerously Self Educated">
-                  The Art of Becoming Dangerously Self Educated
-                </h3>
-                <div class="flex items-center gap-1.5 mt-1 text-xs text-textMuted font-medium">
-                  <span>Jasmeet Kaur</span>
-                  <i class="fa-solid fa-circle-check text-[11px] text-brandPurple"></i>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- Pop 6: HpT6r9ODcXg -->
-          <article class="yt-video-item">
-            <div class="yt-thumb-wrapper" data-videoid="HpT6r9ODcXg">
-              <img src="https://img.youtube.com/vi/HpT6r9ODcXg/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/HpT6r9ODcXg/hqdefault.jpg';" alt="At 17 , These 3 Rules Are Fixing My Life">
-              <div class="yt-play-overlay">
-                <div class="yt-play-icon">
-                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
-                </div>
-              </div>
-            </div>
-            <div class="flex items-start gap-3 mt-3.5 px-0.5">
-              <img src="https://i.ibb.co/4nLxjXyj/JK-Logo.webp" alt="Jasmeet Kaur" class="w-9 h-9 rounded-full object-cover shrink-0 mt-0.5">
-              <div class="flex-1 min-w-0">
-                <h3 class="font-brand font-semibold text-[15px] sm:text-[15.5px] text-textDark yt-title" title="At 17 , These 3 Rules Are Fixing My Life">
-                  At 17 , These 3 Rules Are Fixing My Life
-                </h3>
-                <div class="flex items-center gap-1.5 mt-1 text-xs text-textMuted font-medium">
-                  <span>Jasmeet Kaur</span>
-                  <i class="fa-solid fa-circle-check text-[11px] text-brandPurple"></i>
-                </div>
-              </div>
-            </div>
-          </article>
-
-        </div>
-      </div>
+    <!-- ARTICLES FEED CONTAINER -->
+    <section class="max-w-[1040px] mx-auto px-4 sm:px-6 md:px-8 space-y-12 sm:space-y-16" id="articlesList">
+      <!-- Dynamic Articles Render Here -->
     </section>
 
   </main>
 
-  <!-- SOLID LIGHT PURPLE FOOTER -->
-  <footer class="bg-[#F5ECFF] rounded-t-[40px] w-full pt-16 pb-10 border-t-[8px] border-white shadow-[0_-8px_15px_rgba(121,40,202,0.04)] scroll-reveal relative z-10 mt-auto" id="contact">
+  <!-- SOLID LIGHT PURPLE FOOTER WITH 8PX WHITE STRIPE SEPARATOR -->
+  <footer class="bg-[#F5ECFF] rounded-t-[40px] w-full pt-16 pb-10 border-t-[8px] border-white shadow-[0_-8px_15px_rgba(121,40,202,0.04)] reveal-on-scroll relative z-10 mt-auto" id="contact">
     <div class="max-w-[1300px] mx-auto px-6 sm:px-12">
       
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 pb-10 border-b border-footerBorder text-left">
@@ -693,7 +398,7 @@
         <!-- Column 1: Brand & Description -->
         <div>
           <div class="flex items-center gap-2.5 mb-3">
-            <img src="https://i.ibb.co/4nLxjXyj/JK-Logo.webp" alt="JK Official Logo" class="h-10 w-auto object-contain shrink-0 -translate-y-1">
+            <img src="https://i.ibb.co/ks55RRy3/jk-final.png" alt="JK Official Logo" class="h-10 w-auto object-contain shrink-0 -translate-y-1">
             <span class="font-brand font-bold text-[22px] tracking-tight text-black">JASMEET KAUR</span>
           </div>
           <p class="text-xs sm:text-sm text-textMuted leading-relaxed max-w-sm font-normal">
@@ -709,44 +414,47 @@
               <a href="index.html" class="hover:text-brandPurple hover:translate-x-1 inline-block transition">Home</a>
             </li>
             <li>
-              <a href="about.html" class="hover:text-brandPurple hover:translate-x-1 inline-block transition">About Us</a>
+              <a href="about.html" class="hover:text-brandPurple hover:translate-x-1 inline-block transition">About</a>
             </li>
             <li>
               <a href="self-improvement.html" class="hover:text-brandPurple hover:translate-x-1 inline-block transition">Self Improvement</a>
             </li>
             <li>
-              <a href="videos.html" class="text-brandPurple font-bold hover:translate-x-1 inline-block transition">Video</a>
+              <a href="videos.html" class="hover:text-brandPurple hover:translate-x-1 inline-block transition">Video</a>
             </li>
             <li>
               <a href="quotes.html" class="hover:text-brandPurple hover:translate-x-1 inline-block transition">Quotes</a>
             </li>
             <li>
-              <a href="contact.html" class="hover:text-brandPurple hover:translate-x-1 inline-block transition">Contact Us</a>
+              <a href="contact.html" class="hover:text-brandPurple hover:translate-x-1 inline-block transition">Contact</a>
             </li>
           </ul>
         </div>
 
-        <!-- Column 3: Official Channels & Inquiries -->
+        <!-- Column 3: Official Channels & Business Inquiries -->
         <div>
           <h4 class="text-xs font-bold text-brandPurple uppercase tracking-widest mb-4">Official Channels</h4>
           <div class="flex flex-col gap-3.5 text-xs sm:text-sm mb-6">
             
+            <!-- New Channel -->
             <a href="https://youtube.com/@jasmeetkaurr1" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 text-black hover:text-brandPurple transition group">
               <i class="fa-brands fa-youtube text-red-600 text-lg shrink-0 group-hover:scale-110 transition-transform"></i>
               <span class="font-semibold text-black text-[14px]">New Channel</span>
             </a>
 
-            <a href="https://youtube.com/@jasmeetmaann" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 text-black hover:text-brandPurple transition group[span_0](start_span)"[span_0](end_span)>
+            <!-- Previous Channel -->
+            <a href="https://youtube.com/@jasmeetmaann" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 text-black hover:text-brandPurple transition group"[cite: 1]>
               <i class="fa-brands fa-youtube text-brandPurple text-lg shrink-0 group-hover:scale-110 transition-transform"></i>
               <span class="font-semibold text-black text-[14px]">Previous Channel</span>
             </a>
 
           </div>
 
+          <!-- Business Inquiries -->
           <div>
             <h5 class="text-xs font-bold text-brandPurple uppercase tracking-widest mb-2">Business Inquiries</h5>
-            <a href="mailto:workwithjasmeetkaur@gmail.com" class="inline-flex items-center gap-2 text-sm sm:text-base font-semibold text-black hover:text-brandPurple transition lowercase break-all group[span_1](start_span)"[span_1](end_span)>
-              <i class="fa-solid fa-envelope text-brandPurple text-sm shrink-0 group-hover:scale-110 transition-transform"></i>
+            <a href="mailto:workwithjasmeetkaur@gmail.com" class="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-semibold text-black hover:text-brandPurple transition break-all group"[cite: 1]>
+              <i class="fa-solid fa-envelope text-brandPurple text-xs shrink-0 group-hover:scale-110 transition-transform"></i>
               <span>workwithjasmeetkaur@gmail.com</span>
             </a>
           </div>
@@ -754,9 +462,11 @@
 
       </div>
 
-      <!-- Footer Bottom -->
+      <!-- Footer Bottom Copyright & Creator on New Line -->
       <div class="pt-6 text-center text-xs text-textMuted font-medium flex flex-col items-center justify-center gap-1.5">
-        <div>© 2026 Jasmeet Kaur. All Rights Reserved.</div>
+        <div id="secretAdminTrigger" class="cursor-pointer select-none hover:text-brandPurple transition-colors duration-200">
+          © 2026 Jasmeet Kaur. All Rights Reserved.
+        </div>
         <div>Created by Gagan Nishad</div>
       </div>
 
@@ -776,108 +486,418 @@
     (function() {
       "use strict";
 
-      // 1. INSTANT ONE-CLICK YOUTUBE PLAYER (NO BLACK SCREEN DELAY)
-      let activeIframe = null;
-      let activeWrapper = null;
+      /* MASTER SECRET PASSKEY (STRICTLY JASMEET) */
+      const SECRET_PASSWORD = "Jasmeet";
+      let isMasterUnlocked = false;
+      let activeCategory = "All";
 
-      function playVideo(wrapper, videoId) {
-        if (!wrapper || !videoId) return;
+      /* COMPREHENSIVE TEXT & IMAGE ESSAY BLOG LIBRARY */
+      const DEFAULT_LIBRARY = [
+        {
+          id: "art_1",
+          title: "The Silent Grammar of Presence: Decoding Micro-Signals and Body Language",
+          category: "Body Language & Non-Verbal",
+          date: "September 12, 2026",
+          image: "https://i.ibb.co/F4bTVyBc/learning-1-1.webp",
+          content: "Long before your mouth produces a single syllable, your nervous system has broadcasted fifty distinct data points to everyone in the room. Humans evolved in dense social hierarchies where assessing physical posture, eye fixation, and shoulder alignment was a survival mechanism. When someone steps forward with an internally collapsed chest and rolled-forward shoulders, the limbic system of the observer registers submissiveness or elevated cortisol.\n\nCommanding non-verbal presence begins with vertical spine elongation. Relax your traps downward and open your collarbones by two centimeters. This simple postural recalibration physically expands your chest cavity, slows respiratory rate, and signals internal composure.\n\nPay meticulous attention to your hands. Charismatic and trustworthy figures keep their palms visibly unobstructed. Tucking your hands deep into pockets or folding your arms tightly across your solar plexus creates subconscious barriers. Anchor your gestures within the neutral torso zone—deliberate, open, and timed to punctuation."
+        },
+        {
+          id: "art_2",
+          title: "The Architecture of Charisma: How to Speak With Unhurried Gravitas",
+          category: "Communication & Charisma",
+          date: "September 10, 2026",
+          image: "https://i.ibb.co/Rkh6J6pn/learning-2-1.webp",
+          content: "High-value communicators rarely rush their sentences. Speaking at breakneck speed is almost always an overcompensation for feeling that you are taking up someone else's valuable time. When you rush, vowels compress, vocal inflection rises at the conclusion of statements, and hesitation fillers ('um', 'you know', 'basically') bleed into every sentence.\n\nThe single most potent tool in advanced vocal control is the deliberate downward inflection accompanied by intentional silence. When you reach the conclusion of an argument, let your pitch decline naturally and sit completely still for two full beats.\n\nAmateurs fear dead air; masters recognize that silence forces the room to reflect upon what was just uttered. Eliminate filler sounds by practicing the closed-mouth inhalation: whenever you feel the instinct to say 'like', close your lips and take one smooth nasal breath before resuming."
+        },
+        {
+          id: "art_3",
+          title: "The High-Agency Personality: Why Capability Beats Raw Talent",
+          category: "Personality & Identity",
+          date: "September 08, 2026",
+          image: "https://i.ibb.co/Ldm1Kd2G/learning-3-1.webp",
+          content: "High-agency individuals view the external world as pliable rather than fixed. When ordinary people encounter bureaucratic walls, failed applications, or gatekeepers, they treat those obstacles as ultimate verdicts. A high-agency mind sees constraints merely as logistical puzzles awaiting different inputs.\n\nDeveloping this psychological disposition requires actively divorcing yourself from the victim narrative. If your initial video loses reach, if an examination question feels unfair, or if a team project falters, your automatic inquiry must not be 'Why is this happening to me?' but rather 'What is the precise variable within my direct control that changes the game?'\n\nYou forge an authoritative personality by consistently taking radical ownership over outcomes where you had every convenient excuse to point fingers elsewhere."
+        },
+        {
+          id: "art_4",
+          title: "The Anatomy of Long-Term Success: Asymmetric Effort and Compounding Returns",
+          category: "Success Mindset",
+          date: "September 05, 2026",
+          image: "https://i.ibb.co/fzy3Jrqw/learning-4-1.webp",
+          content: "Real success is painfully unglamorous across its first eight hundred days. We live in an algorithmic ecosystem that glorifies sudden overnight ascents, concealing the brutal, repetitive, solitary baseline required to generate competence.\n\nTrue mastery relies on asymmetric compounding. When you write one focused page or practice vocal delivery for twenty minutes every single afternoon, the progress on day seven is visually indistinguishable from zero. However, compounding works exponentially rather than linearly.\n\nProtect your non-negotiables like an iron fortress. It is far superior to show up for forty-five focused minutes seven days a week than to pull a sporadic twelve-hour heroic all-nighter followed by six days of guilt-ridden recovery."
+        },
+        {
+          id: "art_5",
+          title: "The Friction Inversion Protocol: Making Daily Discipline Inevitable",
+          category: "Habit Architecture",
+          date: "September 03, 2026",
+          image: "https://i.ibb.co/ycNDNMdQ/learning-5-1.webp",
+          content: "Willpower is a depletable biological battery. If your daily workflow relies on you mustering passionate emotional motivation to resist junk food, stop doom-scrolling, or begin study blocks, you will inevitably capitulate whenever cognitive fatigue sets in.\n\nDiscipline is an environmental engineering challenge. You must aggressively raise the friction on destructive habits while reducing the activation energy of foundational ones to zero.\n\nWant to read 30 pages nightly? Place the book directly on top of your pillow with the phone charger anchored in the hallway. Want to eliminate social media binging? Log out of all mobile browsers and change account passwords to 30-character strings stored in an offline notebook. Design an environment where succeeding requires minimal decision-making."
+        },
+        {
+          id: "art_6",
+          title: "The Art of Conversational Frame Control: Never Defending, Always Guiding",
+          category: "Communication & Charisma",
+          date: "August 30, 2026",
+          image: "https://i.ibb.co/DHJCpj5P/My-Purpose-1.webp",
+          content: "In social interactions, whichever party reacts with excessive emotional turbulence immediately surrenders the frame. When someone challenges your premise or throws passive-aggressive banter your way, reacting defensively validates their authority over the interaction.\n\nAdopt relaxed curiosity instead. Rather than launching into an emotional justification of your viewpoint, tilt your head slightly and ask: 'What led you to that specific conclusion?'\n\nThis simple rhetorical pivot keeps your dignity completely intact, places the intellectual burden of proof back on the other party, and establishes you as the grounded, emotionally stable presence in the exchange."
+        },
+        {
+          id: "art_7",
+          title: "Ocular Grounding: The Triangular Gaze Technique for Instant Trust",
+          category: "Body Language & Non-Verbal",
+          date: "August 28, 2026",
+          image: "https://i.ibb.co/v4Kr803H/My-Purpose-2.webp",
+          content: "Eye contact is a double-edged sword. Unblinking, predatory staring provokes fight-or-flight defensiveness, while darting downward glances communicates submission and evasiveness.\n\nHigh-trust communicators master the triangular gaze. Fix your focus on their left eye for three seconds, drift gently to their right eye for three seconds, and descend softly to the bridge of their nose before cycling back. When you need to break visual connection to reflect upon a complex thought, always break your gaze horizontally or upward—never downward toward the floor.\n\nBreaking downward communicates defeat; looking upward communicates active conceptual visualization and deep cognitive engagement."
+        },
+        {
+          id: "art_8",
+          title: "The Stoic Filter: Transforming Public Criticism into Tactical Data",
+          category: "Success Mindset",
+          date: "August 25, 2026",
+          image: "https://i.ibb.co/V0gwddVM/My-Vision-1.webp",
+          content: "When you build something of consequence in public, criticism is mathematically unavoidable. Most amateurs internalize hostility, allowing internet comments or peer skepticism to derail their momentum for days.\n\nRun every piece of feedback through a binary filter: Does the individual providing this critique possess skin in the game? Have they built, failed, and endured what you are attempting?\n\nIf the answer is no, their opinion is merely spectator noise. If the critique comes from a practitioner, strip away any harsh emotional tone and extract the pure technical data point. Be ruthless with lessons, but indifferent to applause or insult."
+        },
+        {
+          id: "art_9",
+          title: "Rewiring the Internal Monologue: The Psychology of Self-Definition",
+          category: "Personality & Identity",
+          date: "August 22, 2026",
+          image: "https://i.ibb.co/LDsgVPKP/My-Vision-2.webp",
+          content: "You cannot outperform your self-image. If you secretly consider yourself a disorganized, undisciplined student who only performs when backed against a deadline, your subconscious mind will engineer self-sabotage whenever order begins to appear.\n\nBelief is formed by observing your own actions. You cannot lie to yourself with mirror affirmations. You must provide your brain with undeniable physical proof of reliability.\n\nEvery promise you make to yourself and keep—waking up on the first alarm, packing your bag the night before, completing a 90-minute block without touching a device—lays down new psychological foundations. Build self-respect brick by quiet brick."
+        },
+        {
+          id: "art_10",
+          title: "Deep Work Rituals: How to Enter the State of Flow on Demand",
+          category: "Success Mindset",
+          date: "August 19, 2026",
+          image: "https://i.ibb.co/S71RrZ6x/learning-1-2.webp",
+          content: "Flow state is not an accident of mystical inspiration; it is the predictable biological consequence of cognitive pre-conditioning. Elite athletes and researchers do not simply sit down and hope focus strikes; they execute an immutable ignition sequence.\n\nDesign your ritual: clear every extraneous item off your desk surface, fill a 1-liter water flask, put on noise-canceling headphones playing repetitive instrumental frequencies, and write down the single objective for the session on a blank index card.\n\nBy executing this exact sensory sequence repeatedly over weeks, you condition your nervous system to drop straight into intense intellectual focus the moment the ritual begins."
+        },
+        {
+          id: "art_11",
+          title: "Vocal Resonance: Speaking from the Diaphragm Rather than the Throat",
+          category: "Body Language & Non-Verbal",
+          date: "August 16, 2026",
+          image: "https://i.ibb.co/WNVKHQHc/learning-2-2.webp",
+          content: "A thin, nasal voice undermines powerful arguments before they are even processed. Throat-based vocalization occurs when your shoulders are tense, your rib cage is constricted, and your breathing is shallow.\n\nTo unlock chest resonance, breathe deep into your belly. Place a palm flat against your sternum; when you speak, you should physically feel a low-frequency hum vibrating against your hand.\n\nLowering your speaking pitch by just ten percent and anchoring your voice from your core commands instinctive attention and projects calm authority across any conference room or camera lens."
+        },
+        {
+          id: "art_12",
+          title: "The Rejection Inoculation: Why Failing Fast is the Only Real Shortcut",
+          category: "Success Mindset",
+          date: "August 13, 2026",
+          image: "https://i.ibb.co/VcB0LbGV/learning-3-2.webp",
+          content: "Fear of rejection keeps more people mediocre than lack of talent ever will. We invent endlessly elaborate preparation protocols and pretend we are 'researching', when in reality we are simply afraid to step into the arena where judgment is real.\n\nTreat rejection as a prerequisite currency you must spend to purchase competence. Aim to collect ten professional or creative 'nos' every month.\n\nWhen hearing 'no' becomes an expected milestone rather than a traumatic crisis, your fear dissolves, allowing you to pitch bolder ideas, connect with mentors, and take shots others are too terrified to attempt."
+        },
+        {
+          id: "art_13",
+          title: "Navigating High-Stakes Negotiations as a Young Creator",
+          category: "Communication & Charisma",
+          date: "August 10, 2026",
+          image: "https://i.ibb.co/nsnYQNgc/learning-4-2.webp",
+          content: "When entering brand discussions or project agreements, age is only a disadvantage if you present yourself as a novice seeking approval. Companies and clients do not pay for your age; they pay for clarity, reliability, and outcomes.\n\nNever lead a conversation with apologies or hesitant phrases like 'I'm just starting out'. Frame everything around deliverables: clear timelines, audience engagement metrics, and rigorous execution standards.\n\nThe party most willing to walk away from a deal always holds the negotiating power. Know your bottom line and communicate terms with polite, unshakeable composure."
+        },
+        {
+          id: "art_14",
+          title: "The Emotional Maturity of Boundaries: Saying No Without Guilt",
+          category: "Personality & Identity",
+          date: "August 07, 2026",
+          image: "https://i.ibb.co/bRrXfpwX/learning-5-2.webp",
+          content: "People-pleasing is not kindness; it is conflict-avoidance disguised as virtue. Every time you agree to an obligation you dread simply to prevent someone else's temporary disappointment, you trade your valuable hours and emotional peace for shallow approval.\n\nPractice the clean, neutral refusal. You do not owe anyone a convoluted, fabricated excuse. A simple 'Thank you for considering me, but I have committed my focus elsewhere right now' is polite, definitive, and leaves no room for debate.\n\nThose who respect your time will honor your boundary immediately; those who react with indignation were merely profiting from your lack of one."
+        },
+        {
+          id: "art_15",
+          title: "The Sleep & Cortisol Equation: The Biological Foundation of Willpower",
+          category: "Habit Architecture",
+          date: "August 04, 2026",
+          image: "https://i.ibb.co/F4bTVyBc/learning-1-1.webp",
+          content: "Grind culture has convinced millions that skimping on sleep is a badge of discipline. In neurobiological reality, chronic sleep deprivation turns down activity in the prefrontal cortex and hyper-sensitizes the amygdala.\n\nWhen you are operating on five hours of sleep, your capacity for impulse control, emotional poise, and complex problem-solving is clinically compromised. You become reactive, easily frustrated, and prone to default scrolling.\n\nTreat sleep hygiene as your primary competitive weapon. Cool your bedroom to 19°C, view natural sunlight within twenty minutes of waking, and eliminate high-intensity blue light two hours before bed. Protect the foundation that powers your mind."
+        },
+        {
+          id: "art_16",
+          title: "Mastering the Spatial Room Entry: The Threshold Walk Protocol",
+          category: "Body Language & Non-Verbal",
+          date: "August 01, 2026",
+          image: "https://i.ibb.co/Rkh6J6pn/learning-2-1.webp",
+          content: "The exact moment you cross a doorway dictates how the entire room perceives your social status. Most insecure people step into an unfamiliar space with their heads tilted down, checking their phones to mask social discomfort while scanning frantically for an empty corner.\n\nBefore you turn the handle or step across the threshold, pause for one second. Breathe in, raise your chin parallel to the ground, roll your shoulders back, and step into the room at an unhurried, measured pace.\n\nLook around slowly and offer a gentle, warm nod of recognition. Claiming space naturally without seeking permission signals that you belong wherever you stand."
+        },
+        {
+          id: "art_17",
+          title: "Public Speaking Without Anxiety: Reframing Nerves as Biological Readiness",
+          category: "Communication & Charisma",
+          date: "July 29, 2026",
+          image: "https://i.ibb.co/Ldm1Kd2G/learning-3-1.webp",
+          content: "The physiological response to anxiety—racing heart, sweaty palms, heightened visual acuity—is chemically identical to the physiological response to excitement. The only difference is the cognitive label your conscious mind assigns to the sensation.\n\nWhen standing backstage with your heart pounding in your ears, never tell yourself 'I need to calm down'. Telling a spiked nervous system to calm down creates dissonance. Tell yourself instead: 'My body is preparing me for performance. My heart is pumping oxygen to my brain so I can articulate clearly.'\n\nChannel that biological adrenaline directly into passion, vocal projection, and animated delivery."
+        },
+        {
+          id: "art_18",
+          title: "Cultivating Quiet Power: Why the Loudest Voice in the Room is Often the Weakest",
+          category: "Personality & Identity",
+          date: "July 26, 2026",
+          image: "https://i.ibb.co/fzy3Jrqw/learning-4-1.webp",
+          content: "Insecurity is loud; true confidence is quiet. Individuals who feel compelled to dominate every conversation, boast about their accomplishments, or talk over colleagues are constantly seeking external validation to reinforce an unstable ego.\n\nQuiet power operates on stillness. It listens with genuine curiosity, speaks with economic precision, and feels no urge to prove its worth to casual observers.\n\nWhen you master your craft and your character, your presence speaks for itself. True authority never needs to shout."
+        },
+        {
+          id: "art_19",
+          title: "The Focus Matrix: Protecting Your Highest-Energy Biological Windows",
+          category: "Success Mindset",
+          date: "July 23, 2026",
+          image: "https://i.ibb.co/ycNDNMdQ/learning-5-1.webp",
+          content: "All hours are not created equal. Spending two hours writing a strategic roadmap at 8:00 AM yields vastly different creative dividends than spending two hours attempting the same task at 10:30 PM with a fatigued brain.\n\nIdentify your biological peak—the three-hour morning window when your alertness is sharpest—and ruthlessly cordon it off from low-leverage administrative tasks.\n\nNever waste your peak cognitive horsepower answering emails, filing receipts, or scrolling feeds. Devote your freshest energy to your hardest, most impactful creative problem."
+        },
+        {
+          id: "art_20",
+          title: "The Continuous Compounding of Character: Becoming Who You Admire",
+          category: "Personality & Identity",
+          date: "July 20, 2026",
+          image: "https://i.ibb.co/DHJCpj5P/My-Purpose-1.webp",
+          content: "At the end of your journey, success is not simply measured by vanity metrics, subscriber counts, or financial statements. It is measured by the person you become through the daily pursuit of excellence.\n\nDid you remain honest when it was inconvenient? Did you uphold your discipline when no one was watching? Did you lift others up as you climbed your own mountain?\n\nAnchor your life to enduring virtues. Pursue self-mastery not for applause, but for the quiet, unshakable peace that comes from respecting the person looking back in the mirror."
+        }
+      ];
 
-        // If clicking the currently playing video, toggle pause/play instantly via postMessage
-        if (activeWrapper === wrapper && activeIframe) {
-          try {
-            activeIframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
-          } catch(err) {}
+      /* STORAGE ENGINE */
+      function loadArticles() {
+        const stored = localStorage.getItem('jk_blog_articles_master');
+        if (!stored) {
+          localStorage.setItem('jk_blog_articles_master', JSON.stringify(DEFAULT_LIBRARY));
+          return DEFAULT_LIBRARY;
+        }
+        try {
+          return JSON.parse(stored);
+        } catch(e) {
+          return DEFAULT_LIBRARY;
+        }
+      }
+
+      function saveArticles(list) {
+        localStorage.setItem('jk_blog_articles_master', JSON.stringify(list));
+      }
+
+      /* RENDER BLOG ARTICLES (TEXT & IMAGE ONLY) */
+      const articlesContainer = document.getElementById('articlesList');
+
+      function renderFeed() {
+        const list = loadArticles();
+        articlesContainer.innerHTML = "";
+
+        const filtered = activeCategory === "All" 
+          ? list 
+          : list.filter(item => item.category.toLowerCase().includes(activeCategory.toLowerCase()));
+
+        if (filtered.length === 0) {
+          articlesContainer.innerHTML = `
+            <div class="text-center py-16 bg-white rounded-3xl border border-footerBorder">
+              <p class="text-textMuted font-medium text-base">No blog articles found in this category yet.</p>
+            </div>
+          `;
           return;
         }
 
-        // Clean up previous playing video without reloading the entire page
-        if (activeWrapper && activeWrapper !== wrapper) {
-          const prevIframe = activeWrapper.querySelector('iframe');
-          if (prevIframe) prevIframe.remove();
-          const prevOverlay = activeWrapper.querySelector('.yt-play-overlay');
-          if (prevOverlay) prevOverlay.style.display = 'flex';
-          const prevImg = activeWrapper.querySelector('img');
-          if (prevImg) prevImg.style.display = 'block';
-        }
+        filtered.forEach(article => {
+          const articleEl = document.createElement('article');
+          articleEl.className = "bg-white p-7 sm:p-10 rounded-[32px] border border-footerBorder shadow-sm hover-lift reveal-on-scroll is-visible";
 
-        activeWrapper = wrapper;
+          // Format Multi-paragraph
+          const paragraphs = article.content
+            .split('\n\n')
+            .map(p => `<p class="text-sm sm:text-base text-textDark/90 leading-relaxed font-normal mb-5">${p.replace(/\n/g, '<br>')}</p>`)
+            .join('');
 
-        // Create optimized iframe on-the-fly (no double re-rendering)
-        const iframe = document.createElement('iframe');
-        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&enablejsapi=1&rel=0&modestbranding=1&playsinline=1`;
-        iframe.title = "YouTube Video Player";
-        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
-        iframe.allowFullscreen = true;
+          // Text and image only banner
+          let imageHTML = "";
+          if (article.image) {
+            imageHTML = `
+              <div class="relative w-full aspect-[16/9] sm:aspect-[21/9] rounded-2xl overflow-hidden mb-6 shadow-sm border border-footerBorder bg-[#FAF5FF]">
+                <img src="${article.image}" alt="${article.title}" class="w-full h-full object-cover">
+              </div>
+            `;
+          }
 
-        // Hide overlay and append iframe immediately
-        const overlay = wrapper.querySelector('.yt-play-overlay');
-        if (overlay) overlay.style.display = 'none';
+          articleEl.innerHTML = `
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+              <span class="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-brandPurple bg-brandPurpleLight/70 px-3.5 py-1.5 rounded-full border border-brandPurple/20">${article.category}</span>
+              <div class="flex items-center gap-2 text-xs font-medium text-textMuted">
+                <i class="fa-regular fa-calendar text-brandPurple"></i>
+                <span>${article.date}</span>
+              </div>
+            </div>
 
-        wrapper.appendChild(iframe);
-        activeIframe = iframe;
+            <h2 class="font-brand font-bold text-2xl sm:text-3xl text-black mb-5 tracking-tight leading-snug">${article.title}</h2>
+
+            ${imageHTML}
+
+            <div class="mb-6 font-normal">
+              ${paragraphs}
+            </div>
+
+            <div class="flex items-center justify-between pt-5 border-t border-footerBorder">
+              <div class="flex items-center gap-2.5">
+                <img src="https://i.ibb.co/ks55RRy3/jk-final.png" alt="Jasmeet Kaur" class="w-8 h-8 rounded-full border border-footerBorder">
+                <span class="text-xs font-semibold text-textDark">Jasmeet Kaur</span>
+              </div>
+
+              <div class="flex items-center gap-2">
+                <button onclick="shareArticle('${article.title.replace(/'/g, "\\'")}', window.location.href)" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#FAF5FF] hover:bg-brandPurple hover:text-white text-brandPurple text-xs font-semibold border border-footerBorder transition">
+                  <i class="fa-solid fa-share-nodes text-xs"></i>
+                  <span>Share</span>
+                </button>
+                ${isMasterUnlocked ? `<button onclick="deletePost('${article.id}')" class="px-3 py-2 rounded-full bg-red-50 text-red-600 text-xs font-semibold hover:bg-red-100 transition"><i class="fa-regular fa-trash-can"></i></button>` : ''}
+              </div>
+            </div>
+          `;
+
+          articlesContainer.appendChild(articleEl);
+        });
       }
 
-      document.querySelectorAll('.yt-thumb-wrapper').forEach(wrapper => {
-        const videoId = wrapper.getAttribute('data-videoid');
-        if (videoId) {
-          wrapper.addEventListener('click', function(e) {
-            e.stopPropagation();
-            playVideo(this, videoId);
-          });
+      /* SHARE HANDLER */
+      window.shareArticle = function(title, url) {
+        if (navigator.share) {
+          navigator.share({ title: title, url: url }).catch(() => {});
+        } else {
+          navigator.clipboard.writeText(url);
+          alert("Article URL copied to clipboard!");
+        }
+      };
+
+      /* DELETE POST */
+      window.deletePost = function(id) {
+        if (!confirm("Are you sure you want to remove this article?")) return;
+        const current = loadArticles().filter(a => a.id !== id);
+        saveArticles(current);
+        renderFeed();
+      };
+
+      /* INVISIBLE 3-CLICK TRIGGER ON FOOTER COPYRIGHT */
+      const secretTrigger = document.getElementById('secretAdminTrigger');
+      const secretModal = document.getElementById('secretModal');
+      const closeSecretBtn = document.getElementById('closeSecretBtn');
+      const secretPassForm = document.getElementById('secretPassForm');
+      const secretPassInput = document.getElementById('secretPassInput');
+      const secretPassError = document.getElementById('secretPassError');
+      const hiddenPublisherSection = document.getElementById('hiddenPublisherSection');
+      const closeAdminStudioBtn = document.getElementById('closeAdminStudioBtn');
+
+      let clickCount = 0;
+      let clickTimeout = null;
+
+      secretTrigger.addEventListener('click', () => {
+        clickCount++;
+        clearTimeout(clickTimeout);
+
+        if (clickCount >= 3) {
+          clickCount = 0;
+          secretModal.classList.add('modal-active');
+          secretPassInput.value = "";
+          secretPassError.classList.add('hidden');
+          secretPassInput.focus();
+        } else {
+          clickTimeout = setTimeout(() => {
+            clickCount = 0;
+          }, 800);
         }
       });
 
-      // 2. DOCK AUTO-HIDE & SCROLL BEHAVIOR
+      closeSecretBtn.addEventListener('click', () => {
+        secretModal.classList.remove('modal-active');
+      });
+
+      secretPassForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const entered = secretPassInput.value.trim();
+
+        // Exact match with 'Jasmeet'
+        if (entered === SECRET_PASSWORD) {
+          isMasterUnlocked = true;
+          secretModal.classList.remove('modal-active');
+          hiddenPublisherSection.classList.remove('hidden');
+          renderFeed();
+          hiddenPublisherSection.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          secretPassError.classList.remove('hidden');
+        }
+      });
+
+      closeAdminStudioBtn.addEventListener('click', () => {
+        isMasterUnlocked = false;
+        hiddenPublisherSection.classList.add('hidden');
+        renderFeed();
+      });
+
+      /* PUBLISH NEW ESSAY */
+      const newArticleForm = document.getElementById('newArticleForm');
+      newArticleForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const title = document.getElementById('articleTitleInput').value.trim();
+        const category = document.getElementById('articleCategoryInput').value.trim();
+        const image = document.getElementById('articleImageInput').value.trim();
+        const content = document.getElementById('articleBodyInput').value.trim();
+
+        const now = new Date();
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        const formattedDate = now.toLocaleDateString('en-US', options);
+
+        const newPost = {
+          id: "custom_" + Date.now(),
+          title,
+          category,
+          date: formattedDate,
+          image,
+          content
+        };
+
+        const current = loadArticles();
+        current.unshift(newPost);
+        saveArticles(current);
+
+        newArticleForm.reset();
+        renderFeed();
+        articlesContainer.scrollIntoView({ behavior: 'smooth' });
+      });
+
+      /* CATEGORY FILTER SWITCHER */
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          activeCategory = btn.getAttribute('data-category');
+          renderFeed();
+        });
+      });
+
+      /* DOCK AUTO-HIDE & BACK TO TOP */
       let lastScrollY = window.scrollY;
       let scrollTimer = null;
       const navShell = document.getElementById('navShell');
       const backToTopBtn = document.getElementById('backToTopBtn');
-      const revealItems = document.querySelectorAll('.scroll-reveal');
 
-      function checkDirectionalScroll() {
+      window.addEventListener('scroll', () => {
         const currentScrollY = window.scrollY;
-        const isScrollingDown = currentScrollY > lastScrollY;
-
-        if (isScrollingDown && currentScrollY > 70) {
+        if (currentScrollY > lastScrollY && currentScrollY > 80) {
           navShell.classList.add('dock-hidden');
         } else {
           navShell.classList.remove('dock-hidden');
         }
-
-        if (isScrollingDown) {
-          const triggerBottom = window.innerHeight * 0.92;
-          revealItems.forEach(item => {
-            if (!item.classList.contains('has-opened')) {
-              const rect = item.getBoundingClientRect();
-              if (rect.top < triggerBottom) {
-                item.classList.add('has-opened');
-              }
-            }
-          });
-        }
+        lastScrollY = currentScrollY;
 
         if (currentScrollY > 300) {
           backToTopBtn.classList.add('is-active');
           clearTimeout(scrollTimer);
           scrollTimer = setTimeout(() => {
             backToTopBtn.classList.remove('is-active');
-          }, 1400);
+          }, 1200);
         } else {
           backToTopBtn.classList.remove('is-active');
         }
-
-        lastScrollY = currentScrollY;
-      }
-
-      window.addEventListener('scroll', checkDirectionalScroll, { passive: true });
-      window.addEventListener('DOMContentLoaded', checkDirectionalScroll);
+      }, { passive: true });
 
       backToTopBtn.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
 
-      // 3. MOBILE DRAWER NAVIGATION
+      /* MOBILE DRAWER CONTROLS */
       const openBtn = document.getElementById('openDrawerBtn');
       const closeBtn = document.getElementById('closeDrawerBtn');
       const mobileBackdrop = document.getElementById('mobileBackdrop');
@@ -886,24 +906,13 @@
       function openDrawer() { document.body.classList.add('drawer-open'); }
       function closeDrawer() { document.body.classList.remove('drawer-open'); }
 
-      if(openBtn) openBtn.addEventListener('click', openDrawer);
-      if(closeBtn) closeBtn.addEventListener('click', closeDrawer);
-      if(mobileBackdrop) mobileBackdrop.addEventListener('click', closeDrawer);
-      
-      mobileLinks.forEach(link => {
-        link.addEventListener('click', closeDrawer);
-      });
+      if (openBtn) openBtn.addEventListener('click', openDrawer);
+      if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+      if (mobileBackdrop) mobileBackdrop.addEventListener('click', closeDrawer);
+      mobileLinks.forEach(link => link.addEventListener('click', closeDrawer));
 
-      // 4. INTERSECTION OBSERVER ENTRANCES
-      const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('has-opened');
-          }
-        });
-      }, { threshold: 0.08 }); 
-
-      revealItems.forEach(el => revealObserver.observe(el));
+      /* INITIAL RENDER */
+      renderFeed();
 
     })();
   </script>
