@@ -132,7 +132,7 @@
       background-color: rgba(255, 255, 255, 0.55);
     }
 
-    /* Zero-Lag Thumbnail Shell */
+    /* Zero-Lag Borderless Thumbnail Shell (No Play Button) */
     .yt-thumb-wrapper {
       position: relative;
       width: 100%;
@@ -172,37 +172,6 @@
       border: 0;
       border-radius: 16px;
       z-index: 10;
-    }
-
-    /* Play Icon Overlay */
-    .yt-play-overlay {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(0, 0, 0, 0.22);
-      transition: opacity 0.2s ease;
-      z-index: 2;
-    }
-    .yt-thumb-wrapper:hover .yt-play-overlay {
-      background: rgba(0, 0, 0, 0.32);
-    }
-    .yt-play-icon {
-      width: 50px;
-      height: 35px;
-      background: #7928CA;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #ffffff;
-      box-shadow: 0 6px 18px rgba(121, 40, 202, 0.38);
-      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease;
-    }
-    .yt-thumb-wrapper:hover .yt-play-icon {
-      transform: scale(1.08);
-      background: #cc0000;
     }
 
     .yt-title {
@@ -350,7 +319,7 @@
       </div>
     </section>
 
-    <!-- SECTION 1: MY LATEST VIDEOS -->
+    <!-- SECTION 1: MY LATEST VIDEOS (ALL 7 VIDEOS PRESERVED) -->
     <section class="py-5 sm:py-7 relative scroll-reveal">
       <div class="w-full max-w-[1280px] mx-auto px-4 sm:px-6 md:px-8">
         
@@ -363,18 +332,13 @@
           </div>
         </div>
 
-        <!-- 6 Videos Grid (YouTube-Style with Channel Logo & Verification Tick) -->
+        <!-- 7 Videos Grid -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7">
 
-          <!-- Video: SljRBB7pp-w -->
+          <!-- 1. Dumb thoughts - Episode 2 -->
           <article class="yt-video-item">
             <div class="yt-thumb-wrapper" data-videoid="SljRBB7pp-w">
               <img src="https://img.youtube.com/vi/SljRBB7pp-w/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/SljRBB7pp-w/hqdefault.jpg';" alt="Dumb thoughts - Episode 2" loading="lazy">
-              <div class="yt-play-overlay">
-                <div class="yt-play-icon">
-                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
-                </div>
-              </div>
             </div>
             <div class="mt-3.5 flex items-start gap-3 px-1">
               <img src="https://i.ibb.co/Q3VG6TB6/JK-Logo.webp" alt="Jasmeet Kaur" class="w-9 h-9 rounded-full object-contain shrink-0 mt-0.5">
@@ -390,15 +354,10 @@
             </div>
           </article>
 
-          <!-- Video: gb4BclhYa7E -->
+          <!-- 2. If you're a student watch this - ( Class 12th Student) -->
           <article class="yt-video-item">
             <div class="yt-thumb-wrapper" data-videoid="gb4BclhYa7E">
               <img src="https://img.youtube.com/vi/gb4BclhYa7E/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/gb4BclhYa7E/hqdefault.jpg';" alt="If you're a student watch this - ( Class 12th Student)" loading="lazy">
-              <div class="yt-play-overlay">
-                <div class="yt-play-icon">
-                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
-                </div>
-              </div>
             </div>
             <div class="mt-3.5 flex items-start gap-3 px-1">
               <img src="https://i.ibb.co/Q3VG6TB6/JK-Logo.webp" alt="Jasmeet Kaur" class="w-9 h-9 rounded-full object-contain shrink-0 mt-0.5">
@@ -414,15 +373,10 @@
             </div>
           </article>
 
-          <!-- Video: 5pG0OYNcaos -->
+          <!-- 3. Before I turn 18 , I need to tell u this -->
           <article class="yt-video-item">
             <div class="yt-thumb-wrapper" data-videoid="5pG0OYNcaos">
               <img src="https://img.youtube.com/vi/5pG0OYNcaos/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/5pG0OYNcaos/hqdefault.jpg';" alt="Before I turn 18 , I need to tell u this" loading="lazy">
-              <div class="yt-play-overlay">
-                <div class="yt-play-icon">
-                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
-                </div>
-              </div>
             </div>
             <div class="mt-3.5 flex items-start gap-3 px-1">
               <img src="https://i.ibb.co/Q3VG6TB6/JK-Logo.webp" alt="Jasmeet Kaur" class="w-9 h-9 rounded-full object-contain shrink-0 mt-0.5">
@@ -438,15 +392,10 @@
             </div>
           </article>
 
-          <!-- Video: Yg62Ros5kHA -->
+          <!-- 4. At 17, These 5 Things are Changing My LIFE -->
           <article class="yt-video-item">
             <div class="yt-thumb-wrapper" data-videoid="Yg62Ros5kHA">
               <img src="https://img.youtube.com/vi/Yg62Ros5kHA/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/Yg62Ros5kHA/hqdefault.jpg';" alt="At 17, These 5 Things are Changing My LIFE" loading="lazy">
-              <div class="yt-play-overlay">
-                <div class="yt-play-icon">
-                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
-                </div>
-              </div>
             </div>
             <div class="mt-3.5 flex items-start gap-3 px-1">
               <img src="https://i.ibb.co/Q3VG6TB6/JK-Logo.webp" alt="Jasmeet Kaur" class="w-9 h-9 rounded-full object-contain shrink-0 mt-0.5">
@@ -462,15 +411,10 @@
             </div>
           </article>
 
-          <!-- Video: 3ZtVBlfeLKw -->
+          <!-- 5. How to get what you want ? - 3 ways that i follow -->
           <article class="yt-video-item">
             <div class="yt-thumb-wrapper" data-videoid="3ZtVBlfeLKw">
               <img src="https://img.youtube.com/vi/3ZtVBlfeLKw/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/3ZtVBlfeLKw/hqdefault.jpg';" alt="How to get what you want ? - 3 ways that i follow" loading="lazy">
-              <div class="yt-play-overlay">
-                <div class="yt-play-icon">
-                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
-                </div>
-              </div>
             </div>
             <div class="mt-3.5 flex items-start gap-3 px-1">
               <img src="https://i.ibb.co/Q3VG6TB6/JK-Logo.webp" alt="Jasmeet Kaur" class="w-9 h-9 rounded-full object-contain shrink-0 mt-0.5">
@@ -486,21 +430,35 @@
             </div>
           </article>
 
-          <!-- Video: EevaoB3omTA -->
+          <!-- 6. Last video on this channel ( bye guys ) -->
           <article class="yt-video-item">
             <div class="yt-thumb-wrapper" data-videoid="EevaoB3omTA">
               <img src="https://img.youtube.com/vi/EevaoB3omTA/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/EevaoB3omTA/hqdefault.jpg';" alt="Last video on this channel ( bye guys )" loading="lazy">
-              <div class="yt-play-overlay">
-                <div class="yt-play-icon">
-                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
-                </div>
-              </div>
             </div>
             <div class="mt-3.5 flex items-start gap-3 px-1">
               <img src="https://i.ibb.co/Q3VG6TB6/JK-Logo.webp" alt="Jasmeet Kaur" class="w-9 h-9 rounded-full object-contain shrink-0 mt-0.5">
               <div class="flex-1 min-w-0">
                 <h3 class="font-brand font-semibold text-[15px] sm:text-[15.5px] text-textDark yt-title leading-snug" title="Last video on this channel ( bye guys )">
                   Last video on this channel ( bye guys )
+                </h3>
+                <div class="flex items-center gap-1.5 text-xs text-textMuted mt-1">
+                  <span class="font-medium hover:text-brandPurple transition">Jasmeet Kaur</span>
+                  <i class="fa-solid fa-circle-check text-brandPurple text-[12px]"></i>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 7. The Art of Becoming Dangerously Self Educated -->
+          <article class="yt-video-item">
+            <div class="yt-thumb-wrapper" data-videoid="ymKfVEbDZMo">
+              <img src="https://img.youtube.com/vi/ymKfVEbDZMo/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/ymKfVEbDZMo/hqdefault.jpg';" alt="The Art of Becoming Dangerously Self Educated" loading="lazy">
+            </div>
+            <div class="mt-3.5 flex items-start gap-3 px-1">
+              <img src="https://i.ibb.co/Q3VG6TB6/JK-Logo.webp" alt="Jasmeet Kaur" class="w-9 h-9 rounded-full object-contain shrink-0 mt-0.5">
+              <div class="flex-1 min-w-0">
+                <h3 class="font-brand font-semibold text-[15px] sm:text-[15.5px] text-textDark yt-title leading-snug" title="The Art of Becoming Dangerously Self Educated">
+                  The Art of Becoming Dangerously Self Educated
                 </h3>
                 <div class="flex items-center gap-1.5 text-xs text-textMuted mt-1">
                   <span class="font-medium hover:text-brandPurple transition">Jasmeet Kaur</span>
@@ -527,18 +485,13 @@
           </div>
         </div>
 
-        <!-- 6 Videos Grid (YouTube-Style with Channel Logo & Verification Tick) -->
+        <!-- 6 Videos Grid -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7">
           
           <!-- Pop 1: kocLCFuWtcc -->
           <article class="yt-video-item">
             <div class="yt-thumb-wrapper" data-videoid="kocLCFuWtcc">
               <img src="https://img.youtube.com/vi/kocLCFuWtcc/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/kocLCFuWtcc/hqdefault.jpg';" alt="At 17, I Learned 5 Hard Truths Most Teenagers Ignore" loading="lazy">
-              <div class="yt-play-overlay">
-                <div class="yt-play-icon">
-                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
-                </div>
-              </div>
             </div>
             <div class="mt-3.5 flex items-start gap-3 px-1">
               <img src="https://i.ibb.co/Q3VG6TB6/JK-Logo.webp" alt="Jasmeet Kaur" class="w-9 h-9 rounded-full object-contain shrink-0 mt-0.5">
@@ -558,11 +511,6 @@
           <article class="yt-video-item">
             <div class="yt-thumb-wrapper" data-videoid="rlxtGcCDaD4">
               <img src="https://img.youtube.com/vi/rlxtGcCDaD4/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/rlxtGcCDaD4/hqdefault.jpg';" alt="How I Improved My Accent Naturally" loading="lazy">
-              <div class="yt-play-overlay">
-                <div class="yt-play-icon">
-                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
-                </div>
-              </div>
             </div>
             <div class="mt-3.5 flex items-start gap-3 px-1">
               <img src="https://i.ibb.co/Q3VG6TB6/JK-Logo.webp" alt="Jasmeet Kaur" class="w-9 h-9 rounded-full object-contain shrink-0 mt-0.5">
@@ -582,11 +530,6 @@
           <article class="yt-video-item">
             <div class="yt-thumb-wrapper" data-videoid="ZUIjoVhARdg">
               <img src="https://img.youtube.com/vi/ZUIjoVhARdg/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/ZUIjoVhARdg/hqdefault.jpg';" alt="I Tried Fixing My Life at 17 ( self improvement )" loading="lazy">
-              <div class="yt-play-overlay">
-                <div class="yt-play-icon">
-                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
-                </div>
-              </div>
             </div>
             <div class="mt-3.5 flex items-start gap-3 px-1">
               <img src="https://i.ibb.co/Q3VG6TB6/JK-Logo.webp" alt="Jasmeet Kaur" class="w-9 h-9 rounded-full object-contain shrink-0 mt-0.5">
@@ -606,11 +549,6 @@
           <article class="yt-video-item">
             <div class="yt-thumb-wrapper" data-videoid="EevaoB3omTA">
               <img src="https://img.youtube.com/vi/EevaoB3omTA/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/EevaoB3omTA/hqdefault.jpg';" alt="Last video on this channel ( bye guys )" loading="lazy">
-              <div class="yt-play-overlay">
-                <div class="yt-play-icon">
-                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
-                </div>
-              </div>
             </div>
             <div class="mt-3.5 flex items-start gap-3 px-1">
               <img src="https://i.ibb.co/Q3VG6TB6/JK-Logo.webp" alt="Jasmeet Kaur" class="w-9 h-9 rounded-full object-contain shrink-0 mt-0.5">
@@ -630,11 +568,6 @@
           <article class="yt-video-item">
             <div class="yt-thumb-wrapper" data-videoid="ymKfVEbDZMo">
               <img src="https://img.youtube.com/vi/ymKfVEbDZMo/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/ymKfVEbDZMo/hqdefault.jpg';" alt="The Art of Becoming Dangerously Self Educated" loading="lazy">
-              <div class="yt-play-overlay">
-                <div class="yt-play-icon">
-                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
-                </div>
-              </div>
             </div>
             <div class="mt-3.5 flex items-start gap-3 px-1">
               <img src="https://i.ibb.co/Q3VG6TB6/JK-Logo.webp" alt="Jasmeet Kaur" class="w-9 h-9 rounded-full object-contain shrink-0 mt-0.5">
@@ -654,11 +587,6 @@
           <article class="yt-video-item">
             <div class="yt-thumb-wrapper" data-videoid="HpT6r9ODcXg">
               <img src="https://img.youtube.com/vi/HpT6r9ODcXg/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/HpT6r9ODcXg/hqdefault.jpg';" alt="At 17 , These 3 Rules Are Fixing My Life" loading="lazy">
-              <div class="yt-play-overlay">
-                <div class="yt-play-icon">
-                  <i class="fa-solid fa-play text-xs ml-0.5"></i>
-                </div>
-              </div>
             </div>
             <div class="mt-3.5 flex items-start gap-3 px-1">
               <img src="https://i.ibb.co/Q3VG6TB6/JK-Logo.webp" alt="Jasmeet Kaur" class="w-9 h-9 rounded-full object-contain shrink-0 mt-0.5">
@@ -732,7 +660,7 @@
               <span class="font-semibold text-black text-[14px]">New Channel</span>
             </a>
 
-            <a href="https://youtube.com/@jasmeetmaann" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 text-black hover:text-brandPurple transition group">
+            <a href="https://youtube.com/@jasmeetmaann" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 text-black hover:text-brandPurple transition group" cite="1">
               <i class="fa-brands fa-youtube text-brandPurple text-lg shrink-0 group-hover:scale-110 transition-transform"></i>
               <span class="font-semibold text-black text-[14px]">Previous Channel</span>
             </a>
@@ -741,7 +669,7 @@
 
           <div>
             <h5 class="text-xs font-bold text-brandPurple uppercase tracking-widest mb-2">Business Inquiries</h5>
-            <a href="mailto:workwithjasmeetkaur@gmail.com" class="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-semibold text-black hover:text-brandPurple transition break-all group">
+            <a href="mailto:workwithjasmeetkaur@gmail.com" class="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-semibold text-black hover:text-brandPurple transition break-all group" cite="1">
               <i class="fa-solid fa-envelope text-brandPurple text-xs shrink-0 group-hover:scale-110 transition-transform"></i>
               <span>workwithjasmeetkaur@gmail.com</span>
             </a>
@@ -772,31 +700,26 @@
     (function() {
       "use strict";
 
-      // 1. HIGH-PERFORMANCE INSTANT YOUTUBE MOUNT (NO DELAY)
+      // 1. INSTANT ONE-CLICK YOUTUBE MOUNT
       let activeWrapper = null;
 
       function playVideo(wrapper, videoId) {
         if (!wrapper || !videoId) return;
 
-        // Clean up any previously playing iframe to maintain high performance
+        // Clean up previously active iframe
         if (activeWrapper && activeWrapper !== wrapper) {
           const oldIframe = activeWrapper.querySelector('iframe');
           if (oldIframe) oldIframe.remove();
-          const oldOverlay = activeWrapper.querySelector('.yt-play-overlay');
-          if (oldOverlay) oldOverlay.style.display = 'flex';
         }
 
         activeWrapper = wrapper;
 
-        // Direct high-speed YouTube embed mount
+        // Direct autoplay mount
         const iframe = document.createElement('iframe');
         iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
         iframe.title = "YouTube Video";
         iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
         iframe.allowFullscreen = true;
-
-        const overlay = wrapper.querySelector('.yt-play-overlay');
-        if (overlay) overlay.style.display = 'none';
 
         wrapper.appendChild(iframe);
       }
